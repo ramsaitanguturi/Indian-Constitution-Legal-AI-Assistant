@@ -1,0 +1,82 @@
+[
+  {
+    "id": "case_kesavananda",
+    "case_name": "Kesavananda Bharati v. State of Kerala",
+    "citation": "(1973) 4 SCC 225",
+    "year": 1973,
+    "bench": "13-Judge Bench (7:6 Majority)",
+    "articles_referred": ["Article 368", "Article 13", "Article 19", "Article 31", "Preamble"],
+    "facts": "His Holiness Kesavananda Bharati, head of a Hindu Math in Kerala, challenged Kerala land reform acts under Article 26 (right to manage religiously owned property). During the pendency, Parliament passed the 24th, 25th, and 29th Constitutional Amendment Acts, restricting fundamental rights and asserting unlimited parliamentary amendment power.",
+    "ratio_decidendi": "Parliament has wide powers to amend any part of the Constitution under Article 368, including Fundamental Rights, BUT this power does not extend to altering, damaging, or destroying the 'Basic Structure' or core framework of the Constitution.",
+    "verdict": "Upheld the validity of the 24th Amendment but invalidated parts of the 25th Amendment that sought to bypass judicial review. Established the Basic Structure Doctrine as a constitutional limitation on legislative power.",
+    "key_takeaways": [
+      "Preamble is an integral part of the Constitution.",
+      "Basic Structure includes Supremacy of Constitution, Republican & Democratic form of Government, Secularism, Separation of Powers, Federalism, and Judicial Review.",
+      "Judicial review cannot be completely ousted by Constitutional Amendments."
+    ]
+  },
+  {
+    "id": "case_maneka",
+    "case_name": "Maneka Gandhi v. Union of India",
+    "citation": "(1978) 1 SCC 248",
+    "year": 1978,
+    "bench": "7-Judge Bench",
+    "articles_referred": ["Article 21", "Article 14", "Article 19"],
+    "facts": "Maneka Gandhi's passport was impounded by the Regional Passport Office under Section 10(3)(c) of the Passports Act, 1967 in 'public interest'. The government refused to provide reasons for impounding her passport. She challenged this under Article 21.",
+    "ratio_decidendi": "Procedure established by law under Article 21 cannot be arbitrary, oppressive, or fancy; it MUST be just, fair, and reasonable. Articles 14, 19, and 21 are not mutually exclusive but form an interlinked 'Golden Triangle'.",
+    "verdict": "Overruled the narrow interpretation of Article 21 in A.K. Gopalan (1950). The right to travel abroad is part of personal liberty under Article 21. Natural justice (audi alteram partem) must be complied with.",
+    "key_takeaways": [
+      "Integrated Due Process of Law into Indian Constitutional jurisprudence.",
+      "Established the Golden Triangle concept (Articles 14, 19, and 21 must be read together).",
+      "Transformed Article 21 into an expansive umbrella for human rights in India."
+    ]
+  },
+  {
+    "id": "case_puttaswamy",
+    "case_name": "Justice K.S. Puttaswamy (Retd.) v. Union of India",
+    "citation": "(2017) 10 SCC 1",
+    "year": 2017,
+    "bench": "9-Judge Bench (Unanimous 9:0)",
+    "articles_referred": ["Article 21", "Article 14", "Article 19", "Part III"],
+    "facts": "A challenge was brought against the Aadhaar biometric identification scheme. The government argued that the Indian Constitution does not explicitly guarantee a Fundamental Right to Privacy, relying on M.P. Sharma (1954) and Kharak Singh (1962). A 9-judge bench was constituted to settle the question of law.",
+    "ratio_decidendi": "The Right to Privacy is an intrinsic part of the Right to Life and Personal Liberty under Article 21 and forms part of the freedoms guaranteed by Part III of the Constitution. Privacy includes spatial privacy, informational privacy, and bodily autonomy.",
+    "verdict": "Unanimously held that Privacy is a Fundamental Right. Any state intrusion into privacy must satisfy a 3-fold test: (1) Legality (backed by law), (2) Need / Legitimate State Aim, and (3) Proportionality.",
+    "key_takeaways": [
+      "Overruled M.P. Sharma (1954) and Kharak Singh (1962) to the extent they held privacy was not a fundamental right.",
+      "Laid down the Proportionality Test for state interference in individual liberty.",
+      "Paved the way for data protection legislation and decriminalization of Section 377 IPC."
+    ]
+  },
+  {
+    "id": "case_minerva",
+    "case_name": "Minerva Mills Ltd. v. Union of India",
+    "citation": "(1980) 3 SCC 625",
+    "year": 1980,
+    "bench": "5-Judge Bench",
+    "articles_referred": ["Article 368", "Article 31C", "Article 14", "Article 19"],
+    "facts": "Minerva Mills, a textile company in Karnataka, was nationalized under the Sick Textile Undertakings (Nationalisation) Act, 1974. The petitioners challenged Sections 4 and 55 of the 42nd Constitutional Amendment Act, 1976, which declared that no constitutional amendment could be questioned in any court and granted unlimited amendment power to Parliament.",
+    "ratio_decidendi": "A limited amending power is itself a Basic Feature of the Constitution. Parliament cannot give itself unlimited amending power under Article 368 to destroy the Basic Structure.",
+    "verdict": "Struck down Clauses (4) and (5) of Article 368 (inserted by 42nd Amendment) and declared that harmony and balance between Fundamental Rights (Part III) and Directive Principles (Part IV) is an essential basic feature.",
+    "key_takeaways": [
+      "Re-affirmed and fortified the Basic Structure doctrine of Kesavananda Bharati.",
+      "Held that Fundamental Rights and Directive Principles are complementary like two wheels of a chariot.",
+      "Restored judicial review as an unalterable basic feature."
+    ]
+  },
+  {
+    "id": "case_bommai",
+    "case_name": "S.R. Bommai v. Union of India",
+    "citation": "(1994) 3 SCC 1",
+    "year": 1994,
+    "bench": "9-Judge Bench",
+    "articles_referred": ["Article 356", "Article 352", "Preamble"],
+    "facts": "Dismissal of Janata Dal government in Karnataka headed by S.R. Bommai and BJP governments in Rajasthan, MP, and HP under Article 356 (President's Rule). The President had dissolved state assemblies on arbitrary grounds.",
+    "ratio_decidendi": "Proclamation of President's Rule under Article 356 is subject to Judicial Review. Secularism and Federalism are essential features of the Basic Structure of the Constitution.",
+    "verdict": "Laid down strict guidelines for invoking Article 356. The floor test in the Legislative Assembly is the sole legal test for determining majority, not the Governor's subjective opinion.",
+    "key_takeaways": [
+      "Declared Secularism and Federalism as Basic Features of the Indian Constitution.",
+      "Curbed political misuse of Article 356 by making Presidential proclamations subject to judicial scrutiny.",
+      "Mandated floor test for proving majority of state governments."
+    ]
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "const_preamble",
+    "article_number": "Preamble",
+    "title": "Preamble to the Constitution of India",
+    "part": "Preamble",
+    "category": "Foundational Principles",
+    "text": "WE, THE PEOPLE OF INDIA, having solemnly resolved to constitute India into a SOVEREIGN SOCIALIST SECULAR DEMOCRATIC REPUBLIC and to secure to all its citizens: JUSTICE, social, economic and political; LIBERTY of thought, expression, belief, faith and worship; EQUALITY of status and of opportunity; and to promote among them all FRATERNITY assuring the dignity of the individual and the unity and integrity of the Nation; IN OUR CONSTITUENT ASSEMBLY this twenty-sixth day of November, 1949, do HEREBY ADOPT, ENACT AND GIVE TO OURSELVES THIS CONSTITUTION.",
+    "explanation": "The Preamble serves as the preface to the Indian Constitution, outlining its core philosophy, values, objectives, and source of authority (the people of India). As established in the Kesavananda Bharati case (1973), the Preamble is an integral part of the Constitution and can be amended under Article 368, provided the basic features are not destroyed.",
+    "historical_context": "Drafted by the Constituent Assembly, influenced by Jawaharlal Nehru's Objectives Resolution of 1946. The words 'SOCIALIST', 'SECULAR', and 'INTEGRITY' were added by the 42nd Constitutional Amendment Act, 1976."
+  },
+  {
+    "id": "const_art_12",
+    "article_number": "Article 12",
+    "title": "Definition of 'State'",
+    "part": "Part III - Fundamental Rights",
+    "category": "Fundamental Rights",
+    "text": "In this Part, unless the context otherwise requires, 'the State' includes the Government and Parliament of India and the Government and the Legislature of each of the States and all local or other authorities within the territory of India or under the control of the Government of India.",
+    "explanation": "Article 12 defines 'the State' specifically for the purpose of Fundamental Rights under Part III. Fundamental Rights are primarily enforceable against the State. The term 'other authorities' has been judicially expanded to include statutory bodies, government corporations, and agencies performing public functions (e.g., electricity boards, public universities, ONGC).",
+    "historical_context": "Created to ensure clear accountability of government bodies and state instrumentalities when citizens claim fundamental rights violations."
+  },
+  {
+    "id": "const_art_14",
+    "article_number": "Article 14",
+    "title": "Equality before law",
+    "part": "Part III - Fundamental Rights",
+    "category": "Right to Equality",
+    "text": "The State shall not deny to any person equality before the law or the equal protection of the laws within the territory of India.",
+    "explanation": "Article 14 guarantees two concepts: 'Equality before law' (a negative concept derived from British law, meaning no one is above the law) and 'Equal protection of laws' (a positive concept derived from American law, permitting reasonable classification for differential treatment of equals). It prohibits arbitrary state action and strikes at discrimination.",
+    "historical_context": "Forms the bedrock of Indian democracy. In E.P. Royappa v. State of Tamil Nadu (1974) and Maneka Gandhi (1978), the Supreme Court held that equality is a dynamic concept opposing arbitrariness."
+  },
+  {
+    "id": "const_art_19",
+    "article_number": "Article 19",
+    "title": "Protection of certain rights regarding freedom of speech, etc.",
+    "part": "Part III - Fundamental Rights",
+    "category": "Right to Freedom",
+    "text": "1) All citizens shall have the right: (a) to freedom of speech and expression; (b) to assemble peaceably and without arms; (c) to form associations or unions; (d) to move freely throughout the territory of India; (e) to reside and settle in any part of the territory of India; and (g) to practise any profession, or to carry on any occupation, trade or business.\n(2)-(6) The State may impose reasonable restrictions on these rights in the interests of sovereignty and integrity of India, security of the State, friendly relations with foreign States, public order, decency, morality, or in relation to contempt of court, defamation or incitement to an offence.",
+    "explanation": "Article 19 guarantees six basic fundamental freedoms to Indian citizens. Crucially, these rights are not absolute; clauses (2) through (6) empower the legislature to enact 'reasonable restrictions' on defined grounds such as public order, national sovereignty, and security.",
+    "historical_context": "Subject to landmark amendments. The 1st Amendment Act (1951) added public order and friendly relations with foreign states as grounds for restrictions."
+  },
+  {
+    "id": "const_art_21",
+    "article_number": "Article 21",
+    "title": "Protection of life and personal liberty",
+    "part": "Part III - Fundamental Rights",
+    "category": "Right to Life & Personal Liberty",
+    "text": "No person shall be deprived of his life or personal liberty except according to procedure established by law.",
+    "explanation": "Article 21 is the most broadly interpreted fundamental right in the Indian Constitution. Though framed as 'procedure established by law', the judiciary in Maneka Gandhi (1978) established that the procedure must be just, fair, and reasonable, effectively bringing Substantive Due Process into Indian jurisprudence. It encompasses the Right to Privacy (Puttaswamy 2017), Right to Clean Environment, Right to Dignified Life, Right to Free Legal Aid, and Right to Livelihood.",
+    "historical_context": "Initially interpreted narrowly in A.K. Gopalan (1950), but radically expanded post-Emergency in Maneka Gandhi (1978) and subsequent PIL decisions."
+  },
+  {
+    "id": "const_art_21A",
+    "article_number": "Article 21A",
+    "title": "Right to Education",
+    "part": "Part III - Fundamental Rights",
+    "category": "Right to Education",
+    "text": "The State shall provide free and compulsory education to all children of the age of six to fourteen years in such manner as the State may, by law, determine.",
+    "explanation": "Article 21A makes free and compulsory education a fundamental right for children aged 6 to 14. Enacted via the Right of Children to Free and Compulsory Education (RTE) Act, 2009.",
+    "historical_context": "Inserted by the 86th Constitutional Amendment Act, 2002, transforming a Directive Principle (Article 45) into an enforceable Fundamental Right following Mohini Jain (1992) and Unni Krishnan (1993) decisions."
+  },
+  {
+    "id": "const_art_32",
+    "article_number": "Article 32",
+    "title": "Remedies for enforcement of rights conferred by Part III",
+    "part": "Part III - Fundamental Rights",
+    "category": "Right to Constitutional Remedies",
+    "text": "(1) The right to move the Supreme Court by appropriate proceedings for the enforcement of the rights conferred by this Part is guaranteed.\n(2) The Supreme Court shall have power to issue directions or orders or writs, including writs in the nature of habeas corpus, mandamus, prohibition, quo warranto and certiorari, whichever may be appropriate, for the enforcement of any of the rights conferred by this Part.",
+    "explanation": "Dr. B.R. Ambedkar famously referred to Article 32 as the 'heart and soul of the Constitution'. It guarantees the right to move the Supreme Court directly for the enforcement of Fundamental Rights via five Constitutional Writs: Habeas Corpus, Mandamus, Prohibition, Quo Warranto, and Certiorari.",
+    "historical_context": "Article 32 itself is a Fundamental Right and constitutes a cornerstone of Judicial Review and the Basic Structure of the Constitution."
+  },
+  {
+    "id": "const_art_368",
+    "article_number": "Article 368",
+    "title": "Power of Parliament to amend the Constitution and procedure therefor",
+    "part": "Part XX - Amendment of the Constitution",
+    "category": "Constitutional Amendments",
+    "text": "(1) Notwithstanding anything in this Constitution, Parliament may in exercise of its constituent power amend by way of addition, variation or repeal any provision of this Constitution in accordance with the procedure laid down in this article.\n(2) An amendment of this Constitution may be initiated only by the introduction of a Bill for the purpose in either House of Parliament...",
+    "explanation": "Article 368 lays down the procedure and power of Parliament to amend the Constitution. However, as declared in Kesavananda Bharati (1973), Parliament's constituent power under Article 368 is not absolute and cannot be exercised to alter, damage, or destroy the 'Basic Structure' or foundational features of the Constitution.",
+    "historical_context": "Central to major constitutional battles between Parliament and the Judiciary, culminating in the doctrine of Basic Structure."
+  },
+  {
+    "id": "const_art_370",
+    "article_number": "Article 370",
+    "title": "Temporary provisions with respect to the State of Jammu and Kashmir",
+    "part": "Part XXI - Temporary, Transitional and Special Provisions",
+    "category": "Special Provisions",
+    "text": "Temporary provisions granting special autonomous status to the State of Jammu and Kashmir within the Indian Union, restricting Parliament's legislative powers over J&K to Defence, External Affairs, and Communications unless concurred by the J&K Constituent Assembly.",
+    "explanation": "Article 370 granted special status to J&K. In August 2019, Presidential Orders (C.O. 272 and C.O. 273) and the Jammu and Kashmir Reorganisation Act effectively rendered Article 370 inoperative and reorganized J&K into Union Territories. The Supreme Court upheld the constitutional validity of this abrogation in December 2023.",
+    "historical_context": "Incorporated in 1949 as a temporary provision following the Instrument of Accession signed by Maharaja Hari Singh."
+  }
+]

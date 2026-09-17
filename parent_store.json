@@ -1,0 +1,224 @@
+{
+  "parent_const_preamble": {
+    "parent_id": "parent_const_preamble",
+    "doc_type": "constitution",
+    "article_number": "Preamble",
+    "title": "Preamble to the Constitution of India",
+    "part": "Preamble",
+    "category": "Foundational Principles",
+    "full_text": "ARTICLE/TITLE: Preamble - Preamble to the Constitution of India\nPART: Preamble | CATEGORY: Foundational Principles\nCONSTITUTIONAL TEXT: WE, THE PEOPLE OF INDIA, having solemnly resolved to constitute India into a SOVEREIGN SOCIALIST SECULAR DEMOCRATIC REPUBLIC and to secure to all its citizens: JUSTICE, social, economic and political; LIBERTY of thought, expression, belief, faith and worship; EQUALITY of status and of opportunity; and to promote among them all FRATERNITY assuring the dignity of the individual and the unity and integrity of the Nation; IN OUR CONSTITUENT ASSEMBLY this twenty-sixth day of November, 1949, do HEREBY ADOPT, ENACT AND GIVE TO OURSELVES THIS CONSTITUTION.\nLEGAL EXPLANATION: The Preamble serves as the preface to the Indian Constitution, outlining its core philosophy, values, objectives, and source of authority (the people of India). As established in the Kesavananda Bharati case (1973), the Preamble is an integral part of the Constitution and can be amended under Article 368, provided the basic features are not destroyed.\nHISTORICAL CONTEXT: Drafted by the Constituent Assembly, influenced by Jawaharlal Nehru's Objectives Resolution of 1946. The words 'SOCIALIST', 'SECULAR', and 'INTEGRITY' were added by the 42nd Constitutional Amendment Act, 1976.",
+    "raw_text": "WE, THE PEOPLE OF INDIA, having solemnly resolved to constitute India into a SOVEREIGN SOCIALIST SECULAR DEMOCRATIC REPUBLIC and to secure to all its citizens: JUSTICE, social, economic and political; LIBERTY of thought, expression, belief, faith and worship; EQUALITY of status and of opportunity; and to promote among them all FRATERNITY assuring the dignity of the individual and the unity and integrity of the Nation; IN OUR CONSTITUENT ASSEMBLY this twenty-sixth day of November, 1949, do HEREBY ADOPT, ENACT AND GIVE TO OURSELVES THIS CONSTITUTION.",
+    "explanation": "The Preamble serves as the preface to the Indian Constitution, outlining its core philosophy, values, objectives, and source of authority (the people of India). As established in the Kesavananda Bharati case (1973), the Preamble is an integral part of the Constitution and can be amended under Article 368, provided the basic features are not destroyed.",
+    "historical_context": "Drafted by the Constituent Assembly, influenced by Jawaharlal Nehru's Objectives Resolution of 1946. The words 'SOCIALIST', 'SECULAR', and 'INTEGRITY' were added by the 42nd Constitutional Amendment Act, 1976."
+  },
+  "parent_const_art_12": {
+    "parent_id": "parent_const_art_12",
+    "doc_type": "constitution",
+    "article_number": "Article 12",
+    "title": "Definition of 'State'",
+    "part": "Part III - Fundamental Rights",
+    "category": "Fundamental Rights",
+    "full_text": "ARTICLE/TITLE: Article 12 - Definition of 'State'\nPART: Part III - Fundamental Rights | CATEGORY: Fundamental Rights\nCONSTITUTIONAL TEXT: In this Part, unless the context otherwise requires, 'the State' includes the Government and Parliament of India and the Government and the Legislature of each of the States and all local or other authorities within the territory of India or under the control of the Government of India.\nLEGAL EXPLANATION: Article 12 defines 'the State' specifically for the purpose of Fundamental Rights under Part III. Fundamental Rights are primarily enforceable against the State. The term 'other authorities' has been judicially expanded to include statutory bodies, government corporations, and agencies performing public functions (e.g., electricity boards, public universities, ONGC).\nHISTORICAL CONTEXT: Created to ensure clear accountability of government bodies and state instrumentalities when citizens claim fundamental rights violations.",
+    "raw_text": "In this Part, unless the context otherwise requires, 'the State' includes the Government and Parliament of India and the Government and the Legislature of each of the States and all local or other authorities within the territory of India or under the control of the Government of India.",
+    "explanation": "Article 12 defines 'the State' specifically for the purpose of Fundamental Rights under Part III. Fundamental Rights are primarily enforceable against the State. The term 'other authorities' has been judicially expanded to include statutory bodies, government corporations, and agencies performing public functions (e.g., electricity boards, public universities, ONGC).",
+    "historical_context": "Created to ensure clear accountability of government bodies and state instrumentalities when citizens claim fundamental rights violations."
+  },
+  "parent_const_art_14": {
+    "parent_id": "parent_const_art_14",
+    "doc_type": "constitution",
+    "article_number": "Article 14",
+    "title": "Equality before law",
+    "part": "Part III - Fundamental Rights",
+    "category": "Right to Equality",
+    "full_text": "ARTICLE/TITLE: Article 14 - Equality before law\nPART: Part III - Fundamental Rights | CATEGORY: Right to Equality\nCONSTITUTIONAL TEXT: The State shall not deny to any person equality before the law or the equal protection of the laws within the territory of India.\nLEGAL EXPLANATION: Article 14 guarantees two concepts: 'Equality before law' (a negative concept derived from British law, meaning no one is above the law) and 'Equal protection of laws' (a positive concept derived from American law, permitting reasonable classification for differential treatment of equals). It prohibits arbitrary state action and strikes at discrimination.\nHISTORICAL CONTEXT: Forms the bedrock of Indian democracy. In E.P. Royappa v. State of Tamil Nadu (1974) and Maneka Gandhi (1978), the Supreme Court held that equality is a dynamic concept opposing arbitrariness.",
+    "raw_text": "The State shall not deny to any person equality before the law or the equal protection of the laws within the territory of India.",
+    "explanation": "Article 14 guarantees two concepts: 'Equality before law' (a negative concept derived from British law, meaning no one is above the law) and 'Equal protection of laws' (a positive concept derived from American law, permitting reasonable classification for differential treatment of equals). It prohibits arbitrary state action and strikes at discrimination.",
+    "historical_context": "Forms the bedrock of Indian democracy. In E.P. Royappa v. State of Tamil Nadu (1974) and Maneka Gandhi (1978), the Supreme Court held that equality is a dynamic concept opposing arbitrariness."
+  },
+  "parent_const_art_19": {
+    "parent_id": "parent_const_art_19",
+    "doc_type": "constitution",
+    "article_number": "Article 19",
+    "title": "Protection of certain rights regarding freedom of speech, etc.",
+    "part": "Part III - Fundamental Rights",
+    "category": "Right to Freedom",
+    "full_text": "ARTICLE/TITLE: Article 19 - Protection of certain rights regarding freedom of speech, etc.\nPART: Part III - Fundamental Rights | CATEGORY: Right to Freedom\nCONSTITUTIONAL TEXT: 1) All citizens shall have the right: (a) to freedom of speech and expression; (b) to assemble peaceably and without arms; (c) to form associations or unions; (d) to move freely throughout the territory of India; (e) to reside and settle in any part of the territory of India; and (g) to practise any profession, or to carry on any occupation, trade or business.\n(2)-(6) The State may impose reasonable restrictions on these rights in the interests of sovereignty and integrity of India, security of the State, friendly relations with foreign States, public order, decency, morality, or in relation to contempt of court, defamation or incitement to an offence.\nLEGAL EXPLANATION: Article 19 guarantees six basic fundamental freedoms to Indian citizens. Crucially, these rights are not absolute; clauses (2) through (6) empower the legislature to enact 'reasonable restrictions' on defined grounds such as public order, national sovereignty, and security.\nHISTORICAL CONTEXT: Subject to landmark amendments. The 1st Amendment Act (1951) added public order and friendly relations with foreign states as grounds for restrictions.",
+    "raw_text": "1) All citizens shall have the right: (a) to freedom of speech and expression; (b) to assemble peaceably and without arms; (c) to form associations or unions; (d) to move freely throughout the territory of India; (e) to reside and settle in any part of the territory of India; and (g) to practise any profession, or to carry on any occupation, trade or business.\n(2)-(6) The State may impose reasonable restrictions on these rights in the interests of sovereignty and integrity of India, security of the State, friendly relations with foreign States, public order, decency, morality, or in relation to contempt of court, defamation or incitement to an offence.",
+    "explanation": "Article 19 guarantees six basic fundamental freedoms to Indian citizens. Crucially, these rights are not absolute; clauses (2) through (6) empower the legislature to enact 'reasonable restrictions' on defined grounds such as public order, national sovereignty, and security.",
+    "historical_context": "Subject to landmark amendments. The 1st Amendment Act (1951) added public order and friendly relations with foreign states as grounds for restrictions."
+  },
+  "parent_const_art_21": {
+    "parent_id": "parent_const_art_21",
+    "doc_type": "constitution",
+    "article_number": "Article 21",
+    "title": "Protection of life and personal liberty",
+    "part": "Part III - Fundamental Rights",
+    "category": "Right to Life & Personal Liberty",
+    "full_text": "ARTICLE/TITLE: Article 21 - Protection of life and personal liberty\nPART: Part III - Fundamental Rights | CATEGORY: Right to Life & Personal Liberty\nCONSTITUTIONAL TEXT: No person shall be deprived of his life or personal liberty except according to procedure established by law.\nLEGAL EXPLANATION: Article 21 is the most broadly interpreted fundamental right in the Indian Constitution. Though framed as 'procedure established by law', the judiciary in Maneka Gandhi (1978) established that the procedure must be just, fair, and reasonable, effectively bringing Substantive Due Process into Indian jurisprudence. It encompasses the Right to Privacy (Puttaswamy 2017), Right to Clean Environment, Right to Dignified Life, Right to Free Legal Aid, and Right to Livelihood.\nHISTORICAL CONTEXT: Initially interpreted narrowly in A.K. Gopalan (1950), but radically expanded post-Emergency in Maneka Gandhi (1978) and subsequent PIL decisions.",
+    "raw_text": "No person shall be deprived of his life or personal liberty except according to procedure established by law.",
+    "explanation": "Article 21 is the most broadly interpreted fundamental right in the Indian Constitution. Though framed as 'procedure established by law', the judiciary in Maneka Gandhi (1978) established that the procedure must be just, fair, and reasonable, effectively bringing Substantive Due Process into Indian jurisprudence. It encompasses the Right to Privacy (Puttaswamy 2017), Right to Clean Environment, Right to Dignified Life, Right to Free Legal Aid, and Right to Livelihood.",
+    "historical_context": "Initially interpreted narrowly in A.K. Gopalan (1950), but radically expanded post-Emergency in Maneka Gandhi (1978) and subsequent PIL decisions."
+  },
+  "parent_const_art_21A": {
+    "parent_id": "parent_const_art_21A",
+    "doc_type": "constitution",
+    "article_number": "Article 21A",
+    "title": "Right to Education",
+    "part": "Part III - Fundamental Rights",
+    "category": "Right to Education",
+    "full_text": "ARTICLE/TITLE: Article 21A - Right to Education\nPART: Part III - Fundamental Rights | CATEGORY: Right to Education\nCONSTITUTIONAL TEXT: The State shall provide free and compulsory education to all children of the age of six to fourteen years in such manner as the State may, by law, determine.\nLEGAL EXPLANATION: Article 21A makes free and compulsory education a fundamental right for children aged 6 to 14. Enacted via the Right of Children to Free and Compulsory Education (RTE) Act, 2009.\nHISTORICAL CONTEXT: Inserted by the 86th Constitutional Amendment Act, 2002, transforming a Directive Principle (Article 45) into an enforceable Fundamental Right following Mohini Jain (1992) and Unni Krishnan (1993) decisions.",
+    "raw_text": "The State shall provide free and compulsory education to all children of the age of six to fourteen years in such manner as the State may, by law, determine.",
+    "explanation": "Article 21A makes free and compulsory education a fundamental right for children aged 6 to 14. Enacted via the Right of Children to Free and Compulsory Education (RTE) Act, 2009.",
+    "historical_context": "Inserted by the 86th Constitutional Amendment Act, 2002, transforming a Directive Principle (Article 45) into an enforceable Fundamental Right following Mohini Jain (1992) and Unni Krishnan (1993) decisions."
+  },
+  "parent_const_art_32": {
+    "parent_id": "parent_const_art_32",
+    "doc_type": "constitution",
+    "article_number": "Article 32",
+    "title": "Remedies for enforcement of rights conferred by Part III",
+    "part": "Part III - Fundamental Rights",
+    "category": "Right to Constitutional Remedies",
+    "full_text": "ARTICLE/TITLE: Article 32 - Remedies for enforcement of rights conferred by Part III\nPART: Part III - Fundamental Rights | CATEGORY: Right to Constitutional Remedies\nCONSTITUTIONAL TEXT: (1) The right to move the Supreme Court by appropriate proceedings for the enforcement of the rights conferred by this Part is guaranteed.\n(2) The Supreme Court shall have power to issue directions or orders or writs, including writs in the nature of habeas corpus, mandamus, prohibition, quo warranto and certiorari, whichever may be appropriate, for the enforcement of any of the rights conferred by this Part.\nLEGAL EXPLANATION: Dr. B.R. Ambedkar famously referred to Article 32 as the 'heart and soul of the Constitution'. It guarantees the right to move the Supreme Court directly for the enforcement of Fundamental Rights via five Constitutional Writs: Habeas Corpus, Mandamus, Prohibition, Quo Warranto, and Certiorari.\nHISTORICAL CONTEXT: Article 32 itself is a Fundamental Right and constitutes a cornerstone of Judicial Review and the Basic Structure of the Constitution.",
+    "raw_text": "(1) The right to move the Supreme Court by appropriate proceedings for the enforcement of the rights conferred by this Part is guaranteed.\n(2) The Supreme Court shall have power to issue directions or orders or writs, including writs in the nature of habeas corpus, mandamus, prohibition, quo warranto and certiorari, whichever may be appropriate, for the enforcement of any of the rights conferred by this Part.",
+    "explanation": "Dr. B.R. Ambedkar famously referred to Article 32 as the 'heart and soul of the Constitution'. It guarantees the right to move the Supreme Court directly for the enforcement of Fundamental Rights via five Constitutional Writs: Habeas Corpus, Mandamus, Prohibition, Quo Warranto, and Certiorari.",
+    "historical_context": "Article 32 itself is a Fundamental Right and constitutes a cornerstone of Judicial Review and the Basic Structure of the Constitution."
+  },
+  "parent_const_art_368": {
+    "parent_id": "parent_const_art_368",
+    "doc_type": "constitution",
+    "article_number": "Article 368",
+    "title": "Power of Parliament to amend the Constitution and procedure therefor",
+    "part": "Part XX - Amendment of the Constitution",
+    "category": "Constitutional Amendments",
+    "full_text": "ARTICLE/TITLE: Article 368 - Power of Parliament to amend the Constitution and procedure therefor\nPART: Part XX - Amendment of the Constitution | CATEGORY: Constitutional Amendments\nCONSTITUTIONAL TEXT: (1) Notwithstanding anything in this Constitution, Parliament may in exercise of its constituent power amend by way of addition, variation or repeal any provision of this Constitution in accordance with the procedure laid down in this article.\n(2) An amendment of this Constitution may be initiated only by the introduction of a Bill for the purpose in either House of Parliament...\nLEGAL EXPLANATION: Article 368 lays down the procedure and power of Parliament to amend the Constitution. However, as declared in Kesavananda Bharati (1973), Parliament's constituent power under Article 368 is not absolute and cannot be exercised to alter, damage, or destroy the 'Basic Structure' or foundational features of the Constitution.\nHISTORICAL CONTEXT: Central to major constitutional battles between Parliament and the Judiciary, culminating in the doctrine of Basic Structure.",
+    "raw_text": "(1) Notwithstanding anything in this Constitution, Parliament may in exercise of its constituent power amend by way of addition, variation or repeal any provision of this Constitution in accordance with the procedure laid down in this article.\n(2) An amendment of this Constitution may be initiated only by the introduction of a Bill for the purpose in either House of Parliament...",
+    "explanation": "Article 368 lays down the procedure and power of Parliament to amend the Constitution. However, as declared in Kesavananda Bharati (1973), Parliament's constituent power under Article 368 is not absolute and cannot be exercised to alter, damage, or destroy the 'Basic Structure' or foundational features of the Constitution.",
+    "historical_context": "Central to major constitutional battles between Parliament and the Judiciary, culminating in the doctrine of Basic Structure."
+  },
+  "parent_const_art_370": {
+    "parent_id": "parent_const_art_370",
+    "doc_type": "constitution",
+    "article_number": "Article 370",
+    "title": "Temporary provisions with respect to the State of Jammu and Kashmir",
+    "part": "Part XXI - Temporary, Transitional and Special Provisions",
+    "category": "Special Provisions",
+    "full_text": "ARTICLE/TITLE: Article 370 - Temporary provisions with respect to the State of Jammu and Kashmir\nPART: Part XXI - Temporary, Transitional and Special Provisions | CATEGORY: Special Provisions\nCONSTITUTIONAL TEXT: Temporary provisions granting special autonomous status to the State of Jammu and Kashmir within the Indian Union, restricting Parliament's legislative powers over J&K to Defence, External Affairs, and Communications unless concurred by the J&K Constituent Assembly.\nLEGAL EXPLANATION: Article 370 granted special status to J&K. In August 2019, Presidential Orders (C.O. 272 and C.O. 273) and the Jammu and Kashmir Reorganisation Act effectively rendered Article 370 inoperative and reorganized J&K into Union Territories. The Supreme Court upheld the constitutional validity of this abrogation in December 2023.\nHISTORICAL CONTEXT: Incorporated in 1949 as a temporary provision following the Instrument of Accession signed by Maharaja Hari Singh.",
+    "raw_text": "Temporary provisions granting special autonomous status to the State of Jammu and Kashmir within the Indian Union, restricting Parliament's legislative powers over J&K to Defence, External Affairs, and Communications unless concurred by the J&K Constituent Assembly.",
+    "explanation": "Article 370 granted special status to J&K. In August 2019, Presidential Orders (C.O. 272 and C.O. 273) and the Jammu and Kashmir Reorganisation Act effectively rendered Article 370 inoperative and reorganized J&K into Union Territories. The Supreme Court upheld the constitutional validity of this abrogation in December 2023.",
+    "historical_context": "Incorporated in 1949 as a temporary provision following the Instrument of Accession signed by Maharaja Hari Singh."
+  },
+  "parent_case_kesavananda": {
+    "parent_id": "parent_case_kesavananda",
+    "doc_type": "judgment",
+    "case_name": "Kesavananda Bharati v. State of Kerala",
+    "citation": "(1973) 4 SCC 225",
+    "year": 1973,
+    "bench": "13-Judge Bench (7:6 Majority)",
+    "articles_referred": [
+      "Article 368",
+      "Article 13",
+      "Article 19",
+      "Article 31",
+      "Preamble"
+    ],
+    "full_text": "CASE NAME: Kesavananda Bharati v. State of Kerala (1973)\nCITATION: (1973) 4 SCC 225 | BENCH: 13-Judge Bench (7:6 Majority)\nARTICLES REFERRED: Article 368, Article 13, Article 19, Article 31, Preamble\nFACTS: His Holiness Kesavananda Bharati, head of a Hindu Math in Kerala, challenged Kerala land reform acts under Article 26 (right to manage religiously owned property). During the pendency, Parliament passed the 24th, 25th, and 29th Constitutional Amendment Acts, restricting fundamental rights and asserting unlimited parliamentary amendment power.\nRATIO DECIDENDI: Parliament has wide powers to amend any part of the Constitution under Article 368, including Fundamental Rights, BUT this power does not extend to altering, damaging, or destroying the 'Basic Structure' or core framework of the Constitution.\nVERDICT: Upheld the validity of the 24th Amendment but invalidated parts of the 25th Amendment that sought to bypass judicial review. Established the Basic Structure Doctrine as a constitutional limitation on legislative power.\nKEY TAKEAWAYS: Preamble is an integral part of the Constitution. Basic Structure includes Supremacy of Constitution, Republican & Democratic form of Government, Secularism, Separation of Powers, Federalism, and Judicial Review. Judicial review cannot be completely ousted by Constitutional Amendments.",
+    "facts": "His Holiness Kesavananda Bharati, head of a Hindu Math in Kerala, challenged Kerala land reform acts under Article 26 (right to manage religiously owned property). During the pendency, Parliament passed the 24th, 25th, and 29th Constitutional Amendment Acts, restricting fundamental rights and asserting unlimited parliamentary amendment power.",
+    "ratio_decidendi": "Parliament has wide powers to amend any part of the Constitution under Article 368, including Fundamental Rights, BUT this power does not extend to altering, damaging, or destroying the 'Basic Structure' or core framework of the Constitution.",
+    "verdict": "Upheld the validity of the 24th Amendment but invalidated parts of the 25th Amendment that sought to bypass judicial review. Established the Basic Structure Doctrine as a constitutional limitation on legislative power.",
+    "key_takeaways": [
+      "Preamble is an integral part of the Constitution.",
+      "Basic Structure includes Supremacy of Constitution, Republican & Democratic form of Government, Secularism, Separation of Powers, Federalism, and Judicial Review.",
+      "Judicial review cannot be completely ousted by Constitutional Amendments."
+    ]
+  },
+  "parent_case_maneka": {
+    "parent_id": "parent_case_maneka",
+    "doc_type": "judgment",
+    "case_name": "Maneka Gandhi v. Union of India",
+    "citation": "(1978) 1 SCC 248",
+    "year": 1978,
+    "bench": "7-Judge Bench",
+    "articles_referred": [
+      "Article 21",
+      "Article 14",
+      "Article 19"
+    ],
+    "full_text": "CASE NAME: Maneka Gandhi v. Union of India (1978)\nCITATION: (1978) 1 SCC 248 | BENCH: 7-Judge Bench\nARTICLES REFERRED: Article 21, Article 14, Article 19\nFACTS: Maneka Gandhi's passport was impounded by the Regional Passport Office under Section 10(3)(c) of the Passports Act, 1967 in 'public interest'. The government refused to provide reasons for impounding her passport. She challenged this under Article 21.\nRATIO DECIDENDI: Procedure established by law under Article 21 cannot be arbitrary, oppressive, or fancy; it MUST be just, fair, and reasonable. Articles 14, 19, and 21 are not mutually exclusive but form an interlinked 'Golden Triangle'.\nVERDICT: Overruled the narrow interpretation of Article 21 in A.K. Gopalan (1950). The right to travel abroad is part of personal liberty under Article 21. Natural justice (audi alteram partem) must be complied with.\nKEY TAKEAWAYS: Integrated Due Process of Law into Indian Constitutional jurisprudence. Established the Golden Triangle concept (Articles 14, 19, and 21 must be read together). Transformed Article 21 into an expansive umbrella for human rights in India.",
+    "facts": "Maneka Gandhi's passport was impounded by the Regional Passport Office under Section 10(3)(c) of the Passports Act, 1967 in 'public interest'. The government refused to provide reasons for impounding her passport. She challenged this under Article 21.",
+    "ratio_decidendi": "Procedure established by law under Article 21 cannot be arbitrary, oppressive, or fancy; it MUST be just, fair, and reasonable. Articles 14, 19, and 21 are not mutually exclusive but form an interlinked 'Golden Triangle'.",
+    "verdict": "Overruled the narrow interpretation of Article 21 in A.K. Gopalan (1950). The right to travel abroad is part of personal liberty under Article 21. Natural justice (audi alteram partem) must be complied with.",
+    "key_takeaways": [
+      "Integrated Due Process of Law into Indian Constitutional jurisprudence.",
+      "Established the Golden Triangle concept (Articles 14, 19, and 21 must be read together).",
+      "Transformed Article 21 into an expansive umbrella for human rights in India."
+    ]
+  },
+  "parent_case_puttaswamy": {
+    "parent_id": "parent_case_puttaswamy",
+    "doc_type": "judgment",
+    "case_name": "Justice K.S. Puttaswamy (Retd.) v. Union of India",
+    "citation": "(2017) 10 SCC 1",
+    "year": 2017,
+    "bench": "9-Judge Bench (Unanimous 9:0)",
+    "articles_referred": [
+      "Article 21",
+      "Article 14",
+      "Article 19",
+      "Part III"
+    ],
+    "full_text": "CASE NAME: Justice K.S. Puttaswamy (Retd.) v. Union of India (2017)\nCITATION: (2017) 10 SCC 1 | BENCH: 9-Judge Bench (Unanimous 9:0)\nARTICLES REFERRED: Article 21, Article 14, Article 19, Part III\nFACTS: A challenge was brought against the Aadhaar biometric identification scheme. The government argued that the Indian Constitution does not explicitly guarantee a Fundamental Right to Privacy, relying on M.P. Sharma (1954) and Kharak Singh (1962). A 9-judge bench was constituted to settle the question of law.\nRATIO DECIDENDI: The Right to Privacy is an intrinsic part of the Right to Life and Personal Liberty under Article 21 and forms part of the freedoms guaranteed by Part III of the Constitution. Privacy includes spatial privacy, informational privacy, and bodily autonomy.\nVERDICT: Unanimously held that Privacy is a Fundamental Right. Any state intrusion into privacy must satisfy a 3-fold test: (1) Legality (backed by law), (2) Need / Legitimate State Aim, and (3) Proportionality.\nKEY TAKEAWAYS: Overruled M.P. Sharma (1954) and Kharak Singh (1962) to the extent they held privacy was not a fundamental right. Laid down the Proportionality Test for state interference in individual liberty. Paved the way for data protection legislation and decriminalization of Section 377 IPC.",
+    "facts": "A challenge was brought against the Aadhaar biometric identification scheme. The government argued that the Indian Constitution does not explicitly guarantee a Fundamental Right to Privacy, relying on M.P. Sharma (1954) and Kharak Singh (1962). A 9-judge bench was constituted to settle the question of law.",
+    "ratio_decidendi": "The Right to Privacy is an intrinsic part of the Right to Life and Personal Liberty under Article 21 and forms part of the freedoms guaranteed by Part III of the Constitution. Privacy includes spatial privacy, informational privacy, and bodily autonomy.",
+    "verdict": "Unanimously held that Privacy is a Fundamental Right. Any state intrusion into privacy must satisfy a 3-fold test: (1) Legality (backed by law), (2) Need / Legitimate State Aim, and (3) Proportionality.",
+    "key_takeaways": [
+      "Overruled M.P. Sharma (1954) and Kharak Singh (1962) to the extent they held privacy was not a fundamental right.",
+      "Laid down the Proportionality Test for state interference in individual liberty.",
+      "Paved the way for data protection legislation and decriminalization of Section 377 IPC."
+    ]
+  },
+  "parent_case_minerva": {
+    "parent_id": "parent_case_minerva",
+    "doc_type": "judgment",
+    "case_name": "Minerva Mills Ltd. v. Union of India",
+    "citation": "(1980) 3 SCC 625",
+    "year": 1980,
+    "bench": "5-Judge Bench",
+    "articles_referred": [
+      "Article 368",
+      "Article 31C",
+      "Article 14",
+      "Article 19"
+    ],
+    "full_text": "CASE NAME: Minerva Mills Ltd. v. Union of India (1980)\nCITATION: (1980) 3 SCC 625 | BENCH: 5-Judge Bench\nARTICLES REFERRED: Article 368, Article 31C, Article 14, Article 19\nFACTS: Minerva Mills, a textile company in Karnataka, was nationalized under the Sick Textile Undertakings (Nationalisation) Act, 1974. The petitioners challenged Sections 4 and 55 of the 42nd Constitutional Amendment Act, 1976, which declared that no constitutional amendment could be questioned in any court and granted unlimited amendment power to Parliament.\nRATIO DECIDENDI: A limited amending power is itself a Basic Feature of the Constitution. Parliament cannot give itself unlimited amending power under Article 368 to destroy the Basic Structure.\nVERDICT: Struck down Clauses (4) and (5) of Article 368 (inserted by 42nd Amendment) and declared that harmony and balance between Fundamental Rights (Part III) and Directive Principles (Part IV) is an essential basic feature.\nKEY TAKEAWAYS: Re-affirmed and fortified the Basic Structure doctrine of Kesavananda Bharati. Held that Fundamental Rights and Directive Principles are complementary like two wheels of a chariot. Restored judicial review as an unalterable basic feature.",
+    "facts": "Minerva Mills, a textile company in Karnataka, was nationalized under the Sick Textile Undertakings (Nationalisation) Act, 1974. The petitioners challenged Sections 4 and 55 of the 42nd Constitutional Amendment Act, 1976, which declared that no constitutional amendment could be questioned in any court and granted unlimited amendment power to Parliament.",
+    "ratio_decidendi": "A limited amending power is itself a Basic Feature of the Constitution. Parliament cannot give itself unlimited amending power under Article 368 to destroy the Basic Structure.",
+    "verdict": "Struck down Clauses (4) and (5) of Article 368 (inserted by 42nd Amendment) and declared that harmony and balance between Fundamental Rights (Part III) and Directive Principles (Part IV) is an essential basic feature.",
+    "key_takeaways": [
+      "Re-affirmed and fortified the Basic Structure doctrine of Kesavananda Bharati.",
+      "Held that Fundamental Rights and Directive Principles are complementary like two wheels of a chariot.",
+      "Restored judicial review as an unalterable basic feature."
+    ]
+  },
+  "parent_case_bommai": {
+    "parent_id": "parent_case_bommai",
+    "doc_type": "judgment",
+    "case_name": "S.R. Bommai v. Union of India",
+    "citation": "(1994) 3 SCC 1",
+    "year": 1994,
+    "bench": "9-Judge Bench",
+    "articles_referred": [
+      "Article 356",
+      "Article 352",
+      "Preamble"
+    ],
+    "full_text": "CASE NAME: S.R. Bommai v. Union of India (1994)\nCITATION: (1994) 3 SCC 1 | BENCH: 9-Judge Bench\nARTICLES REFERRED: Article 356, Article 352, Preamble\nFACTS: Dismissal of Janata Dal government in Karnataka headed by S.R. Bommai and BJP governments in Rajasthan, MP, and HP under Article 356 (President's Rule). The President had dissolved state assemblies on arbitrary grounds.\nRATIO DECIDENDI: Proclamation of President's Rule under Article 356 is subject to Judicial Review. Secularism and Federalism are essential features of the Basic Structure of the Constitution.\nVERDICT: Laid down strict guidelines for invoking Article 356. The floor test in the Legislative Assembly is the sole legal test for determining majority, not the Governor's subjective opinion.\nKEY TAKEAWAYS: Declared Secularism and Federalism as Basic Features of the Indian Constitution. Curbed political misuse of Article 356 by making Presidential proclamations subject to judicial scrutiny. Mandated floor test for proving majority of state governments.",
+    "facts": "Dismissal of Janata Dal government in Karnataka headed by S.R. Bommai and BJP governments in Rajasthan, MP, and HP under Article 356 (President's Rule). The President had dissolved state assemblies on arbitrary grounds.",
+    "ratio_decidendi": "Proclamation of President's Rule under Article 356 is subject to Judicial Review. Secularism and Federalism are essential features of the Basic Structure of the Constitution.",
+    "verdict": "Laid down strict guidelines for invoking Article 356. The floor test in the Legislative Assembly is the sole legal test for determining majority, not the Governor's subjective opinion.",
+    "key_takeaways": [
+      "Declared Secularism and Federalism as Basic Features of the Indian Constitution.",
+      "Curbed political misuse of Article 356 by making Presidential proclamations subject to judicial scrutiny.",
+      "Mandated floor test for proving majority of state governments."
+    ]
+  }
+}
