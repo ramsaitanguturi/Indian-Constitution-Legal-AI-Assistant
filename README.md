@@ -1,4 +1,4 @@
-# ⚖️ Indian Constitution Legal AI Assistant (Advanced RAG)
+#  Indian Constitution Legal AI Assistant (Advanced RAG)
 
 A production-ready, modular **Indian Constitution Legal AI Assistant** utilizing Advanced Retrieval-Augmented Generation (RAG) techniques, hierarchical Parent-Child chunking, Hybrid BM25 + Vector Search with Reciprocal Rank Fusion (RRF), Legal Named Entity Recognition (NER), and a Multi-Agent Router powered by **Google Gemini** (with zero-cost offline heuristic fallback).
 
