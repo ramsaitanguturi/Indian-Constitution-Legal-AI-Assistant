@@ -4,7 +4,7 @@ A production-ready, modular **Indian Constitution Legal AI Assistant** utilizing
 
 ---
 
-## 🌟 Key Architectural Features
+##  Key Architectural Features
 
 ### 1. Hierarchical Parent-Child RAG
 * **Parent Store**: Full Constitutional Articles and Supreme Court Judgments stored as complete context documents.
