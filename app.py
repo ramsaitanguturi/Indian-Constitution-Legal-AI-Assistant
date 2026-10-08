@@ -24,6 +24,7 @@ from config import DEFAULT_TOP_K, GEMINI_API_KEY, DEFAULT_LLM_MODEL
 from ingestion import ParentChildIngestor
 from retriever import HybridRRFRetriever, LegalNERExtractor
 from agents import MultiAgentRouter
+from rag.pipeline import get_legal_rag_pipeline, LegalRAGPipeline, PipelineResult
 
 # Configure Streamlit Page
 st.set_page_config(
@@ -113,6 +114,36 @@ CUSTOM_CSS = """
         color: #3fb950;
         border: 1px solid #238636;
     }
+    .badge-stage4-strategy {
+        background-color: rgba(163, 113, 247, 0.15);
+        color: #d2a8ff;
+        border: 1px solid #8957e5;
+    }
+    .badge-conf-high {
+        background-color: rgba(46, 160, 67, 0.15);
+        color: #3fb950;
+        border: 1px solid #238636;
+    }
+    .badge-conf-med {
+        background-color: rgba(210, 153, 34, 0.15);
+        color: #e3b341;
+        border: 1px solid #9e6a03;
+    }
+    .badge-conf-low {
+        background-color: rgba(248, 81, 73, 0.15);
+        color: #f85149;
+        border: 1px solid #da3633;
+    }
+    .badge-cit-valid {
+        background-color: rgba(46, 160, 67, 0.15);
+        color: #3fb950;
+        border: 1px solid #238636;
+    }
+    .badge-cit-flagged {
+        background-color: rgba(210, 153, 34, 0.15);
+        color: #e3b341;
+        border: 1px solid #9e6a03;
+    }
 
     /* Entity Pills */
     .entity-pill {
@@ -165,10 +196,11 @@ def load_rag_pipeline():
     ingestor.run_pipeline()
     retriever = HybridRRFRetriever(ingestor)
     router = MultiAgentRouter()
-    return ingestor, retriever, router
+    stage4_pipeline = get_legal_rag_pipeline()
+    return ingestor, retriever, router, stage4_pipeline
 
 
-ingestor, retriever, router = load_rag_pipeline()
+ingestor, retriever, router, stage4_pipeline = load_rag_pipeline()
 
 
 # HEADER SECTION
@@ -190,12 +222,23 @@ with st.sidebar:
     st.title("⚙️ Control Panel")
     
     st.markdown("---")
-    st.subheader("🤖 Agent Configuration")
-    agent_override = st.selectbox(
-        "Agent Selection Mode",
-        options=["Auto-route", "Article Agent", "Case-Law Agent", "Explanation Agent"],
-        help="Auto-route classifies queries automatically using Legal NER & keywords, or manually override to a specific specialized agent."
+    st.subheader("🛡️ Architecture Engine")
+    rag_mode = st.radio(
+        "Pipeline Mode",
+        options=["Stage 4 Reliability Pipeline", "Legacy Multi-Agent Mode"],
+        index=0,
+        help="Stage 4 incorporates deterministic NLP query routing, parent-child context recovery, grounded generation, structural citation validation, explainable confidence estimation, and automated abstention."
     )
+
+    if rag_mode == "Legacy Multi-Agent Mode":
+        st.subheader("🤖 Legacy Agent Configuration")
+        agent_override = st.selectbox(
+            "Agent Selection Mode",
+            options=["Auto-route", "Article Agent", "Case-Law Agent", "Explanation Agent"],
+            help="Auto-route classifies queries automatically using Legal NER & keywords, or manually override to a specific specialized agent."
+        )
+    else:
+        agent_override = "Auto-route"
 
     st.markdown("---")
     st.subheader("🔍 Retrieval Hyper-Parameters")
@@ -287,98 +330,256 @@ with tab1:
 
     if st.button("🚀 Submit Query to RAG Pipeline", type="primary", use_container_width=True) or user_query:
         if user_query.strip():
-            with st.spinner("⚡ Executing Legal NER, Hybrid RRF Retrieval, & Multi-Agent Routing..."):
-                # Step 1: Legal NER & Hybrid Retrieval
-                retrieval_output = retriever.retrieve(user_query, top_k=top_k)
-                entities = retrieval_output["entities"]
-                context_docs = retrieval_output["results"]
+            if rag_mode == "Stage 4 Reliability Pipeline":
+                with st.spinner("⚡ Executing 16-Stage Reliable Legal RAG Pipeline (Router, Retrieval, Context Recovery, Grounding, Validation)..."):
+                    res = stage4_pipeline.run(
+                        user_query,
+                        dynamic_api_key=user_api_key,
+                        override_top_k=top_k,
+                    )
 
-                # Step 2: Route & Classify Query
-                classified_agent = router.classify_query(user_query, entities, override_mode=agent_override)
+                # DISPLAY STAGE 4 RESULTS
+                st.markdown("---")
 
-                # Step 3: Execute Agent Generation
-                agent_result = router.execute_agent(
-                    classified_agent,
-                    user_query,
-                    context_docs,
-                    entities,
-                    dynamic_api_key=user_api_key
+                # Strategy, Language, Confidence & Citation Badges
+                strat = res.routing_decision.get("strategy", "HYBRID_SEARCH")
+                lang = res.language.get("language", "en").upper()
+                conf_score = res.confidence.get("confidence_score", 0.0)
+                conf_lvl = res.confidence.get("confidence_level", "MEDIUM")
+                val_ok = res.citation_validation.get("valid", False)
+
+                conf_badge_class = (
+                    "badge-conf-high" if conf_lvl == "HIGH"
+                    else ("badge-conf-med" if conf_lvl == "MEDIUM" else "badge-conf-low")
+                )
+                cit_badge_class = "badge-cit-valid" if val_ok else "badge-cit-flagged"
+                cit_badge_text = f"✅ Citations Validated ({res.citation_validation.get('citations_checked', 0)} checked)" if val_ok else f"⚠️ Citation Warning ({len(res.citation_validation.get('invalid_citations', []))} invalid)"
+
+                st.markdown(
+                    f"""
+                    <span class="agent-badge badge-stage4-strategy">
+                        🎯 Strategy: {strat}
+                    </span>
+                    <span class="agent-badge" style="background-color: rgba(56, 139, 253, 0.15); color: #58a6ff; border: 1px solid #1f6feb;">
+                        🏷️ Intent: {res.intent.get('intent', 'N/A')}
+                    </span>
+                    <span class="agent-badge" style="background-color: rgba(139, 148, 158, 0.15); color: #c9d1d9; border: 1px solid #30363d;">
+                        🌐 Lang: {lang}
+                    </span>
+                    <span class="agent-badge {conf_badge_class}">
+                        🛡️ Confidence: {conf_lvl} ({int(conf_score * 100)}%)
+                    </span>
+                    <span class="agent-badge {cit_badge_class}">
+                        {cit_badge_text}
+                    </span>
+                    """,
+                    unsafe_allow_html=True
                 )
 
-            # DISPLAY RESULTS
-            st.markdown("---")
+                # Extracted Legal Entities
+                st.markdown("**Extracted Legal Entities (NER & Linked):**")
+                ent_str = ""
+                for art in res.entities.get("ARTICLE", []):
+                    ent_str += f'<span class="entity-pill">📜 {art}</span>'
+                for c_name in res.entities.get("CASE", []):
+                    ent_str += f'<span class="entity-pill">⚖️ {c_name}</span>'
+                for amd in res.entities.get("AMENDMENT", []):
+                    ent_str += f'<span class="entity-pill">📝 {amd}</span>'
+                for concept in res.entities.get("LEGAL_CONCEPT", []):
+                    ent_str += f'<span class="entity-pill">💡 {concept.title()}</span>'
+                for linked in res.linked_entities:
+                    ent_str += f'<span class="entity-pill" style="border-color: #8957e5;">🔗 {linked["surface_text"]} &rarr; {linked["canonical_id"]}</span>'
 
-            # Agent Badge & Extracted Entities
-            b_class = "badge-article" if classified_agent == "article_agent" else ("badge-case" if classified_agent == "case_law_agent" else "badge-explain")
-            model_info = f"🧠 {agent_result.get('model_name', 'AI Engine')}"
-            st.markdown(
-                f"""
-                <span class="agent-badge {b_class}">
-                    🤖 Active Agent: {agent_result['agent_name']}
-                </span>
-                <span class="agent-badge" style="background-color: rgba(139, 148, 158, 0.15); color: #c9d1d9; border: 1px solid #30363d;">
-                    {model_info}
-                </span>
-                """,
-                unsafe_allow_html=True
-            )
-
-            # Extracted Legal Entities
-            st.markdown("**Extracted Legal Entities (NER):**")
-            ent_str = ""
-            for art in entities.get("articles", []):
-                ent_str += f'<span class="entity-pill">📜 {art}</span>'
-            for c_name in entities.get("cases", []):
-                ent_str += f'<span class="entity-pill">⚖️ {c_name}</span>'
-            for concept in entities.get("concepts", []):
-                ent_str += f'<span class="entity-pill">💡 {concept.title()}</span>'
-            
-            if ent_str:
-                st.markdown(ent_str, unsafe_allow_html=True)
-            else:
-                st.caption("No specific named articles or cases detected in query.")
-
-            st.markdown("<br>", unsafe_allow_html=True)
-
-            # Agent Answer Response
-            st.markdown(agent_result["response"])
-
-            # EXPANDABLE SOURCE ATTRIBUTION TABS (Parent-Child RAG)
-            st.markdown("---")
-            st.subheader("📚 Source Attribution & RAG Provenance")
-            st.caption("Parent-Child RAG: Precision Child passages were matched via Hybrid RRF Search and expanded into full Parent contexts below.")
-
-            for r_idx, doc in enumerate(context_docs, start=1):
-                pdata = doc.get("parent_data", {})
-                title_label = f"Result #{r_idx} | RRF Score: {doc['rrf_score']} | "
-                if doc["doc_type"] == "constitution":
-                    title_label += f"📜 {pdata.get('article_number')} - {pdata.get('title')}"
+                if ent_str:
+                    st.markdown(ent_str, unsafe_allow_html=True)
                 else:
-                    title_label += f"⚖️ {pdata.get('case_name')} ({pdata.get('year')})"
+                    st.caption("No specific named legal entities detected in query.")
 
-                with st.expander(title_label):
-                    col_c, col_p = st.columns([1, 1])
-                    with col_c:
-                        st.markdown("##### 🔍 Retrieved Child Chunk (Vector + BM25 Match)")
-                        st.info(f"\"{doc['child_text']}\"")
-                        st.markdown(f"**RRF Fusion Score**: `{doc['rrf_score']}`")
-                        st.markdown(f"**BM25 Rank**: `{doc['bm25_rank']}` | **Vector Rank**: `{doc['vector_rank']}`")
+                st.markdown("<br>", unsafe_allow_html=True)
 
-                    with col_p:
-                        st.markdown("##### 📖 Hydrated Parent Document (Full Context)")
-                        if doc["doc_type"] == "constitution":
-                            st.markdown(f"**Article Number**: {pdata.get('article_number')}")
-                            st.markdown(f"**Part**: {pdata.get('part')}")
-                            st.markdown(f"**Category**: {pdata.get('category')}")
-                            st.markdown(f"**Full Text**:\n> *{pdata.get('raw_text')}*")
-                            if pdata.get("explanation"):
-                                st.markdown(f"**Explanation**: {pdata.get('explanation')}")
-                        else:
-                            st.markdown(f"**Case Name**: {pdata.get('case_name')}")
-                            st.markdown(f"**Citation**: `{pdata.get('citation')}`")
-                            st.markdown(f"**Bench**: {pdata.get('bench')}")
-                            st.markdown(f"**Ratio Decidendi**: {pdata.get('ratio_decidendi')}")
-                            st.markdown(f"**Verdict**: {pdata.get('verdict')}")
+                # Grounded Response / Abstention Notice
+                if res.abstained:
+                    st.warning(
+                        f"🛡️ **System Refusal / Abstention Notice**\n\n"
+                        f"**Reason**: `{res.abstention_reason}`\n\n"
+                        f"{res.generated_answer}"
+                    )
+                else:
+                    st.markdown(res.generated_answer)
+
+                # Reliability, Confidence & Citation Validation Audit Deep-Dive
+                st.markdown("---")
+                with st.expander("📊 Reliability, Grounding & Citation Validation Audit", expanded=False):
+                    m_c1, m_c2, m_c3, m_c4 = st.columns(4)
+                    with m_c1:
+                        st.metric("Confidence Score", f"{conf_score:.2f}", conf_lvl)
+                    with m_c2:
+                        st.metric("Citations Checked", res.citation_validation.get("citations_checked", 0))
+                    with m_c3:
+                        st.metric("Valid Citations", len(res.citation_validation.get("valid_citations", [])))
+                    with m_c4:
+                        st.metric("Unsupported Claims", len(res.citation_validation.get("unsupported_claims", [])))
+
+                    st.markdown("##### 🔬 Confidence Signal Breakdown")
+                    st.caption("*Note: Confidence estimation is an explainable weighted heuristic, not a mathematically calibrated probability.*")
+                    breakdown = res.confidence.get("signal_breakdown", {})
+                    if breakdown:
+                        df_signals = pd.DataFrame([
+                            {"Signal": k.replace("_", " ").title(), "Weight": v.get("weight"), "Score": v.get("score"), "Weighted": v.get("weighted_value"), "Details": v.get("details")}
+                            for k, v in breakdown.items()
+                        ])
+                        st.dataframe(df_signals, use_container_width=True)
+
+                    if res.citation_validation.get("invalid_citations"):
+                        st.markdown("##### ⚠️ Invalid Citations Detected:")
+                        for inv in res.citation_validation["invalid_citations"]:
+                            st.error(f"- **Reason**: `{inv.get('reason')}` — {inv.get('details')}")
+
+                    if res.citation_validation.get("unsupported_claims"):
+                        st.markdown("##### ⚠️ Potential Ungrounded Claims Detected:")
+                        for uns in res.citation_validation["unsupported_claims"]:
+                            st.warning(f"- {uns}")
+
+                # EXPANDABLE SOURCE ATTRIBUTION TABS (Parent-Child RAG)
+                st.markdown("---")
+                st.subheader("📚 Source Attribution & RAG Provenance")
+                st.caption(f"Parent-Child Context Recovery: {res.parent_context.get('parent_count', 0)} deduplicated parents hydrated from {len(res.retrieved_chunks)} child passages.")
+
+                parents_recovered = res.parent_context.get("parents", [])
+                for r_idx, p in enumerate(parents_recovered, start=1):
+                    doc_type = p.get("doc_type", "constitution")
+                    if doc_type == "constitution":
+                        title_label = f"Document #{r_idx} | 📜 {p.get('article_number', 'Article')} — {p.get('title', '')} ({p.get('part', '')})"
+                    else:
+                        title_label = f"Document #{r_idx} | ⚖️ {p.get('case_name', 'Judgment')} ({p.get('year', '')}) | `{p.get('citation', '')}`"
+
+                    with st.expander(title_label):
+                        col_c, col_p = st.columns([1, 1])
+                        with col_c:
+                            st.markdown("##### 🔍 Supporting Child Evidence Passages")
+                            children = p.get("supporting_children", [])
+                            if children:
+                                for ch in children:
+                                    st.info(f"**Chunk ID**: `{ch.get('chunk_id')}` | **Rerank/RRF Score**: `{ch.get('score', 0):.4f}`\n\n\"{ch.get('text', '')}\"")
+                            else:
+                                st.caption("No individual child chunks mapped.")
+
+                        with col_p:
+                            st.markdown("##### 📖 Hydrated Parent Document (Full Context)")
+                            if doc_type == "constitution":
+                                st.markdown(f"**Article Number**: {p.get('article_number')}")
+                                st.markdown(f"**Part**: {p.get('part')}")
+                                st.markdown(f"**Category**: {p.get('category')}")
+                                st.markdown(f"**Full Text**:\n> *{p.get('raw_text')}*")
+                                if p.get("explanation"):
+                                    st.markdown(f"**Explanation**: {p.get('explanation')}")
+                                if p.get("historical_context"):
+                                    st.markdown(f"**Historical Context**: {p.get('historical_context')}")
+                            else:
+                                st.markdown(f"**Case Name**: {p.get('case_name')}")
+                                st.markdown(f"**Citation**: `{p.get('citation')}`")
+                                st.markdown(f"**Bench**: {p.get('bench')}")
+                                if p.get("facts"):
+                                    st.markdown(f"**Facts**: {p.get('facts')}")
+                                if p.get("ratio_decidendi"):
+                                    st.markdown(f"**Ratio Decidendi**: {p.get('ratio_decidendi')}")
+                                if p.get("verdict"):
+                                    st.markdown(f"**Verdict**: {p.get('verdict')}")
+
+            else:
+                # LEGACY MULTI-AGENT EXECUTION PATH
+                with st.spinner("⚡ Executing Legal NER, Hybrid RRF Retrieval, & Multi-Agent Routing..."):
+                    # Step 1: Legal NER & Hybrid Retrieval
+                    retrieval_output = retriever.retrieve(user_query, top_k=top_k)
+                    entities = retrieval_output["entities"]
+                    context_docs = retrieval_output["results"]
+
+                    # Step 2: Route & Classify Query
+                    classified_agent = router.classify_query(user_query, entities, override_mode=agent_override)
+
+                    # Step 3: Execute Agent Generation
+                    agent_result = router.execute_agent(
+                        classified_agent,
+                        user_query,
+                        context_docs,
+                        entities,
+                        dynamic_api_key=user_api_key
+                    )
+
+                # DISPLAY RESULTS
+                st.markdown("---")
+
+                # Agent Badge & Extracted Entities
+                b_class = "badge-article" if classified_agent == "article_agent" else ("badge-case" if classified_agent == "case_law_agent" else "badge-explain")
+                model_info = f"🧠 {agent_result.get('model_name', 'AI Engine')}"
+                st.markdown(
+                    f"""
+                    <span class="agent-badge {b_class}">
+                        🤖 Active Agent: {agent_result['agent_name']}
+                    </span>
+                    <span class="agent-badge" style="background-color: rgba(139, 148, 158, 0.15); color: #c9d1d9; border: 1px solid #30363d;">
+                        {model_info}
+                    </span>
+                    """,
+                    unsafe_allow_html=True
+                )
+
+                # Extracted Legal Entities
+                st.markdown("**Extracted Legal Entities (NER):**")
+                ent_str = ""
+                for art in entities.get("articles", []):
+                    ent_str += f'<span class="entity-pill">📜 {art}</span>'
+                for c_name in entities.get("cases", []):
+                    ent_str += f'<span class="entity-pill">⚖️ {c_name}</span>'
+                for concept in entities.get("concepts", []):
+                    ent_str += f'<span class="entity-pill">💡 {concept.title()}</span>'
+                
+                if ent_str:
+                    st.markdown(ent_str, unsafe_allow_html=True)
+                else:
+                    st.caption("No specific named articles or cases detected in query.")
+
+                st.markdown("<br>", unsafe_allow_html=True)
+
+                # Agent Answer Response
+                st.markdown(agent_result["response"])
+
+                # EXPANDABLE SOURCE ATTRIBUTION TABS (Parent-Child RAG)
+                st.markdown("---")
+                st.subheader("📚 Source Attribution & RAG Provenance")
+                st.caption("Parent-Child RAG: Precision Child passages were matched via Hybrid RRF Search and expanded into full Parent contexts below.")
+
+                for r_idx, doc in enumerate(context_docs, start=1):
+                    pdata = doc.get("parent_data", {})
+                    title_label = f"Result #{r_idx} | RRF Score: {doc['rrf_score']} | "
+                    if doc["doc_type"] == "constitution":
+                        title_label += f"📜 {pdata.get('article_number')} - {pdata.get('title')}"
+                    else:
+                        title_label += f"⚖️ {pdata.get('case_name')} ({pdata.get('year')})"
+
+                    with st.expander(title_label):
+                        col_c, col_p = st.columns([1, 1])
+                        with col_c:
+                            st.markdown("##### 🔍 Retrieved Child Chunk (Vector + BM25 Match)")
+                            st.info(f"\"{doc['child_text']}\"")
+                            st.markdown(f"**RRF Fusion Score**: `{doc['rrf_score']}`")
+                            st.markdown(f"**BM25 Rank**: `{doc['bm25_rank']}` | **Vector Rank**: `{doc['vector_rank']}`")
+
+                        with col_p:
+                            st.markdown("##### 📖 Hydrated Parent Document (Full Context)")
+                            if doc["doc_type"] == "constitution":
+                                st.markdown(f"**Article Number**: {pdata.get('article_number')}")
+                                st.markdown(f"**Part**: {pdata.get('part')}")
+                                st.markdown(f"**Category**: {pdata.get('category')}")
+                                st.markdown(f"**Full Text**:\n> *{pdata.get('raw_text')}*")
+                                if pdata.get("explanation"):
+                                    st.markdown(f"**Explanation**: {pdata.get('explanation')}")
+                            else:
+                                st.markdown(f"**Case Name**: {pdata.get('case_name')}")
+                                st.markdown(f"**Citation**: `{pdata.get('citation')}`")
+                                st.markdown(f"**Bench**: {pdata.get('bench')}")
+                                st.markdown(f"**Ratio Decidendi**: {pdata.get('ratio_decidendi')}")
+                                st.markdown(f"**Verdict**: {pdata.get('verdict')}")
 
 
 # ---------------------------------------------------------
@@ -486,8 +687,16 @@ with tab4:
       where $k = 60$.
     - **Legal Named Entity Recognition (NER)**: Identifies Article numbers (e.g. *Article 21*), landmark case names (e.g. *Puttaswamy*), and legal concepts, applying rank boosting for exact metadata matches.
 
-    ### 3. Multi-Agent Router
+    ### 3. Multi-Agent Router (Legacy Mode)
     - **Article Agent**: Provides detailed constitutional provisions, clauses, and amendments.
     - **Case-Law Agent**: Summarizes judgments, facts, ratios decidendi, and precedent comparisons.
     - **Explanation Agent**: Simplifies complex legal legalese into accessible plain English/Hindi for citizens and students.
+
+    ### 4. Stage 4: RAG Reliability, Grounding & Safety Engine (Primary Mode)
+    - **Specialized NLP Query Router**: Deterministically maps Stage 2 NLP signals (intent, language, entities, linked entities) into specialized retrieval strategies (`ARTICLE_SEARCH`, `CASE_SEARCH`, `COMPARISON_SEARCH`, `RIGHTS_SEARCH`, `PROCEDURE_SEARCH`, `HYBRID_SEARCH`, `OUT_OF_SCOPE`) without autonomous agent overhead.
+    - **Parent-Child Context Recovery**: Aggregates winning child passages into deduplicated canonical parent records, preserving audit provenance and providing full parent scope to the generator.
+    - **Strictly Grounded Generation**: Synthesizes answers strictly from retrieved evidence, clearly separating **📜 Direct Legal Evidence** from **⚖️ Grounded Legal Analysis** and **📚 Verified Citations**.
+    - **Structural Citation Validator**: Validates that all declared citations exist in the verified legal database, were part of the retrieved evidence, and detects ungrounded mentions of articles or precedents.
+    - **Explainable Confidence Estimator**: Transparent weighted composite over 6 verifiable signals (retrieval strength, evidence volume, entity alignment, retrieval agreement, citation validity, query coverage) with explicit uncalibrated disclosure.
+    - **Multi-Stage Automated Abstention**: Safely refuses out-of-scope queries, zero-result retrievals, sub-threshold evidence, and citation validation failures to eliminate hallucinations.
     """)

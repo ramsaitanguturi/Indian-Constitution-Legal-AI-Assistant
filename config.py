@@ -111,3 +111,16 @@ INTENT_CLASSES = [
     "OUT_OF_SCOPE",
 ]
 
+# Stage 4: RAG Reliability, Citation Validation, & Abstention
+CONFIDENCE_ABSTENTION_THRESHOLD = 0.30
+MIN_RETRIEVAL_SCORE_THRESHOLD = 0.005
+CITATION_VALIDATION_THRESHOLD = 0.50
+CONFIDENCE_SIGNAL_WEIGHTS = {
+    "retrieval": 0.25,
+    "evidence_count": 0.15,
+    "entity_match": 0.20,
+    "method_agreement": 0.15,
+    "citation_validity": 0.15,
+    "evidence_coverage": 0.10,
+}
+
