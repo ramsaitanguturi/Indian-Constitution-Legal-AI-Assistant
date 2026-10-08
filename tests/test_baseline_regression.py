@@ -173,7 +173,7 @@ class TestIngestionPipelineBaseline:
         with open(PARENT_STORE_PATH, "r", encoding="utf-8") as f:
             store = json.load(f)
         assert isinstance(store, dict)
-        assert len(store) == 14
+        assert len(store) >= 14
 
 
 # =========================================================================

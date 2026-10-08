@@ -1,5 +1,6 @@
 """
 Ingestion Pipeline with Parent-Child Hierarchical RAG.
+Maintains backward-compatible facade routing through the modular rag/ package.
 Parses Constitutional Articles and Supreme Court Judgments, creates parent-child chunks,
 indexes child passages in ChromaDB (dense vector store), and builds a BM25 sparse index.
 """
@@ -7,7 +8,7 @@ indexes child passages in ChromaDB (dense vector store), and builds a BM25 spars
 import json
 import os
 import re
-from typing import Dict, List, Tuple, Any
+from typing import Dict, List, Tuple, Any, Optional
 import chromadb
 from chromadb.utils import embedding_functions
 from rank_bm25 import BM25Okapi
@@ -24,25 +25,27 @@ from config import (
     BM25_K1,
     BM25_B
 )
-
-
-def simple_tokenize(text: str) -> List[str]:
-    """Basic lower-case tokenization for BM25 indexing."""
-    text = text.lower()
-    return re.findall(r'\b\w+\b', text)
+from rag.chunking import LegalStructureChunker, estimate_tokens
+from rag.ingestion import ProductionIngestor, simple_tokenize
 
 
 class ParentChildIngestor:
     """
     Hierarchical Parent-Child Ingestion Engine.
     Parent chunks retain full semantic context (Articles/Judgments),
-    while child chunks (~200-300 chars) are indexed for precise vector & BM25 retrieval.
+    while child chunks are indexed for precise vector & BM25 retrieval.
+    Provides backward compatibility for baseline evaluation while enabling
+    routing to ProductionIngestor for the expanded corpus.
     """
 
-    def __init__(self):
+    def __init__(self, use_full_corpus: bool = False, batch_size: int = 64):
+        self.use_full_corpus = use_full_corpus
+        self.batch_size = batch_size
+        self.chunker = LegalStructureChunker()
         self.parent_store: Dict[str, Dict[str, Any]] = {}
         self.child_chunks: List[Dict[str, Any]] = []
-        self.bm25_index: BM25Okapi = None
+        self.bm25_index: Optional[BM25Okapi] = None
+        self._production_ingestor = ProductionIngestor(use_full_corpus=use_full_corpus, batch_size=batch_size)
 
     def load_raw_datasets(self) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
         """Load JSON datasets for Constitution Articles and Supreme Court Judgments."""
@@ -59,38 +62,25 @@ class ParentChildIngestor:
 
         return constitution_data, judgments_data
 
-    def _split_text_into_children(self, text: str, chunk_size: int = CHILD_CHUNK_SIZE, overlap: int = CHILD_CHUNK_OVERLAP) -> List[str]:
-        """Split text into child passages with specified chunk size and overlap."""
-        if not text:
-            return []
-        
-        chunks = []
-        start = 0
-        text_len = len(text)
-        
-        while start < text_len:
-            end = min(start + chunk_size, text_len)
-            # Find natural word boundary if possible
-            if end < text_len:
-                last_space = text.rfind(' ', start, end)
-                if last_space > start:
-                    end = last_space
-            
-            chunk = text[start:end].strip()
-            if chunk:
-                chunks.append(chunk)
-            
-            start = end - overlap if (end - overlap) > start else end
-
-        return chunks
+    def _split_text_into_children(
+        self,
+        text: str,
+        chunk_size: int = CHILD_CHUNK_SIZE,
+        overlap: int = CHILD_CHUNK_OVERLAP
+    ) -> List[str]:
+        """Split text into child passages using legacy sliding window algorithm."""
+        return self.chunker.chunk_legacy_sliding_window(text, chunk_size=chunk_size, overlap=overlap)
 
     def process_parent_child_chunks(self) -> Tuple[Dict[str, Dict[str, Any]], List[Dict[str, Any]]]:
-        """Build parent documents and derive child passages with parent context linkages."""
+        """Build parent documents and derive child passages."""
+        if self.use_full_corpus:
+            self.parent_store, self.child_chunks = self._production_ingestor.process_parent_child_chunks()
+            return self.parent_store, self.child_chunks
+
+        # Legacy baseline dataset processing (for backwards-compatible unit tests)
         const_data, judg_data = self.load_raw_datasets()
-        
         parent_store = {}
         child_chunks = []
-        child_counter = 0
 
         # 1. Process Constitution Articles
         for item in const_data:
@@ -116,7 +106,6 @@ class ParentChildIngestor:
                 "historical_context": item.get("historical_context", "")
             }
 
-            # Derive child chunks from text and explanation
             combined_text_for_children = f"{item['title']}. {item['text']} {item.get('explanation', '')}"
             passages = self._split_text_into_children(combined_text_for_children)
 
@@ -131,7 +120,6 @@ class ParentChildIngestor:
                     "title": item["title"],
                     "category": item["category"]
                 })
-                child_counter += 1
 
         # 2. Process Supreme Court Judgments
         for item in judg_data:
@@ -162,7 +150,6 @@ class ParentChildIngestor:
                 "key_takeaways": item.get("key_takeaways", [])
             }
 
-            # Derive child chunks from facts, ratio, verdict
             judg_combined = f"{item['case_name']}. FACTS: {item['facts']} RATIO: {item['ratio_decidendi']} VERDICT: {item['verdict']}"
             passages = self._split_text_into_children(judg_combined)
 
@@ -177,7 +164,6 @@ class ParentChildIngestor:
                     "year": item["year"],
                     "articles_referred": ", ".join(item.get("articles_referred", []))
                 })
-                child_counter += 1
 
         self.parent_store = parent_store
         self.child_chunks = child_chunks
@@ -186,7 +172,7 @@ class ParentChildIngestor:
     def save_parent_store(self) -> None:
         """Persist parent store to JSON."""
         with open(PARENT_STORE_PATH, "w", encoding="utf-8") as f:
-            json.dump(self.parent_store, f, indent=2)
+            json.dump(self.parent_store, f, indent=2, ensure_ascii=False)
 
     def load_parent_store(self) -> Dict[str, Dict[str, Any]]:
         """Load parent store from JSON."""
@@ -197,9 +183,10 @@ class ParentChildIngestor:
 
     def build_vector_store(self) -> Any:
         """Index child chunks into ChromaDB vector store."""
+        if self.use_full_corpus:
+            return self._production_ingestor.build_vector_store()
+
         client = chromadb.PersistentClient(path=str(CHROMA_PERSIST_DIR))
-        
-        # Use SentenceTransformers embedding function
         embedding_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
             model_name=DEFAULT_EMBEDDING_MODEL
         )
@@ -210,17 +197,16 @@ class ParentChildIngestor:
             metadata={"hnsw:space": "cosine"}
         )
 
-        # Upsert child chunks
         if self.child_chunks:
             ids = [c["child_id"] for c in self.child_chunks]
             documents = [c["text"] for c in self.child_chunks]
             metadatas = [
                 {
-                    "parent_id": c["parent_id"],
-                    "doc_type": c["doc_type"],
-                    "article_number": c.get("article_number", ""),
-                    "case_name": c.get("case_name", ""),
-                    "title": c.get("title", "")
+                    "parent_id": str(c.get("parent_id", "")),
+                    "doc_type": str(c.get("doc_type", "")),
+                    "article_number": str(c.get("article_number", "")),
+                    "case_name": str(c.get("case_name", "")),
+                    "title": str(c.get("title", ""))
                 }
                 for c in self.child_chunks
             ]

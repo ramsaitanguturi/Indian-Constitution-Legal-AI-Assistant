@@ -15,9 +15,23 @@ PARENT_STORE_PATH = BASE_DIR / "parent_store.json"
 # Ensure data directory exists
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-# Datasets
+# Datasets - Legacy Samples
 CONSTITUTION_DATA_PATH = DATA_DIR / "sample_constitution.json"
 JUDGMENTS_DATA_PATH = DATA_DIR / "sample_judgments.json"
+
+# Expanded Corpus Paths
+CONSTITUTION_DIR = DATA_DIR / "constitution"
+JUDGMENTS_DIR = DATA_DIR / "judgments"
+BENCHMARK_DIR = DATA_DIR / "benchmark"
+ANNOTATIONS_DIR = DATA_DIR / "annotations"
+
+CONSTITUTION_ARTICLES_PATH = CONSTITUTION_DIR / "articles.json"
+CONSTITUTION_AMENDMENTS_PATH = CONSTITUTION_DIR / "amendments.json"
+JUDGMENTS_LANDMARKS_PATH = JUDGMENTS_DIR / "supreme_court_landmarks.json"
+
+# Ensure all data subdirectories exist
+for _dir in [CONSTITUTION_DIR, JUDGMENTS_DIR, BENCHMARK_DIR, ANNOTATIONS_DIR]:
+    _dir.mkdir(parents=True, exist_ok=True)
 
 # Vector DB & Embeddings
 CHROMA_COLLECTION_NAME = "indian_legal_rag"
@@ -26,8 +40,15 @@ DEFAULT_EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 # Chunking Hyperparameters
 PARENT_CHUNK_SIZE = 1200  # characters (~200 words)
 PARENT_CHUNK_OVERLAP = 100
-CHILD_CHUNK_SIZE = 300    # characters (~50 words)
+CHILD_CHUNK_SIZE = 300    # characters (~50 words) - baseline sliding window
 CHILD_CHUNK_OVERLAP = 50
+MAX_CLAUSE_CHUNK_CHARS = 800  # structure-aware clause ceiling
+MIN_CHUNK_CHARS = 40          # minimum meaningful chunk size
+
+# Provenance Metadata Defaults
+DATASET_VERSION = "1.0.0-capstone"
+DEFAULT_CONSTITUTION_SOURCE = "Legislative Department, Ministry of Law and Justice, GoI"
+DEFAULT_JUDGMENTS_SOURCE = "Supreme Court of India / Public Legal Records"
 
 # BM25 Hyperparameters
 BM25_K1 = 1.5
