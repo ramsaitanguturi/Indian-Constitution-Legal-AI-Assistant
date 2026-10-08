@@ -60,5 +60,5 @@ def get_gemini_api_key() -> str:
 
 GEMINI_API_KEY = get_gemini_api_key()
 GOOGLE_API_KEY = GEMINI_API_KEY  # Standard alias for Google GenAI SDKs
-DEFAULT_LLM_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+DEFAULT_LLM_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.8-flash")
 
