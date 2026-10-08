@@ -58,6 +58,12 @@ BM25_B = 0.75
 RRF_K = 60
 DEFAULT_TOP_K = 4
 
+# Retrieval & Reranker Hyperparameters (Stage 3)
+RERANKER_MODEL_NAME = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+RETRIEVAL_CANDIDATE_POOL = 30
+ENTITY_BOOST_WEIGHT = 0.15
+FINAL_TOP_K = 5
+
 # API Keys & LLM Settings (Google Gemini)
 try:
     from dotenv import load_dotenv
