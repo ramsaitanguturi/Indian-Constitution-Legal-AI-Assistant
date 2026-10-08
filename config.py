@@ -83,3 +83,25 @@ GEMINI_API_KEY = get_gemini_api_key()
 GOOGLE_API_KEY = GEMINI_API_KEY  # Standard alias for Google GenAI SDKs
 DEFAULT_LLM_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.8-flash")
 
+# NLP Query Understanding Paths & Hyperparameters
+NLP_DIR = BASE_DIR / "nlp"
+INTENT_MODEL_PATH = NLP_DIR / "intent_classifier.joblib"
+SYNONYM_GRAPH_PATH = NLP_DIR / "legal_synonyms.json"
+CLASSIFICATION_BENCHMARK_PATH = BENCHMARK_DIR / "classification_queries.json"
+
+MAX_EXPANSION_TERMS = 3
+INTENT_CONFIDENCE_THRESHOLD = 0.35
+INTENT_CLASSES = [
+    "ARTICLE_LOOKUP",
+    "CASE_LAW_QUERY",
+    "CASE_COMPARISON",
+    "LEGAL_EXPLANATION",
+    "RIGHTS_QUERY",
+    "AMENDMENT_QUERY",
+    "PRECEDENT_QUERY",
+    "DEFINITION_QUERY",
+    "CONSTITUTIONAL_PROCEDURE",
+    "MULTI_DOCUMENT_QUERY",
+    "OUT_OF_SCOPE",
+]
+
