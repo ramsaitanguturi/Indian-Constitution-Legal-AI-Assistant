@@ -1,142 +1,87 @@
-# Independent Reproducibility Report
+# Adversarial Reproducibility & Latency Profiling Report
 
 **Project**: Indian Constitution Legal AI Assistant  
-**Role**: Senior NLP Researcher & Independent Evaluator  
+**Role**: Senior NLP Researcher & Adversarial Evaluator  
 **Audit Date**: October 2026  
-**Repository**: `Indian-Constitution-Legal-AI-Assistant`  
+**Status**: **PASS for Software & Experiment Reproducibility**  
 
 ---
 
-## 1. Environment & Hardware Specification
+## 1. System Environment & Execution Context
 
-All reproduction tests and benchmarks were executed directly on the host development machine without external mock services:
+All evaluations and latency profiles were measured directly on the host development machine:
 
-- **Operating System**: Windows (Microsoft Windows 10/11 x64, PowerShell 5.1/7.x)
-- **Python Runtime**: `Python 3.12.10` (64-bit) located in virtual environment `.\venv\Scripts\python.exe`
-- **CPU Execution**: Intel / AMD Multi-Core (PyTorch running in CPU mode)
-- **Key Python Dependencies**:
+- **Operating System**: Microsoft Windows 10/11 x64 (PowerShell 5.1/7.x)
+- **Python Version**: `3.12.10` located at `.\venv\Scripts\python.exe`
+- **Execution Target**: Multi-core CPU (`torch 2.10.0+cpu` without GPU acceleration)
+- **Core Dependencies**:
   - `pytest`: 9.1.1
   - `scikit-learn`: 1.9.1
   - `chromadb`: 1.5.9
-  - `sentence-transformers`: 5.4.1 (MiniLM-L6-v2 embeddings + MS-MARCO MiniLM-L-6-v2 cross-encoder)
+  - `sentence-transformers`: 5.4.1 (`all-MiniLM-L6-v2` embeddings, `ms-marco-MiniLM-L-6-v2` cross-encoder)
   - `rank-bm25`: 0.2.2
   - `streamlit`: 1.55.0
-  - `torch`: 2.10.0+cpu
-  - `pandas`: 2.3.3
-  - `numpy`: 2.4.2
 
 ---
 
-## 2. Seed Control & Determinism
+## 2. Rigorous Latency Profiling (Warm-up + 20 Repeated Trials)
 
-All probabilistic operations are governed by a centralized seed in `config.py`:
-- `EVAL_RANDOM_SEED = 42`
-- **Intent Classification Splits**: `train_test_split(..., random_state=42, stratify=y)`
-- **Cross-Validation**: `StratifiedKFold(n_splits=5, shuffle=True, random_state=42)`
-- **Vector Search**: ChromaDB HNSW indexing with deterministic distance metrics (`cosine`).
-- **Lexical Search**: `BM25Okapi` with deterministic parameters ($k_1 = 1.5, b = 0.75$).
+Previous reports quoted average cross-encoder latency as "644 ms" without warm-up protocols or variance reporting. Here, a rigorous benchmark was conducted with 3 warm-up passes followed by 20 repeated trials on representative constitutional queries:
+
+| Pipeline Subsystem | Mean Latency | Median Latency | P95 Latency | Min Latency | Max Latency | Adversarial Finding |
+|---|:---:|:---:|:---:|:---:|:---:|---|
+| **Sparse BM25 Search** | **3.36 ms** | **3.02 ms** | **4.43 ms** | 2.68 ms | 4.77 ms | Negligible overhead; deterministic inverted index lookup. |
+| **Dense Vector Search** | **24.04 ms** | **19.79 ms** | **63.83 ms** | 15.92 ms | 73.31 ms | Occasional spikes due to ChromaDB HNSW cache misses. |
+| **Cross-Encoder Reranker** (Top 20 $\to$ Top 5) | **1320.70 ms** | **891.64 ms** | **1390.67 ms** | 793.56 ms | 9931.38 ms | Cold-start spike on CPU; **steady-state median is ~892 ms**. |
+| **Generation (Offline Fallback)** | **555.03 ms** | **566.45 ms** | **589.35 ms** | 502.68 ms | 609.21 ms | Markdown synthesis and parent-child hydration. |
+| **End-to-End Pipeline** | **~1.90 s** | **~1.48 s** | **~2.05 s** | 1.32 s | 10.55 s | Feasible for interactive use, but CPU-bound. |
+
+*Critical Finding on Latency Claims*: Theoretical conjectures regarding "ONNX quantization bringing latency below 50 ms" are unsupported by empirical data on this CPU architecture. In reality, steady-state CPU cross-encoder reranking requires **~890 ms**.
 
 ---
 
-## 3. Step-by-Step Reproduction Guide
+## 3. Dual Retrieval Ablation Benchmark (Original vs. Canonical Labels)
 
-### 3.1 Automated Test Suite (254 Unit & Integration Tests)
-To execute the comprehensive automated test suite:
+Evaluated across all 200 retrieval queries in `data/benchmark/retrieval_queries.json`:
+
+| Configuration | Hit@1 (Orig) | Hit@1 (Canon) | Recall@10 (Orig) | Recall@10 (Canon) | MRR (Orig) | MRR (Canon) | NDCG@10 (Orig) | NDCG@10 (Canon) |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **Exp 1: BM25 Only** | 0.7500 | **0.7900** | 0.5064 | **0.7003** | 0.7962 | **0.8271** | 0.6157 | **0.7197** |
+| **Exp 2: Dense Only** | 0.7750 | **0.8100** | 0.5250 | **0.7131** | 0.8072 | **0.8385** | 0.6429 | **0.7432** |
+| **Exp 3: Linear Hybrid** | 0.7700 | **0.8100** | 0.5150 | **0.7076** | 0.8099 | **0.8411** | 0.6298 | **0.7333** |
+| **Exp 4: RRF (k=60)** | 0.7700 | **0.8100** | 0.5106 | **0.7005** | 0.8071 | **0.8396** | 0.6244 | **0.7262** |
+| **Exp 5: Entity Boost** | 0.7800 | **0.8200** | 0.5352 | **0.7229** | 0.8096 | **0.8421** | 0.6482 | **0.7493** |
+| **Exp 6: Cross-Encoder** | **0.8000** | **0.8400** | **0.5526** | **0.7478** | **0.8263** | **0.8583** | **0.6730** | **0.7787** |
+
+---
+
+## 4. Sequential Execution Record of All 8 Experiments
+
+Every individual experiment script in `experiments/` was executed sequentially from the virtual environment. Artifact log saved to [`evaluation/results/adversarial_experiment_execution_log.json`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/evaluation/results/adversarial_experiment_execution_log.json):
+
+| Script | Command | Exit Code | Duration | Output Artifact Path |
+|---|---|:---:|:---:|---|
+| **Exp 01: BM25** | `.\venv\Scripts\python.exe experiments/experiment_01_bm25.py` | **0** | 6.84s | `experiments/results/experiment_01_bm25.json` |
+| **Exp 02: Dense** | `.\venv\Scripts\python.exe experiments/experiment_02_dense.py` | **0** | 42.48s | `experiments/results/experiment_02_dense.json` |
+| **Exp 03: Hybrid** | `.\venv\Scripts\python.exe experiments/experiment_03_hybrid.py` | **0** | 41.90s | `experiments/results/experiment_03_hybrid.json` |
+| **Exp 04: RRF** | `.\venv\Scripts\python.exe experiments/experiment_04_rrf.py` | **0** | 36.96s | `experiments/results/experiment_04_rrf.json` |
+| **Exp 05: Entity Boost** | `.\venv\Scripts\python.exe experiments/experiment_05_entity_boost.py` | **0** | 40.83s | `experiments/results/experiment_05_entity_boost.json` |
+| **Exp 06: Reranker** | `.\venv\Scripts\python.exe experiments/experiment_06_reranker.py` | **0** | 159.02s | `experiments/results/experiment_06_reranker.json` |
+| **Exp 07: NER** | `.\venv\Scripts\python.exe experiments/experiment_07_ner.py` | **0** | 8.40s | `experiments/results/experiment_07_ner.json` |
+| **Exp 08: Intent** | `.\venv\Scripts\python.exe experiments/experiment_08_intent.py` | **0** | 4.59s | `experiments/results/experiment_08_intent.json` |
+
+---
+
+## 5. Automated Test Suite Execution Record
+
+Executed via pytest:
 ```powershell
 .\venv\Scripts\pytest.exe -v
 ```
-**Empirical Output**: Exactly **254 passed** in ~108 seconds, 0 failed, 0 skipped.
-
-### 3.2 Individual Experiment Reproductions
-
-| Experiment | Target Subsystem | Command Line | Mean Latency | Primary Metric |
-|---|---|---|:---:|:---:|
-| **Exp 01** | BM25 Sparse Search | `.\venv\Scripts\python.exe experiments/experiment_01_bm25.py` | 3.67 ms | Hit@1: 0.7500, MRR: 0.7962 |
-| **Exp 02** | Dense Vector Search | `.\venv\Scripts\python.exe experiments/experiment_02_dense.py` | 17.06 ms | Hit@1: 0.7750, MRR: 0.8072 |
-| **Exp 03** | Linear Hybrid | `.\venv\Scripts\python.exe experiments/experiment_03_hybrid.py` | 23.26 ms | Hit@1: 0.7700, MRR: 0.8099 |
-| **Exp 04** | Reciprocal Rank Fusion | `.\venv\Scripts\python.exe experiments/experiment_04_rrf.py` | 23.33 ms | Hit@1: 0.7700, MRR: 0.8071 |
-| **Exp 05** | Legal Entity Boost | `.\venv\Scripts\python.exe experiments/experiment_05_entity_boost.py` | 67.60 ms | Hit@1: 0.7800, MRR: 0.8096 |
-| **Exp 06** | Cross-Encoder Reranker | `.\venv\Scripts\python.exe experiments/experiment_06_reranker.py` | 644.48 ms | Hit@1: 0.8000, MRR: 0.8263 |
-| **Exp 07** | Legal NER | `.\venv\Scripts\python.exe experiments/experiment_07_ner.py` | 42.10 ms | Exact Macro-F1: 0.8496 |
-| **Exp 08** | Intent Classification | `.\venv\Scripts\python.exe experiments/experiment_08_intent.py` | 8.40 ms | 5-Fold CV Acc: 0.7591 |
-
-### 3.3 Master Evaluation Runner
-To regenerate all summary tables, markdown reports, and CSVs across both `evaluation/results/` and `experiments/results/`:
-```powershell
-.\venv\Scripts\python.exe scripts/run_all_evaluations.py
-```
-
-### 3.4 Interactive Research Dashboard
-To launch the Streamlit dashboard offline:
-```powershell
-.\venv\Scripts\streamlit.exe run app/streamlit_app.py
-```
-
----
-
-## 4. Empirical Benchmark Reproduction Matrix
-
-### 4.1 Information Retrieval & Reranking Ablation
-
-Evaluated across 100 verified legal benchmark queries:
-
-| Configuration | Hit@1 | Hit@3 | Hit@5 | Hit@10 | MRR | NDCG@10 | Latency (ms) | Status |
-|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **1. BM25 Only** | 0.7500 | 0.8250 | 0.8350 | 0.8450 | 0.7962 | 0.6157 | 3.67 | **PASS** |
-| **2. Dense Only** | 0.7750 | 0.8250 | 0.8350 | 0.8550 | 0.8072 | 0.6429 | 17.06 | **PASS** |
-| **3. Linear Hybrid** | 0.7700 | 0.8350 | 0.8400 | 0.8500 | 0.8099 | 0.6298 | 23.26 | **PASS** |
-| **4. RRF (k=60)** | 0.7700 | 0.8300 | 0.8400 | 0.8450 | 0.8071 | 0.6244 | 23.33 | **PASS** |
-| **5. Entity Boost** | 0.7800 | 0.8250 | 0.8400 | 0.8450 | 0.8096 | 0.6492 | 67.60 | **PASS** |
-| **6. Cross-Encoder** | **0.8000** | **0.8400** | **0.8500** | **0.8550** | **0.8263** | **0.6730** | 644.48 | **PASS** |
-
-*Note on Recall@10*: Recall@10 is mathematically bounded at ~0.5064 due to 171 unpadded article alias IDs in `relevance_labels.json` (see `docs/BENCHMARK_QUALITY_REPORT.md`).
-
-### 4.2 Legal Named Entity Recognition (NER)
-
-Evaluated on 105 annotated legal queries (210 entity mentions):
-
-| Metric | Pre-Audit Baseline | Post-Audit Improved | Improvement (Delta) | Status |
-|---|:---:|:---:|:---:|:---:|
-| **Exact Macro-Precision** | 0.8004 | **0.8991** | +9.87% | **PASS** |
-| **Exact Macro-Recall** | 0.7141 | **0.8435** | +12.94% | **PASS** |
-| **Exact Macro-F1** | 0.7408 | **0.8496** | **+10.88%** | **PASS** |
-| **Exact Micro-F1** | 0.8068 | **0.8714** | +6.46% | **PASS** |
-| **PERSON F1** | **0.0000** | **0.8966** | **+89.66%** | **RESOLVED** |
-| **LEGAL_CONCEPT F1** | **0.3830** | **0.5600** | **+17.70%** | **RESOLVED** |
-
-### 4.3 Intent Classification (Zero Leakage)
-
-Evaluated on 165 queries across 6 intent classes:
-
-| Model / Protocol | Accuracy | Macro-F1 | Precision | Recall | Status |
-|---|:---:|:---:|:---:|:---:|:---:|
-| **Rule-Based Router** | 0.6364 | 0.5842 | 0.6410 | 0.6120 | **PASS** |
-| **ML (TF-IDF + Logistic Regression, 80/20)** | **0.8485** | **0.8331** | **0.8667** | **0.8350** | **PASS** |
-| **5-Fold Stratified Cross-Validation (Mean)** | **0.7591** (±0.0422) | **0.7444** (±0.0417) | **0.7812** | **0.7591** | **PASS** |
-
-### 4.4 Canonical Entity Linking
-
-Evaluated on 30 benchmark queries:
-- **In-KB Linking Accuracy**: **86.67%** (26/30 resolved correctly)
-- **Out-of-KB Rejection Accuracy**: **100.00%** (3/3 non-constitutional entities rejected)
-- Status: **PASS** (with sample size limitation noted)
-
-### 4.5 RAG Citation Validation
-- **Structural Citation Validity**: **1.0000** (Verified on offline evaluation set)
-- **Abstention Gate Reliability**: **100.00%** abstention on low-confidence/out-of-scope inputs.
-- Status: **PASS**
-
----
-
-## 5. Artifact Audit Verification
-
-All generated evaluation outputs are persisted and match bit-for-bit across both artifact directories:
-- `evaluation/results/retrieval_ablation_summary.json`
-- `evaluation/results/ner_evaluation_summary.json`
-- `evaluation/results/classification_evaluation_summary.json`
-- `evaluation/results/entity_linking_summary.json`
-- `evaluation/results/rag_citation_summary.json`
-- `evaluation/results/master_evaluation_summary.json`
-- Mirrored to: `experiments/results/`
-
-**Verdict**: The repository meets the highest scientific standard of empirical reproducibility.
+- **Total Tests Collected**: 254
+- **Passed**: **254**
+- **Failed**: 0
+- **Skipped**: 0
+- **Errors**: 0
+- **Execution Time**: **108.81s**
+- **Status**: **PASS**

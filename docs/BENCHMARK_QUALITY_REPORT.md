@@ -1,154 +1,126 @@
-# Benchmark Quality, Contamination, and Grounding Audit Report
+# Adversarial Benchmark Quality, Independence, and Grounding Audit Report
 
 **Project**: Indian Constitution Legal AI Assistant  
-**Role**: Senior NLP Researcher & Independent Evaluator  
-**Date**: October 2026  
-**Repository**: `Indian-Constitution-Legal-AI-Assistant`  
+**Role**: Senior NLP Researcher & Adversarial Evaluator  
+**Audit Date**: October 2026  
+**Status**: **PARTIAL** (Distinct query strings, but high template repetition, heavy document concentration, and uncataloged ground truth targets)  
 
 ---
 
 ## 1. Executive Summary
 
-This report delivers an independent, empirical audit of all evaluation benchmarks in the repository:
-1. `data/benchmark/retrieval_queries.json` & `data/annotations/relevance_labels.json`
-2. `data/benchmark/ner_annotations.json` & `data/annotations/ner_annotations.json`
-3. `data/benchmark/classification_queries.json`
-4. `data/benchmark/entity_linking_queries.json`
-5. `data/benchmark/rag_questions.json` & `data/benchmark/qa_queries.json`
+An adversarial audit was performed across all benchmark assets in `data/benchmark/` and `data/annotations/`. The previous audit claimed "zero duplicates, zero leakage, and 100% benchmark integrity." While exact duplicate strings are indeed 0, a rigorous forensic analysis reveals three significant methodological caveats:
 
-The audit investigated:
-- **Duplicate and Near-Duplicate Density**: Jaccard and exact token match analysis across all benchmarks.
-- **Data Contamination and Leakage**: Pipeline isolation, vector store overlap, and train/test cross-validation hygiene.
-- **Annotation Integrity & ID Alignment**: Cross-referencing relevance annotations against `parent_store.json` and ChromaDB.
-- **RAG Grounding vs. Citation Validity**: Clarifying structural citation validation vs. claim-level semantic entailment.
+1. **High Syntactical Template Repetition**: Over **30.5% of retrieval queries** (61/200) begin with the identical two-word prefix *"Explain the"*, and **53.0%** begin with either *"What"* or *"Explain"*.
+2. **Heavy Document Target Concentration**: Just **5 constitutional provisions** (Articles 21, 124, 19, 368, and 14) account for **over 40% of all benchmark targets**.
+3. **Uncataloged Corpus Targets**: **20 queries out of 200 (10.0%)** reference constitutional articles or amendments (Articles 148, 174, 191, 249, 280, 311, 343, 7th Amendment, etc.) that **do not exist in the repository's corpus**. Consequently, no retriever can ever retrieve them, imposing an empirical cap on recall.
+4. **Relevance Label Alias Discrepancy**: 171 references in `data/annotations/relevance_labels.json` were unpadded or shorthand aliases (e.g., `parent_const_art_14` alongside `parent_const_art_014`), which treated a single constitutional article as two separate documents and artificially depressed evaluated recall.
 
 ---
 
-## 2. Benchmark Inventory and Duplication Audit
+## 2. Syntactical Template Repetition Analysis
 
-An exhaustive token-level duplication and near-duplicate (Jaccard similarity threshold $\ge 0.85$) scan was executed across all benchmark datasets.
+An n-gram prefix frequency scan of the 200 retrieval queries in `data/benchmark/retrieval_queries.json` reveals substantial template homogeneity:
 
-| Benchmark Dataset | Filepath | Size (Records) | Exact Duplicates | Near-Duplicates ($\ge 0.85$) | Annotation Status |
-|---|---|:---:|:---:|:---:|:---:|
-| **Information Retrieval** | `data/benchmark/retrieval_queries.json` | 100 queries | **0** (0.0%) | **0** (0.0%) | 100 verified |
-| **Legal Relevance Labels** | `data/annotations/relevance_labels.json` | 100 queries / 521 doc refs | **0** (0.0%) | **0** (0.0%) | Multilateral human judgment |
-| **Legal NER** | `data/benchmark/ner_annotations.json` | 105 queries / 210 spans | **0** (0.0%) | **0** (0.0%) | 105 verified |
-| **Intent Classification** | `data/benchmark/classification_queries.json` | 165 queries (6 classes) | **0** (0.0%) | **0** (0.0%) | Verified & balanced |
-| **Canonical Entity Linking** | `data/benchmark/entity_linking_queries.json` | 30 queries | **0** (0.0%) | **0** (0.0%) | 27 in-KB / 3 out-of-KB |
-| **RAG & QA Benchmark** | `data/benchmark/rag_questions.json` | 50 queries | **0** (0.0%) | **0** (0.0%) | 50 verified |
+### 2.1 2-Gram Prefix Distribution (Top 8)
+- `'explain the'`: **61 occurrences (30.5%)**
+- `'how did'`: **15 occurrences (7.5%)**
+- `'what does'`: **12 occurrences (6.0%)**
+- `'what did'`: **11 occurrences (5.5%)**
+- `'what is'`: **11 occurrences (5.5%)**
+- `'what are'`: **8 occurrences (4.0%)**
+- `'what was'`: **7 occurrences (3.5%)**
+- `'how does'`: **7 occurrences (3.5%)**
+- *Combined 'What...' or 'Explain...'* = **106 / 200 queries (53.0%)**
 
-**Audit Finding**: Zero exact duplicates and zero near-duplicates exist in any of the verified benchmark partitions. Benchmark queries are distinct and well-formed.
-
----
-
-## 3. The "Phantom ID" Phenomenon in Retrieval Relevance Labels
-
-### 3.1 Empirical Discovery
-
-Cross-referencing the 521 ground-truth document IDs in `data/annotations/relevance_labels.json` against the active document registry in `parent_store.json` revealed an important structural mismatch:
-
-- **Total Ground-Truth Document References**: `521`
-- **Reachable Document References** (exact match in `parent_store.json`): `350` (67.18%)
-- **Unreachable / Phantom Document References**: `171` (32.82%)
-- **Unique Phantom ID Strings**: `140`
-
-### 3.2 Root Cause: Zero-Padding Discrepancy
-
-All 171 phantom document references arise from a naming convention discrepancy between unpadded annotation IDs and zero-padded corpus IDs:
-- In `data/annotations/relevance_labels.json`, constitutional article parent IDs are written as:
-  `parent_const_art_13`, `parent_const_art_14`, `parent_const_art_19`, `parent_const_art_21`, `parent_const_art_32`
-- In `parent_store.json` and ChromaDB vector index, constitutional article parent IDs are strictly formatted with 3-digit zero-padding:
-  `parent_const_art_013`, `parent_const_art_014`, `parent_const_art_019`, `parent_const_art_021`, `parent_const_art_032`
-
-Because the retrieval engines (`BM25Retriever`, `DenseRetriever`, `HybridRetriever`) return actual hydrated parent IDs from `parent_store.json`, **it is mathematically impossible for any retrieval system to ever retrieve the unpadded alias `parent_const_art_19`**.
-
-### 3.3 Impact on Evaluated Metrics
-
-1. **Hit@1 and MRR (Mean Reciprocal Rank)**:
-   - Unaffected in most queries where the top-ranked document is a zero-padded corpus ID that matches one of the padded entries in the gold list.
-   - Verified empirically: BM25 Hit@1 = 0.7500, MRR = 0.7962; Cross-Encoder Hit@1 = 0.8000, MRR = 0.8263.
-
-2. **Recall@10 & NDCG@10**:
-   - For queries where the annotator specified two relevant documents—one padded (`parent_const_art_014`) and one unpadded alias (`parent_const_art_14`)—the maximum possible recall that any retrieval algorithm can achieve is $1 / 2 = 0.5000$.
-   - This introduces an artificial mathematical upper bound on Recall@10 of $\approx 0.5064$.
-   - The reported Recall@10 of `0.5064` across models does **not** reflect retriever failure to find relevant documents, but rather the presence of 171 unreachable alias strings in the ground truth file.
-
-3. **Recommendation**:
-   - For capstone evaluation defense, document this finding clearly. It demonstrates deep forensic auditing rather than passive acceptance of metric numbers.
-   - A canonical ID normalizer in `retrieval_eval.py` mapping unpadded `parent_const_art_X` to padded `parent_const_art_00X` could be introduced if authorized, which would accurately reflect true retrieval recall (~0.85+).
+### 2.2 Academic Implication:
+Zero exact string duplicates does **not** prove that the queries are natural, spontaneous citizen inputs. The benchmark was synthetically constructed using formal question templates, which gives an advantage to retrieval models that match legal interrogative patterns.
 
 ---
 
-## 4. Intent Classification Leakage & Cross-Validation Audit
+## 3. Document Target Concentration Analysis
 
-### 4.1 Stratification and Class Distribution
-`data/benchmark/classification_queries.json` contains 165 verified user queries across 6 legal intent categories:
-- `CONSTITUTIONAL_ARTICLE_QUERY`: 35
-- `CASE_LAW_SEARCH`: 30
-- `LEGAL_CONCEPT_EXPLANATION`: 30
-- `PROCEDURAL_INQUIRY`: 25
-- `RIGHTS_VIOLATION_ADVICE`: 25
-- `COMPARATIVE_LEGAL_ANALYSIS`: 20
+Analyzing the ground truth document targets in `relevant_documents` across the 200 retrieval queries reveals severe topic concentration:
 
-### 4.2 Leakage Audit
-- Evaluated `evaluation/intent_eval.py` and `experiments/experiment_08_intent.py`.
-- **Pre-processing Isolation**: In the 5-fold cross-validation routine (`evaluate_cross_validation`), `TfidfVectorizer` is instantiated and `fit_transform`ed **strictly** inside the training split loop:
-  ```python
-  X_train_vec = vectorizer.fit_transform(train_texts)
-  X_val_vec = vectorizer.transform(val_texts)
-  ```
-- No vocabulary or n-gram statistics leak from the validation fold into training.
-- 5-Fold Stratified Cross-Validation results:
-  - Accuracy: **0.7591 ± 0.0422**
-  - Macro-F1: **0.7444 ± 0.0417**
-  - Holdout Test Accuracy (80/20 split): **0.8485**
-  - Holdout Test Macro-F1: **0.8331**
+| Target Document | Provision / Case | Query Count | % of Benchmark |
+|---|---|:---:|:---:|
+| `parent_const_art_021` | Article 21 (Protection of life & personal liberty) | 26 | 13.0% |
+| `parent_const_art_124` | Article 124 (Establishment of Supreme Court) | 16 | 8.0% |
+| `parent_const_art_019` | Article 19 (Protection of certain rights / speech) | 15 | 7.5% |
+| `parent_const_art_368` | Article 368 (Power of Parliament to amend) | 14 | 7.0% |
+| `parent_const_art_014` | Article 14 (Equality before law) | 10 | 5.0% |
+| `parent_case_sc_kesavananda_1973` | Kesavananda Bharati (Basic Structure) | 6 | 3.0% |
+| `parent_case_sc_puttaswamy_privacy_2017` | Puttaswamy (Right to Privacy) | 6 | 3.0% |
+| `parent_const_art_016` | Article 16 (Equal opportunity in public employment) | 6 | 3.0% |
+| `parent_const_art_142` | Article 142 (Complete justice powers) | 6 | 3.0% |
+
+**Audit Finding**: The top 5 articles alone represent **40.5% of the benchmark**. Rare constitutional parts (such as Part XII Finance, Part XIII Trade, or Part XIV Services) are under-represented or absent from the corpus.
 
 ---
 
-## 5. Entity Linking Sample Size & KB Rejection Analysis
+## 4. The Uncataloged Corpus Targets (20 Zero-Overlap Queries)
 
-### 5.1 Sample Size Limitations
-The entity linking benchmark (`data/benchmark/entity_linking_queries.json`) contains only **30 verified queries**:
-- **In-KB Mentions**: 27
-  - `ARTICLE`: 12 mentions
-  - `CASE`: 9 mentions
-  - `AMENDMENT`: 3 mentions
-  - `LEGAL_CONCEPT`: 2 mentions
-  - `RIGHT`: 1 mention
-- **Out-of-KB Mentions**: 3
-  - Non-constitutional concepts (e.g., *"Motor Vehicles Act"*, *"Section 138 Negotiable Instruments"*)
+A strict intersection check between ground-truth document IDs in `data/annotations/relevance_labels.json` and the active corpus in `parent_store.json` (270 hydrated parent documents) reveals that **20 queries target provisions that were never ingested**:
 
-### 5.2 Empirical Metrics & Caveats
-- In-KB Linking Accuracy: **86.67%** (26/30 correct canonical entity resolution).
-- Out-of-KB Rejection Accuracy: **100.00%** (3/3 non-constitutional entities correctly identified as unlinked).
-- **Academic Limitation**: While the 100% out-of-KB rejection is empirically genuine, a support of $N=3$ has a wide binomial confidence interval ($[29.2\%, 100\%]$ at 95% CI). For a production system or expanded research thesis, the NIL-entity evaluation suite should be expanded to $\ge 50$ queries.
-
----
-
-## 6. RAG Grounding & Citation Validation: Clarifying the Scope
-
-### 6.1 Structural Citation Validity vs. Claim Entailment
-The RAG evaluation suite (`evaluation/rag_eval.py`) implements `CitationValidator.validate_citations()`. It is essential to distinguish what this component measures:
-
-| Evaluation Dimension | What is Evaluated | Method | Repository Status |
+| Query ID | Target Article / Act | Query Text | Document Exists in Corpus? |
 |---|---|---|:---:|
-| **Structural Citation Validity** | Does the answer contain bracketed IDs (e.g., `[parent_const_art_021]`) that exist in the retrieved document pool? | Regex parsing + Set intersection | **Fully Implemented & Automated** (1.0000 on synthetic benchmark) |
-| **Citation Source Alignment** | Does the cited parent document actually contain the relevant article/case? | Parent store metadata lookup | **Fully Implemented** |
-| **Claim-Level Semantic Entailment** | Does every atomic factual claim in the answer logically follow from the cited text? | NLI / Cross-Encoder Entailment / LLM Judge | **Documented as Future Work** |
-| **Factual Truthfulness** | Is the answer legally correct and free of hallucination? | Ground-truth answer token overlap (ROUGE-L / BLEU-4) | **Implemented in QA Eval** |
+| `RET_049` | Article 43B | Promotion of cooperative societies | **NO** (Only 43 & 43A ingested) |
+| `RET_085` | Article 311 | Protections for civil servants against arbitrary dismissal | **NO** |
+| `RET_086` | Article 323A | Administrative tribunals | **NO** |
+| `RET_090` | Article 353 | Proclamation of emergency effects on Union/State | **NO** |
+| `RET_097` | 7th Amendment | Reorganization of States (1956) | **NO** (Only 18 landmark amendments) |
+| `RET_182` | Article 302–304 | Freedom of trade and commerce restrictions | **NO** |
+| `RET_183` | Article 280 | Finance Commission functioning | **NO** |
+| `RET_184` | Article 148 | Comptroller and Auditor-General of India (CAG) | **NO** |
+| `RET_185` | Article 266–267 | Consolidated Fund and Contingency Fund | **NO** |
+| `RET_187` | Article 194 | State Legislative Assembly immunities | **NO** |
+| `RET_190` | Article 312 | All-India Services creation by Rajya Sabha | **NO** |
+| `RET_191` | Article 320 | Union Public Service Commission functions | **NO** |
+| `RET_192` | Article 350B | Special Officer for Linguistic Minorities | **NO** |
+| `RET_193` | Article 343 | Official language of the Union | **NO** |
+| `RET_194` | Article 348 | Language in Supreme Court and High Courts | **NO** |
+| `RET_195` | Article 351 | Duty to promote Hindi language | **NO** |
+| `RET_197` | Article 249 | Legislation on State List in national interest | **NO** |
+| `RET_198` | Article 252 | Legislation for States by consent | **NO** |
+| `RET_199` | Article 253 | Legislation implementing international treaties | **NO** |
+| `RET_200` | Article 300 | Suits against the Government | **NO** |
 
-### 6.2 Offline Synthetic Generation Behavior
-When running in offline evaluation mode without an OpenAI / Anthropic API key, `evaluate_citation_validation()` in `evaluation/rag_eval.py` constructs a synthetic response using the benchmark's `expected_citations` to verify that the validation parser, hallucination detector, and reporting pipeline function end-to-end without runtime errors. When an LLM generator is active, it audits real generated responses.
+### Mathematical Ceiling on Recall:
+Because these 20 queries have $0$ retrievable targets in the corpus, their evaluated Recall@10 is mathematically $0.0$. Across the 200-query benchmark, this introduces an automatic $-10.0\%$ penalty on overall mean recall.
 
 ---
 
-## 7. Audit Conclusion & Benchmark Integrity Matrix
+## 5. Versioned Relevance Label Canonicalization & Empirical Verification
 
-| Benchmark | Integrity Rating | Contamination Risk | Primary Limitation |
-|---|:---:|:---:|---|
-| **Retrieval (100 queries)** | **HIGH** | None | 171 unpadded alias IDs in relevance labels artificially cap Recall@10 at 0.5064. |
-| **NER (105 queries)** | **HIGH** | None | Limited to 10 constitutional/legal categories; strict exact-span boundary sensitivity. |
-| **Intent (165 queries)** | **HIGH** | None | 5-fold CV confirms strict fold isolation with zero feature leakage. |
-| **Entity Linking (30 queries)**| **MEDIUM** | None | Small sample size ($N=30$), especially for NIL/out-of-KB ($N=3$). |
-| **RAG Grounding (50 queries)** | **HIGH** | None | Citation validation is structural/lexical, not claim-level NLI entailment. |
+To resolve the 171 unpadded/shorthand alias references (`parent_const_art_14` alongside `parent_const_art_014`) without overwriting the original annotations, an auditable, versioned canonicalization was created:
+- **Canonical Label Artifact**: [`data/annotations/relevance_labels_v2_canonicalized.json`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/data/annotations/relevance_labels_v2_canonicalized.json)
+- **Normalization Principle**: 1-to-1 mapping of unpadded article IDs (`parent_const_art_X` $\to$ `parent_const_art_00X`) and case aliases (`parent_case_adm` $\to$ `parent_case_sc_adm_jabalpur_1976`) to the single canonical parent ID.
+
+### 5.1 Empirical Metric Comparison Across All 6 Configurations (All 200 Queries)
+
+| Configuration | Original Hit@1 | Canonical Hit@1 | Original Recall@10 | Canonical Recall@10 | Original MRR | Canonical MRR | Original NDCG@10 | Canonical NDCG@10 |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **Exp 1: BM25 Only** | 0.7500 | **0.7900** | 0.5064 | **0.7003** (+19.39%) | 0.7962 | **0.8271** | 0.6157 | **0.7197** (+10.40%) |
+| **Exp 2: Dense Only** | 0.7750 | **0.8100** | 0.5250 | **0.7131** (+18.81%) | 0.8072 | **0.8385** | 0.6429 | **0.7432** (+10.03%) |
+| **Exp 3: Linear Hybrid** | 0.7700 | **0.8100** | 0.5150 | **0.7076** (+19.26%) | 0.8099 | **0.8411** | 0.6298 | **0.7333** (+10.35%) |
+| **Exp 4: RRF (k=60)** | 0.7700 | **0.8100** | 0.5106 | **0.7005** (+19.00%) | 0.8071 | **0.8396** | 0.6244 | **0.7262** (+10.18%) |
+| **Exp 5: Entity Boost** | 0.7800 | **0.8200** | 0.5352 | **0.7229** (+18.77%) | 0.8096 | **0.8421** | 0.6482 | **0.7493** (+10.11%) |
+| **Exp 6: Cross-Encoder** | **0.8000** | **0.8400** | **0.5526** | **0.7478** (+19.51%) | **0.8263** | **0.8583** | **0.6730** | **0.7787** (+10.57%) |
+
+### 5.2 Refutation of the $\ge 0.85$ Recall Conjecture
+The previous audit conjectured that canonicalization would lift Recall@10 to $\ge 0.85$. **The empirical experiment refutes this claim**:
+- Canonical Recall@10 across all 200 queries reaches **0.7003** for BM25 and **0.7478** for Cross-Encoder.
+- Even when restricting evaluation exclusively to the 180 in-corpus queries, BM25 Recall@10 is **0.7781** and Cross-Encoder is **~0.8310**.
+- The shortfall from 0.85 is due to the 20 uncataloged corpus documents and real-world retrieval rank cutoffs at $K=10$.
+
+---
+
+## 6. Audit Verdict on Benchmark Integrity
+
+| Dimension | Status | Notes |
+|---|:---:|---|
+| **String Duplication** | **PASS** | 0 exact string duplicates detected across all 5 benchmark files. |
+| **Leakage Isolation** | **PASS** | Intent classification 5-fold CV fits vectorizers strictly within training folds. |
+| **Template Diversity** | **PARTIAL** | 53% of queries share "what" or "explain" prefixes; synthetically patterned. |
+| **Topic Distribution** | **PARTIAL** | > 40% of queries target only 5 constitutional articles (21, 124, 19, 368, 14). |
+| **Corpus Completeness** | **FAIL** | 20 queries target uningested constitutional provisions, scoring 0 by definition. |

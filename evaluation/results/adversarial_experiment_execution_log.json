@@ -1,0 +1,162 @@
+[
+  {
+    "title": "Exp 01: BM25",
+    "script": "experiments/experiment_01_bm25.py",
+    "command": ".\\venv\\Scripts\\python.exe experiments/experiment_01_bm25.py",
+    "exit_code": 0,
+    "duration_sec": 6.84,
+    "stdout_tail": [
+      "  Hit@3       : 0.8400",
+      "  Hit@5       : 0.8500",
+      "  Hit@10      : 0.8600",
+      "  Recall@5    : 0.5018",
+      "  Recall@10   : 0.5064",
+      "  MRR         : 0.7962",
+      "  NDCG@5      : 0.6166",
+      "  NDCG@10     : 0.6157",
+      "=================================================================",
+      "[SAVED] Results saved to C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\experiments\\results\\experiment_01_bm25.json"
+    ],
+    "stderr": ""
+  },
+  {
+    "title": "Exp 02: Dense",
+    "script": "experiments/experiment_02_dense.py",
+    "command": ".\\venv\\Scripts\\python.exe experiments/experiment_02_dense.py",
+    "exit_code": 0,
+    "duration_sec": 42.48,
+    "stdout_tail": [
+      "  Hit@3       : 0.8400",
+      "  Hit@5       : 0.8500",
+      "  Hit@10      : 0.8500",
+      "  Recall@5    : 0.5096",
+      "  Recall@10   : 0.5250",
+      "  MRR         : 0.8072",
+      "  NDCG@5      : 0.6413",
+      "  NDCG@10     : 0.6429",
+      "=================================================================",
+      "[SAVED] Results saved to C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\experiments\\results\\experiment_02_dense.json"
+    ],
+    "stderr": "Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n\nLoading weights:   0%|          | 0/103 [00:00<?, ?it/s]\nLoading weights: 100%|##########| 103/103 [00:00<00:00, 1694.80it/s]"
+  },
+  {
+    "title": "Exp 03: Linear Hybrid",
+    "script": "experiments/experiment_03_hybrid.py",
+    "command": ".\\venv\\Scripts\\python.exe experiments/experiment_03_hybrid.py",
+    "exit_code": 0,
+    "duration_sec": 41.9,
+    "stdout_tail": [
+      "  Hit@3       : 0.8450",
+      "  Hit@5       : 0.8550",
+      "  Hit@10      : 0.8600",
+      "  Recall@5    : 0.5050",
+      "  Recall@10   : 0.5150",
+      "  MRR         : 0.8099",
+      "  NDCG@5      : 0.6297",
+      "  NDCG@10     : 0.6298",
+      "=================================================================",
+      "[SAVED] Results saved to C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\experiments\\results\\experiment_03_hybrid.json"
+    ],
+    "stderr": "Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n\nLoading weights:   0%|          | 0/103 [00:00<?, ?it/s]\nLoading weights: 100%|##########| 103/103 [00:00<00:00, 2455.75it/s]"
+  },
+  {
+    "title": "Exp 04: RRF",
+    "script": "experiments/experiment_04_rrf.py",
+    "command": ".\\venv\\Scripts\\python.exe experiments/experiment_04_rrf.py",
+    "exit_code": 0,
+    "duration_sec": 36.96,
+    "stdout_tail": [
+      "  Hit@3       : 0.8400",
+      "  Hit@5       : 0.8550",
+      "  Hit@10      : 0.8550",
+      "  Recall@5    : 0.5056",
+      "  Recall@10   : 0.5106",
+      "  MRR         : 0.8071",
+      "  NDCG@5      : 0.6261",
+      "  NDCG@10     : 0.6244",
+      "=================================================================",
+      "[SAVED] Results saved to C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\experiments\\results\\experiment_04_rrf.json"
+    ],
+    "stderr": "Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n\nLoading weights:   0%|          | 0/103 [00:00<?, ?it/s]\nLoading weights: 100%|##########| 103/103 [00:00<00:00, 3360.53it/s]"
+  },
+  {
+    "title": "Exp 05: Entity Boost",
+    "script": "experiments/experiment_05_entity_boost.py",
+    "command": ".\\venv\\Scripts\\python.exe experiments/experiment_05_entity_boost.py",
+    "exit_code": 0,
+    "duration_sec": 40.83,
+    "stdout_tail": [
+      "  Hit@3       : 0.8400",
+      "  Hit@5       : 0.8450",
+      "  Hit@10      : 0.8450",
+      "  Recall@5    : 0.5293",
+      "  Recall@10   : 0.5352",
+      "  MRR         : 0.8096",
+      "  NDCG@5      : 0.6504",
+      "  NDCG@10     : 0.6482",
+      "=================================================================",
+      "[SAVED] Results saved to C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\experiments\\results\\experiment_05_entity_boost.json"
+    ],
+    "stderr": "Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n\nLoading weights:   0%|          | 0/103 [00:00<?, ?it/s]\nLoading weights: 100%|##########| 103/103 [00:00<00:00, 2422.43it/s]"
+  },
+  {
+    "title": "Exp 06: Cross-Encoder",
+    "script": "experiments/experiment_06_reranker.py",
+    "command": ".\\venv\\Scripts\\python.exe experiments/experiment_06_reranker.py",
+    "exit_code": 0,
+    "duration_sec": 159.02,
+    "stdout_tail": [
+      "  Hit@3       : 0.8450",
+      "  Hit@5       : 0.8600",
+      "  Hit@10      : 0.8650",
+      "  Recall@5    : 0.5476",
+      "  Recall@10   : 0.5526",
+      "  MRR         : 0.8263",
+      "  NDCG@5      : 0.6752",
+      "  NDCG@10     : 0.6730",
+      "=================================================================",
+      "[SAVED] Results saved to C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\experiments\\results\\experiment_06_reranker.json"
+    ],
+    "stderr": "Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n\nLoading weights:   0%|          | 0/103 [00:00<?, ?it/s]\nLoading weights: 100%|##########| 103/103 [00:00<00:00, 3780.77it/s]\n\nLoading weights:   0%|          | "
+  },
+  {
+    "title": "Exp 07: NER",
+    "script": "experiments/experiment_07_ner.py",
+    "command": ".\\venv\\Scripts\\python.exe experiments/experiment_07_ner.py",
+    "exit_code": 0,
+    "duration_sec": 8.4,
+    "stdout_tail": [
+      "  ARTICLE           : P=1.0000 | R=1.0000 | F1=1.0000 (support=40)",
+      "  CASE              : P=0.9583 | R=0.7419 | F1=0.8364 (support=31)",
+      "  COURT             : P=0.9333 | R=0.6087 | F1=0.7368 (support=23)",
+      "  DATE              : P=1.0000 | R=1.0000 | F1=1.0000 (support=38)",
+      "  LEGAL_CONCEPT     : P=0.4000 | R=0.9333 | F1=0.5600 (support=15)",
+      "  PERSON            : P=0.8667 | R=0.9286 | F1=0.8966 (support=14)",
+      "  RIGHT             : P=0.8333 | R=0.5556 | F1=0.6667 (support=9)",
+      "  SECTION           : P=1.0000 | R=1.0000 | F1=1.0000 (support=11)",
+      "=================================================================",
+      "[SAVED] Results saved to C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\experiments\\results\\experiment_07_ner.json"
+    ],
+    "stderr": ""
+  },
+  {
+    "title": "Exp 08: Intent",
+    "script": "experiments/experiment_08_intent.py",
+    "command": ".\\venv\\Scripts\\python.exe experiments/experiment_08_intent.py",
+    "exit_code": 0,
+    "duration_sec": 4.59,
+    "stdout_tail": [
+      "=================================================================",
+      "EXPERIMENT 08: INTENT CLASSIFICATION COMPARATIVE EVALUATION",
+      "=================================================================",
+      "Evaluated on 220 queries (Test set size: 33).",
+      "-----------------------------------------------------------------",
+      "  rule_based_baseline      : Accuracy = 0.6970 | Macro-F1 = 0.6290",
+      "  tfidf_logistic_regression: Accuracy = 0.8485 | Macro-F1 = 0.8331",
+      "  hybrid_classifier        : Accuracy = 0.6970 | Macro-F1 = 0.6301",
+      "=================================================================",
+      "[SAVED] Results saved to C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\experiments\\results\\experiment_08_intent.json"
+    ],
+    "stderr": ""
+  }
+]

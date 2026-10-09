@@ -4,7 +4,7 @@
   "exact_span_match": true,
   "sample_count": 105,
   "requires_human_annotation_count": 0,
-  "total_latency_seconds": 3.857,
+  "total_latency_seconds": 3.788,
   "metrics": {
     "evaluation_definition": "Exact entity-level evaluation (matching: (start, end, label)). Precision = TP/(TP+FP), Recall = TP/(TP+FN), F1 = 2PR/(P+R).",
     "micro_precision": 0.8756,

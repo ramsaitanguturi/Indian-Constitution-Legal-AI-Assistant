@@ -3,8 +3,8 @@
   "status": "COMPLETED",
   "sample_count": 200,
   "requires_human_annotation_count": 0,
-  "total_latency_seconds": 4.666,
-  "avg_latency_ms": 23.33,
+  "total_latency_seconds": 5.255,
+  "avg_latency_ms": 26.27,
   "metrics": {
     "Hit@1": 0.77,
     "Hit@3": 0.84,
@@ -203,8 +203,8 @@
       "query": "How is the term State defined under Article 12 for the purpose of Part III?",
       "intent": "ARTICLE_LOOKUP",
       "gold_relevant": [
-        "parent_const_art_12",
-        "parent_const_art_012"
+        "parent_const_art_012",
+        "parent_const_art_12"
       ],
       "retrieved_top_5": [
         "parent_const_art_036",
@@ -240,8 +240,8 @@
       "query": "What does Article 21A provide regarding the fundamental right to free and compulsory education?",
       "intent": "RIGHTS_QUERY",
       "gold_relevant": [
-        "parent_const_art_021a",
-        "parent_const_art_21A"
+        "parent_const_art_21A",
+        "parent_const_art_021a"
       ],
       "retrieved_top_5": [
         "parent_const_art_021a",
@@ -343,9 +343,9 @@
       "query": "Explain the landmark ruling in Kesavananda Bharati regarding the basic structure doctrine",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_case_sc_kesavananda_1973",
         "parent_const_art_368",
-        "parent_case_kesavananda"
+        "parent_case_kesavananda",
+        "parent_case_sc_kesavananda_1973"
       ],
       "retrieved_top_5": [
         "parent_case_sc_kesavananda_1973",
@@ -382,9 +382,9 @@
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
         "parent_const_art_21",
+        "parent_const_art_021",
         "parent_case_sc_puttaswamy_privacy_2017",
-        "parent_case_puttaswamy",
-        "parent_const_art_021"
+        "parent_case_puttaswamy"
       ],
       "retrieved_top_5": [
         "parent_case_sc_puttaswamy_privacy_2017",
@@ -419,14 +419,14 @@
       "query": "What were the facts and ratio decidendi of Maneka Gandhi v Union of India on personal liberty?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_const_art_14",
-        "parent_const_art_19",
-        "parent_const_art_21",
-        "parent_case_sc_maneka_gandhi_1978",
-        "parent_const_art_021",
+        "parent_const_art_019",
         "parent_case_maneka",
+        "parent_const_art_19",
         "parent_const_art_014",
-        "parent_const_art_019"
+        "parent_const_art_21",
+        "parent_const_art_021",
+        "parent_const_art_14",
+        "parent_case_sc_maneka_gandhi_1978"
       ],
       "retrieved_top_5": [
         "parent_case_sc_maneka_gandhi_1978",
@@ -460,11 +460,11 @@
       "query": "How did Minerva Mills v Union of India reinforce Kesavananda Bharati and strike down unamendable clauses?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_case_sc_kesavananda_1973",
+        "parent_case_sc_minerva_mills_1980",
         "parent_const_art_368",
-        "parent_case_kesavananda",
+        "parent_case_sc_kesavananda_1973",
         "parent_case_minerva",
-        "parent_case_sc_minerva_mills_1980"
+        "parent_case_kesavananda"
       ],
       "retrieved_top_5": [
         "parent_case_sc_minerva_mills_1980",
@@ -531,9 +531,9 @@
       "query": "Can Parliament amend fundamental rights to destroy the basic structure of the Constitution?",
       "intent": "AMENDMENT_QUERY",
       "gold_relevant": [
-        "parent_case_sc_kesavananda_1973",
         "parent_const_art_368",
-        "parent_case_kesavananda"
+        "parent_case_kesavananda",
+        "parent_case_sc_kesavananda_1973"
       ],
       "retrieved_top_5": [
         "parent_const_art_368",
@@ -570,8 +570,8 @@
       "gold_relevant": [
         "parent_const_art_21",
         "parent_const_art_021",
-        "parent_case_puttaswamy",
-        "parent_case_sc_puttaswamy_privacy_2017"
+        "parent_case_sc_puttaswamy_privacy_2017",
+        "parent_case_puttaswamy"
       ],
       "retrieved_top_5": [
         "parent_case_sc_puttaswamy_privacy_2017",
@@ -606,14 +606,14 @@
       "query": "Explain the interconnected golden triangle of fundamental rights under Articles 14, 19 and 21",
       "intent": "LEGAL_EXPLANATION",
       "gold_relevant": [
-        "parent_const_art_14",
-        "parent_const_art_19",
-        "parent_const_art_21",
-        "parent_case_sc_maneka_gandhi_1978",
-        "parent_const_art_021",
-        "parent_const_art_014",
+        "parent_const_art_019",
         "parent_case_maneka",
-        "parent_const_art_019"
+        "parent_const_art_19",
+        "parent_const_art_014",
+        "parent_const_art_21",
+        "parent_const_art_021",
+        "parent_const_art_14",
+        "parent_case_sc_maneka_gandhi_1978"
       ],
       "retrieved_top_5": [
         "parent_const_art_021",
@@ -651,8 +651,8 @@
       "intent": "LEGAL_EXPLANATION",
       "gold_relevant": [
         "parent_const_preamble",
-        "parent_case_sc_sr_bommai_1994",
-        "parent_case_bommai"
+        "parent_case_bommai",
+        "parent_case_sc_sr_bommai_1994"
       ],
       "retrieved_top_5": [
         "parent_case_sc_sr_bommai_1994",
@@ -794,8 +794,8 @@
       "query": "What protections against discrimination on grounds of religion, race, caste, sex or place of birth are provided in Article 15?",
       "intent": "RIGHTS_QUERY",
       "gold_relevant": [
-        "parent_const_art_015",
-        "parent_const_art_15"
+        "parent_const_art_15",
+        "parent_const_art_015"
       ],
       "retrieved_top_5": [
         "parent_const_art_015",
@@ -1104,8 +1104,8 @@
       "query": "What rights are guaranteed to religious denominations to manage religious affairs under Article 26?",
       "intent": "RIGHTS_QUERY",
       "gold_relevant": [
-        "parent_const_art_26",
-        "parent_const_art_026"
+        "parent_const_art_026",
+        "parent_const_art_26"
       ],
       "retrieved_top_5": [
         "parent_const_art_026",
@@ -1139,8 +1139,8 @@
       "query": "Explain freedom as to payment of taxes for promotion of any particular religion under Article 27",
       "intent": "RIGHTS_QUERY",
       "gold_relevant": [
-        "parent_const_art_027",
-        "parent_const_art_27"
+        "parent_const_art_27",
+        "parent_const_art_027"
       ],
       "retrieved_top_5": [
         "parent_const_art_027",
@@ -1174,8 +1174,8 @@
       "query": "What provisions govern attendance at religious instruction or religious worship in educational institutions under Article 28?",
       "intent": "ARTICLE_LOOKUP",
       "gold_relevant": [
-        "parent_const_art_28",
-        "parent_const_art_028"
+        "parent_const_art_028",
+        "parent_const_art_28"
       ],
       "retrieved_top_5": [
         "parent_const_art_028",
@@ -1210,8 +1210,8 @@
       "query": "How does Article 29 protect the interests of minorities having distinct language, script or culture?",
       "intent": "RIGHTS_QUERY",
       "gold_relevant": [
-        "parent_const_art_29",
-        "parent_const_art_029"
+        "parent_const_art_029",
+        "parent_const_art_29"
       ],
       "retrieved_top_5": [
         "parent_const_art_029",
@@ -1280,8 +1280,8 @@
       "query": "What power does Parliament have to modify fundamental rights in their application to armed forces under Article 33?",
       "intent": "CONSTITUTIONAL_PROCEDURE",
       "gold_relevant": [
-        "parent_const_art_33",
-        "parent_const_art_033"
+        "parent_const_art_033",
+        "parent_const_art_33"
       ],
       "retrieved_top_5": [
         "parent_const_art_033",
@@ -1318,8 +1318,8 @@
       "query": "Explain restrictions on fundamental rights while martial law is in force in any area under Article 34",
       "intent": "CONSTITUTIONAL_PROCEDURE",
       "gold_relevant": [
-        "parent_const_art_34",
-        "parent_const_art_034"
+        "parent_const_art_034",
+        "parent_const_art_34"
       ],
       "retrieved_top_5": [
         "parent_const_art_034",
@@ -1426,8 +1426,8 @@
       "query": "Explain the application and non-justiciability of the principles contained in Part IV under Article 37",
       "intent": "LEGAL_EXPLANATION",
       "gold_relevant": [
-        "parent_const_art_37",
-        "parent_const_art_037"
+        "parent_const_art_037",
+        "parent_const_art_37"
       ],
       "retrieved_top_5": [
         "parent_const_art_037",
@@ -1572,8 +1572,8 @@
       "query": "What does Article 40 direct the State to do regarding the organisation of village panchayats?",
       "intent": "CONSTITUTIONAL_PROCEDURE",
       "gold_relevant": [
-        "parent_const_art_040",
-        "parent_const_art_40"
+        "parent_const_art_40",
+        "parent_const_art_040"
       ],
       "retrieved_top_5": [
         "parent_const_art_040",
@@ -1609,8 +1609,8 @@
       "query": "Explain the right to work, to education and to public assistance in cases of unemployment or old age under Article 41",
       "intent": "LEGAL_EXPLANATION",
       "gold_relevant": [
-        "parent_const_art_41",
-        "parent_const_art_041"
+        "parent_const_art_041",
+        "parent_const_art_41"
       ],
       "retrieved_top_5": [
         "parent_const_art_041",
@@ -1646,8 +1646,8 @@
       "query": "What provision does Article 42 make for just and humane conditions of work and maternity relief?",
       "intent": "LEGAL_EXPLANATION",
       "gold_relevant": [
-        "parent_const_art_42",
-        "parent_const_art_042"
+        "parent_const_art_042",
+        "parent_const_art_42"
       ],
       "retrieved_top_5": [
         "parent_const_art_042",
@@ -1718,8 +1718,8 @@
       "query": "What does Article 43A provide regarding participation of workers in management of industries?",
       "intent": "LEGAL_EXPLANATION",
       "gold_relevant": [
-        "parent_const_art_043a",
-        "parent_const_art_43a"
+        "parent_const_art_43a",
+        "parent_const_art_043a"
       ],
       "retrieved_top_5": [
         "parent_const_art_043a",
@@ -1792,8 +1792,8 @@
       "query": "What directive does Article 44 provide regarding securing a Uniform Civil Code for citizens?",
       "intent": "LEGAL_EXPLANATION",
       "gold_relevant": [
-        "parent_const_art_044",
-        "parent_const_art_44"
+        "parent_const_art_44",
+        "parent_const_art_044"
       ],
       "retrieved_top_5": [
         "parent_const_art_044",
@@ -1866,8 +1866,8 @@
       "query": "How does Article 46 mandate promotion of educational and economic interests of Scheduled Castes and Scheduled Tribes?",
       "intent": "LEGAL_EXPLANATION",
       "gold_relevant": [
-        "parent_const_art_46",
-        "parent_const_art_046"
+        "parent_const_art_046",
+        "parent_const_art_46"
       ],
       "retrieved_top_5": [
         "parent_const_art_046",
@@ -1902,8 +1902,8 @@
       "query": "Explain the duty of the State to raise the level of nutrition, standard of living and improve public health under Article 47",
       "intent": "LEGAL_EXPLANATION",
       "gold_relevant": [
-        "parent_const_art_47",
-        "parent_const_art_047"
+        "parent_const_art_047",
+        "parent_const_art_47"
       ],
       "retrieved_top_5": [
         "parent_const_art_047",
@@ -1940,8 +1940,8 @@
       "query": "What does Article 48 direct regarding organisation of agriculture and animal husbandry and slaughter prohibition?",
       "intent": "LEGAL_EXPLANATION",
       "gold_relevant": [
-        "parent_const_art_048",
-        "parent_const_art_48"
+        "parent_const_art_48",
+        "parent_const_art_048"
       ],
       "retrieved_top_5": [
         "parent_const_art_048",
@@ -2119,8 +2119,8 @@
       "query": "List the fundamental duties of citizens enumerated under Article 51A of Part IVA",
       "intent": "ARTICLE_LOOKUP",
       "gold_relevant": [
-        "parent_const_art_51a",
-        "parent_const_art_051a"
+        "parent_const_art_051a",
+        "parent_const_art_51a"
       ],
       "retrieved_top_5": [
         "parent_const_art_051a"
@@ -2146,9 +2146,9 @@
       "query": "How did the 42nd Amendment introduce Fundamental Duties under Part IVA?",
       "intent": "AMENDMENT_QUERY",
       "gold_relevant": [
-        "parent_const_art_51a",
         "parent_amend_042",
-        "parent_const_art_051a"
+        "parent_const_art_051a",
+        "parent_const_art_51a"
       ],
       "retrieved_top_5": [
         "parent_const_art_051a",
@@ -2187,8 +2187,8 @@
       "query": "What does Article 52 declare regarding the President of India?",
       "intent": "ARTICLE_LOOKUP",
       "gold_relevant": [
-        "parent_const_art_052",
-        "parent_const_art_52"
+        "parent_const_art_52",
+        "parent_const_art_052"
       ],
       "retrieved_top_5": [
         "parent_const_art_052",
@@ -2223,8 +2223,8 @@
       "query": "In whom is the executive power of the Union vested under Article 53?",
       "intent": "CONSTITUTIONAL_PROCEDURE",
       "gold_relevant": [
-        "parent_const_art_053",
-        "parent_const_art_53"
+        "parent_const_art_53",
+        "parent_const_art_053"
       ],
       "retrieved_top_5": [
         "parent_const_art_053",
@@ -3293,8 +3293,8 @@
       "intent": "RIGHTS_QUERY",
       "gold_relevant": [
         "parent_const_art_358",
-        "parent_const_art_19",
-        "parent_const_art_019"
+        "parent_const_art_019",
+        "parent_const_art_19"
       ],
       "retrieved_top_5": [
         "parent_const_art_358",
@@ -3328,8 +3328,8 @@
       "query": "What is the power to suspend the enforcement of fundamental rights during emergencies under Article 359 and post-44th Amendment protections?",
       "intent": "RIGHTS_QUERY",
       "gold_relevant": [
-        "parent_const_art_359",
-        "parent_amend_044"
+        "parent_amend_044",
+        "parent_const_art_359"
       ],
       "retrieved_top_5": [
         "parent_const_art_359",
@@ -3471,8 +3471,8 @@
       "query": "How did the 24th Amendment 1971 affirm Parliament power to amend fundamental rights under Article 368?",
       "intent": "AMENDMENT_QUERY",
       "gold_relevant": [
-        "parent_amend_024",
-        "parent_const_art_368"
+        "parent_const_art_368",
+        "parent_amend_024"
       ],
       "retrieved_top_5": [
         "parent_amend_024",
@@ -3580,8 +3580,8 @@
       "query": "How did the 44th Amendment Act 1978 restore civil liberties, safeguard Article 21, and remove the right to property from Part III?",
       "intent": "AMENDMENT_QUERY",
       "gold_relevant": [
-        "parent_amend_044",
-        "parent_const_art_300a"
+        "parent_const_art_300a",
+        "parent_amend_044"
       ],
       "retrieved_top_5": [
         "parent_const_art_019",
@@ -3655,8 +3655,8 @@
       "query": "What was the reduction of voting age from 21 to 18 years under the 61st Amendment Act 1988?",
       "intent": "AMENDMENT_QUERY",
       "gold_relevant": [
-        "parent_amend_061",
-        "parent_const_art_326"
+        "parent_const_art_326",
+        "parent_amend_061"
       ],
       "retrieved_top_5": [
         "parent_amend_061",
@@ -3954,10 +3954,10 @@
       "intent": "AMENDMENT_QUERY",
       "gold_relevant": [
         "parent_const_art_16",
-        "parent_const_art_016",
         "parent_const_art_015",
+        "parent_const_art_15",
         "parent_amend_103",
-        "parent_const_art_15"
+        "parent_const_art_016"
       ],
       "retrieved_top_5": [
         "parent_case_sc_janhit_abhiyan_2022",
@@ -4065,9 +4065,9 @@
       "query": "What did the Supreme Court rule in Shankari Prasad Singh Deo v Union of India regarding constitutional amendment validity?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
+        "parent_const_art_368",
         "parent_case_shankari",
-        "parent_case_sc_shankari_prasad_1951",
-        "parent_const_art_368"
+        "parent_case_sc_shankari_prasad_1951"
       ],
       "retrieved_top_5": [
         "parent_case_sc_shankari_prasad_1951",
@@ -4102,8 +4102,8 @@
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
         "parent_case_sajjan",
-        "parent_case_sc_sajjan_singh_1965",
-        "parent_const_art_368"
+        "parent_const_art_368",
+        "parent_case_sc_sajjan_singh_1965"
       ],
       "retrieved_top_5": [
         "parent_case_sc_sajjan_singh_1965",
@@ -4139,9 +4139,9 @@
       "query": "What was held in IC Golak Nath v State of Punjab regarding Parliament inability to abridge Part III rights?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_const_art_368",
         "parent_case_sc_golak_nath_1967",
         "parent_case_golak",
+        "parent_const_art_368",
         "parent_const_art_13",
         "parent_const_art_013"
       ],
@@ -4178,8 +4178,8 @@
       "query": "Explain how Indira Nehru Gandhi v Raj Narain applied the basic structure doctrine to strike down the 39th Amendment",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_case_sc_indira_gandhi_1975",
-        "parent_case_indira"
+        "parent_case_indira",
+        "parent_case_sc_indira_gandhi_1975"
       ],
       "retrieved_top_5": [
         "parent_case_sc_indira_gandhi_1975",
@@ -4288,9 +4288,9 @@
       "query": "What narrow interpretation of Article 21 and procedure established by law was adopted in AK Gopalan v State of Madras?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_case_sc_ak_gopalan_1950",
         "parent_const_art_021",
         "parent_const_art_21",
+        "parent_case_sc_ak_gopalan_1950",
         "parent_case_ak"
       ],
       "retrieved_top_5": [
@@ -4326,10 +4326,10 @@
       "query": "How did Kharak Singh v State of Uttar Pradesh examine police surveillance and personal liberty under Article 21?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_const_art_021",
+        "parent_case_sc_kharak_singh_1962",
         "parent_case_kharak",
-        "parent_const_art_21",
-        "parent_case_sc_kharak_singh_1962"
+        "parent_const_art_021",
+        "parent_const_art_21"
       ],
       "retrieved_top_5": [
         "parent_case_sc_kharak_singh_1963",
@@ -4364,9 +4364,9 @@
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
         "parent_case_sunil",
-        "parent_case_sc_sunil_batra_1978",
+        "parent_const_art_21",
         "parent_const_art_021",
-        "parent_const_art_21"
+        "parent_case_sc_sunil_batra_1978"
       ],
       "retrieved_top_5": [
         "parent_case_sc_sunil_batra_1978",
@@ -4402,9 +4402,9 @@
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
         "parent_const_art_021",
-        "parent_case_olga",
+        "parent_const_art_21",
         "parent_case_sc_olga_tellis_1985",
-        "parent_const_art_21"
+        "parent_case_olga"
       ],
       "retrieved_top_5": [
         "parent_case_sc_olga_tellis_1985",
@@ -4440,10 +4440,10 @@
       "query": "What did Francis Coralie Mullin hold regarding right to life with human dignity under Article 21?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
+        "parent_case_sc_francis_coralie_1981",
         "parent_case_francis",
-        "parent_const_art_021",
         "parent_const_art_21",
-        "parent_case_sc_francis_coralie_1981"
+        "parent_const_art_021"
       ],
       "retrieved_top_5": [
         "parent_case_sc_francis_coralie_1981",
@@ -4479,11 +4479,11 @@
       "query": "How did Bandhua Mukti Morcha v Union of India utilize public interest litigation to free bonded labourers?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_const_art_21",
-        "parent_const_art_023",
-        "parent_case_bandhua",
-        "parent_const_art_021",
         "parent_case_sc_bandhua_mukti_1984",
+        "parent_case_bandhua",
+        "parent_const_art_21",
+        "parent_const_art_021",
+        "parent_const_art_023",
         "parent_const_art_23"
       ],
       "retrieved_top_5": [
@@ -4519,10 +4519,10 @@
       "query": "What guidelines on handcuffing and prisoner dignity were issued in Prem Shankar Shukla v Delhi Administration?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_case_sc_prem_shankar_1980",
+        "parent_const_art_21",
         "parent_const_art_021",
-        "parent_case_prem",
-        "parent_const_art_21"
+        "parent_case_sc_prem_shankar_1980",
+        "parent_case_prem"
       ],
       "retrieved_top_5": [
         "parent_case_sc_sunil_batra_1978",
@@ -4557,10 +4557,10 @@
       "query": "What did the Supreme Court hold in State of Madras v Champakam Dorairajan regarding reservation and directive principles?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_case_champakam",
-        "parent_case_sc_champakam_dorairajan_1951",
         "parent_const_art_015",
-        "parent_const_art_15"
+        "parent_case_sc_champakam_dorairajan_1951",
+        "parent_const_art_15",
+        "parent_case_champakam"
       ],
       "retrieved_top_5": [
         "parent_case_sc_champakam_1951",
@@ -4596,9 +4596,9 @@
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
         "parent_case_sc_ep_royappa_1974",
-        "parent_const_art_014",
         "parent_const_art_14",
-        "parent_case_ep"
+        "parent_case_ep",
+        "parent_const_art_014"
       ],
       "retrieved_top_5": [
         "parent_case_sc_royappa_1974",
@@ -4632,10 +4632,10 @@
       "query": "What were the major rulings in Indra Sawhney v Union of India regarding 27 percent OBC reservation, creamy layer, and 50 percent limit?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_case_indra",
+        "parent_case_sc_indra_sawhney_1992",
         "parent_const_art_16",
-        "parent_const_art_016",
-        "parent_case_sc_indra_sawhney_1992"
+        "parent_case_indra",
+        "parent_const_art_016"
       ],
       "retrieved_top_5": [
         "parent_case_sc_indra_sawhney_1992",
@@ -4669,10 +4669,10 @@
       "query": "How did M Nagaraj v Union of India evaluate constitutional amendments regarding reservation in promotions for SC and ST?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
+        "parent_case_sc_m_nagaraj_2006",
         "parent_case_m",
         "parent_const_art_16",
-        "parent_const_art_016",
-        "parent_case_sc_m_nagaraj_2006"
+        "parent_const_art_016"
       ],
       "retrieved_top_5": [
         "parent_case_sc_nagaraj_2006",
@@ -4707,9 +4707,9 @@
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
         "parent_const_art_16",
-        "parent_const_art_016",
+        "parent_case_jarnail",
         "parent_case_sc_jarnail_singh_2018",
-        "parent_case_jarnail"
+        "parent_const_art_016"
       ],
       "retrieved_top_5": [
         "parent_case_sc_jarnail_singh_2018",
@@ -4741,9 +4741,9 @@
       "query": "Explain the constitutional validity of the 103rd Amendment EWS reservation upheld in Janhit Abhiyan v Union of India",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_case_janhit",
+        "parent_case_sc_janhit_abhiyan_2022",
         "parent_amend_103",
-        "parent_case_sc_janhit_abhiyan_2022"
+        "parent_case_janhit"
       ],
       "retrieved_top_5": [
         "parent_case_sc_janhit_abhiyan_2022",
@@ -4778,10 +4778,10 @@
       "query": "What test for reasonable restrictions on pre-censorship of press was established in Romesh Thappar v State of Madras?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
+        "parent_case_sc_romesh_thappar_1950",
         "parent_case_romesh",
-        "parent_const_art_19",
         "parent_const_art_019",
-        "parent_case_sc_romesh_thappar_1950"
+        "parent_const_art_19"
       ],
       "retrieved_top_5": [
         "parent_case_sc_romesh_thappar_1950",
@@ -4815,10 +4815,10 @@
       "query": "Explain the ruling in Brij Bhushan v State of Delhi regarding freedom of speech and pre-censorship of periodicals",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_const_art_19",
+        "parent_case_brij",
         "parent_case_sc_brij_bhushan_1950",
         "parent_const_art_019",
-        "parent_case_brij"
+        "parent_const_art_19"
       ],
       "retrieved_top_5": [
         "parent_case_sc_brij_bhushan_1950",
@@ -4849,9 +4849,9 @@
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
         "parent_case_sc_bennett_coleman_1972",
-        "parent_case_bennett",
+        "parent_const_art_019",
         "parent_const_art_19",
-        "parent_const_art_019"
+        "parent_case_bennett"
       ],
       "retrieved_top_5": [
         "parent_case_sc_bennett_coleman_1973",
@@ -4885,10 +4885,10 @@
       "query": "Explain the invalidation of page price regulations on newspapers in Sakal Papers v Union of India",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_const_art_19",
-        "parent_case_sakal",
+        "parent_case_sc_sakal_papers_1962",
         "parent_const_art_019",
-        "parent_case_sc_sakal_papers_1962"
+        "parent_const_art_19",
+        "parent_case_sakal"
       ],
       "retrieved_top_5": [
         "parent_case_sc_sakal_papers_1962",
@@ -4920,8 +4920,8 @@
       "gold_relevant": [
         "parent_case_sc_shreya_singhal_2015",
         "parent_case_shreya",
-        "parent_const_art_19",
-        "parent_const_art_019"
+        "parent_const_art_019",
+        "parent_const_art_19"
       ],
       "retrieved_top_5": [
         "parent_case_sc_shreya_singhal_2015",
@@ -4956,10 +4956,10 @@
       "query": "Explain the judgment in Anuradha Bhasin v Union of India regarding internet shutdowns and press freedom in Jammu & Kashmir",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_case_anuradha",
         "parent_case_sc_anuradha_bhasin_2020",
-        "parent_const_art_19",
-        "parent_const_art_019"
+        "parent_const_art_019",
+        "parent_case_anuradha",
+        "parent_const_art_19"
       ],
       "retrieved_top_5": [
         "parent_case_sc_anuradha_bhasin_2020",
@@ -4993,12 +4993,12 @@
       "query": "What is the essential religious practices test formulated in Commissioner Hindu Religious Endowments Madras v Sri Lakshmindra Thirtha Swamiar Shirur Mutt?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_const_art_26",
-        "parent_const_art_026",
         "parent_case_sc_shirur_mutt_1954",
-        "parent_const_art_25",
+        "parent_case_shirur",
         "parent_const_art_025",
-        "parent_case_shirur"
+        "parent_const_art_026",
+        "parent_const_art_25",
+        "parent_const_art_26"
       ],
       "retrieved_top_5": [
         "parent_case_sc_shirur_mutt_1954",
@@ -5032,9 +5032,9 @@
       "query": "What did the Supreme Court decide in Dr M Ismail Faruqui v Union of India regarding state acquisition of places of worship and mosques?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_case_sc_ismail_faruqui_1994",
-        "parent_const_art_025",
         "parent_case_ismail",
+        "parent_const_art_025",
+        "parent_case_sc_ismail_faruqui_1994",
         "parent_const_art_25"
       ],
       "retrieved_top_5": [
@@ -5074,10 +5074,10 @@
       "query": "Explain the constitutional invalidation of instant triple talaq in Shayara Bano v Union of India",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_case_sc_shayara_bano_2017",
-        "parent_const_art_014",
         "parent_const_art_14",
-        "parent_case_shayara"
+        "parent_case_shayara",
+        "parent_const_art_014",
+        "parent_case_sc_shayara_bano_2017"
       ],
       "retrieved_top_5": [
         "parent_case_sc_shayara_bano_2017",
@@ -5113,12 +5113,12 @@
       "query": "What was ruled in Indian Young Lawyers Association v State of Kerala regarding women entry into Sabarimala Temple?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_case_sabarimala",
-        "parent_const_art_14",
+        "parent_const_art_025",
         "parent_case_sc_sabarimala_2018",
         "parent_const_art_014",
+        "parent_case_sabarimala",
         "parent_const_art_25",
-        "parent_const_art_025"
+        "parent_const_art_14"
       ],
       "retrieved_top_5": [
         "parent_case_sc_sabarimala_2018",
@@ -5150,12 +5150,12 @@
       "query": "How did Bijoe Emmanuel v State of Kerala protect Jehovah Witnesses students refusing to sing the National Anthem?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_const_art_19",
-        "parent_const_art_25",
         "parent_const_art_019",
+        "parent_const_art_19",
         "parent_const_art_025",
+        "parent_case_sc_bijoe_emmanuel_1986",
         "parent_case_bijoe",
-        "parent_case_sc_bijoe_emmanuel_1986"
+        "parent_const_art_25"
       ],
       "retrieved_top_5": [
         "parent_case_sc_bijoe_emmanuel_1986",
@@ -5190,9 +5190,9 @@
       "query": "Explain the First Judges Case SP Gupta v Union of India regarding executive primacy in judicial appointments",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
+        "parent_case_sp",
         "parent_case_sc_sp_gupta_1981",
-        "parent_const_art_124",
-        "parent_case_sp"
+        "parent_const_art_124"
       ],
       "retrieved_top_5": [
         "parent_case_sc_first_judges_1981",
@@ -5223,8 +5223,8 @@
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
         "parent_case_sc_scara_second_judges_1993",
-        "parent_const_art_124",
-        "parent_case_scara"
+        "parent_case_scara",
+        "parent_const_art_124"
       ],
       "retrieved_top_5": [
         "parent_case_sc_second_judges_1993",
@@ -5256,10 +5256,10 @@
       "query": "Explain the advisory opinion in the Third Judges Case Special Reference 1 of 1998 on consultation procedures",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_case_third",
-        "parent_const_art_143",
+        "parent_case_sc_third_judges_1998",
         "parent_const_art_124",
-        "parent_case_sc_third_judges_1998"
+        "parent_case_third",
+        "parent_const_art_143"
       ],
       "retrieved_top_5": [
         "parent_case_sc_third_judges_1998",
@@ -5293,10 +5293,10 @@
       "query": "Why did the Supreme Court strike down the National Judicial Appointments Commission in the Fourth Judges Case 2015?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_amend_099",
         "parent_case_njac",
-        "parent_case_sc_njac_fourth_judges_2015",
-        "parent_const_art_124"
+        "parent_amend_099",
+        "parent_const_art_124",
+        "parent_case_sc_njac_fourth_judges_2015"
       ],
       "retrieved_top_5": [
         "parent_amend_099",
@@ -5331,9 +5331,9 @@
       "query": "What was the ruling and famous dissent of Justice HR Khanna in ADM Jabalpur v Shivkant Shukla on habeas corpus during emergency?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_case_adm",
         "parent_const_art_21",
         "parent_const_art_021",
+        "parent_case_adm",
         "parent_case_sc_adm_jabalpur_1976",
         "parent_const_art_359"
       ],
@@ -5371,9 +5371,9 @@
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
         "parent_const_art_021",
+        "parent_const_art_21",
         "parent_case_sc_dk_basu_1997",
-        "parent_case_dk",
-        "parent_const_art_21"
+        "parent_case_dk"
       ],
       "retrieved_top_5": [
         "parent_case_sc_dk_basu_1997",
@@ -5406,13 +5406,13 @@
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
         "parent_case_vishaka",
-        "parent_const_art_14",
+        "parent_const_art_019",
         "parent_const_art_19",
+        "parent_case_sc_vishaka_1997",
+        "parent_const_art_014",
         "parent_const_art_21",
         "parent_const_art_021",
-        "parent_const_art_014",
-        "parent_const_art_019",
-        "parent_case_sc_vishaka_1997"
+        "parent_const_art_14"
       ],
       "retrieved_top_5": [
         "parent_case_sc_vishaka_1997",
@@ -5446,14 +5446,14 @@
       "query": "How did Navtej Singh Johar v Union of India decriminalize consensual homosexual relations under Section 377 IPC?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_const_art_14",
-        "parent_case_navtej",
         "parent_case_sc_navtej_johar_2018",
-        "parent_const_art_21",
-        "parent_const_art_021",
-        "parent_const_art_014",
         "parent_const_art_015",
-        "parent_const_art_15"
+        "parent_case_navtej",
+        "parent_const_art_014",
+        "parent_const_art_15",
+        "parent_const_art_021",
+        "parent_const_art_21",
+        "parent_const_art_14"
       ],
       "retrieved_top_5": [
         "parent_case_sc_navtej_johar_2018",
@@ -5483,12 +5483,12 @@
       "query": "Explain the striking down of criminal adultery in Section 497 IPC as unconstitutional in Joseph Shine v Union of India",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_const_art_14",
+        "parent_case_joseph",
+        "parent_case_sc_joseph_shine_2018",
+        "parent_const_art_014",
         "parent_const_art_21",
         "parent_const_art_021",
-        "parent_const_art_014",
-        "parent_case_joseph",
-        "parent_case_sc_joseph_shine_2018"
+        "parent_const_art_14"
       ],
       "retrieved_top_5": [
         "parent_case_sc_joseph_shine_2018",
@@ -5522,9 +5522,9 @@
       "query": "What was held in Common Cause A Registered Society v Union of India regarding passive euthanasia and living wills?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_case_sc_common_cause_2018",
         "parent_const_art_021",
         "parent_const_art_21",
+        "parent_case_sc_common_cause_2018",
         "parent_case_common"
       ],
       "retrieved_top_5": [
@@ -5561,8 +5561,8 @@
       "gold_relevant": [
         "parent_case_aruna",
         "parent_const_art_021",
-        "parent_case_sc_aruna_shanbaug_2011",
-        "parent_const_art_21"
+        "parent_const_art_21",
+        "parent_case_sc_aruna_shanbaug_2011"
       ],
       "retrieved_top_5": [
         "parent_case_sc_aruna_shanbaug_2011",
@@ -5594,12 +5594,12 @@
       "query": "What did Animal Welfare Board of India v A Nagaraja hold regarding prevention of animal cruelty in Jallikattu under Article 21?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_case_jallikattu",
-        "parent_const_art_51a",
-        "parent_const_art_051a",
+        "parent_case_sc_jallikattu_2014",
         "parent_const_art_21",
         "parent_const_art_021",
-        "parent_case_sc_jallikattu_2014"
+        "parent_const_art_51a",
+        "parent_const_art_051a",
+        "parent_case_jallikattu"
       ],
       "retrieved_top_5": [
         "parent_case_sc_jallikattu_2014",
@@ -5633,12 +5633,12 @@
       "query": "Explain the unconstitutionality of involuntary narco-analysis and brain mapping under Article 20(3) and 21 in Selvi v State of Karnataka",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
+        "parent_case_sc_selvi_2010",
         "parent_case_selvi",
-        "parent_const_art_20",
         "parent_const_art_21",
-        "parent_const_art_020",
         "parent_const_art_021",
-        "parent_case_sc_selvi_2010"
+        "parent_const_art_020",
+        "parent_const_art_20"
       ],
       "retrieved_top_5": [
         "parent_const_art_020",
@@ -5674,10 +5674,10 @@
       "query": "What principles on governor pardoning power and judicial review were established in KM Nanavati v State of Bombay?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_const_art_142",
         "parent_const_art_161",
+        "parent_case_sc_nanavati_1961",
         "parent_case_nanavati",
-        "parent_case_sc_nanavati_1961"
+        "parent_const_art_142"
       ],
       "retrieved_top_5": [
         "parent_const_art_072",
@@ -5714,10 +5714,10 @@
       "query": "How did Lily Thomas v Union of India strike down Section 8(4) RPA to disqualify convicted lawmakers immediately?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_case_sc_lily_thomas_2013",
+        "parent_const_art_191",
         "parent_case_lily",
         "parent_const_art_102",
-        "parent_const_art_191"
+        "parent_case_sc_lily_thomas_2013"
       ],
       "retrieved_top_5": [
         "parent_case_sc_lily_thomas_2013",
@@ -5753,9 +5753,9 @@
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
         "parent_case_adr",
+        "parent_const_art_019",
         "parent_case_sc_adr_voter_rights_2002",
-        "parent_const_art_19",
-        "parent_const_art_019"
+        "parent_const_art_19"
       ],
       "retrieved_top_5": [
         "parent_case_sc_adr_2002",
@@ -5785,10 +5785,10 @@
       "query": "Explain the introduction of the None of the Above NOTA option in ballot papers in PUCL v Union of India 2013",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_case_pucl",
-        "parent_const_art_19",
         "parent_const_art_019",
-        "parent_case_sc_pucl_nota_2013"
+        "parent_case_pucl",
+        "parent_case_sc_pucl_nota_2013",
+        "parent_const_art_19"
       ],
       "retrieved_top_5": [
         "parent_case_sc_pucl_nota_2013",
@@ -5823,9 +5823,9 @@
       "query": "What did Kihoto Hollohan v Zachillhu hold regarding the Speaker powers under Tenth Schedule and judicial review?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
+        "parent_amend_052",
         "parent_case_kihoto",
-        "parent_case_sc_kihoto_hollohan_1992",
-        "parent_amend_052"
+        "parent_case_sc_kihoto_hollohan_1992"
       ],
       "retrieved_top_5": [
         "parent_case_sc_kihoto_hollohan_1992",
@@ -5863,8 +5863,8 @@
       "gold_relevant": [
         "parent_const_art_163",
         "parent_const_art_174",
-        "parent_case_nabam",
-        "parent_case_sc_nabam_rebia_2016"
+        "parent_case_sc_nabam_rebia_2016",
+        "parent_case_nabam"
       ],
       "retrieved_top_5": [
         "parent_case_sc_punjab_governor_2023",
@@ -5901,9 +5901,9 @@
       "query": "What guidelines on Governor discretionary powers during floor tests were established in Subhash Desai v Principal Secretary Maharashtra 2023?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_const_art_163",
+        "parent_case_subhash",
         "parent_case_sc_subhash_desai_2023",
-        "parent_case_subhash"
+        "parent_const_art_163"
       ],
       "retrieved_top_5": [
         "parent_case_sc_punjab_governor_2023",
@@ -5938,9 +5938,9 @@
       "query": "How did Government of NCT of Delhi v Union of India 2018 interpret the constitutional status and powers of the elected Delhi Government?",
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
-        "parent_case_nct",
+        "parent_const_art_239aa",
         "parent_case_sc_nct_delhi_2018",
-        "parent_const_art_239aa"
+        "parent_case_nct"
       ],
       "retrieved_top_5": [
         "parent_case_sc_nct_delhi_2018",
@@ -5975,8 +5975,8 @@
       "intent": "CASE_LAW_QUERY",
       "gold_relevant": [
         "parent_const_art_356",
-        "parent_case_state",
-        "parent_case_sc_state_of_rajasthan_1977"
+        "parent_case_sc_state_of_rajasthan_1977",
+        "parent_case_state"
       ],
       "retrieved_top_5": [
         "parent_case_sc_sr_bommai_1994",
@@ -6010,14 +6010,14 @@
       "query": "How do Articles 14, 19, and 21 interact with Kesavananda Bharati to safeguard fundamental rights against amendment?",
       "intent": "MULTI_DOCUMENT_QUERY",
       "gold_relevant": [
-        "parent_const_art_14",
-        "parent_case_sc_kesavananda_1973",
+        "parent_const_art_019",
         "parent_const_art_19",
-        "parent_case_kesavananda",
+        "parent_const_art_014",
+        "parent_case_sc_kesavananda_1973",
         "parent_const_art_21",
         "parent_const_art_021",
-        "parent_const_art_014",
-        "parent_const_art_019"
+        "parent_case_kesavananda",
+        "parent_const_art_14"
       ],
       "retrieved_top_5": [
         "parent_const_art_013",
@@ -6056,8 +6056,8 @@
       "intent": "CASE_COMPARISON",
       "gold_relevant": [
         "parent_const_art_032",
-        "parent_const_art_226",
-        "parent_const_art_32"
+        "parent_const_art_32",
+        "parent_const_art_226"
       ],
       "retrieved_top_5": [
         "parent_const_art_226",
@@ -6094,10 +6094,10 @@
       "query": "How did the 42nd Amendment attempt to prioritize Directive Principles over Fundamental Rights and how did Minerva Mills strike it down?",
       "intent": "MULTI_DOCUMENT_QUERY",
       "gold_relevant": [
-        "parent_case_minerva",
-        "parent_case_sc_minerva_mills_1980",
+        "parent_const_art_368",
         "parent_amend_042",
-        "parent_const_art_368"
+        "parent_case_sc_minerva_mills_1980",
+        "parent_case_minerva"
       ],
       "retrieved_top_5": [
         "parent_const_art_031c",
@@ -6132,11 +6132,11 @@
       "query": "Explain the evolution of right to education from Mohini Jain and Unni Krishnan to the 86th Amendment and Article 21A",
       "intent": "MULTI_DOCUMENT_QUERY",
       "gold_relevant": [
-        "parent_const_art_21a",
-        "parent_case_puttaswamy",
-        "parent_case_sc_puttaswamy_privacy_2017",
         "parent_const_art_021a",
-        "parent_amend_086"
+        "parent_amend_086",
+        "parent_case_sc_puttaswamy_privacy_2017",
+        "parent_case_puttaswamy",
+        "parent_const_art_21a"
       ],
       "retrieved_top_5": [
         "parent_const_art_021a",
@@ -6168,12 +6168,12 @@
       "query": "Compare the constitutional tests for creamy layer exclusion in Indra Sawhney with the quantifiable backwardness requirements in M Nagaraj",
       "intent": "CASE_COMPARISON",
       "gold_relevant": [
+        "parent_case_sc_indra_sawhney_1992",
+        "parent_case_sc_m_nagaraj_2006",
         "parent_case_m",
         "parent_const_art_16",
-        "parent_case_sc_m_nagaraj_2006",
-        "parent_const_art_016",
         "parent_case_indra",
-        "parent_case_sc_indra_sawhney_1992"
+        "parent_const_art_016"
       ],
       "retrieved_top_5": [
         "parent_case_sc_indra_sawhney_1992",
@@ -6242,11 +6242,11 @@
       "query": "How did the Puttaswamy privacy judgment overrule MP Sharma 1954 and Kharak Singh 1962?",
       "intent": "PRECEDENT_QUERY",
       "gold_relevant": [
+        "parent_case_kharak",
+        "parent_case_sc_puttaswamy_privacy_2017",
         "parent_case_puttaswamy",
         "parent_case_sc_kharak_singh_1962",
         "parent_const_art_21",
-        "parent_case_sc_puttaswamy_privacy_2017",
-        "parent_case_kharak",
         "parent_const_art_021"
       ],
       "retrieved_top_5": [
@@ -6277,10 +6277,10 @@
       "query": "Explain the three-pronged proportionality test for State limitations on fundamental rights under Article 21 formulated in Puttaswamy",
       "intent": "LEGAL_EXPLANATION",
       "gold_relevant": [
+        "parent_const_art_21",
         "parent_const_art_021",
         "parent_case_sc_puttaswamy_privacy_2017",
-        "parent_case_puttaswamy",
-        "parent_const_art_21"
+        "parent_case_puttaswamy"
       ],
       "retrieved_top_5": [
         "parent_const_art_012",
@@ -6319,12 +6319,12 @@
       "query": "How did Maneka Gandhi overrule the strict literal interpretation of personal liberty established in AK Gopalan?",
       "intent": "PRECEDENT_QUERY",
       "gold_relevant": [
-        "parent_const_art_21",
-        "parent_case_sc_maneka_gandhi_1978",
-        "parent_case_ak",
-        "parent_const_art_021",
         "parent_case_maneka",
-        "parent_case_sc_ak_gopalan_1950"
+        "parent_const_art_21",
+        "parent_const_art_021",
+        "parent_case_sc_ak_gopalan_1950",
+        "parent_case_sc_maneka_gandhi_1978",
+        "parent_case_ak"
       ],
       "retrieved_top_5": [
         "parent_case_sc_maneka_gandhi_1978",
@@ -6430,9 +6430,9 @@
       "query": "What are the constitutional requirements for a Money Bill under Article 110 and judicial review of Speaker certification?",
       "intent": "CONSTITUTIONAL_PROCEDURE",
       "gold_relevant": [
-        "parent_const_art_110",
+        "parent_case_puttaswamy",
         "parent_case_sc_puttaswamy_privacy_2017",
-        "parent_case_puttaswamy"
+        "parent_const_art_110"
       ],
       "retrieved_top_5": [
         "parent_const_art_110",
@@ -6468,11 +6468,11 @@
       "query": "Compare the judicial appointment mechanisms under the collegium system and the invalidated NJAC Act under Article 124",
       "intent": "CASE_COMPARISON",
       "gold_relevant": [
-        "parent_case_sc_scara_second_judges_1993",
-        "parent_case_scara",
-        "parent_case_sc_njac_fourth_judges_2015",
         "parent_case_njac",
-        "parent_const_art_124"
+        "parent_case_sc_scara_second_judges_1993",
+        "parent_case_sc_njac_fourth_judges_2015",
+        "parent_const_art_124",
+        "parent_case_scara"
       ],
       "retrieved_top_5": [
         "parent_const_art_124",
@@ -6506,12 +6506,12 @@
       "query": "How does the doctrine of basic structure protect secularism, democracy, judicial review, and rule of law?",
       "intent": "LEGAL_EXPLANATION",
       "gold_relevant": [
-        "parent_case_sc_kesavananda_1973",
-        "parent_case_kesavananda",
         "parent_case_sc_sr_bommai_1994",
-        "parent_case_sr",
+        "parent_case_sc_minerva_mills_1980",
+        "parent_case_sc_kesavananda_1973",
         "parent_case_minerva",
-        "parent_case_sc_minerva_mills_1980"
+        "parent_case_kesavananda",
+        "parent_case_sr"
       ],
       "retrieved_top_5": [
         "parent_case_sc_indira_gandhi_1975",
@@ -6550,8 +6550,8 @@
       "intent": "LEGAL_EXPLANATION",
       "gold_relevant": [
         "parent_const_preamble",
-        "parent_case_sc_kesavananda_1973",
-        "parent_case_kesavananda"
+        "parent_case_kesavananda",
+        "parent_case_sc_kesavananda_1973"
       ],
       "retrieved_top_5": [
         "parent_const_preamble",
@@ -6621,8 +6621,8 @@
       "query": "What restrictions on freedom of trade and commerce can be imposed by Parliament and State legislatures under Articles 302 to 304?",
       "intent": "CONSTITUTIONAL_PROCEDURE",
       "gold_relevant": [
-        "parent_const_art_304",
-        "parent_const_art_302"
+        "parent_const_art_302",
+        "parent_const_art_304"
       ],
       "retrieved_top_5": [
         "parent_const_art_301",
@@ -6841,8 +6841,8 @@
       "query": "Explain the constitutional procedure for impeachment and removal of the President of India under Article 61",
       "intent": "CONSTITUTIONAL_PROCEDURE",
       "gold_relevant": [
-        "parent_const_art_61",
-        "parent_const_art_061"
+        "parent_const_art_061",
+        "parent_const_art_61"
       ],
       "retrieved_top_5": [
         "parent_const_art_061",

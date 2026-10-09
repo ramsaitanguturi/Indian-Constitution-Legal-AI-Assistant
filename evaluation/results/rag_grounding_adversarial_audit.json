@@ -1,0 +1,140 @@
+{
+  "latencies": {
+    "bm25": {
+      "mean": 3.363435000210302,
+      "median": 3.0192500016710255,
+      "p95": 4.43367000152648,
+      "min": 2.6761999979498796,
+      "max": 4.7731999948155135,
+      "std": 0.6258537779547656
+    },
+    "dense": {
+      "mean": 24.044729999877745,
+      "median": 19.786299995757872,
+      "p95": 63.833744997464244,
+      "min": 15.921799997158814,
+      "max": 73.31369999883464,
+      "std": 14.91642568976572
+    },
+    "rerank": {
+      "mean": 1320.702970000275,
+      "median": 891.6395500018552,
+      "p95": 1390.669315002021,
+      "min": 793.560800004343,
+      "max": 9931.382399998256,
+      "std": 1975.9309852010024
+    },
+    "generation_offline": {
+      "mean": 555.0332949995209,
+      "median": 566.4544999999634,
+      "p95": 589.3486399996618,
+      "min": 502.6765000002342,
+      "max": 609.2081999959191,
+      "std": 29.66093254424129
+    }
+  },
+  "grounding_audit": [
+    {
+      "id": "RAG_AUDIT_01",
+      "query": "What did the Supreme Court hold in Puttaswamy regarding right to privacy under Article 21?",
+      "type": "IN_DOMAIN",
+      "retrieved_parents": [
+        "parent_const_art_021",
+        "parent_case_sc_puttaswamy_privacy_2017",
+        "parent_case_sc_r_rajagopal_1994"
+      ],
+      "citations_declared": 3,
+      "citations_valid": 3,
+      "citations_invalid": 0,
+      "unsupported_claims": 0,
+      "validation_score": 1.0,
+      "abstained": false,
+      "answer_snippet": "### \ud83d\udcdc Direct Legal Evidence\n\n**1. Article 21 \u2014 Protection of life and personal liberty** [Doc: parent_const_art_021]\n\n> ..."
+    },
+    {
+      "id": "RAG_AUDIT_02",
+      "query": "Explain how basic structure doctrine limits amending power in Kesavananda Bharati.",
+      "type": "IN_DOMAIN",
+      "retrieved_parents": [
+        "parent_const_art_368",
+        "parent_case_sc_kesavananda_1973",
+        "parent_const_art_013"
+      ],
+      "citations_declared": 3,
+      "citations_valid": 3,
+      "citations_invalid": 0,
+      "unsupported_claims": 0,
+      "validation_score": 1.0,
+      "abstained": false,
+      "answer_snippet": "### \ud83d\udcdc Direct Legal Evidence\n\n**1. Article 368 \u2014 Power of Parliament to amend the Constitution and procedure therefor** [..."
+    },
+    {
+      "id": "RAG_AUDIT_03",
+      "query": "What are the restrictions on freedom of speech under Article 19(2)?",
+      "type": "IN_DOMAIN",
+      "retrieved_parents": [
+        "parent_const_art_019",
+        "parent_case_sc_romesh_thappar_1950",
+        "parent_case_sc_shreya_singhal_2015"
+      ],
+      "citations_declared": 3,
+      "citations_valid": 3,
+      "citations_invalid": 0,
+      "unsupported_claims": 0,
+      "validation_score": 1.0,
+      "abstained": false,
+      "answer_snippet": "### \ud83d\udcdc Direct Legal Evidence\n\n**1. Article 19 \u2014 Protection of certain rights regarding freedom of speech, etc.** [Doc: pa..."
+    },
+    {
+      "id": "RAG_AUDIT_04",
+      "query": "What is the penalty for dishonour of cheques under Section 138 of Negotiable Instruments Act?",
+      "type": "OUT_OF_SCOPE",
+      "retrieved_parents": [
+        "parent_const_art_020",
+        "parent_const_art_035",
+        "parent_case_sc_shreya_singhal_2015",
+        "parent_const_art_137",
+        "parent_case_sc_joseph_shine_2018"
+      ],
+      "citations_declared": 5,
+      "citations_valid": 5,
+      "citations_invalid": 0,
+      "unsupported_claims": 0,
+      "validation_score": 1.0,
+      "abstained": true,
+      "answer_snippet": "### \ud83d\udcdc Direct Legal Evidence\n\n**1. Article 20 \u2014 Protection in respect of conviction for offences** [Doc: parent_const_art..."
+    },
+    {
+      "id": "RAG_AUDIT_05",
+      "query": "How is bail granted under Section 437 and 439 of Criminal Procedure Code for non-bailable offences?",
+      "type": "OUT_OF_SCOPE",
+      "retrieved_parents": [
+        "parent_const_art_020",
+        "parent_const_art_022"
+      ],
+      "citations_declared": 2,
+      "citations_valid": 2,
+      "citations_invalid": 0,
+      "unsupported_claims": 0,
+      "validation_score": 1.0,
+      "abstained": true,
+      "answer_snippet": "### \ud83d\udcdc Direct Legal Evidence\n\n**1. Article 20 \u2014 Protection in respect of conviction for offences** [Doc: parent_const_art..."
+    },
+    {
+      "id": "RAG_AUDIT_06",
+      "query": "What is the punishment for cheating under Section 420 of Indian Penal Code?",
+      "type": "OUT_OF_SCOPE",
+      "retrieved_parents": [
+        "parent_case_sc_joseph_shine_2018",
+        "parent_case_sc_navtej_johar_2018"
+      ],
+      "citations_declared": 2,
+      "citations_valid": 2,
+      "citations_invalid": 0,
+      "unsupported_claims": 0,
+      "validation_score": 1.0,
+      "abstained": true,
+      "answer_snippet": "### \ud83d\udcdc Direct Legal Evidence\n\n**1. Joseph Shine v. Union of India (Decriminalization of Adultery) (2018)** [Doc: parent_c..."
+    }
+  ]
+}
