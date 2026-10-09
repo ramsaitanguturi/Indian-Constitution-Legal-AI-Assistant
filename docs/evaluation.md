@@ -1,86 +1,130 @@
-# Indian Constitution Legal AI Assistant — Evaluation Methodology & Empirical Results
+# Indian Constitution Legal AI Assistant — Evaluation Methodology & Empirical Benchmarks
 
-## 1. Overview & Research Objectives
+## 1. Evaluation Framework Overview
 
-The Stage 5 evaluation framework quantitatively evaluates:
-1. **Information Retrieval (IR)**: Lexical (BM25) vs Dense vs Fusion vs Cross-Encoder reranking.
-2. **Legal Named Entity Recognition (NER)**: 10 legal categories on exact token and span match.
-3. **Intent Classification**: Rule-based vs TF-IDF + Logistic Regression vs Hybrid model.
-4. **Canonical Entity Linking**: Normalizing aliases to canonical corpus IDs and out-of-KB rejection.
-5. **RAG Grounding & Citation Integrity**: Structural validation of citations and safe abstention.
+The quantitative evaluation suite of the **Indian Constitution Legal AI Assistant** provides empirical validation across all pipeline subsystems:
+1. **Information Retrieval (IR)**: Multi-stage ablation across Lexical BM25, Dense Vector Search, Linear Hybrid, Reciprocal Rank Fusion (RRF), Legal Entity Boosting, and Cross-Encoder Neural Reranking.
+2. **Domain-Specific Legal Named Entity Recognition (NER)**: Evaluated on 10 legal entity categories using strict exact-token and exact-span matching.
+3. **Intent Classification**: Rule-based baseline vs. TF-IDF + Logistic Regression vs. Hybrid classifier, evaluated via holdout and 5-fold cross-validation.
+4. **Canonical Entity Linking & Query Expansion**: Surface mention normalization, out-of-KB rejection, and controlled synonym drift prevention.
+5. **RAG Grounding & Citation Integrity**: Structural citation provenance, ungrounded claim detection, and confidence-based automated abstention.
 
-All results reported below are drawn directly from active saved evaluation artifacts in `evaluation/results/`.
-
----
-
-## 2. Information Retrieval Empirical Findings
-
-**Benchmark:** 20 verified legal queries, evaluated against gold relevance judgments.
-
-| Retrieval Configuration | Hit@1 | Hit@3 | Hit@5 | Hit@10 | Recall@5 | Recall@10 | MRR | NDCG@5 | NDCG@10 | Latency (ms) |
-|---|---|---|---|---|---|---|---|---|---|---|
-| **Exp 1: BM25 Only** | 0.7500 | 0.9000 | 0.9500 | 0.9500 | 0.5488 | 0.5488 | 0.8375 | 0.5895 | 0.5811 | 3.5 ms |
-| **Exp 2: Dense Only** | 0.8500 | 1.0000 | 1.0000 | 1.0000 | 0.7738 | 0.8279 | 0.9250 | 0.7977 | 0.8086 | 22.8 ms |
-| **Exp 3: BM25 + Dense (Linear)** | 0.8000 | 1.0000 | 1.0000 | 1.0000 | 0.6325 | 0.6325 | 0.9000 | 0.6661 | 0.6545 | 22.6 ms |
-| **Exp 4: BM25 + Dense + RRF** | 0.8000 | 1.0000 | 1.0000 | 1.0000 | 0.6138 | 0.6388 | 0.9000 | 0.6449 | 0.6429 | 21.9 ms |
-| **Exp 5: RRF + Entity Boost** | 0.8500 | 1.0000 | 1.0000 | 1.0000 | 0.8050 | 0.8342 | 0.9250 | 0.8127 | 0.8154 | 65.1 ms |
-| **Exp 6: Full Pipeline (+ Cross-Encoder)** | **0.9500** | **1.0000** | **1.0000** | **1.0000** | **0.8962** | **0.8962** | **0.9750** | **0.9183** | **0.9041** | 1001.5 ms |
-
-> **Scientific Disclosure:** Differences across configurations reflect observational performance on the 20-query verified benchmark. Sample sizes are constrained; no claim of formal statistical significance (e.g. paired t-test at p < 0.05) is asserted without expanded sample testing.
+All metrics are computed deterministically (`EVAL_RANDOM_SEED = 42`) and serialized to machine-readable artifacts in `evaluation/results/` and `experiments/results/`.
 
 ---
 
-## 3. Legal Named Entity Recognition (NER) Findings
+## 2. Mathematical Metric Definitions
 
-**Exact Span Match:** True | **Micro-F1:** 0.8468 | **Macro-F1:** 0.8011 | **Gold Entities:** 53
+### 2.1 Information Retrieval Metrics
 
-| Category | Precision | Recall | F1 Score | Support | TP | FP | FN |
-|---|---|---|---|---|---|---|---|
-| `ACT` | 1.0000 | 1.0000 | 1.0000 | 4 | 4 | 0 | 0 |
-| `AMENDMENT` | 1.0000 | 1.0000 | 1.0000 | 3 | 3 | 0 | 0 |
-| `ARTICLE` | 1.0000 | 1.0000 | 1.0000 | 13 | 13 | 0 | 0 |
-| `CASE` | 0.8571 | 0.8571 | 0.8571 | 7 | 6 | 1 | 1 |
-| `COURT` | 0.8750 | 1.0000 | 0.9333 | 7 | 7 | 1 | 0 |
-| `DATE` | 1.0000 | 1.0000 | 1.0000 | 5 | 5 | 0 | 0 |
-| `LEGAL_CONCEPT` | 0.3636 | 0.6667 | 0.4706 | 6 | 4 | 7 | 2 |
-| `PERSON` | 0.0000 | 0.0000 | 0.0000 | 2 | 0 | 1 | 2 |
-| `RIGHT` | 0.7500 | 0.7500 | 0.7500 | 4 | 3 | 1 | 1 |
-| `SECTION` | 1.0000 | 1.0000 | 1.0000 | 2 | 2 | 0 | 0 |
+Let $Q$ be the set of evaluation queries, and for query $q \in Q$, let $\text{Rel}_q$ be the ground truth set of relevant parent document IDs. Let $R_{q, K} = [d_1, d_2, \dots, d_K]$ be the ranked list of top-$K$ retrieved documents.
 
----
+#### Hit@K
+Measures whether at least one relevant document appears in the top-$K$ results:
+$$\text{Hit@K} = \frac{1}{|Q|} \sum_{q \in Q} \mathbb{I}\left( |\text{Rel}_q \cap \{d_1, \dots, d_K\}| > 0 \right)$$
 
-## 4. Intent Classification Model Comparison
+#### Recall@K
+Measures the proportion of all relevant documents captured in the top-$K$ results:
+$$\text{Recall@K} = \frac{1}{|Q|} \sum_{q \in Q} \frac{|\text{Rel}_q \cap \{d_1, \dots, d_K\}|}{|\text{Rel}_q|}$$
 
-**Split:** 85/15 Stratified Split (155 Train / 28 Test) | **Random Seed:** 42
+#### Precision@K
+Measures the fraction of retrieved top-$K$ documents that are relevant:
+$$\text{Precision@K} = \frac{1}{|Q|} \sum_{q \in Q} \frac{|\text{Rel}_q \cap \{d_1, \dots, d_K\}|}{K}$$
 
-| Model Architecture | Accuracy | Macro Precision | Macro Recall | Macro F1 | Weighted F1 |
-|---|---|---|---|---|---|
-| **rule_based_baseline** | 0.7857 | 0.9123 | 0.8182 | 0.8123 | 0.7986 |
-| **tfidf_logistic_regression** | 0.6429 | 0.6970 | 0.6591 | 0.6487 | 0.6378 |
-| **hybrid_classifier** | **0.8214** | **0.9432** | **0.8636** | **0.8647** | **0.8287** |
+#### Mean Reciprocal Rank (MRR)
+Evaluates the reciprocal rank of the first relevant document:
+$$\text{MRR} = \frac{1}{|Q|} \sum_{q \in Q} \frac{1}{\text{rank}_q^*}$$
+where $\text{rank}_q^*$ is the 1-based index of the first relevant document in $R_q$ (and 0 if no relevant document is retrieved).
 
-**5-Fold Cross-Validation (TF-IDF + LogReg):** Accuracy = 0.6180 (±0.0700), Macro-F1 = 0.5888 (±0.0831).
+#### Normalized Discounted Cumulative Gain (NDCG@K)
+Accounts for the graded position of all relevant documents:
+$$\text{DCG@K} = \sum_{i=1}^K \frac{2^{\text{rel}(d_i)} - 1}{\log_2(i + 1)}, \quad \text{IDCG@K} = \sum_{i=1}^{\min(K, |\text{Rel}_q|)} \frac{2^1 - 1}{\log_2(i + 1)}, \quad \text{NDCG@K} = \frac{1}{|Q|} \sum_{q \in Q} \frac{\text{DCG@K}}{\text{IDCG@K}}$$
+where $\text{rel}(d_i) \in \{0, 1\}$ denotes binary ground truth relevance.
 
 ---
 
-## 5. Entity Linking, Expansion & RAG Grounding
+### 2.2 NLP Classification & NER Metrics
 
-- **Canonical Linking Accuracy:** 0.8667 (26/30 correct)
-- **Out-of-KB Rejection Accuracy:** 1.0000 (3/3 unknown entities rejected)
-- **Controlled Query Expansion Precision:** 0.7500 (Drift rate: 0.0%)
-- **Structural Citation Validity Rate:** 1.0000 (9/9 verified)
-- **Automated Abstention Accuracy:** 1.0000 on out-of-scope / sub-threshold inputs
+For an entity class or intent category $c \in C$:
+$$\text{Precision}_c = \frac{\text{TP}_c}{\text{TP}_c + \text{FP}_c}, \quad \text{Recall}_c = \frac{\text{TP}_c}{\text{TP}_c + \text{FN}_c}, \quad \text{F1}_c = \frac{2 \cdot \text{Precision}_c \cdot \text{Recall}_c}{\text{Precision}_c + \text{Recall}_c}$$
+
+- **Macro-F1**: Unweighted arithmetic mean across all classes (crucial for evaluating minority legal classes):
+  $$\text{Macro-F1} = \frac{1}{|C|} \sum_{c \in C} \text{F1}_c$$
+- **Micro-F1**: Globally aggregated counts across all classes:
+  $$\text{Micro-F1} = \frac{2 \cdot \sum_c \text{TP}_c}{2 \cdot \sum_c \text{TP}_c + \sum_c \text{FP}_c + \sum_c \text{FN}_c}$$
 
 ---
 
-## 6. Reproducing Experiments
+## 3. Information Retrieval Empirical Findings
 
-To reproduce all experiments and regenerate report artifacts:
+Evaluated across the 200-query benchmark (`data/benchmark/retrieval_queries.json`) against both Original Shorthand Labels and Canonical Ground Truth (`data/annotations/relevance_labels_v2_canonicalized.json`):
+
+| Method | Hit@1 | Hit@3 | Hit@5 | Hit@10 | Recall@5 | Recall@10 | MRR | NDCG@5 | NDCG@10 | Avg Latency |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **Exp 1: BM25 Only** | 0.7900 | 0.8750 | 0.8850 | 0.8950 | 0.6724 | 0.7003 | 0.8271 | 0.7208 | 0.7197 | 3.75 ms |
+| **Exp 2: Dense Only** | 0.8100 | 0.8800 | 0.8900 | 0.8950 | 0.6811 | 0.7131 | 0.8385 | 0.7416 | 0.7432 | 17.73 ms |
+| **Exp 3: Linear Hybrid** | 0.8100 | 0.8800 | 0.8900 | 0.8950 | 0.6789 | 0.7076 | 0.8411 | 0.7335 | 0.7333 | 22.01 ms |
+| **Exp 4: BM25 + Dense + RRF** | 0.8100 | 0.8800 | 0.8900 | 0.8950 | 0.6750 | 0.7005 | 0.8396 | 0.7279 | 0.7262 | 21.89 ms |
+| **Exp 5: RRF + Entity Boost** | 0.8200 | 0.8800 | 0.8900 | 0.8950 | 0.6980 | 0.7229 | 0.8421 | 0.7511 | 0.7493 | 68.03 ms |
+| **Exp 6: Full Pipeline (+ Cross-Encoder)** | **0.8400** | **0.8850** | **0.9000** | **0.9050** | **0.7214** | **0.7478** | **0.8583** | **0.7810** | **0.7787** | 625.10 ms |
+
+*(Metrics computed using Canonical Ground Truth. On original unpadded labels, Recall@10 is 0.5064 for BM25 and 0.5526 for Cross-Encoder due to shorthand ID mismatches).*
+
+---
+
+## 4. Legal Named Entity Recognition (NER) Findings
+
+Evaluated on 105 annotated legal queries (211 entity spans) under strict exact-span matching (`exact_span_match=True`):
+
+- **Overall Micro-F1**: **0.8714** (Precision: 0.8756, Recall: 0.8673)
+- **Overall Macro-F1**: **0.8496** (Precision: 0.8991, Recall: 0.8435)
+
+| Category | Support | TP | FP | FN | Precision | Recall | F1 Score | Resolution & Error Notes |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|---|
+| `ARTICLE` | 40 | 40 | 0 | 0 | **1.0000** | **1.0000** | **1.0000** | Perfect extraction via statutory regex |
+| `AMENDMENT` | 15 | 15 | 0 | 0 | **1.0000** | **1.0000** | **1.0000** | Perfect extraction via ordinal regex |
+| `SECTION` | 11 | 11 | 0 | 0 | **1.0000** | **1.0000** | **1.0000** | Perfect extraction via Section regex |
+| `DATE` | 38 | 38 | 0 | 0 | **1.0000** | **1.0000** | **1.0000** | Perfect extraction via calendar regex |
+| `PERSON` | 14 | 13 | 2 | 1 | **0.8667** | **0.9286** | **0.8966** | Resolved from 0.0000 via judicial title extraction |
+| `CASE` | 31 | 23 | 1 | 8 | **0.9583** | **0.7419** | **0.8364** | High precision; misses uncataloged abbreviations |
+| `ACT` | 15 | 10 | 0 | 5 | **1.0000** | **0.6667** | **0.8000** | High precision; uncataloged statutory Acts missed |
+| `COURT` | 23 | 14 | 1 | 9 | **0.9333** | **0.6087** | **0.7368** | Institutional entities captured |
+| `RIGHT` | 9 | 5 | 1 | 4 | **0.8333** | **0.5556** | **0.6667** | Core Fundamental Rights captured |
+| `LEGAL_CONCEPT` | 15 | 14 | 21 | 1 | **0.4000** | **0.9333** | **0.5600** | High recall; conversational over-triggering FP |
+
+---
+
+## 5. Intent Classification Model Comparison
+
+Evaluated on 220 queries across 11 balanced intent classes:
+
+### 5.1 80/20 Holdout Split (187 Train / 33 Test)
+- **rule_based_baseline**: Accuracy = 0.6970, Macro-F1 = 0.6290
+- **hybrid_classifier**: Accuracy = 0.6970, Macro-F1 = 0.6301
+- **tfidf_logistic_regression**: Accuracy = **0.8485**, Macro-F1 = **0.8331**, Macro-Precision = **0.8727**
+
+### 5.2 5-Fold Stratified Cross-Validation (TF-IDF + LogReg)
+- **Mean Accuracy**: **0.7591** ($\pm 0.0422$)
+- **Mean Macro-F1**: **0.7444** ($\pm 0.0417$)
+
+---
+
+## 6. Entity Linking, Query Expansion & RAG Reliability
+
+- **Canonical Entity Linking Accuracy**: **0.8667** (26/30 correct on aliased queries).
+- **Out-of-KB Rejection**: **1.0000** (3/3 non-constitutional queries cleanly rejected).
+- **Query Expansion Term Precision**: **0.7500** with **0.0% semantic drift rate**.
+- **Structural Citation Validity Rate**: **1.0000** (All generated citations map to retrieved context).
+- **Automated Abstention Accuracy**: **1.0000** on adversarial out-of-scope queries.
+
+---
+
+## 7. Execution Commands to Reproduce Evaluations
 
 ```powershell
-# Run the complete benchmark suite
+# Run all evaluations and update evaluation/results/
 python scripts/run_all_evaluations.py
 
-# Run the test suite
+# Run all automated test cases (254 passing)
 .\venv\Scripts\pytest -q
 ```

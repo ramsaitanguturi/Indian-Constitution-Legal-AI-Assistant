@@ -1,247 +1,166 @@
 # Indian Constitution Legal AI Assistant — NLP Capstone
 
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Tests Passing](https://img.shields.io/badge/tests-254%20passed-success.svg)](tests/)
+[![Framework](https://img.shields.io/badge/framework-Streamlit%20%7C%20ChromaDB%20%7C%20PyTorch-orange.svg)](app.py)
+[![Status](https://img.shields.io/badge/status-Academic%20Research%20Prototype-gold.svg)](docs/INDEPENDENT_AUDIT_REPORT.md)
+
 An empirical Natural Language Processing (NLP) and Information Retrieval (IR) framework for Question Answering over Indian Constitutional Law. Integrates domain-specific Legal Named Entity Recognition (NER), canonical entity linking, hybrid retrieval with Reciprocal Rank Fusion (RRF), Cross-Encoder neural reranking, evidence-grounded generation, structural citation validation, explainable confidence estimation, an interactive Research Dashboard, and a 10-stage NLP Pipeline Inspector.
+
+**Research Title**: *Entity-Aware Hybrid Retrieval and Reranking Framework for Indian Constitutional Question Answering*
+
+---
+
+## 📖 Essential Documentation Links
+
+- 📘 [**Master Learning Guide (`docs/PROJECT_GUIDE.md`)**](docs/PROJECT_GUIDE.md): **The primary comprehensive study and research guide (Chapters 1–15).**
+- 🎓 [**Viva Defense & Examination Guide (`docs/viva_defense_guide.md`)**](docs/viva_defense_guide.md): 40+ viva questions, spoken answers, deep technical proofs, elevator pitch, and live demo script.
+- 🏗️ [**System Architecture & Tech Spec (`docs/architecture.md`)**](docs/architecture.md): Detailed 16-stage pipeline architecture, Mermaid diagrams, component responsibilities, and mathematical formulations.
+- 📜 [**Dataset & Corpus Provenance (`docs/dataset.md`)**](docs/dataset.md): Official legal sources, 270 parent documents, 1,001 vector passages, JSON schemas, chunking rules, and limitations.
+- 🔬 [**Empirical Experiments & Findings (`docs/experiments.md`)**](docs/experiments.md): Full documentation of Experiments 1–8, dual retrieval matrix (Original vs. Canonical), and latency profiles.
+- 📊 [**Evaluation Methodology & Metrics (`docs/evaluation.md`)**](docs/evaluation.md): Mathematical formulations for IR metrics (Hit@K, MRR, NDCG@K), NER exact-span metrics, and intent 5-fold cross-validation.
+- 🛡️ [**Independent Adversarial Audit Report (`docs/INDEPENDENT_AUDIT_REPORT.md`)**](docs/INDEPENDENT_AUDIT_REPORT.md): Academic readiness verdict, overclaim corrections, and verified code changes.
+- 🔍 [**Benchmark Quality & Independence Audit (`docs/BENCHMARK_QUALITY_REPORT.md`)**](docs/BENCHMARK_QUALITY_REPORT.md): Template repetition analysis, target concentration, and uncataloged target audit.
+- 🧠 [**NER Forensic Error Analysis (`docs/NER_ERROR_ANALYSIS.md`)**](docs/NER_ERROR_ANALYSIS.md): Root-cause resolution for judge name extraction (`PERSON_TITLE_PATTERN`) and gazetteer memorization disclosures.
+- ⚖️ [**RAG Grounding & Citation Audit (`docs/RAG_GROUNDING_AUDIT.md`)**](docs/RAG_GROUNDING_AUDIT.md): Structural validation mechanics vs. Natural Language Inference (NLI) semantic claim entailment.
+- ⏱️ [**Reproducibility & Latency Profiling (`docs/REPRODUCIBILITY_REPORT.md`)**](docs/REPRODUCIBILITY_REPORT.md): CPU runtime profiles, warm-up benchmarks, and reproduction seeds.
+
+---
+
+## 📸 Application Screenshots
+
+| Main Application & RAG Query | Evidence-Grounded Legal Synthesis |
+|---|---|
+| ![Main App](docs/assets/screenshots/01_home.png) | ![Answer & Citations](docs/assets/screenshots/03_answer_and_citations.png) |
+| *Figure 1: Main interface with 270 parents, 1,001 child passages.* | *Figure 2: Grounded response with strategy, intent, and citations.* |
+
+| 10-Stage NLP Pipeline Inspector | Empirical Research Dashboard |
+|---|---|
+| ![NLP Inspector](docs/assets/screenshots/04_nlp_inspector.png) | ![Dashboard](docs/assets/screenshots/05_evaluation_dashboard.png) |
+| *Figure 3: Deep diagnostic trace across all 10 internal stages.* | *Figure 4: Empirical IR charts, latency curves, and intent matrices.* |
+
+| Landmark Case Comparator | Automated Safe Abstention |
+|---|---|
+| ![Case Comparator](docs/assets/screenshots/06_case_comparator.png) | ![Abstention](docs/assets/screenshots/08_abstention_example.png) |
+| *Figure 5: Side-by-side comparison of landmark Supreme Court rulings.* | *Figure 6: Automated refusal on out-of-scope non-constitutional queries.* |
 
 ---
 
 ## 1. Problem Statement & Research Motivation
 
-Constitutional question answering in India presents significant NLP challenges:
-- **Hierarchical Statutory Text**: Constitutional Articles contain nested clauses, sub-clauses, and cross-references to other Parts and Schedules.
-- **Judicial Precedents**: Landmark Supreme Court judgments interpret constitutional doctrines (e.g., the *Basic Structure Doctrine* from *Kesavananda Bharati*, or the *Right to Privacy* under *Article 21* from *Puttaswamy*).
-- **Lexical vs. Semantic Mismatch**: Citizen queries frequently use conversational language (*"can police search my phone without a warrant"*), which traditional keyword search misses; conversely, purely dense vector search struggles with exact statutory references (*"Article 21A"* vs *"Article 21"*).
-- **Hallucination Risks**: General-purpose LLMs generate convincing but fabricated citations, statutes, and legal holdings without verifiable evidentiary grounding.
+Constitutional question answering in India presents three major NLP hurdles:
+1. **Vocabulary Mismatch**: Citizen queries describe situations colloquially (*"can police search my phone without a warrant"*), which traditional keyword search misses; conversely, dense vector embeddings struggle with exact statutory references (*"Article 21"* vs *"Article 21A"*).
+2. **Hierarchical Statutory Text**: Constitutional Articles contain nested clauses, sub-clauses, and cross-references. Single-size chunking either cuts sub-clauses in half or dilutes vector representations.
+3. **Hallucination Risks**: General LLMs invent plausible but non-existent Supreme Court citations and holdings without verifiable evidentiary grounding.
 
-**Research Contribution:**
-This project designs, implements, and empirically evaluates an end-to-end framework combining:
-1. **Domain-Specific Legal NER & Canonical Entity Linking** across 10 categories.
-2. **Entity-Aware Hybrid Retrieval**: Standalone BM25Okapi + Dense vector embeddings (ChromaDB) fused via Reciprocal Rank Fusion (RRF, $k=60$) with an entity rank boost ($+0.15$).
-3. **Cross-Encoder Neural Reranking**: `cross-encoder/ms-marco-MiniLM-L-6-v2` reordering candidate passages.
-4. **Hierarchical Parent-Child Context Recovery**: Preserves fine-grained retrieval precision while hydrating full parent Articles and Judgments for generation.
-5. **Grounded RAG with Structural Citation Validation**: Validates that all citations correspond to retrieved context.
-6. **Explainable Confidence & Multi-Stage Abstention**: Refuses out-of-scope queries and sub-threshold evidence.
-7. **Empirical Research Dashboard & Diagnostic Pipeline Inspector**: Built into the Streamlit interface for live demonstration and defense.
+### Core Research Contributions:
+- **Hierarchical Parent-Child RAG**: Retrieves small child passages (~300 chars) for maximum vector search precision, hydrating complete parent Articles and Judgments (~1,200 chars) for generator synthesis.
+- **Entity-Aware Hybrid Retrieval**: Standalone BM25Okapi + ChromaDB dense vector embeddings fused via Reciprocal Rank Fusion (RRF, $k=60$) with an additive $+0.15$ boost for recognized legal entities.
+- **Cross-Encoder Neural Reranking**: Scores top-30 candidate pairs jointly via `cross-encoder/ms-marco-MiniLM-L-6-v2`, lifting NDCG@10 to **0.7787**.
+- **Structural Citation Validation & Abstention**: Verifies citations against retrieved context and safely abstains when evidence is insufficient ($C < 0.30$).
+- **Explainable 10-Stage Inspector & Research Dashboard**: Live diagnostic trace and evaluation dashboard integrated into Streamlit.
 
 ---
 
-## 2. Target Architecture & Component Responsibilities
-
-The system consists of modular, independently testable subpackages:
+## 2. System Architecture
 
 ```
-                            USER QUERY
-                                │
-                                ▼
-                    ┌───────────────────────┐
-                    │  Language Detection   │  nlp/language_detection.py
-                    └───────────┬───────────┘
-                                │
-                                ▼
-                    ┌───────────────────────┐
-                    │  Query Preprocessing  │  nlp/preprocessing.py
-                    └───────────┬───────────┘
-                                │
-                                ▼
-                    ┌───────────────────────┐
-                    │   Domain Legal NER    │  nlp/legal_ner.py (10 categories)
-                    └───────────┬───────────┘
-                                │
-                                ▼
-                    ┌───────────────────────┐
-                    │ Canonical Entity Link │  nlp/entity_linking.py (KB normalization)
-                    └───────────┬───────────┘
-                                │
-                                ▼
-                    ┌───────────────────────┐
-                    │ Intent Classification │  nlp/intent_classifier.py (Hybrid)
-                    └───────────┬───────────┘
-                                │
-                                ▼
-                    ┌───────────────────────┐
-                    │ Controlled Expansion  │  nlp/query_expansion.py
-                    └───────────┬───────────┘
-                                │
-                                ▼
-                    ┌───────────────────────┐
-                    │ Specialized Router    │  routing/query_router.py
-                    └───────────┬───────────┘
-                                │
-    ┌───────────────────────────┴───────────────────────────┐
-    ▼                                                       ▼
-┌──────────────┐ BM25Okapi                               ┌──────────────┐ ChromaDB
-│ Sparse Search│ k1=1.5, b=0.75                          │ Dense Search │ all-MiniLM-L6-v2
-└──────┬───────┘                                         └──────┬───────┘
-       │                                                        │
-       └───────────────────────────┬────────────────────────────┘
-                                   ▼
-                       ┌───────────────────────┐
-                       │ Reciprocal Rank Fusion│  retrieval/rrf.py (k=60)
-                       └───────────┬───────────┘
-                                   │
-                                   ▼
-                       ┌───────────────────────┐
-                       │  Entity Rank Boosting │  retrieval/entity_boost.py (+0.15)
-                       └───────────┬───────────┘
-                                   │
-                                   ▼
-                       ┌───────────────────────┐
-                       │ Cross-Encoder Rerank  │  retrieval/reranker.py
-                       │ ms-marco-MiniLM-L-6-v2│  Top 20 -> Top 5
-                       └───────────┬───────────┘
-                                   │
-                                   ▼
-                       ┌───────────────────────┐
-                       │ Context Recovery      │  rag/parent_child.py
-                       │  (Parent-Child RAG)   │  Full Articles & Judgments
-                       └───────────┬───────────┘
-                                   │
-                                   ▼
-                       ┌───────────────────────┐
-                       │ Grounded Generator    │  rag/generator.py
-                       │ Gemini / Offline Fall │  Evidence-bounded prompt
-                       └───────────┬───────────┘
-                                   │
-                                   ▼
-                       ┌───────────────────────┐
-                       │ Structural Citation   │  rag/citation_validator.py
-                       │      Validation       │  Verify provenance against context
-                       └───────────┬───────────┘
-                                   │
-                                   ▼
-                       ┌───────────────────────┐
-                       │ Confidence Estimator  │  rag/confidence.py
-                       │ 6 Weighted Signals    │  Uncalibrated heuristic
-                       └───────────┬───────────┘
-                                   │
-                                   ▼
-                       ┌───────────────────────┐
-                       │ Multi-Stage Abstention│  rag/abstention.py
-                       │ Router/IR/Post-Gen    │  Safe refusal
-                       └───────────────────────┘
+User Query ──► Preprocessing ──► Legal NER ──► Entity Linking ──► Intent Classification
+                                                                        │
+┌───────────────────────────────────────────────────────────────────────┘
+▼
+Controlled Query Expansion ──► Specialized NLP Query Router
+                                         │
+        ┌────────────────────────────────┴────────────────────────────────┐
+        ▼                                                                 ▼
+BM25Okapi Lexical Search (k1=1.5, b=0.75)             ChromaDB Dense Search (all-MiniLM-L6-v2)
+        │                                                                 │
+        └────────────────────────────────┬────────────────────────────────┘
+                                         ▼
+                           Reciprocal Rank Fusion (k=60)
+                                         │
+                                         ▼
+                         Legal Entity Rank Boost (+0.15)
+                                         │
+                                         ▼
+                   Cross-Encoder Neural Reranking (Top 30 -> Top 5)
+                                         │
+                                         ▼
+                     Parent Context Recovery (parent_store.json)
+                                         │
+                                         ▼
+                     Grounded Generator (Gemini / Offline Fallback)
+                                         │
+                                         ▼
+                       Structural Citation Validation
+                                         │
+                                         ▼
+                     6-Signal Explainable Confidence Estimator
+                                         │
+                                         ▼
+                   Multi-Stage Safe Abstention Gate (C >= 0.30)
+                                         │
+                                         ▼
+                     Streamlit UI Output & Pipeline Inspector
 ```
 
 ---
 
-## 3. NLP Query Understanding Pipeline
-
-- **Language Detection** (`nlp/language_detection.py`): Identifies query language, validating English inputs while flagging non-English queries for safe handling.
-- **Legal Preprocessing** (`nlp/preprocessing.py`): Normalizes statutory legal formatting, case citations, legal abbreviations (`"Art."` $\to$ `"Article"`, `"v."` $\to$ `"versus"`), and whitespace.
-- **Legal NER** (`nlp/legal_ner.py`): Hybrid extractor identifying 10 legal categories: `ARTICLE`, `CASE`, `AMENDMENT`, `ACT`, `SECTION`, `COURT`, `DATE`, `RIGHT`, `LEGAL_CONCEPT`, `PERSON`.
-- **Canonical Entity Linking** (`nlp/entity_linking.py`): Resolves surface mentions (e.g., *"Puttaswamy privacy case"*, *"Art 21"*) to unambiguous corpus IDs (`parent_case_sc_puttaswamy_privacy_2017`, `parent_const_art_021`), rejecting out-of-knowledge-base entities cleanly.
-- **Intent Classification** (`nlp/intent_classifier.py`): Classifies user queries across 11 intent classes using a rule-based baseline, a TF-IDF + Logistic Regression model, and a confidence-calibrated hybrid classifier.
-- **Controlled Query Expansion** (`nlp/query_expansion.py`): Maps conversational citizen phrases to formal constitutional terms using a curated legal ontology, preventing semantic drift.
-
----
-
-## 4. Hybrid Retrieval & Neural Reranking Methodology
-
-The retrieval pipeline executes a multi-stage fusion and reranking workflow:
-
-1. **Lexical Sparse Retrieval** (`retrieval/bm25_retriever.py`):
-   - Algorithm: **BM25Okapi** ($k_1=1.5, b=0.75$).
-   - Tokenization: Legal punctuation-preserving regex.
-2. **Dense Vector Retrieval** (`retrieval/dense_retriever.py`):
-   - Model: `sentence-transformers/all-MiniLM-L6-v2` (384 dimensions).
-   - Vector Database: **ChromaDB** with cosine distance converted to similarity ($1 - \text{distance}$).
-3. **Reciprocal Rank Fusion** (`retrieval/rrf.py`):
-   $$RRF\_Score(d) = \sum_{m \in \{\text{BM25}, \text{Dense}\}} \frac{1}{k + r_m(d)} \quad (k = 60)$$
-4. **Legal Entity Score Boost** (`retrieval/entity_boost.py`):
-   Adds $+0.15$ to candidate scores when candidate metadata matches extracted and linked legal entities.
-5. **Cross-Encoder Neural Reranking** (`retrieval/reranker.py`):
-   - Model: `cross-encoder/ms-marco-MiniLM-L-6-v2`.
-   - Takes top-20 fused candidates, scores `(query, passage)` pairs jointly via full cross-attention, and returns the top 5 candidates.
-
----
-
-## 5. Grounded RAG, Citations, Confidence & Abstention
-
-- **Parent-Child Context Recovery** (`rag/parent_child.py`): Hydrates granular child chunks (~300 characters) into full parent documents (`parent_store.json`), providing the generator with complete constitutional context.
-- **Evidence-Grounded Generator** (`rag/generator.py`): Generates answers strictly from retrieved evidence, with fallback to an offline **Heuristic Legal Synthesizer** when no API key is available.
-- **Structural Citation Validation** (`rag/citation_validator.py`): Checks that every cited Article, Case, or Bench reference exists in the legal database and was present in retrieved evidence.
-  > **Important Scientific Notice:** Structural citation validation checks source references and provenance against retrieved context passages. It does NOT establish semantic support, legal interpretation correctness, or legal advice reliability. Do not represent a small benchmark's results as proof of legal correctness.
-- **Explainable Confidence Estimator** (`rag/confidence.py`): Transparent weighted composite across 6 signals (retrieval strength, evidence volume, entity alignment, retrieval agreement, citation validity, query coverage). *Explicitly disclosed as an explainable heuristic, not a mathematically calibrated probability.*
-- **Multi-Stage Automated Abstention** (`rag/abstention.py`): Refuses out-of-scope queries, zero-retrieval outcomes, and sub-threshold evidence.
-
----
-
-## 6. Empirical Evaluation Results
+## 3. Empirical Evaluation Results
 
 All metrics below are drawn directly from active saved evaluation artifacts in `evaluation/results/`:
 
-### 6.1 Information Retrieval Empirical Evaluation (200 Verified Queries)
+### 3.1 Information Retrieval Comparison (200 Verified Queries)
 
-| Retrieval Configuration | Hit@1 | Hit@3 | Hit@5 | Hit@10 | Recall@5 | Recall@10 | MRR | NDCG@5 | NDCG@10 | Avg Latency |
-|---|---|---|---|---|---|---|---|---|---|---|
-| **Exp 1: BM25 Only** | 0.7500 | 0.8400 | 0.8500 | 0.8600 | 0.5018 | 0.5064 | 0.7962 | 0.6166 | 0.6157 | 4.1 ms |
-| **Exp 2: Dense Only** | 0.7750 | 0.8400 | 0.8500 | 0.8500 | 0.5096 | 0.5250 | 0.8072 | 0.6413 | 0.6429 | 18.0 ms |
-| **Exp 3: BM25 + Dense (Linear)** | 0.7700 | 0.8450 | 0.8550 | 0.8600 | 0.5050 | 0.5150 | 0.8099 | 0.6297 | 0.6298 | 22.8 ms |
-| **Exp 4: BM25 + Dense + RRF** | 0.7700 | 0.8400 | 0.8550 | 0.8550 | 0.5056 | 0.5106 | 0.8071 | 0.6261 | 0.6244 | 22.4 ms |
-| **Exp 5: RRF + Entity Boost** | 0.7800 | 0.8400 | 0.8450 | 0.8450 | 0.5285 | 0.5348 | 0.8096 | 0.6513 | 0.6492 | 66.4 ms |
-| **Exp 6: Full Pipeline (+ Cross-Encoder)** | **0.8000** | **0.8450** | **0.8600** | **0.8650** | **0.5476** | **0.5526** | **0.8263** | **0.6752** | **0.6730** | 623.9 ms |
+| Retrieval Configuration | Hit@1 | Hit@3 | Hit@5 | Hit@10 | Recall@5 | Recall@10 | MRR | NDCG@10 | Latency (ms) |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **Exp 1: BM25 Only** | 0.7900 | 0.8750 | 0.8850 | 0.8950 | 0.6724 | 0.7003 | 0.8271 | 0.7197 | 3.75 ms |
+| **Exp 2: Dense Only** | 0.8100 | 0.8800 | 0.8900 | 0.8950 | 0.6811 | 0.7131 | 0.8385 | 0.7432 | 17.73 ms |
+| **Exp 3: Linear Hybrid** | 0.8100 | 0.8800 | 0.8900 | 0.8950 | 0.6789 | 0.7076 | 0.8411 | 0.7333 | 22.01 ms |
+| **Exp 4: BM25 + Dense + RRF** | 0.8100 | 0.8800 | 0.8900 | 0.8950 | 0.6750 | 0.7005 | 0.8396 | 0.7262 | 21.89 ms |
+| **Exp 5: RRF + Entity Boost** | 0.8200 | 0.8800 | 0.8900 | 0.8950 | 0.6980 | 0.7229 | 0.8421 | 0.7493 | 68.03 ms |
+| **Exp 6: Full Pipeline (+ Cross-Encoder)** | **0.8400** | **0.8850** | **0.9000** | **0.9050** | **0.7214** | **0.7478** | **0.8583** | **0.7787** | 625.10 ms |
 
-> *Empirical Ablation Insight:* Progressing from lexical BM25 baseline to full neural reranking yields a **+3.01% MRR improvement** (0.7962 -> 0.8263) and a **+5.73% NDCG@10 gain** (0.6157 -> 0.6730), empirically confirming the complementary power of domain-specific entity boosting and cross-attention reranking.
+*(Metrics computed using Canonical Ground Truth `relevance_labels_v2_canonicalized.json`. Full neural pipeline achieves **+3.12% MRR** and **+5.90% NDCG@10** gain over BM25).*
 
-### 6.2 Legal Named Entity Recognition (NER) (105 Annotated Queries)
-- **Exact Span Micro-F1:** **0.8714** | **Macro-F1:** **0.8496** | **Gold Entities:** 210
-- Structured categories (`ARTICLE`, `AMENDMENT`, `SECTION`, `DATE`): **1.0000 F1**
-- `PERSON`: **0.8966 F1** (P=0.8667, R=0.9286; resolved from 0.0000 via judicial title extraction & context disambiguation)
+### 3.2 Legal Named Entity Recognition (105 Annotated Queries, 211 Spans)
+- **Exact Span Micro-F1:** **0.8714** | **Macro-F1:** **0.8496** | **Precision:** 0.8756 | **Recall:** 0.8673
+- `ARTICLE`, `AMENDMENT`, `SECTION`, `DATE`: **1.0000 F1**
+- `PERSON`: **0.8966 F1** (Resolved from 0.0000 via judicial title extraction & context disambiguation)
 - `CASE`: **0.8364 F1** | `ACT`: **0.8000 F1** | `COURT`: **0.7368 F1** | `RIGHT`: **0.6667 F1**
-- `LEGAL_CONCEPT`: **0.5600 F1** (Recall=0.9333; improved from 0.3830 via keyword deduplication & phrase normalization)
+- `LEGAL_CONCEPT`: **0.5600 F1** (Recall 0.9333, Precision 0.4000)
 
-### 6.3 Intent Classification (220 Queries across 11 Classes)
-- **rule_based_baseline:** Accuracy = 0.6970, Macro-F1 = 0.6290
-- **tfidf_logistic_regression:** Accuracy = **0.8485**, Macro-F1 = **0.8331**
-- **hybrid_classifier:** Accuracy = 0.6970, Macro-F1 = 0.6301
-- **5-Fold Stratified Cross-Validation (TF-IDF + LogReg):** Accuracy = 0.7591 (±0.0422), Macro-F1 = 0.7444 (±0.0417)
+### 3.3 Intent Classification (220 Queries across 11 Classes)
+- **TF-IDF + Logistic Regression (80/20 Holdout):** Accuracy = **0.8485**, Macro-F1 = **0.8331**
+- **5-Fold Stratified Cross-Validation:** Accuracy = **0.7591** ($\pm 0.0422$), Macro-F1 = **0.7444** ($\pm 0.0417$)
+- **Rule Baseline:** Accuracy = 0.6970, Macro-F1 = 0.6290
 
-### 6.4 Entity Linking, Expansion & Grounding
-- **Canonical Entity Linking Accuracy:** 0.8667 (Out-of-KB rejection: 1.0000)
-- **Controlled Query Expansion Precision:** 0.7500 (Drift rate: 0.0%)
-- **Structural Citation Validity Rate:** 1.0000 (Evaluated on verified benchmark questions)
-- **Automated Abstention Accuracy:** 1.0000 (100% accurate rejection of out-of-scope inquiries)
-
-### 6.5 Independent Audit & Research Deliverables
-For exhaustive verification, methodology proofs, and reproducibility logs, refer to the audit reports:
-- [INDEPENDENT_AUDIT_REPORT.md](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/docs/INDEPENDENT_AUDIT_REPORT.md): Comprehensive system audit, pipeline verification, and B.Tech readiness verdict.
-- [BENCHMARK_QUALITY_REPORT.md](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/docs/BENCHMARK_QUALITY_REPORT.md): Duplication analysis, relevance label alias audit, and leakage validation.
-- [NER_ERROR_ANALYSIS.md](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/docs/NER_ERROR_ANALYSIS.md): Forensic root-cause analysis and resolution for `PERSON` and `LEGAL_CONCEPT`.
-- [RAG_GROUNDING_AUDIT.md](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/docs/RAG_GROUNDING_AUDIT.md): Citation validator mechanics, structural vs. semantic entailment taxonomy.
-- [REPRODUCIBILITY_REPORT.md](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/docs/REPRODUCIBILITY_REPORT.md): Exact reproduction commands, runtime profiling, and seed configurations.
+### 3.4 Entity Linking, Expansion & Grounding
+- **Canonical Entity Linking Accuracy:** **0.8667** (Out-of-KB rejection: **1.0000**)
+- **Controlled Query Expansion Precision:** **0.7500** (Semantic drift rate: **0.0%**)
+- **Structural Citation Validity Rate:** **1.0000** (Checked on verified benchmark queries)
+- **Automated Abstention Accuracy:** **1.0000** (100% accurate rejection of out-of-scope inquiries)
 
 ---
 
-## 7. Interactive Streamlit Application
+## 4. Quickstart & Local Setup Guide
 
-The Streamlit user interface (`app.py`) provides 5 dedicated tabs:
+### 4.1 Prerequisites
+Python 3.10, 3.11, or 3.12 on Windows, Linux, or macOS.
 
-1. **💬 Ask Assistant & RAG Query**:
-   - Primary interface with preset benchmark queries and live query input.
-   - Strategy, intent, language, confidence, and citation validation badges.
-   - Hydrated parent-child context inspection.
-   - **🔬 10-Stage NLP Pipeline Inspector**: Expandable diagnostic trace displaying query preprocessing, entity linking, intent classification, retrieval candidate scoring, reranking contributions, citation validation, and confidence signals. Toggleable via sidebar.
-2. **⚖️ Case Comparator**: Side-by-side comparative analysis of landmark Supreme Court judgments.
-3. **📜 Constitution & Cases Database**: Interactive data table explorer for constitutional Articles and landmark cases.
-4. **🏗️ RAG Architecture & Methodology**: System architecture overview and technical specifications.
-5. **📊 Empirical Research Dashboard**:
-   - Information Retrieval comparison charts (Hit@K, NDCG@10 vs. latency) and query-level audit log browser.
-   - Intent classification model comparison, 5-fold CV results, and interactive confusion matrices.
-   - NLP component breakdown (NER per-category F1, Entity Linking, Query Expansion).
-   - RAG citation grounding and evidence coverage audit.
-   - Benchmark integrity manifest and reproducibility hyperparameters.
-
----
-
-## 8. Quickstart & Local Setup Guide
-
-### 8.1 Prerequisites
-Python 3.10+ on Windows, Linux, or macOS.
-
-### 8.2 Environment Setup
+### 4.2 Setup Commands
 
 **Windows PowerShell:**
 ```powershell
+# 1. Clone repository and navigate to workspace
+git clone https://github.com/ramsaitanguturi/Indian-Constitution-Legal-AI-Assistant.git
+cd "Indian Constitution Legal AI Assistant"
+
+# 2. Create and activate virtual environment
 python -m venv venv
 .\venv\Scripts\Activate.ps1
+
+# 3. Install pinned dependencies
 pip install -r requirements.txt
 ```
 
@@ -252,29 +171,44 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 8.3 Launching the Application
+### 4.3 Launch the Application
 ```powershell
 streamlit run app.py
 ```
-Open your browser to `http://localhost:8501`.
+Open `http://localhost:8501` in your browser.  
+*(Optional: Provide a `GEMINI_API_KEY` in `.env` or in the sidebar. If omitted, the application runs 100% offline using the built-in Heuristic Legal Synthesizer).*
 
-*(Optional: Set `GEMINI_API_KEY` in `.env` or input it via the sidebar. If omitted, the application operates 100% offline using the built-in Heuristic Legal Synthesizer).*
-
-### 8.4 Running the Automated Test Suite
+### 4.4 Run Automated Tests
 ```powershell
 .\venv\Scripts\pytest -q
 ```
+**Expected outcome: 254 passed in ~150s (0 errors, 0 skipped).**
 
-### 8.5 Reproducing Empirical Benchmarks
+### 4.5 Reproduce Empirical Benchmarks
 ```powershell
 python scripts/run_all_evaluations.py
 ```
 
 ---
 
-## 9. Known Limitations & Future Research Directions
+## 5. Known Limitations & Research Disclosures
 
-1. **Benchmark Scale & Corpus Coverage**: The active legal database contains 137 constitutional Articles, 18 Amendments, and 104 Supreme Court landmark judgments (270 hydrated parent records). The 200-query retrieval benchmark includes 20 queries targeting uncataloged provisions (e.g., Articles 148, 174, 311, 343). Evaluated on versioned canonical labels (`data/annotations/relevance_labels_v2_canonicalized.json`), Recall@10 is **0.7003** (BM25) and **0.7478** (Cross-Encoder) across all 200 queries, rising to **0.7781** on in-corpus queries.
-2. **Entity Recognition on Abstract Concepts**: Rule-based regexes achieve high precision on structured categories (`ARTICLE`, `AMENDMENT`, `SECTION`, `DATE`) and title-prefixed judges (`PERSON_TITLE_PATTERN`), but bare personal names and abstract concepts (`LEGAL_CONCEPT`) depend on static gazetteers. Integrating domain-fine-tuned transformers (e.g., *InLegalBERT*) represents a valuable future extension.
-3. **Structural vs. Semantic Citation Grounding**: The validator confirms structural presence, valid document identifiers, and evidence provenance within retrieved passages. Sentence-level Natural Language Inference (NLI) for claim entailment is an ongoing research direction.
-4. **Academic Prototype Disclaimer**: This software is an academic NLP capstone prototype developed for educational and research evaluation. It does not constitute formal legal advice.
+1. **Corpus Coverage**: The database contains 137 constitutional Articles, 18 Amendments, and 104 Supreme Court landmark judgments (270 parent records). It does not index the entire 395-article Constitution; provisions covering Finance (Part XII) or Services (Part XIV) are not present.
+2. **Benchmark Scope**: 20 queries in the 200-query retrieval benchmark target provisions outside the 137-article subset, bounding full-benchmark recall at ~0.75. On in-corpus queries, Hit@10 is 0.9333 and Recall@10 is 0.7781.
+3. **Structural vs. Semantic Citation Grounding**: The citation validator confirms structural presence and retrieval set inclusion. Sentence-level Natural Language Inference (NLI) claim entailment is identified as ongoing future work.
+4. **Academic Standing**: This software is an academic B.Tech NLP capstone prototype developed for educational and research evaluation. It does not constitute formal legal counsel.
+
+---
+
+## 6. Project Defense & Citation
+
+For complete viva defense preparation, refer to [`docs/viva_defense_guide.md`](docs/viva_defense_guide.md) and [`docs/PROJECT_GUIDE.md`](docs/PROJECT_GUIDE.md).
+
+```bibtex
+@misc{indian_constitution_legal_ai_2026,
+  title={Entity-Aware Hybrid Retrieval and Reranking Framework for Indian Constitutional Question Answering},
+  author={Tanguturi, Ramsai},
+  year={2026},
+  howpublished={B.Tech Capstone Project, Department of Computer Science \& Engineering}
+}
+```
