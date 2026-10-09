@@ -5,7 +5,7 @@
   "test_samples": 33,
   "random_seed": 42,
   "split_ratio": "85/15",
-  "total_latency_seconds": 0.677,
+  "total_latency_seconds": 0.637,
   "models": {
     "rule_based_baseline": {
       "sample_count": 33,

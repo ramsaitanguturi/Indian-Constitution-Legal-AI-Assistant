@@ -25,7 +25,7 @@ def run_experiment():
     results = evaluator.run_comparative_evaluation()
 
     models = results.get("models", {})
-    print(f"Evaluated on {results.get('total_dataset_size', 0)} queries (Test set size: {results.get('test_set_size', 0)}).")
+    print(f"Evaluated on {results.get('total_samples', 0)} queries (Test set size: {results.get('test_samples', 0)}).")
     print("-" * 65)
     for name, stats in models.items():
         print(f"  {name:<25}: Accuracy = {stats.get('accuracy', 0.0):.4f} | Macro-F1 = {stats.get('macro_f1', 0.0):.4f}")

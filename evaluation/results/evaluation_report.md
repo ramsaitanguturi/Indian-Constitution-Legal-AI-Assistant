@@ -1,5 +1,5 @@
 # Indian Constitution Legal AI Assistant — Empirical Evaluation Report
-**Generated:** 2026-10-09 13:40:09 | **Corpus Version:** 1.0.0-capstone | **Random Seed:** 42
+**Generated:** 2026-10-09 16:28:58 | **Corpus Version:** 1.0.0-capstone | **Random Seed:** 42
 
 > **Research Purpose:** Quantitative empirical evaluation of NLP query understanding, entity-aware hybrid retrieval, and grounded RAG reliability.
 
@@ -8,12 +8,12 @@ Evaluated across standard Information Retrieval metrics using verified relevance
 
 | Retrieval Configuration | Hit@1 | Hit@3 | Hit@5 | Hit@10 | Recall@5 | Recall@10 | MRR | NDCG@5 | NDCG@10 | Latency (ms) |
 |---|---|---|---|---|---|---|---|---|---|---|
-| **Exp 1: BM25 Only** | 0.7500 | 0.8400 | 0.8500 | 0.8600 | 0.5018 | 0.5064 | 0.7962 | 0.6166 | 0.6157 | 4.1 ms |
-| **Exp 2: Dense Only** | 0.7750 | 0.8400 | 0.8500 | 0.8500 | 0.5096 | 0.5250 | 0.8072 | 0.6413 | 0.6429 | 18.0 ms |
-| **Exp 3: BM25 + Dense (Linear)** | 0.7700 | 0.8450 | 0.8550 | 0.8600 | 0.5050 | 0.5150 | 0.8099 | 0.6297 | 0.6298 | 22.8 ms |
-| **Exp 4: BM25 + Dense + RRF** | 0.7700 | 0.8400 | 0.8550 | 0.8550 | 0.5056 | 0.5106 | 0.8071 | 0.6261 | 0.6244 | 22.4 ms |
-| **Exp 5: RRF + Entity Boost** | 0.7800 | 0.8400 | 0.8450 | 0.8450 | 0.5285 | 0.5348 | 0.8096 | 0.6513 | 0.6492 | 66.4 ms |
-| **Exp 6: Full Pipeline (+ Cross-Encoder)** | 0.8000 | 0.8450 | 0.8600 | 0.8650 | 0.5476 | 0.5526 | 0.8263 | 0.6752 | 0.6730 | 623.9 ms |
+| **Exp 1: BM25 Only** | 0.7500 | 0.8400 | 0.8500 | 0.8600 | 0.5018 | 0.5064 | 0.7962 | 0.6166 | 0.6157 | 3.8 ms |
+| **Exp 2: Dense Only** | 0.7750 | 0.8400 | 0.8500 | 0.8500 | 0.5096 | 0.5250 | 0.8072 | 0.6413 | 0.6429 | 17.7 ms |
+| **Exp 3: BM25 + Dense (Linear)** | 0.7700 | 0.8450 | 0.8550 | 0.8600 | 0.5050 | 0.5150 | 0.8099 | 0.6297 | 0.6298 | 22.0 ms |
+| **Exp 4: BM25 + Dense + RRF** | 0.7700 | 0.8400 | 0.8550 | 0.8550 | 0.5056 | 0.5106 | 0.8071 | 0.6261 | 0.6244 | 21.9 ms |
+| **Exp 5: RRF + Entity Boost** | 0.7800 | 0.8400 | 0.8450 | 0.8450 | 0.5293 | 0.5352 | 0.8096 | 0.6504 | 0.6482 | 68.0 ms |
+| **Exp 6: Full Pipeline (+ Cross-Encoder)** | 0.8000 | 0.8450 | 0.8600 | 0.8650 | 0.5476 | 0.5526 | 0.8263 | 0.6752 | 0.6730 | 625.1 ms |
 
 *Configuration Details:*
 - BM25: Okapi ($k_1=1.5, b=0.75$)
@@ -23,18 +23,18 @@ Evaluated across standard Information Retrieval metrics using verified relevance
 - Neural Reranker: `cross-encoder/ms-marco-MiniLM-L-6-v2`
 
 ## 2. Legal Named Entity Recognition (NER) Evaluation
-**Exact Span Match:** True | **Micro-F1:** 0.8148 | **Macro-F1:** 0.7408 | **Gold Entities:** 211
+**Exact Span Match:** True | **Micro-F1:** 0.8714 | **Macro-F1:** 0.8496 | **Gold Entities:** 211
 
 | Entity Category | Precision | Recall | F1 Score | Support | TP | FP | FN |
 |---|---|---|---|---|---|---|---|
 | `ACT` | 1.0000 | 0.6667 | **0.8000** | 15 | 10 | 0 | 5 |
 | `AMENDMENT` | 1.0000 | 1.0000 | **1.0000** | 15 | 15 | 0 | 0 |
 | `ARTICLE` | 1.0000 | 1.0000 | **1.0000** | 40 | 40 | 0 | 0 |
-| `CASE` | 0.9200 | 0.7419 | **0.8214** | 31 | 23 | 2 | 8 |
+| `CASE` | 0.9583 | 0.7419 | **0.8364** | 31 | 23 | 1 | 8 |
 | `COURT` | 0.9333 | 0.6087 | **0.7368** | 23 | 14 | 1 | 9 |
 | `DATE` | 1.0000 | 1.0000 | **1.0000** | 38 | 38 | 0 | 0 |
-| `LEGAL_CONCEPT` | 0.2812 | 0.6000 | **0.3830** | 15 | 9 | 23 | 6 |
-| `PERSON` | 0.0000 | 0.0000 | **0.0000** | 14 | 0 | 2 | 14 |
+| `LEGAL_CONCEPT` | 0.4000 | 0.9333 | **0.5600** | 15 | 14 | 21 | 1 |
+| `PERSON` | 0.8667 | 0.9286 | **0.8966** | 14 | 13 | 2 | 1 |
 | `RIGHT` | 0.8333 | 0.5556 | **0.6667** | 9 | 5 | 1 | 4 |
 | `SECTION` | 1.0000 | 1.0000 | **1.0000** | 11 | 11 | 0 | 0 |
 

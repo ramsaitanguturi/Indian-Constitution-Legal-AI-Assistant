@@ -1,20 +1,20 @@
 {
-  "experiment_name": "LegalNER_Exact_Span",
+  "experiment_name": "Exp_07_Legal_NER",
   "status": "COMPLETED",
   "exact_span_match": true,
   "sample_count": 105,
   "requires_human_annotation_count": 0,
-  "total_latency_seconds": 4.036,
+  "total_latency_seconds": 3.857,
   "metrics": {
     "evaluation_definition": "Exact entity-level evaluation (matching: (start, end, label)). Precision = TP/(TP+FP), Recall = TP/(TP+FN), F1 = 2PR/(P+R).",
-    "micro_precision": 0.8505,
-    "micro_recall": 0.782,
-    "micro_f1": 0.8148,
-    "macro_precision": 0.7968,
-    "macro_recall": 0.7173,
-    "macro_f1": 0.7408,
+    "micro_precision": 0.8756,
+    "micro_recall": 0.8673,
+    "micro_f1": 0.8714,
+    "macro_precision": 0.8992,
+    "macro_recall": 0.8435,
+    "macro_f1": 0.8496,
     "total_gold_entities": 211,
-    "total_predicted_entities": 194,
+    "total_predicted_entities": 209,
     "per_class": {
       "ACT": {
         "precision": 1.0,
@@ -44,12 +44,12 @@
         "fn": 0
       },
       "CASE": {
-        "precision": 0.92,
+        "precision": 0.9583,
         "recall": 0.7419,
-        "f1": 0.8214,
+        "f1": 0.8364,
         "support": 31,
         "tp": 23,
-        "fp": 2,
+        "fp": 1,
         "fn": 8
       },
       "COURT": {
@@ -71,22 +71,22 @@
         "fn": 0
       },
       "LEGAL_CONCEPT": {
-        "precision": 0.2812,
-        "recall": 0.6,
-        "f1": 0.383,
+        "precision": 0.4,
+        "recall": 0.9333,
+        "f1": 0.56,
         "support": 15,
-        "tp": 9,
-        "fp": 23,
-        "fn": 6
+        "tp": 14,
+        "fp": 21,
+        "fn": 1
       },
       "PERSON": {
-        "precision": 0.0,
-        "recall": 0.0,
-        "f1": 0.0,
+        "precision": 0.8667,
+        "recall": 0.9286,
+        "f1": 0.8966,
         "support": 14,
-        "tp": 0,
+        "tp": 13,
         "fp": 2,
-        "fn": 14
+        "fn": 1
       },
       "RIGHT": {
         "precision": 0.8333,

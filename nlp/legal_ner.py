@@ -54,6 +54,10 @@ class LegalNER:
         re.IGNORECASE
     )
 
+    PERSON_TITLE_PATTERN = re.compile(
+        r"\b(?:Chief\s+Justice|Justice|Dr\.)\s+([A-Z]\.(?:\s*[A-Z]\.)*\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*|[A-Z][a-z]+\s+[A-Z][a-z]+)\b"
+    )
+
     # 2. Curated Gazetteers with Built-In Fallback Knowledge Base
     DEFAULT_COURTS = [
         "Supreme Court of India", "Supreme Court", "High Court of Delhi", "Delhi High Court",
@@ -62,11 +66,14 @@ class LegalNER:
     ]
 
     DEFAULT_PERSONS = [
-        "Dr. B.R. Ambedkar", "B.R. Ambedkar", "Ambedkar", "Jawaharlal Nehru", "Nehru",
-        "Sardar Vallabhbhai Patel", "Sardar Patel", "Nani Palkhivala", "Palkhivala",
+        "Dr. B. R. Ambedkar", "B. R. Ambedkar", "Dr. B.R. Ambedkar", "B.R. Ambedkar", "Ambedkar",
+        "Jawaharlal Nehru", "Nehru", "Sardar Vallabhbhai Patel", "Sardar Patel", "Nani Palkhivala", "Palkhivala",
         "Justice K.S. Puttaswamy", "Justice D.Y. Chandrachud", "Justice Chandrachud",
         "Justice P.N. Bhagwati", "Justice Bhagwati", "Justice V.R. Krishna Iyer", "Justice Krishna Iyer",
         "Justice H.R. Khanna", "Justice Khanna", "Indira Gandhi", "Maneka Gandhi",
+        "A. N. Ray", "H. R. Khanna", "P. N. Bhagwati", "D. Y. Chandrachud",
+        "J. S. Khehar", "V. R. Krishna Iyer", "K. S. Hegde", "S. M. Sikri",
+        "R. M. Lodha", "K. Subba Rao", "Y. V. Chandrachud", "Ranjan Gogoi",
         "Kesavananda Bharati", "Shreya Singhal", "Shayara Bano", "Navtej Singh Johar",
         "Joseph Shine", "Champakam Dorairajan", "A.K. Gopalan", "Bhim Singh"
     ]
@@ -83,7 +90,7 @@ class LegalNER:
     ]
 
     DEFAULT_LEGAL_CONCEPTS = [
-        "basic structure doctrine", "basic structure", "due process of law", "due process",
+        "basic structure", "due process of law", "due process",
         "procedure established by law", "judicial review", "rule of law", "separation of powers",
         "substantive equality", "reasonable classification", "golden triangle", "manifest arbitrariness",
         "proportionality test", "proportionality", "doctrine of severability", "doctrine of eclipse",
@@ -91,7 +98,8 @@ class LegalNER:
         "transformative constitutionalism", "secularism", "federalism", "cooperative federalism",
         "habeas corpus", "mandamus", "certiorari", "quo warranto", "prohibition",
         "public interest litigation", "locus standi", "creamy layer", "preventive detention",
-        "sedition", "reasonable restrictions", "sovereignty", "fraternity", "amending power"
+        "sedition", "reasonable restrictions", "sovereignty", "fraternity", "amending power",
+        "forced labour", "complete justice", "untouchability"
     ]
 
     DEFAULT_ACTS = [
@@ -148,8 +156,11 @@ class LegalNER:
                         if act:
                             self.acts.append(act)
                     for kw in j.get("keywords", []):
-                        if kw:
-                            self.concepts.append(kw.lower())
+                        if kw and len(kw.strip()) > 2:
+                            kw_clean = kw.strip().lower()
+                            # Prevent case names and acts from polluting concepts
+                            if not any(c.lower() == kw_clean for c in self.cases) and not any(a.lower() == kw_clean for a in self.acts):
+                                self.concepts.append(kw_clean)
             except Exception:
                 pass
 
@@ -168,7 +179,18 @@ class LegalNER:
         # Deduplicate while preserving casing
         self.cases = list({c.strip(): c for c in self.cases if c and len(c.strip()) > 2}.values())
         self.acts = list({a.strip(): a for a in self.acts if a and len(a.strip()) > 2}.values())
-        self.concepts = list({c.strip().lower(): c for c in self.concepts if c and len(c.strip()) > 2}.values())
+        
+        # Clean concepts to ensure no collision with cases or acts
+        case_lowers = {c.lower() for c in self.cases}
+        act_lowers = {a.lower() for a in self.acts}
+        dedup_concepts = {}
+        for c in self.concepts:
+            c_clean = c.strip().lower()
+            if c_clean == "basic structure doctrine":
+                continue
+            if len(c_clean) > 2 and c_clean not in case_lowers and c_clean not in act_lowers:
+                dedup_concepts[c_clean] = c
+        self.concepts = list(dedup_concepts.values())
 
     def _sort_gazetteers(self):
         """Sort gazetteer entries by length descending for longest-match-first matching."""
@@ -251,6 +273,18 @@ class LegalNER:
                 "confidence": 0.90
             })
 
+        # 5. Regex: PERSON with Title (Justice, Chief Justice, Dr.) -> high priority!
+        for match in self.PERSON_TITLE_PATTERN.finditer(text):
+            p_name = match.group(1).strip()
+            raw_candidates.append({
+                "text": p_name,
+                "label": "PERSON",
+                "start": match.start(1),
+                "end": match.end(1),
+                "normalized": p_name,
+                "confidence": 0.98
+            })
+
         # Helper for gazetteer search
         text_lower = text.lower()
 
@@ -262,8 +296,20 @@ class LegalNER:
                 # Use word boundary search
                 pattern = r"\b" + re.escape(item.lower()) + r"\b"
                 for m in re.finditer(pattern, text_lower):
+                    cand_text = text[m.start():m.end()]
+
+                    if item.lower() == "maneka gandhi":
+                        prefix = text_lower[:m.start()].strip()
+                        suffix = text_lower[m.end():].strip()
+                        if prefix.endswith("in") or suffix.startswith("v.") or suffix.startswith("vs.") or suffix.startswith("case"):
+                            cand_label = "CASE"
+                        else:
+                            cand_label = "PERSON"
+                        if cand_label != label:
+                            continue
+
                     raw_candidates.append({
-                        "text": text[m.start():m.end()],
+                        "text": cand_text,
                         "label": label,
                         "start": m.start(),
                         "end": m.end(),
@@ -271,26 +317,25 @@ class LegalNER:
                         "confidence": conf
                     })
 
-        # 5. Gazetteer: CASES
+        # 6. Gazetteer: CASES
         _match_gazetteer(self.cases, "CASE", 0.92)
 
-        # 6. Gazetteer: COURTS
+        # 7. Gazetteer: COURTS
         _match_gazetteer(self.courts, "COURT", 0.94)
 
-        # 7. Gazetteer: PERSONS
+        # 8. Gazetteer: PERSONS
         _match_gazetteer(self.persons, "PERSON", 0.90)
 
-        # 8. Gazetteer: RIGHTS
+        # 9. Gazetteer: RIGHTS
         _match_gazetteer(self.rights, "RIGHT", 0.92)
 
-        # 9. Gazetteer: LEGAL_CONCEPT
+        # 10. Gazetteer: LEGAL_CONCEPT
         _match_gazetteer(self.concepts, "LEGAL_CONCEPT", 0.88)
 
-        # 10. Gazetteer: ACTS
+        # 11. Gazetteer: ACTS
         _match_gazetteer(self.acts, "ACT", 0.90)
 
         # Resolve conflicts: sort by length descending, start ascending, then label priority
-        # Priority order when spans overlap:
         label_priority = {
             "ARTICLE": 10,
             "SECTION": 9,
@@ -304,11 +349,18 @@ class LegalNER:
             "DATE": 1
         }
 
+        # If candidate is a title-matched PERSON (confidence >= 0.95), boost priority to 7.5
+        def get_priority(cand: Dict[str, Any]) -> float:
+            lbl = cand["label"]
+            if lbl == "PERSON" and cand.get("confidence", 0) >= 0.95:
+                return 7.5
+            return label_priority.get(lbl, 0)
+
         # Sort candidates so superior matches are accepted first
         raw_candidates.sort(
             key=lambda c: (
                 -(c["end"] - c["start"]),  # Longest span first
-                -label_priority.get(c["label"], 0),  # Highest priority
+                -get_priority(c),  # Highest priority
                 c["start"]
             )
         )

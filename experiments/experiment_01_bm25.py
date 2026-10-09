@@ -14,7 +14,6 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from retrieval.bm25_retriever import BM25Retriever
 from evaluation.retrieval_eval import RetrievalEvaluator
-from evaluation.metrics import print_retrieval_metrics_table
 from config import PARENT_STORE_PATH
 
 

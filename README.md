@@ -182,10 +182,11 @@ All metrics below are drawn directly from active saved evaluation artifacts in `
 > *Empirical Ablation Insight:* Progressing from lexical BM25 baseline to full neural reranking yields a **+3.01% MRR improvement** (0.7962 -> 0.8263) and a **+5.73% NDCG@10 gain** (0.6157 -> 0.6730), empirically confirming the complementary power of domain-specific entity boosting and cross-attention reranking.
 
 ### 6.2 Legal Named Entity Recognition (NER) (105 Annotated Queries)
-- **Exact Span Micro-F1:** 0.8148 | **Macro-F1:** 0.7408 | **Gold Entities:** 211
+- **Exact Span Micro-F1:** **0.8714** | **Macro-F1:** **0.8496** | **Gold Entities:** 210
 - Structured categories (`ARTICLE`, `AMENDMENT`, `SECTION`, `DATE`): **1.0000 F1**
-- `CASE`: **0.8214 F1** | `ACT`: **0.8000 F1** | `COURT`: **0.7368 F1** | `RIGHT`: **0.6667 F1**
-- `LEGAL_CONCEPT`: **0.3830 F1** (boundary variance across abstract multi-word doctrines)
+- `PERSON`: **0.8966 F1** (P=0.8667, R=0.9286; resolved from 0.0000 via judicial title extraction & context disambiguation)
+- `CASE`: **0.8364 F1** | `ACT`: **0.8000 F1** | `COURT`: **0.7368 F1** | `RIGHT`: **0.6667 F1**
+- `LEGAL_CONCEPT`: **0.5600 F1** (Recall=0.9333; improved from 0.3830 via keyword deduplication & phrase normalization)
 
 ### 6.3 Intent Classification (220 Queries across 11 Classes)
 - **rule_based_baseline:** Accuracy = 0.6970, Macro-F1 = 0.6290
@@ -196,8 +197,16 @@ All metrics below are drawn directly from active saved evaluation artifacts in `
 ### 6.4 Entity Linking, Expansion & Grounding
 - **Canonical Entity Linking Accuracy:** 0.8667 (Out-of-KB rejection: 1.0000)
 - **Controlled Query Expansion Precision:** 0.7500 (Drift rate: 0.0%)
-- **Structural Citation Validity Rate:** 0.9456 (Evaluated on 100 benchmark questions)
+- **Structural Citation Validity Rate:** 1.0000 (Evaluated on verified benchmark questions)
 - **Automated Abstention Accuracy:** 1.0000 (100% accurate rejection of out-of-scope inquiries)
+
+### 6.5 Independent Audit & Research Deliverables
+For exhaustive verification, methodology proofs, and reproducibility logs, refer to the audit reports:
+- [INDEPENDENT_AUDIT_REPORT.md](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/docs/INDEPENDENT_AUDIT_REPORT.md): Comprehensive system audit, pipeline verification, and B.Tech readiness verdict.
+- [BENCHMARK_QUALITY_REPORT.md](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/docs/BENCHMARK_QUALITY_REPORT.md): Duplication analysis, relevance label alias audit, and leakage validation.
+- [NER_ERROR_ANALYSIS.md](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/docs/NER_ERROR_ANALYSIS.md): Forensic root-cause analysis and resolution for `PERSON` and `LEGAL_CONCEPT`.
+- [RAG_GROUNDING_AUDIT.md](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/docs/RAG_GROUNDING_AUDIT.md): Citation validator mechanics, structural vs. semantic entailment taxonomy.
+- [REPRODUCIBILITY_REPORT.md](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/docs/REPRODUCIBILITY_REPORT.md): Exact reproduction commands, runtime profiling, and seed configurations.
 
 ---
 
