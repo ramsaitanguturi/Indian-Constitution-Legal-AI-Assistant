@@ -1,5 +1,5 @@
 # Indian Constitution Legal AI Assistant — Empirical Evaluation Report
-**Generated:** 2026-10-09 11:27:19 | **Corpus Version:** 1.0.0-capstone | **Random Seed:** 42
+**Generated:** 2026-10-09 11:48:16 | **Corpus Version:** 1.0.0-capstone | **Random Seed:** 42
 
 > **Research Purpose:** Quantitative empirical evaluation of NLP query understanding, entity-aware hybrid retrieval, and grounded RAG reliability.
 
@@ -8,12 +8,12 @@ Evaluated across standard Information Retrieval metrics using verified relevance
 
 | Retrieval Configuration | Hit@1 | Hit@3 | Hit@5 | Hit@10 | Recall@5 | Recall@10 | MRR | NDCG@5 | NDCG@10 | Latency (ms) |
 |---|---|---|---|---|---|---|---|---|---|---|
-| **Exp 1: BM25 Only** | 0.2000 | 0.2500 | 0.3500 | 0.3500 | 0.2417 | 0.2417 | 0.2500 | 0.1978 | 0.1978 | 3.8 ms |
-| **Exp 2: Dense Only** | 0.2500 | 0.8000 | 0.9500 | 0.9500 | 0.7167 | 0.8167 | 0.5325 | 0.5153 | 0.5536 | 21.8 ms |
-| **Exp 3: BM25 + Dense (Linear)** | 0.2000 | 0.2500 | 0.3500 | 0.3500 | 0.2417 | 0.2417 | 0.2500 | 0.1978 | 0.1978 | 22.6 ms |
-| **Exp 4: BM25 + Dense + RRF** | 0.1500 | 0.2500 | 0.4500 | 0.5000 | 0.3125 | 0.3625 | 0.2413 | 0.2007 | 0.2174 | 20.8 ms |
-| **Exp 5: RRF + Entity Boost** | 0.2500 | 0.7500 | 0.9000 | 0.9000 | 0.7542 | 0.8042 | 0.5100 | 0.5381 | 0.5560 | 64.8 ms |
-| **Exp 6: Full Pipeline (+ Cross-Encoder)** | 0.4000 | 1.0000 | 1.0000 | 1.0000 | 0.8583 | 0.8583 | 0.6583 | 0.6296 | 0.6296 | 968.6 ms |
+| **Exp 1: BM25 Only** | 0.7500 | 0.9000 | 0.9500 | 0.9500 | 0.5488 | 0.5488 | 0.8375 | 0.5895 | 0.5811 | 3.5 ms |
+| **Exp 2: Dense Only** | 0.8500 | 1.0000 | 1.0000 | 1.0000 | 0.7738 | 0.8279 | 0.9250 | 0.7977 | 0.8086 | 22.8 ms |
+| **Exp 3: BM25 + Dense (Linear)** | 0.8000 | 1.0000 | 1.0000 | 1.0000 | 0.6325 | 0.6325 | 0.9000 | 0.6661 | 0.6545 | 22.6 ms |
+| **Exp 4: BM25 + Dense + RRF** | 0.8000 | 1.0000 | 1.0000 | 1.0000 | 0.6138 | 0.6388 | 0.9000 | 0.6449 | 0.6429 | 21.9 ms |
+| **Exp 5: RRF + Entity Boost** | 0.8500 | 1.0000 | 1.0000 | 1.0000 | 0.8050 | 0.8342 | 0.9250 | 0.8127 | 0.8154 | 65.1 ms |
+| **Exp 6: Full Pipeline (+ Cross-Encoder)** | 0.9500 | 1.0000 | 1.0000 | 1.0000 | 0.8962 | 0.8962 | 0.9750 | 0.9183 | 0.9041 | 1001.5 ms |
 
 *Configuration Details:*
 - BM25: Okapi ($k_1=1.5, b=0.75$)

@@ -79,6 +79,52 @@ class ReportGenerator:
                 ])
         return target
 
+    def save_retrieval_query_audit_csv(
+        self,
+        retrieval_experiments: List[Dict[str, Any]],
+        filename: str = "retrieval_query_level_audit.csv"
+    ) -> Path:
+        """
+        Saves query-level retrieval audit log containing each query, relevant IDs,
+        retrieved IDs/ranks, and per-system metrics across all evaluated systems.
+        """
+        target = self.output_dir / filename
+        headers = [
+            "Query_ID", "System", "Query", "Intent", "Gold_Relevant_IDs",
+            "Retrieved_Top_5", "First_Hit_Rank", "Hit@1", "Hit@3", "Hit@5", "Hit@10",
+            "Recall@5", "Recall@10", "MRR", "NDCG@5", "NDCG@10"
+        ]
+
+        with open(target, "w", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            writer.writerow(headers)
+
+            for exp in retrieval_experiments:
+                sys_name = exp.get("experiment_name", "unknown")
+                for detail in exp.get("query_details", []):
+                    qm = detail.get("metrics", {})
+                    first_rank = detail.get("first_hit_rank")
+                    rank_str = str(first_rank) if first_rank is not None else "Not Found (>10)"
+                    writer.writerow([
+                        detail.get("query_id", ""),
+                        sys_name,
+                        detail.get("query", ""),
+                        detail.get("intent", ""),
+                        "; ".join(detail.get("gold_relevant", [])),
+                        "; ".join(detail.get("retrieved_top_5", [])),
+                        rank_str,
+                        qm.get("Hit@1", 0.0),
+                        qm.get("Hit@3", 0.0),
+                        qm.get("Hit@5", 0.0),
+                        qm.get("Hit@10", 0.0),
+                        qm.get("Recall@5", 0.0),
+                        qm.get("Recall@10", 0.0),
+                        qm.get("MRR", 0.0),
+                        qm.get("NDCG@5", 0.0),
+                        qm.get("NDCG@10", 0.0)
+                    ])
+        return target
+
     def save_classification_csv(self, classification_data: Dict[str, Any], filename: str = "classification_results.csv") -> Path:
         """Saves intent classification model comparison table to CSV."""
         target = self.output_dir / filename

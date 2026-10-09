@@ -5,7 +5,8 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_32"
+      "parent_const_art_32",
+      "parent_const_art_032"
     ],
     "relevant_chunks": [
       "child_const_const_art_32_0"
@@ -19,7 +20,8 @@
     "intent": "ARTICLE_LOOKUP",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_21"
+      "parent_const_art_21",
+      "parent_const_art_021"
     ],
     "relevant_chunks": [
       "child_const_const_art_21_0"
@@ -33,7 +35,8 @@
     "intent": "ARTICLE_LOOKUP",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_14"
+      "parent_const_art_14",
+      "parent_const_art_014"
     ],
     "relevant_chunks": [
       "child_const_const_art_14_0"
@@ -47,7 +50,8 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_19"
+      "parent_const_art_19",
+      "parent_const_art_019"
     ],
     "relevant_chunks": [
       "child_const_const_art_19_0"
@@ -75,7 +79,8 @@
     "intent": "ARTICLE_LOOKUP",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_12"
+      "parent_const_art_12",
+      "parent_const_art_012"
     ],
     "relevant_chunks": [
       "child_const_const_art_12_0"
@@ -89,7 +94,8 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_21A"
+      "parent_const_art_21A",
+      "parent_const_art_021a"
     ],
     "relevant_chunks": [
       "child_const_const_art_21A_0"
@@ -132,6 +138,7 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_kesavananda",
+      "parent_case_sc_kesavananda_1973",
       "parent_const_art_368"
     ],
     "relevant_chunks": [
@@ -147,7 +154,9 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_puttaswamy",
-      "parent_const_art_21"
+      "parent_case_sc_puttaswamy_privacy_2017",
+      "parent_const_art_21",
+      "parent_const_art_021"
     ],
     "relevant_chunks": [
       "child_case_puttaswamy_0"
@@ -162,9 +171,13 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_maneka",
+      "parent_case_sc_maneka_gandhi_1978",
       "parent_const_art_21",
+      "parent_const_art_021",
       "parent_const_art_14",
-      "parent_const_art_19"
+      "parent_const_art_014",
+      "parent_const_art_19",
+      "parent_const_art_019"
     ],
     "relevant_chunks": [
       "child_case_maneka_0"
@@ -179,7 +192,9 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_minerva",
+      "parent_case_sc_minerva_mills_1980",
       "parent_case_kesavananda",
+      "parent_case_sc_kesavananda_1973",
       "parent_const_art_368"
     ],
     "relevant_chunks": [
@@ -194,7 +209,8 @@
     "intent": "CASE_LAW_QUERY",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_case_bommai"
+      "parent_case_bommai",
+      "parent_case_sc_sr_bommai_1994"
     ],
     "relevant_chunks": [
       "child_case_bommai_0"
@@ -209,6 +225,7 @@
     "query_type": "concept_cross_document",
     "relevant_documents": [
       "parent_case_kesavananda",
+      "parent_case_sc_kesavananda_1973",
       "parent_const_art_368"
     ],
     "relevant_chunks": [
@@ -224,7 +241,9 @@
     "query_type": "concept_cross_document",
     "relevant_documents": [
       "parent_const_art_21",
-      "parent_case_puttaswamy"
+      "parent_const_art_021",
+      "parent_case_puttaswamy",
+      "parent_case_sc_puttaswamy_privacy_2017"
     ],
     "relevant_chunks": [
       "child_const_const_art_21_0",
@@ -240,9 +259,13 @@
     "query_type": "concept_cross_document",
     "relevant_documents": [
       "parent_const_art_14",
+      "parent_const_art_014",
       "parent_const_art_19",
+      "parent_const_art_019",
       "parent_const_art_21",
-      "parent_case_maneka"
+      "parent_const_art_021",
+      "parent_case_maneka",
+      "parent_case_sc_maneka_gandhi_1978"
     ],
     "relevant_chunks": [
       "child_case_maneka_0"
@@ -257,7 +280,8 @@
     "query_type": "concept_cross_document",
     "relevant_documents": [
       "parent_const_preamble",
-      "parent_case_bommai"
+      "parent_case_bommai",
+      "parent_case_sc_sr_bommai_1994"
     ],
     "relevant_chunks": [
       "child_const_const_preamble_0",
@@ -272,7 +296,8 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "remedy_lookup",
     "relevant_documents": [
-      "parent_const_art_32"
+      "parent_const_art_32",
+      "parent_const_art_032"
     ],
     "relevant_chunks": [
       "child_const_const_art_32_0"
@@ -287,7 +312,9 @@
     "query_type": "concept_cross_document",
     "relevant_documents": [
       "parent_case_maneka",
-      "parent_const_art_21"
+      "parent_case_sc_maneka_gandhi_1978",
+      "parent_const_art_21",
+      "parent_const_art_021"
     ],
     "relevant_chunks": [
       "child_case_maneka_0",

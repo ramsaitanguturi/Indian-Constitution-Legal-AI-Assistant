@@ -507,3 +507,24 @@ class TestHybridRetrieverAblations:
         assert "pipeline_config" in prov
         assert prov["pipeline_config"]["use_bm25"] is True
         assert prov["pipeline_config"]["use_dense"] is False
+
+    def test_bm25_dense_linear_fusion(self, mock_bm25_retriever, mock_parent_store):
+        """Verifies that non-RRF linear combination genuinely merges BM25 and dense scores."""
+        mock_col = MockChromaCollection(count=2)
+        dense = DenseRetriever(collection=mock_col, parent_store=mock_parent_store)
+        hybrid = HybridRetriever(
+            bm25_retriever=mock_bm25_retriever,
+            dense_retriever=dense,
+            use_bm25=True,
+            use_dense=True,
+            use_rrf=False,
+            use_entity_boost=False,
+            use_reranker=False,
+            linear_alpha=0.5,
+            parent_store=mock_parent_store,
+        )
+        results = hybrid.retrieve("Article 21", top_k=2)
+        assert len(results) > 0
+        for item in results:
+            assert "score" in item
+            assert 0.0 <= item["score"] <= 1.0

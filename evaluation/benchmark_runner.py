@@ -130,7 +130,9 @@ class BenchmarkRunner:
 
         # Save CSV
         csv_path = self.report_generator.save_retrieval_csv(retrieval_results)
+        audit_csv_path = self.report_generator.save_retrieval_query_audit_csv(retrieval_results)
         print(f"[RETRIEVAL] Saved results table to {csv_path}")
+        print(f"[RETRIEVAL] Saved query-level audit log to {audit_csv_path}")
         return retrieval_results
 
     def run_ner_suite(self) -> Dict[str, Any]:

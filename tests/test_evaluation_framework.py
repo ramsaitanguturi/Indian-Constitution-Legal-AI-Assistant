@@ -290,10 +290,12 @@ class TestReportGenerator:
 
         # Save CSVs
         csv_ret = generator.save_retrieval_csv(retrieval_mock)
+        csv_audit = generator.save_retrieval_query_audit_csv(retrieval_mock)
         csv_ner = generator.save_ner_csv(ner_mock)
         csv_intent = generator.save_classification_csv(intent_mock)
 
         assert csv_ret.exists()
+        assert csv_audit.exists()
         assert csv_ner.exists()
         assert csv_intent.exists()
 
@@ -329,3 +331,4 @@ class TestBenchmarkRunner:
         ret_results = runner.run_retrieval_suite()
         assert len(ret_results) == 6
         assert (tmp_path / "retrieval_results.csv").exists()
+        assert (tmp_path / "retrieval_query_level_audit.csv").exists()

@@ -187,6 +187,13 @@ class RetrievalEvaluator:
             ndcg5 = ndcg_at_k(eval_ids, graded_labels, 5)
             ndcg10 = ndcg_at_k(eval_ids, graded_labels, 10)
 
+            # Compute first hit rank (1-indexed, None if not in retrieved list)
+            first_hit_rank = None
+            for rank_idx, item_id in enumerate(eval_ids, start=1):
+                if item_id in eval_gold:
+                    first_hit_rank = rank_idx
+                    break
+
             qm = {
                 "Hit@1": h1,
                 "Hit@3": h3,
@@ -206,6 +213,8 @@ class RetrievalEvaluator:
                 "intent": q.get("intent", ""),
                 "gold_relevant": list(eval_gold),
                 "retrieved_top_5": eval_ids[:5],
+                "retrieved_top_10": eval_ids[:10],
+                "first_hit_rank": first_hit_rank,
                 "metrics": qm
             })
 

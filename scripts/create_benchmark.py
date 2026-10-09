@@ -30,7 +30,7 @@ def build_retrieval_benchmark():
             "query": "What constitutional remedies are available under Article 32 for fundamental rights violations?",
             "intent": "RIGHTS_QUERY",
             "query_type": "direct_article_lookup",
-            "relevant_documents": ["parent_const_art_32"],
+            "relevant_documents": ["parent_const_art_32", "parent_const_art_032"],
             "relevant_chunks": ["child_const_const_art_32_0"],
             "human_annotation_status": "verified",
             "provenance": "Constitution of India, Article 32"
@@ -40,7 +40,7 @@ def build_retrieval_benchmark():
             "query": "What does Article 21 guarantee regarding protection of life and personal liberty?",
             "intent": "ARTICLE_LOOKUP",
             "query_type": "direct_article_lookup",
-            "relevant_documents": ["parent_const_art_21"],
+            "relevant_documents": ["parent_const_art_21", "parent_const_art_021"],
             "relevant_chunks": ["child_const_const_art_21_0"],
             "human_annotation_status": "verified",
             "provenance": "Constitution of India, Article 21"
@@ -50,7 +50,7 @@ def build_retrieval_benchmark():
             "query": "Explain equality before law and equal protection of the laws under Article 14",
             "intent": "ARTICLE_LOOKUP",
             "query_type": "direct_article_lookup",
-            "relevant_documents": ["parent_const_art_14"],
+            "relevant_documents": ["parent_const_art_14", "parent_const_art_014"],
             "relevant_chunks": ["child_const_const_art_14_0"],
             "human_annotation_status": "verified",
             "provenance": "Constitution of India, Article 14"
@@ -60,7 +60,7 @@ def build_retrieval_benchmark():
             "query": "What six fundamental freedoms are guaranteed to citizens under Article 19?",
             "intent": "RIGHTS_QUERY",
             "query_type": "direct_article_lookup",
-            "relevant_documents": ["parent_const_art_19"],
+            "relevant_documents": ["parent_const_art_19", "parent_const_art_019"],
             "relevant_chunks": ["child_const_const_art_19_0"],
             "human_annotation_status": "verified",
             "provenance": "Constitution of India, Article 19"
@@ -80,7 +80,7 @@ def build_retrieval_benchmark():
             "query": "How is the term State defined under Article 12 for the purpose of Part III?",
             "intent": "ARTICLE_LOOKUP",
             "query_type": "direct_article_lookup",
-            "relevant_documents": ["parent_const_art_12"],
+            "relevant_documents": ["parent_const_art_12", "parent_const_art_012"],
             "relevant_chunks": ["child_const_const_art_12_0"],
             "human_annotation_status": "verified",
             "provenance": "Constitution of India, Article 12"
@@ -90,7 +90,7 @@ def build_retrieval_benchmark():
             "query": "What does Article 21A provide regarding the fundamental right to free and compulsory education?",
             "intent": "RIGHTS_QUERY",
             "query_type": "direct_article_lookup",
-            "relevant_documents": ["parent_const_art_21A"],
+            "relevant_documents": ["parent_const_art_21A", "parent_const_art_021a"],
             "relevant_chunks": ["child_const_const_art_21A_0"],
             "human_annotation_status": "verified",
             "provenance": "Constitution of India, Article 21A (86th Amendment)"
@@ -120,7 +120,7 @@ def build_retrieval_benchmark():
             "query": "Explain the landmark ruling in Kesavananda Bharati regarding the basic structure doctrine",
             "intent": "CASE_LAW_QUERY",
             "query_type": "landmark_precedent",
-            "relevant_documents": ["parent_case_kesavananda", "parent_const_art_368"],
+            "relevant_documents": ["parent_case_kesavananda", "parent_case_sc_kesavananda_1973", "parent_const_art_368"],
             "relevant_chunks": ["child_case_kesavananda_0"],
             "human_annotation_status": "verified",
             "provenance": "Kesavananda Bharati v. State of Kerala (1973) 4 SCC 225"
@@ -130,7 +130,7 @@ def build_retrieval_benchmark():
             "query": "What did the Supreme Court hold in Justice KS Puttaswamy regarding right to privacy under Article 21?",
             "intent": "CASE_LAW_QUERY",
             "query_type": "landmark_precedent",
-            "relevant_documents": ["parent_case_puttaswamy", "parent_const_art_21"],
+            "relevant_documents": ["parent_case_puttaswamy", "parent_case_sc_puttaswamy_privacy_2017", "parent_const_art_21", "parent_const_art_021"],
             "relevant_chunks": ["child_case_puttaswamy_0"],
             "human_annotation_status": "verified",
             "provenance": "Justice K.S. Puttaswamy v. Union of India (2017) 10 SCC 1"
@@ -140,7 +140,7 @@ def build_retrieval_benchmark():
             "query": "What were the facts and ratio decidendi of Maneka Gandhi v Union of India on personal liberty?",
             "intent": "CASE_LAW_QUERY",
             "query_type": "landmark_precedent",
-            "relevant_documents": ["parent_case_maneka", "parent_const_art_21", "parent_const_art_14", "parent_const_art_19"],
+            "relevant_documents": ["parent_case_maneka", "parent_case_sc_maneka_gandhi_1978", "parent_const_art_21", "parent_const_art_021", "parent_const_art_14", "parent_const_art_014", "parent_const_art_19", "parent_const_art_019"],
             "relevant_chunks": ["child_case_maneka_0"],
             "human_annotation_status": "verified",
             "provenance": "Maneka Gandhi v. Union of India (1978) 1 SCC 248"
@@ -150,7 +150,7 @@ def build_retrieval_benchmark():
             "query": "How did Minerva Mills v Union of India reinforce Kesavananda Bharati and strike down unamendable clauses?",
             "intent": "CASE_LAW_QUERY",
             "query_type": "landmark_precedent",
-            "relevant_documents": ["parent_case_minerva", "parent_case_kesavananda", "parent_const_art_368"],
+            "relevant_documents": ["parent_case_minerva", "parent_case_sc_minerva_mills_1980", "parent_case_kesavananda", "parent_case_sc_kesavananda_1973", "parent_const_art_368"],
             "relevant_chunks": ["child_case_minerva_0"],
             "human_annotation_status": "verified",
             "provenance": "Minerva Mills Ltd. v. Union of India (1980) 3 SCC 625"
@@ -160,7 +160,7 @@ def build_retrieval_benchmark():
             "query": "What guidelines were established in SR Bommai regarding President Rule and secularism?",
             "intent": "CASE_LAW_QUERY",
             "query_type": "landmark_precedent",
-            "relevant_documents": ["parent_case_bommai"],
+            "relevant_documents": ["parent_case_bommai", "parent_case_sc_sr_bommai_1994"],
             "relevant_chunks": ["child_case_bommai_0"],
             "human_annotation_status": "verified",
             "provenance": "S.R. Bommai v. Union of India (1994) 3 SCC 1"
@@ -170,7 +170,7 @@ def build_retrieval_benchmark():
             "query": "Can Parliament amend fundamental rights to destroy the basic structure of the Constitution?",
             "intent": "AMENDMENT_QUERY",
             "query_type": "concept_cross_document",
-            "relevant_documents": ["parent_case_kesavananda", "parent_const_art_368"],
+            "relevant_documents": ["parent_case_kesavananda", "parent_case_sc_kesavananda_1973", "parent_const_art_368"],
             "relevant_chunks": ["child_case_kesavananda_0"],
             "human_annotation_status": "verified",
             "provenance": "Kesavananda Bharati and Article 368 interaction"
@@ -180,7 +180,7 @@ def build_retrieval_benchmark():
             "query": "Is privacy recognized as an intrinsic part of the right to life and liberty in India?",
             "intent": "RIGHTS_QUERY",
             "query_type": "concept_cross_document",
-            "relevant_documents": ["parent_const_art_21", "parent_case_puttaswamy"],
+            "relevant_documents": ["parent_const_art_21", "parent_const_art_021", "parent_case_puttaswamy", "parent_case_sc_puttaswamy_privacy_2017"],
             "relevant_chunks": ["child_const_const_art_21_0", "child_case_puttaswamy_0"],
             "human_annotation_status": "verified",
             "provenance": "Puttaswamy privacy doctrine"
@@ -190,7 +190,7 @@ def build_retrieval_benchmark():
             "query": "Explain the interconnected golden triangle of fundamental rights under Articles 14, 19 and 21",
             "intent": "LEGAL_EXPLANATION",
             "query_type": "concept_cross_document",
-            "relevant_documents": ["parent_const_art_14", "parent_const_art_19", "parent_const_art_21", "parent_case_maneka"],
+            "relevant_documents": ["parent_const_art_14", "parent_const_art_014", "parent_const_art_19", "parent_const_art_019", "parent_const_art_21", "parent_const_art_021", "parent_case_maneka", "parent_case_sc_maneka_gandhi_1978"],
             "relevant_chunks": ["child_case_maneka_0"],
             "human_annotation_status": "verified",
             "provenance": "Maneka Gandhi golden triangle doctrine"
@@ -200,7 +200,7 @@ def build_retrieval_benchmark():
             "query": "How is secularism protected under the Constitution as affirmed in SR Bommai and Preamble?",
             "intent": "LEGAL_EXPLANATION",
             "query_type": "concept_cross_document",
-            "relevant_documents": ["parent_const_preamble", "parent_case_bommai"],
+            "relevant_documents": ["parent_const_preamble", "parent_case_bommai", "parent_case_sc_sr_bommai_1994"],
             "relevant_chunks": ["child_const_const_preamble_0", "child_case_bommai_0"],
             "human_annotation_status": "verified",
             "provenance": "Preamble and SR Bommai secularism doctrine"
@@ -210,7 +210,7 @@ def build_retrieval_benchmark():
             "query": "Writ jurisdiction of the Supreme Court to issue directions, orders or writs under Article 32",
             "intent": "RIGHTS_QUERY",
             "query_type": "remedy_lookup",
-            "relevant_documents": ["parent_const_art_32"],
+            "relevant_documents": ["parent_const_art_32", "parent_const_art_032"],
             "relevant_chunks": ["child_const_const_art_32_0"],
             "human_annotation_status": "verified",
             "provenance": "Article 32 writ mechanisms"
@@ -220,7 +220,7 @@ def build_retrieval_benchmark():
             "query": "What is the procedure established by law versus substantive due process post Maneka Gandhi?",
             "intent": "CASE_COMPARISON",
             "query_type": "concept_cross_document",
-            "relevant_documents": ["parent_case_maneka", "parent_const_art_21"],
+            "relevant_documents": ["parent_case_maneka", "parent_case_sc_maneka_gandhi_1978", "parent_const_art_21", "parent_const_art_021"],
             "relevant_chunks": ["child_case_maneka_0", "child_const_const_art_21_0"],
             "human_annotation_status": "verified",
             "provenance": "Article 21 and Maneka Gandhi due process synthesis"
@@ -264,6 +264,29 @@ def build_retrieval_benchmark():
     print(f"[BENCHMARK] Wrote {len(queries)} retrieval queries to {ret_path}")
 
     # Build relevance labels dictionary (graded relevance: 2 = highly relevant, 1 = related)
+    primary_map = {
+        "RET_001": ["parent_const_art_32", "parent_const_art_032"],
+        "RET_002": ["parent_const_art_21", "parent_const_art_021"],
+        "RET_003": ["parent_const_art_14", "parent_const_art_014"],
+        "RET_004": ["parent_const_art_19", "parent_const_art_019"],
+        "RET_005": ["parent_const_preamble"],
+        "RET_006": ["parent_const_art_12", "parent_const_art_012"],
+        "RET_007": ["parent_const_art_21A", "parent_const_art_021a"],
+        "RET_008": ["parent_const_art_368"],
+        "RET_009": ["parent_const_art_370"],
+        "RET_010": ["parent_case_kesavananda", "parent_case_sc_kesavananda_1973"],
+        "RET_011": ["parent_case_puttaswamy", "parent_case_sc_puttaswamy_privacy_2017"],
+        "RET_012": ["parent_case_maneka", "parent_case_sc_maneka_gandhi_1978"],
+        "RET_013": ["parent_case_minerva", "parent_case_sc_minerva_mills_1980"],
+        "RET_014": ["parent_case_bommai", "parent_case_sc_sr_bommai_1994"],
+        "RET_015": ["parent_case_kesavananda", "parent_case_sc_kesavananda_1973", "parent_const_art_368"],
+        "RET_016": ["parent_const_art_21", "parent_const_art_021", "parent_case_puttaswamy", "parent_case_sc_puttaswamy_privacy_2017"],
+        "RET_017": ["parent_const_art_14", "parent_const_art_014", "parent_const_art_19", "parent_const_art_019", "parent_const_art_21", "parent_const_art_021", "parent_case_maneka", "parent_case_sc_maneka_gandhi_1978"],
+        "RET_018": ["parent_const_preamble", "parent_case_bommai", "parent_case_sc_sr_bommai_1994"],
+        "RET_019": ["parent_const_art_32", "parent_const_art_032"],
+        "RET_020": ["parent_case_maneka", "parent_case_sc_maneka_gandhi_1978", "parent_const_art_21", "parent_const_art_021"]
+    }
+
     relevance_labels = {}
     for q in queries:
         qid = q["query_id"]
@@ -271,9 +294,9 @@ def build_retrieval_benchmark():
         if not docs:
             continue
         relevance_labels[qid] = {}
-        for idx, doc_id in enumerate(docs):
-            # First listed doc is primary (grade 2), others related (grade 1)
-            relevance_labels[qid][doc_id] = 2 if idx == 0 else 1
+        primary_set = set(primary_map.get(qid, []))
+        for doc_id in docs:
+            relevance_labels[qid][doc_id] = 2.0 if doc_id in primary_set else 1.0
 
     rel_path = ANNOTATIONS_DIR / "relevance_labels.json"
     with open(rel_path, "w", encoding="utf-8") as f:

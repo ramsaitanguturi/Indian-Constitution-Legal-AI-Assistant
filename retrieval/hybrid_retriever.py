@@ -48,6 +48,7 @@ class HybridRetriever:
         final_top_k: int = FINAL_TOP_K,
         rrf_k: int = RRF_K,
         entity_boost_weight: float = ENTITY_BOOST_WEIGHT,
+        linear_alpha: float = 0.5,
         parent_store: Optional[Dict[str, Dict[str, Any]]] = None,
         auto_hydrate_parent: bool = True,
     ):
@@ -60,6 +61,7 @@ class HybridRetriever:
         self.final_top_k = final_top_k
         self.rrf_k = rrf_k
         self.entity_boost_weight = entity_boost_weight
+        self.linear_alpha = linear_alpha
         self.auto_hydrate_parent = auto_hydrate_parent
 
         # Parent Store
@@ -151,13 +153,46 @@ class HybridRetriever:
             if self.use_rrf:
                 fused_candidates = fuse([bm25_results, dense_results], k=self.rrf_k)
             else:
-                # Direct concatenation without RRF
-                seen_ids = set()
-                for c in bm25_results + dense_results:
+                # Genuine Linear Score Fusion: alpha * BM25_score + (1 - alpha) * Dense_score
+                alpha = getattr(self, "linear_alpha", 0.5)
+                candidates_map: Dict[str, Dict[str, Any]] = {}
+                bm25_score_map: Dict[str, float] = {}
+                dense_score_map: Dict[str, float] = {}
+
+                for c in bm25_results:
                     cid = c.get("chunk_id", "")
-                    if cid and cid not in seen_ids:
-                        seen_ids.add(cid)
-                        fused_candidates.append(c)
+                    if cid:
+                        candidates_map[cid] = dict(c)
+                        bm25_score_map[cid] = float(c.get("score", 0.0))
+
+                for c in dense_results:
+                    cid = c.get("chunk_id", "")
+                    if cid:
+                        if cid not in candidates_map:
+                            candidates_map[cid] = dict(c)
+                        dense_score_map[cid] = float(c.get("score", 0.0))
+
+                # Normalize BM25 scores to [0, 1] relative to candidate pool max
+                max_b = max(bm25_score_map.values()) if bm25_score_map else 1.0
+                norm_b = {cid: (s / max_b if max_b > 0 else 0.0) for cid, s in bm25_score_map.items()}
+
+                # Dense cosine similarities are in [0, 1]
+                max_d = max(dense_score_map.values()) if dense_score_map else 1.0
+                norm_d = {cid: (s / max_d if max_d > 0 else 0.0) for cid, s in dense_score_map.items()}
+
+                scored_list = []
+                for cid, cand in candidates_map.items():
+                    sb = norm_b.get(cid, 0.0)
+                    sd = norm_d.get(cid, 0.0)
+                    linear_comb = round(alpha * sb + (1.0 - alpha) * sd, 4)
+                    cand["score"] = linear_comb
+                    cand["linear_score"] = linear_comb
+                    scored_list.append(cand)
+
+                # Rank by combined linear score descending
+                fused_candidates = sorted(scored_list, key=lambda x: x.get("score", 0.0), reverse=True)
+                for r_idx, c in enumerate(fused_candidates, start=1):
+                    c["rank"] = r_idx
         elif self.use_bm25:
             fused_candidates = bm25_results
         elif self.use_dense:
