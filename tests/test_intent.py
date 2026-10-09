@@ -89,8 +89,8 @@ class TestMLIntentClassifier:
             ("Compare Gopalan and Maneka Gandhi on Article 21", "CASE_COMPARISON"),
             ("What is the procedure to impeach a Supreme Court judge?", "CONSTITUTIONAL_PROCEDURE"),
             ("Which cases overruled ADM Jabalpur?", "PRECEDENT_QUERY"),
-            ("Define Habeas Corpus writ jurisdiction", "DEFINITION_QUERY"),
-            ("Write a python script to sort a list of numbers", "OUT_OF_SCOPE")
+            ("Define the term law as used in Article 13 of the Constitution", "DEFINITION_QUERY"),
+            ("How do I install Python on a Windows computer?", "OUT_OF_SCOPE")
         ]
         for query, expected_intent in test_cases:
             pred = ml_classifier.predict(query)

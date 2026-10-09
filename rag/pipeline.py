@@ -216,6 +216,7 @@ class LegalRAGPipeline:
                 query=retrieval_query,
                 entities=linked_entities or entities,
                 top_k=target_top_k,
+                filter_doc_type=routing_obj.filter_doc_type,
             )
         finally:
             # Restore retriever defaults

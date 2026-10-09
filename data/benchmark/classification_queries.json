@@ -1,195 +1,882 @@
 [
-  {"query": "What does Article 21 of the Indian Constitution state?", "intent": "ARTICLE_LOOKUP"},
-  {"query": "Show the exact constitutional text of Article 14", "intent": "ARTICLE_LOOKUP"},
-  {"query": "What are the clauses in Article 19(1)?", "intent": "ARTICLE_LOOKUP"},
-  {"query": "Read out Article 32 regarding constitutional remedies", "intent": "ARTICLE_LOOKUP"},
-  {"query": "Provide the full text of Article 368", "intent": "ARTICLE_LOOKUP"},
-  {"query": "What is written in Article 15 regarding non-discrimination?", "intent": "ARTICLE_LOOKUP"},
-  {"query": "Show me Article 25 text on freedom of religion", "intent": "ARTICLE_LOOKUP"},
-  {"query": "What does Article 226 say about High Court writ powers?", "intent": "ARTICLE_LOOKUP"},
-  {"query": "Display Article 51A fundamental duties", "intent": "ARTICLE_LOOKUP"},
-  {"query": "What is the constitutional text of the Preamble?", "intent": "ARTICLE_LOOKUP"},
-  {"query": "State the wording of Article 13 clause 2", "intent": "ARTICLE_LOOKUP"},
-  {"query": "Article 16 equality of opportunity in public employment text", "intent": "ARTICLE_LOOKUP"},
-  {"query": "Show Article 29 and 30 for minority educational rights", "intent": "ARTICLE_LOOKUP"},
-  {"query": "What is the provision under Article 352?", "intent": "ARTICLE_LOOKUP"},
-  {"query": "Text of Article 12 definition of state", "intent": "ARTICLE_LOOKUP"},
-  {"query": "Give me the constitutional text of Article 1", "intent": "ARTICLE_LOOKUP"},
-  {"query": "What does Article 20 provide about ex-post facto laws?", "intent": "ARTICLE_LOOKUP"},
-  {"query": "Provisions of Article 44 regarding Uniform Civil Code", "intent": "ARTICLE_LOOKUP"},
-  {"query": "Show text of Article 300A right to property", "intent": "ARTICLE_LOOKUP"},
-  {"query": "Constitutional wording of Article 141 binding law", "intent": "ARTICLE_LOOKUP"},
-  {"query": "What is Article 21?", "intent": "ARTICLE_LOOKUP"},
-  {"query": "What is Article 14?", "intent": "ARTICLE_LOOKUP"},
-
-  {"query": "Verdict in Kesavananda Bharati basic structure case", "intent": "CASE_LAW_QUERY"},
-  {"query": "What was the ruling in Kesavananda Bharati v State of Kerala?", "intent": "CASE_LAW_QUERY"},
-  {"query": "Explain the Supreme Court judgment in Justice KS Puttaswamy", "intent": "CASE_LAW_QUERY"},
-  {"query": "What were the facts and verdict of Maneka Gandhi case?", "intent": "CASE_LAW_QUERY"},
-  {"query": "What was decided in the SR Bommai landmark case?", "intent": "CASE_LAW_QUERY"},
-  {"query": "Explain the decision in Shayara Bano v Union of India", "intent": "CASE_LAW_QUERY"},
-  {"query": "What did the Supreme Court hold in Minerva Mills?", "intent": "CASE_LAW_QUERY"},
-  {"query": "Explain the judgment in Navtej Singh Johar decriminalizing Section 377", "intent": "CASE_LAW_QUERY"},
-  {"query": "What was the verdict in Shreya Singhal regarding Section 66A?", "intent": "CASE_LAW_QUERY"},
-  {"query": "Details of the ADM Jabalpur habeas corpus judgment", "intent": "CASE_LAW_QUERY"},
-  {"query": "Explain what happened in AK Gopalan case", "intent": "CASE_LAW_QUERY"},
-  {"query": "What was the ratio in Indra Sawhney reservation case?", "intent": "CASE_LAW_QUERY"},
-  {"query": "Explain the Vishaka v State of Rajasthan sexual harassment ruling", "intent": "CASE_LAW_QUERY"},
-  {"query": "What was ruled in the Sabarimala temple entry judgment?", "intent": "CASE_LAW_QUERY"},
-  {"query": "Facts and ratio decidendi of IC Golak Nath v State of Punjab", "intent": "CASE_LAW_QUERY"},
-  {"query": "What was held in Champakam Dorairajan 1951?", "intent": "CASE_LAW_QUERY"},
-  {"query": "Summary of Joseph Shine adultery judgment", "intent": "CASE_LAW_QUERY"},
-  {"query": "Explain the Supreme Court decision in Common Cause passive euthanasia", "intent": "CASE_LAW_QUERY"},
-  {"query": "What was decided in Romesh Thappar v State of Madras?", "intent": "CASE_LAW_QUERY"},
-  {"query": "Bench and verdict in Shankari Prasad Singh Deo", "intent": "CASE_LAW_QUERY"},
-  {"query": "What was ruled in Bennett Coleman regarding freedom of the press?", "intent": "CASE_LAW_QUERY"},
-
-  {"query": "Compare AK Gopalan and Maneka Gandhi regarding personal liberty", "intent": "CASE_COMPARISON"},
-  {"query": "What is the difference between Shankari Prasad and Golak Nath rulings?", "intent": "CASE_COMPARISON"},
-  {"query": "How did Kesavananda Bharati differ from the Golaknath judgment?", "intent": "CASE_COMPARISON"},
-  {"query": "Compare Minerva Mills and Kesavananda Bharati on amending power", "intent": "CASE_COMPARISON"},
-  {"query": "Contrast ADM Jabalpur with the Puttaswamy privacy ruling", "intent": "CASE_COMPARISON"},
-  {"query": "Trace the shift from AK Gopalan to Maneka Gandhi", "intent": "CASE_COMPARISON"},
-  {"query": "Comparison of Champakam Dorairajan and Indra Sawhney on affirmative action", "intent": "CASE_COMPARISON"},
-  {"query": "How does Shreya Singhal compare to Romesh Thappar on free speech?", "intent": "CASE_COMPARISON"},
-  {"query": "Compare Sajjan Singh and Shankari Prasad decisions", "intent": "CASE_COMPARISON"},
-  {"query": "Distinguish between procedure established by law and due process in Gopalan vs Maneka", "intent": "CASE_COMPARISON"},
-  {"query": "Compare the judicial approaches in Shayara Bano and Navtej Johar", "intent": "CASE_COMPARISON"},
-  {"query": "How did Waman Rao clarify the Kesavananda Bharati basic structure cutoff?", "intent": "CASE_COMPARISON"},
-  {"query": "Contrast the majority and minority judgments in Kesavananda Bharati", "intent": "CASE_COMPARISON"},
-  {"query": "Comparison between Indra Sawhney and Janhit Abhiyan on EWS reservations", "intent": "CASE_COMPARISON"},
-  {"query": "Compare SR Bommai and Rameshwar Prasad regarding Article 356", "intent": "CASE_COMPARISON"},
-
-  {"query": "How does judicial review work under the Indian Constitution?", "intent": "LEGAL_EXPLANATION"},
-  {"query": "Explain the doctrine of severability in constitutional interpretation", "intent": "LEGAL_EXPLANATION"},
-  {"query": "What is the doctrine of eclipse and how does it operate?", "intent": "LEGAL_EXPLANATION"},
-  {"query": "Explain the principle of colorable legislation with examples", "intent": "LEGAL_EXPLANATION"},
-  {"query": "How is the proportionality test applied to fundamental rights restrictions?", "intent": "LEGAL_EXPLANATION"},
-  {"query": "Explain what manifest arbitrariness means as a ground to strike down laws", "intent": "LEGAL_EXPLANATION"},
-  {"query": "What is the meaning and scope of constitutional morality in India?", "intent": "LEGAL_EXPLANATION"},
-  {"query": "Explain transformative constitutionalism in Supreme Court jurisprudence", "intent": "LEGAL_EXPLANATION"},
-  {"query": "How does the doctrine of pith and substance resolve legislative conflicts?", "intent": "LEGAL_EXPLANATION"},
-  {"query": "Explain the rule of law as recognized in Indian constitutional jurisprudence", "intent": "LEGAL_EXPLANATION"},
-  {"query": "What does reasonable classification mean under equality jurisprudence?", "intent": "LEGAL_EXPLANATION"},
-  {"query": "Explain the concept of cooperative federalism in India", "intent": "LEGAL_EXPLANATION"},
-  {"query": "How does public interest litigation PIL relax traditional locus standi?", "intent": "LEGAL_EXPLANATION"},
-  {"query": "Explain substantive equality versus formal equality in the Indian Constitution", "intent": "LEGAL_EXPLANATION"},
-  {"query": "What is the constitutional significance of the Basic Structure Doctrine?", "intent": "LEGAL_EXPLANATION"},
-
-  {"query": "What fundamental rights protect citizens against discrimination?", "intent": "RIGHTS_QUERY"},
-  {"query": "Can fundamental rights under Article 20 and 21 be suspended during emergency?", "intent": "RIGHTS_QUERY"},
-  {"query": "Is the right to privacy recognized as a fundamental right in India?", "intent": "RIGHTS_QUERY"},
-  {"query": "What rights are available to accused persons under Article 20 and 22?", "intent": "RIGHTS_QUERY"},
-  {"query": "What are the six freedoms guaranteed under Article 19?", "intent": "RIGHTS_QUERY"},
-  {"query": "Is education a fundamental right for children in India?", "intent": "RIGHTS_QUERY"},
-  {"query": "What is the scope of freedom of speech and expression?", "intent": "RIGHTS_QUERY"},
-  {"query": "What fundamental rights are guaranteed to non-citizens / aliens?", "intent": "RIGHTS_QUERY"},
-  {"query": "Does Article 21 protect the right to livelihood and shelter?", "intent": "RIGHTS_QUERY"},
-  {"query": "What is the right to constitutional remedies under Article 32?", "intent": "RIGHTS_QUERY"},
-  {"query": "Are economic and social rights enforceable as fundamental rights?", "intent": "RIGHTS_QUERY"},
-  {"query": "What protection exists against self-incrimination under Article 20(3)?", "intent": "RIGHTS_QUERY"},
-  {"query": "Can the right to personal liberty be curtailed without a valid law?", "intent": "RIGHTS_QUERY"},
-  {"query": "What rights protect religious denominations under Article 26?", "intent": "RIGHTS_QUERY"},
-  {"query": "Is the right to clean environment part of Article 21?", "intent": "RIGHTS_QUERY"},
-
-  {"query": "What changes were introduced by the 42nd Constitutional Amendment Act?", "intent": "AMENDMENT_QUERY"},
-  {"query": "Explain the 44th Constitutional Amendment Act and what it reversed", "intent": "AMENDMENT_QUERY"},
-  {"query": "Which amendment inserted Article 21A for Right to Education?", "intent": "AMENDMENT_QUERY"},
-  {"query": "What did the 103rd Constitutional Amendment Act provide for EWS?", "intent": "AMENDMENT_QUERY"},
-  {"query": "Why was the 24th Amendment passed in 1971?", "intent": "AMENDMENT_QUERY"},
-  {"query": "Explain the First Constitutional Amendment Act of 1951", "intent": "AMENDMENT_QUERY"},
-  {"query": "What was the purpose of the 99th Constitutional Amendment and NJAC?", "intent": "AMENDMENT_QUERY"},
-  {"query": "Which amendment added the Ninth Schedule to protect land reforms?", "intent": "AMENDMENT_QUERY"},
-  {"query": "What amendments introduced Goods and Services Tax (GST) 101st Amendment?", "intent": "AMENDMENT_QUERY"},
-  {"query": "Explain the 86th Amendment Act regarding children education", "intent": "AMENDMENT_QUERY"},
-  {"query": "Which constitutional amendment removed the right to property from Part III?", "intent": "AMENDMENT_QUERY"},
-  {"query": "What changes did the 52nd Amendment make regarding anti-defection?", "intent": "AMENDMENT_QUERY"},
-  {"query": "How did the 42nd Amendment modify the Preamble of India?", "intent": "AMENDMENT_QUERY"},
-  {"query": "What was the 25th Amendment Act and how did Article 31C affect rights?", "intent": "AMENDMENT_QUERY"},
-  {"query": "Details of the 105th Constitutional Amendment Act", "intent": "AMENDMENT_QUERY"},
-
-  {"query": "Which landmark judgment overruled AK Gopalan v State of Madras?", "intent": "PRECEDENT_QUERY"},
-  {"query": "What is the binding precedent established by the Basic Structure ruling?", "intent": "PRECEDENT_QUERY"},
-  {"query": "Was ADM Jabalpur expressly overruled by the Puttaswamy privacy judgment?", "intent": "PRECEDENT_QUERY"},
-  {"query": "Which cases have followed the ratio decidendi in Kesavananda Bharati?", "intent": "PRECEDENT_QUERY"},
-  {"query": "Did the Supreme Court overrule Golaknath in Kesavananda Bharati?", "intent": "PRECEDENT_QUERY"},
-  {"query": "What previous decisions were reconsidered in Indra Sawhney?", "intent": "PRECEDENT_QUERY"},
-  {"query": "Is Suresh Kumar Koushal still a valid precedent on Section 377?", "intent": "PRECEDENT_QUERY"},
-  {"query": "Which nine-judge bench precedent governs judicial appointments?", "intent": "PRECEDENT_QUERY"},
-  {"query": "What is the binding legal authority on proclamation under Article 356?", "intent": "PRECEDENT_QUERY"},
-  {"query": "Has the judgment in Champakam Dorairajan been modified by later rulings?", "intent": "PRECEDENT_QUERY"},
-  {"query": "What precedent established that the Preamble is an integral part of the Constitution?", "intent": "PRECEDENT_QUERY"},
-  {"query": "Which cases reaffirmed the doctrine of basic structure after 1973?", "intent": "PRECEDENT_QUERY"},
-  {"query": "Precedents regarding reasonable restrictions on online freedom of speech", "intent": "PRECEDENT_QUERY"},
-  {"query": "What is the governing precedent on custodial torture and compensation?", "intent": "PRECEDENT_QUERY"},
-  {"query": "Which ruling set aside the 39th Amendment protecting Indira Gandhi election?", "intent": "PRECEDENT_QUERY"},
-
-  {"query": "Define the Basic Structure of the Indian Constitution", "intent": "DEFINITION_QUERY"},
-  {"query": "What is the definition of State under Article 12?", "intent": "DEFINITION_QUERY"},
-  {"query": "Define Habeas Corpus and its legal scope", "intent": "DEFINITION_QUERY"},
-  {"query": "What is the definition of Mandamus in constitutional law?", "intent": "DEFINITION_QUERY"},
-  {"query": "Define the writ of Quo Warranto", "intent": "DEFINITION_QUERY"},
-  {"query": "What does Certiorari mean in writ jurisdiction?", "intent": "DEFINITION_QUERY"},
-  {"query": "Define Secularism as enshrined in the Indian Constitution", "intent": "DEFINITION_QUERY"},
-  {"query": "What is the Creamy Layer definition according to the Supreme Court?", "intent": "DEFINITION_QUERY"},
-  {"query": "Define Public Order as a ground for reasonable restriction under Article 19(2)", "intent": "DEFINITION_QUERY"},
-  {"query": "What is the meaning of procedure established by law?", "intent": "DEFINITION_QUERY"},
-  {"query": "Define the Golden Triangle in Indian Constitutional jurisprudence", "intent": "DEFINITION_QUERY"},
-  {"query": "What is meant by constituent power versus ordinary legislative power?", "intent": "DEFINITION_QUERY"},
-  {"query": "Define preventive detention under Article 22", "intent": "DEFINITION_QUERY"},
-  {"query": "What is the legal definition of sedition under Indian law?", "intent": "DEFINITION_QUERY"},
-  {"query": "Define fraternity and individual dignity in the Preamble", "intent": "DEFINITION_QUERY"},
-
-  {"query": "What is the procedure to amend the Constitution under Article 368?", "intent": "CONSTITUTIONAL_PROCEDURE"},
-  {"query": "How is a Supreme Court judge impeached according to constitutional provisions?", "intent": "CONSTITUTIONAL_PROCEDURE"},
-  {"query": "What is the procedure for proclaiming a National Emergency under Article 352?", "intent": "CONSTITUTIONAL_PROCEDURE"},
-  {"query": "How is the President of India elected under Articles 54 and 55?", "intent": "CONSTITUTIONAL_PROCEDURE"},
-  {"query": "What procedure must be followed to impose President's Rule under Article 356?", "intent": "CONSTITUTIONAL_PROCEDURE"},
-  {"query": "How does a bill passed by Parliament become law under Article 111?", "intent": "CONSTITUTIONAL_PROCEDURE"},
-  {"query": "What is the process to remove the Vice President under Article 67?", "intent": "CONSTITUTIONAL_PROCEDURE"},
-  {"query": "How is financial emergency declared and approved under Article 360?", "intent": "CONSTITUTIONAL_PROCEDURE"},
-  {"query": "What steps are required to form a new State under Article 3?", "intent": "CONSTITUTIONAL_PROCEDURE"},
-  {"query": "What is the constitutional procedure for passing a Money Bill under Article 110?", "intent": "CONSTITUTIONAL_PROCEDURE"},
-  {"query": "How does the Supreme Court exercise advisory jurisdiction under Article 143?", "intent": "CONSTITUTIONAL_PROCEDURE"},
-  {"query": "What is the mechanism for resolving interstate water disputes under Article 262?", "intent": "CONSTITUTIONAL_PROCEDURE"},
-  {"query": "How is an ordinance promulgated by the President under Article 123?", "intent": "CONSTITUTIONAL_PROCEDURE"},
-  {"query": "Procedure for appointment of High Court judges under Article 217", "intent": "CONSTITUTIONAL_PROCEDURE"},
-  {"query": "How are constitutional questions referred to a larger bench?", "intent": "CONSTITUTIONAL_PROCEDURE"},
-
-  {"query": "Synthesize how Articles 14, 19, and 21 interrelate across Maneka Gandhi and Minerva Mills", "intent": "MULTI_DOCUMENT_QUERY"},
-  {"query": "Analyze the relationship between Fundamental Rights and Directive Principles across Golaknath and Kesavananda", "intent": "MULTI_DOCUMENT_QUERY"},
-  {"query": "How do Articles 32 and 226 protect citizen rights through landmark writ jurisprudence?", "intent": "MULTI_DOCUMENT_QUERY"},
-  {"query": "Trace the evolution of Article 21 from AK Gopalan to Maneka Gandhi to Puttaswamy", "intent": "MULTI_DOCUMENT_QUERY"},
-  {"query": "Combine constitutional federal provisions with SR Bommai and NCT Delhi rulings", "intent": "MULTI_DOCUMENT_QUERY"},
-  {"query": "Analyze how reservation jurisprudence developed across Champakam, Indra Sawhney, and Janhit Abhiyan", "intent": "MULTI_DOCUMENT_QUERY"},
-  {"query": "Synthesize free speech protections under Article 19(1)(a) with Romesh Thappar and Shreya Singhal", "intent": "MULTI_DOCUMENT_QUERY"},
-  {"query": "Examine judicial independence across the First, Second, Third, and Fourth Judges cases and NJAC", "intent": "MULTI_DOCUMENT_QUERY"},
-  {"query": "Connect secularism in the Preamble with Articles 25-28 and the SR Bommai judgment", "intent": "MULTI_DOCUMENT_QUERY"},
-  {"query": "Trace how the amending power under Article 368 evolved through Shankari Prasad, Golaknath, and Kesavananda", "intent": "MULTI_DOCUMENT_QUERY"},
-  {"query": "Synthesize privacy, dignity, and bodily autonomy across Puttaswamy, Navtej Johar, and Joseph Shine", "intent": "MULTI_DOCUMENT_QUERY"},
-  {"query": "How do Articles 15(4) and 16(4) harmonize with Article 14 equality before law across key rulings?", "intent": "MULTI_DOCUMENT_QUERY"},
-  {"query": "Cross-reference the 42nd Amendment changes with Minerva Mills and the Basic Structure doctrine", "intent": "MULTI_DOCUMENT_QUERY"},
-  {"query": "Analyze the scope of Article 13 judicial review in relation to Articles 31A, 31B, and the Ninth Schedule", "intent": "MULTI_DOCUMENT_QUERY"},
-  {"query": "Examine how emergency provisions under Article 352 impacted fundamental rights in ADM Jabalpur and 44th Amendment", "intent": "MULTI_DOCUMENT_QUERY"},
-
-  {"query": "What is the best recipe for making Italian pizza from scratch?", "intent": "OUT_OF_SCOPE"},
-  {"query": "Write a python script that implements quicksort on an array", "intent": "OUT_OF_SCOPE"},
-  {"query": "Who won the FIFA football world cup in 2022?", "intent": "OUT_OF_SCOPE"},
-  {"query": "How does quantum computing differ from classical computing?", "intent": "OUT_OF_SCOPE"},
-  {"query": "How do I book a train ticket on the IRCTC mobile app?", "intent": "OUT_OF_SCOPE"},
-  {"query": "What is the expected weather in Bengaluru tomorrow morning?", "intent": "OUT_OF_SCOPE"},
-  {"query": "Explain how convolutional neural networks process images", "intent": "OUT_OF_SCOPE"},
-  {"query": "Who is the lead actor in Christopher Nolan's movie Oppenheimer?", "intent": "OUT_OF_SCOPE"},
-  {"query": "How do I fix a leaking bathroom faucet at home?", "intent": "OUT_OF_SCOPE"},
-  {"query": "Can you translate this paragraph from English to Spanish?", "intent": "OUT_OF_SCOPE"},
-  {"query": "What are the health benefits of green tea and lemon?", "intent": "OUT_OF_SCOPE"},
-  {"query": "Explain how the stock market trading index NIFTY works", "intent": "OUT_OF_SCOPE"},
-  {"query": "How do airplanes generate lift during takeoff?", "intent": "OUT_OF_SCOPE"},
-  {"query": "What is the current exchange rate between US Dollar and Euro?", "intent": "OUT_OF_SCOPE"},
-  {"query": "Can you recommend good restaurants near Mumbai airport?", "intent": "OUT_OF_SCOPE"},
-  {"query": "How to assemble an IKEA wooden bookshelf?", "intent": "OUT_OF_SCOPE"},
-  {"query": "Explain Einstein's general theory of relativity simply", "intent": "OUT_OF_SCOPE"},
-  {"query": "What are the rules of playing cricket in a test match?", "intent": "OUT_OF_SCOPE"},
-  {"query": "How do I change the oil in a car engine?", "intent": "OUT_OF_SCOPE"},
-  {"query": "Write a poem about the sunset over the ocean", "intent": "OUT_OF_SCOPE"}
+  {
+    "query": "What does Article 21 of the Indian Constitution state?",
+    "intent": "ARTICLE_LOOKUP"
+  },
+  {
+    "query": "Show the exact constitutional text of Article 14",
+    "intent": "ARTICLE_LOOKUP"
+  },
+  {
+    "query": "What are the clauses in Article 19(1)?",
+    "intent": "ARTICLE_LOOKUP"
+  },
+  {
+    "query": "Read out Article 32 regarding constitutional remedies",
+    "intent": "ARTICLE_LOOKUP"
+  },
+  {
+    "query": "Provide the full text of Article 368",
+    "intent": "ARTICLE_LOOKUP"
+  },
+  {
+    "query": "What is written in Article 15 regarding non-discrimination?",
+    "intent": "ARTICLE_LOOKUP"
+  },
+  {
+    "query": "Show me Article 25 text on freedom of religion",
+    "intent": "ARTICLE_LOOKUP"
+  },
+  {
+    "query": "What does Article 226 say about High Court writ powers?",
+    "intent": "ARTICLE_LOOKUP"
+  },
+  {
+    "query": "Display Article 51A fundamental duties",
+    "intent": "ARTICLE_LOOKUP"
+  },
+  {
+    "query": "What is the constitutional text of the Preamble?",
+    "intent": "ARTICLE_LOOKUP"
+  },
+  {
+    "query": "State the wording of Article 13 clause 2",
+    "intent": "ARTICLE_LOOKUP"
+  },
+  {
+    "query": "Article 16 equality of opportunity in public employment text",
+    "intent": "ARTICLE_LOOKUP"
+  },
+  {
+    "query": "Show Article 29 and 30 for minority educational rights",
+    "intent": "ARTICLE_LOOKUP"
+  },
+  {
+    "query": "What is the provision under Article 352?",
+    "intent": "ARTICLE_LOOKUP"
+  },
+  {
+    "query": "Text of Article 12 definition of state",
+    "intent": "ARTICLE_LOOKUP"
+  },
+  {
+    "query": "Give me the constitutional text of Article 1",
+    "intent": "ARTICLE_LOOKUP"
+  },
+  {
+    "query": "What does Article 20 provide about ex-post facto laws?",
+    "intent": "ARTICLE_LOOKUP"
+  },
+  {
+    "query": "Provisions of Article 44 regarding Uniform Civil Code",
+    "intent": "ARTICLE_LOOKUP"
+  },
+  {
+    "query": "Show text of Article 300A right to property",
+    "intent": "ARTICLE_LOOKUP"
+  },
+  {
+    "query": "Constitutional wording of Article 141 binding law",
+    "intent": "ARTICLE_LOOKUP"
+  },
+  {
+    "query": "Verdict in Kesavananda Bharati basic structure case",
+    "intent": "CASE_LAW_QUERY"
+  },
+  {
+    "query": "What was the ruling in Kesavananda Bharati v State of Kerala?",
+    "intent": "CASE_LAW_QUERY"
+  },
+  {
+    "query": "Explain the Supreme Court judgment in Justice KS Puttaswamy",
+    "intent": "CASE_LAW_QUERY"
+  },
+  {
+    "query": "What were the facts and verdict of Maneka Gandhi case?",
+    "intent": "CASE_LAW_QUERY"
+  },
+  {
+    "query": "What was decided in the SR Bommai landmark case?",
+    "intent": "CASE_LAW_QUERY"
+  },
+  {
+    "query": "Explain the decision in Shayara Bano v Union of India",
+    "intent": "CASE_LAW_QUERY"
+  },
+  {
+    "query": "What did the Supreme Court hold in Minerva Mills?",
+    "intent": "CASE_LAW_QUERY"
+  },
+  {
+    "query": "Explain the judgment in Navtej Singh Johar decriminalizing Section 377",
+    "intent": "CASE_LAW_QUERY"
+  },
+  {
+    "query": "What was the verdict in Shreya Singhal regarding Section 66A?",
+    "intent": "CASE_LAW_QUERY"
+  },
+  {
+    "query": "Details of the ADM Jabalpur habeas corpus judgment",
+    "intent": "CASE_LAW_QUERY"
+  },
+  {
+    "query": "Explain what happened in AK Gopalan case",
+    "intent": "CASE_LAW_QUERY"
+  },
+  {
+    "query": "What was the ratio in Indra Sawhney reservation case?",
+    "intent": "CASE_LAW_QUERY"
+  },
+  {
+    "query": "Explain the Vishaka v State of Rajasthan sexual harassment ruling",
+    "intent": "CASE_LAW_QUERY"
+  },
+  {
+    "query": "What was ruled in the Sabarimala temple entry judgment?",
+    "intent": "CASE_LAW_QUERY"
+  },
+  {
+    "query": "Facts and ratio decidendi of IC Golak Nath v State of Punjab",
+    "intent": "CASE_LAW_QUERY"
+  },
+  {
+    "query": "What was held in Champakam Dorairajan 1951?",
+    "intent": "CASE_LAW_QUERY"
+  },
+  {
+    "query": "Summary of Joseph Shine adultery judgment",
+    "intent": "CASE_LAW_QUERY"
+  },
+  {
+    "query": "Explain the Supreme Court decision in Common Cause passive euthanasia",
+    "intent": "CASE_LAW_QUERY"
+  },
+  {
+    "query": "What was decided in Romesh Thappar v State of Madras?",
+    "intent": "CASE_LAW_QUERY"
+  },
+  {
+    "query": "Bench and verdict in Shankari Prasad Singh Deo",
+    "intent": "CASE_LAW_QUERY"
+  },
+  {
+    "query": "Compare AK Gopalan and Maneka Gandhi regarding personal liberty",
+    "intent": "CASE_COMPARISON"
+  },
+  {
+    "query": "What is the difference between Shankari Prasad and Golak Nath rulings?",
+    "intent": "CASE_COMPARISON"
+  },
+  {
+    "query": "How did Kesavananda Bharati differ from the Golaknath judgment?",
+    "intent": "CASE_COMPARISON"
+  },
+  {
+    "query": "Compare Minerva Mills and Kesavananda Bharati on amending power",
+    "intent": "CASE_COMPARISON"
+  },
+  {
+    "query": "Difference between Second Judges and Fourth Judges NJAC judgments",
+    "intent": "CASE_COMPARISON"
+  },
+  {
+    "query": "How did Puttaswamy differ from MP Sharma and Kharak Singh?",
+    "intent": "CASE_COMPARISON"
+  },
+  {
+    "query": "Compare Indra Sawhney and Janhit Abhiyan on reservation ceilings",
+    "intent": "CASE_COMPARISON"
+  },
+  {
+    "query": "Differences in judicial approach between ADM Jabalpur and Puttaswamy",
+    "intent": "CASE_COMPARISON"
+  },
+  {
+    "query": "How does Romesh Thappar compare with Shreya Singhal on speech?",
+    "intent": "CASE_COMPARISON"
+  },
+  {
+    "query": "Contrast Shankari Prasad with Minerva Mills on judicial review",
+    "intent": "CASE_COMPARISON"
+  },
+  {
+    "query": "Comparison between Olga Tellis and Bandhua Mukti Morcha on Article 21",
+    "intent": "CASE_COMPARISON"
+  },
+  {
+    "query": "How did SP Gupta differ from the Second Judges case on collegium?",
+    "intent": "CASE_COMPARISON"
+  },
+  {
+    "query": "Compare Kihoto Hollohan and Subhash Desai on Speaker powers",
+    "intent": "CASE_COMPARISON"
+  },
+  {
+    "query": "Contrast Common Cause living will with Aruna Shanbaug guidelines",
+    "intent": "CASE_COMPARISON"
+  },
+  {
+    "query": "Compare Vishaka guidelines with contemporary POSH statutory mechanisms",
+    "intent": "CASE_COMPARISON"
+  },
+  {
+    "query": "Distinction between Champakam Dorairajan and Indra Sawhney rulings",
+    "intent": "CASE_COMPARISON"
+  },
+  {
+    "query": "How did Anuradha Bhasin compare with Shreya Singhal on internet freedom?",
+    "intent": "CASE_COMPARISON"
+  },
+  {
+    "query": "Compare Sajjan Singh with Golak Nath on amending Fundamental Rights",
+    "intent": "CASE_COMPARISON"
+  },
+  {
+    "query": "Differences between Shirur Mutt and Sabarimala on essential religious practices",
+    "intent": "CASE_COMPARISON"
+  },
+  {
+    "query": "Contrast Waman Rao and IR Coelho on Ninth Schedule judicial scrutiny",
+    "intent": "CASE_COMPARISON"
+  },
+  {
+    "query": "Explain the concept of basic structure in simple terms",
+    "intent": "LEGAL_EXPLANATION"
+  },
+  {
+    "query": "What is the doctrine of severability in Indian constitutional law?",
+    "intent": "LEGAL_EXPLANATION"
+  },
+  {
+    "query": "Explain the doctrine of eclipse with examples",
+    "intent": "LEGAL_EXPLANATION"
+  },
+  {
+    "query": "What is meant by colorable legislation in constitutional law?",
+    "intent": "LEGAL_EXPLANATION"
+  },
+  {
+    "query": "Explain the doctrine of pith and substance regarding legislative lists",
+    "intent": "LEGAL_EXPLANATION"
+  },
+  {
+    "query": "What is the rule of law according to Indian constitutional jurisprudence?",
+    "intent": "LEGAL_EXPLANATION"
+  },
+  {
+    "query": "Explain substantive due process versus procedure established by law",
+    "intent": "LEGAL_EXPLANATION"
+  },
+  {
+    "query": "What does the golden triangle of Articles 14 19 and 21 mean?",
+    "intent": "LEGAL_EXPLANATION"
+  },
+  {
+    "query": "Explain the concept of living tree constitutional interpretation",
+    "intent": "LEGAL_EXPLANATION"
+  },
+  {
+    "query": "What is the meaning of non-retrogression of fundamental rights?",
+    "intent": "LEGAL_EXPLANATION"
+  },
+  {
+    "query": "Explain the principle of constitutional morality used by Supreme Court",
+    "intent": "LEGAL_EXPLANATION"
+  },
+  {
+    "query": "What is transformative constitutionalism in the Indian context?",
+    "intent": "LEGAL_EXPLANATION"
+  },
+  {
+    "query": "Explain the presumption of constitutionality of statutes",
+    "intent": "LEGAL_EXPLANATION"
+  },
+  {
+    "query": "What is the doctrine of territorial nexus under Article 245?",
+    "intent": "LEGAL_EXPLANATION"
+  },
+  {
+    "query": "Explain judicial review as an essential feature of the Constitution",
+    "intent": "LEGAL_EXPLANATION"
+  },
+  {
+    "query": "What is public interest litigation PIL and who can file it?",
+    "intent": "LEGAL_EXPLANATION"
+  },
+  {
+    "query": "Explain the concept of reasonable restrictions under Article 19(2)",
+    "intent": "LEGAL_EXPLANATION"
+  },
+  {
+    "query": "What does creamy layer mean in the context of affirmative action?",
+    "intent": "LEGAL_EXPLANATION"
+  },
+  {
+    "query": "Explain the concept of secularism in the Indian Constitution",
+    "intent": "LEGAL_EXPLANATION"
+  },
+  {
+    "query": "What is curative petition and under what power is it entertained?",
+    "intent": "LEGAL_EXPLANATION"
+  },
+  {
+    "query": "Is the right to privacy a fundamental right in India?",
+    "intent": "RIGHTS_QUERY"
+  },
+  {
+    "query": "What rights do arrested persons have under Article 22?",
+    "intent": "RIGHTS_QUERY"
+  },
+  {
+    "query": "Does the Constitution guarantee a right to internet access?",
+    "intent": "RIGHTS_QUERY"
+  },
+  {
+    "query": "What fundamental rights are available to non-citizens foreigners?",
+    "intent": "RIGHTS_QUERY"
+  },
+  {
+    "query": "Can a citizen approach the Supreme Court directly for right violations?",
+    "intent": "RIGHTS_QUERY"
+  },
+  {
+    "query": "What are the remedies available if police violate my personal liberty?",
+    "intent": "RIGHTS_QUERY"
+  },
+  {
+    "query": "Is right to livelihood included in Article 21 right to life?",
+    "intent": "RIGHTS_QUERY"
+  },
+  {
+    "query": "What protections exist against double jeopardy in Indian law?",
+    "intent": "RIGHTS_QUERY"
+  },
+  {
+    "query": "Can the government force a person to undergo narco analysis?",
+    "intent": "RIGHTS_QUERY"
+  },
+  {
+    "query": "Is right to clean water and environment a fundamental right?",
+    "intent": "RIGHTS_QUERY"
+  },
+  {
+    "query": "Can women be restricted from entering public temples under freedom of religion?",
+    "intent": "RIGHTS_QUERY"
+  },
+  {
+    "query": "Are fundamental rights enforceable against private companies?",
+    "intent": "RIGHTS_QUERY"
+  },
+  {
+    "query": "What rights protect linguistic minorities from losing their script?",
+    "intent": "RIGHTS_QUERY"
+  },
+  {
+    "query": "Is there a fundamental right to strike or call a bandh in India?",
+    "intent": "RIGHTS_QUERY"
+  },
+  {
+    "query": "Does an accused have the right to remain silent under Article 20(3)?",
+    "intent": "RIGHTS_QUERY"
+  },
+  {
+    "query": "What are the limits on fundamental freedoms during national emergencies?",
+    "intent": "RIGHTS_QUERY"
+  },
+  {
+    "query": "Can personal liberty be curtailed without a just fair and reasonable procedure?",
+    "intent": "RIGHTS_QUERY"
+  },
+  {
+    "query": "Is right to primary education enforceable as a fundamental right?",
+    "intent": "RIGHTS_QUERY"
+  },
+  {
+    "query": "What rights protect prisoners from torture and solitary confinement?",
+    "intent": "RIGHTS_QUERY"
+  },
+  {
+    "query": "Does freedom of speech include the right to know candidate backgrounds?",
+    "intent": "RIGHTS_QUERY"
+  },
+  {
+    "query": "What did the 42nd Constitutional Amendment change?",
+    "intent": "AMENDMENT_QUERY"
+  },
+  {
+    "query": "Explain the 44th Amendment Act and how it protected Article 21",
+    "intent": "AMENDMENT_QUERY"
+  },
+  {
+    "query": "What changes were brought by the 86th Amendment Act 2002?",
+    "intent": "AMENDMENT_QUERY"
+  },
+  {
+    "query": "Explain the 99th Constitutional Amendment on NJAC",
+    "intent": "AMENDMENT_QUERY"
+  },
+  {
+    "query": "What is the 103rd Amendment regarding 10 percent EWS quota?",
+    "intent": "AMENDMENT_QUERY"
+  },
+  {
+    "query": "How did the 24th Amendment alter Article 13 and 368?",
+    "intent": "AMENDMENT_QUERY"
+  },
+  {
+    "query": "What is the 52nd Amendment Anti-Defection Act?",
+    "intent": "AMENDMENT_QUERY"
+  },
+  {
+    "query": "What did the 73rd Amendment do for Panchayati Raj?",
+    "intent": "AMENDMENT_QUERY"
+  },
+  {
+    "query": "Explain the 101st Constitutional Amendment introducing GST",
+    "intent": "AMENDMENT_QUERY"
+  },
+  {
+    "query": "What changes were made by the 1st Amendment Act of 1951?",
+    "intent": "AMENDMENT_QUERY"
+  },
+  {
+    "query": "How does Parliament pass an amendment requiring state ratification?",
+    "intent": "AMENDMENT_QUERY"
+  },
+  {
+    "query": "Can an amendment be challenged on grounds of violating basic structure?",
+    "intent": "AMENDMENT_QUERY"
+  },
+  {
+    "query": "What amendments have been struck down as unconstitutional by Supreme Court?",
+    "intent": "AMENDMENT_QUERY"
+  },
+  {
+    "query": "How was the Ninth Schedule created and amended over time?",
+    "intent": "AMENDMENT_QUERY"
+  },
+  {
+    "query": "What was the 61st Amendment lowering voting age to 18?",
+    "intent": "AMENDMENT_QUERY"
+  },
+  {
+    "query": "Explain the 91st Amendment limiting size of ministry",
+    "intent": "AMENDMENT_QUERY"
+  },
+  {
+    "query": "What did the 104th Amendment do regarding Anglo-Indian seats?",
+    "intent": "AMENDMENT_QUERY"
+  },
+  {
+    "query": "Explain the 105th Amendment restoring State powers over OBC lists",
+    "intent": "AMENDMENT_QUERY"
+  },
+  {
+    "query": "How many amendments have been made to the Indian Constitution so far?",
+    "intent": "AMENDMENT_QUERY"
+  },
+  {
+    "query": "What is the special majority requirement for constitutional amendments?",
+    "intent": "AMENDMENT_QUERY"
+  },
+  {
+    "query": "Which case established the basic structure doctrine in India?",
+    "intent": "PRECEDENT_QUERY"
+  },
+  {
+    "query": "What is the leading precedent on right to privacy under Article 21?",
+    "intent": "PRECEDENT_QUERY"
+  },
+  {
+    "query": "Which judgment laid down guidelines on sexual harassment at workplace?",
+    "intent": "PRECEDENT_QUERY"
+  },
+  {
+    "query": "Name the landmark precedent overruling AK Gopalan narrow interpretation",
+    "intent": "PRECEDENT_QUERY"
+  },
+  {
+    "query": "What case established the 50 percent reservation ceiling?",
+    "intent": "PRECEDENT_QUERY"
+  },
+  {
+    "query": "Which precedent invalidated Section 66A of the IT Act?",
+    "intent": "PRECEDENT_QUERY"
+  },
+  {
+    "query": "Name the leading case establishing secularism as basic structure",
+    "intent": "PRECEDENT_QUERY"
+  },
+  {
+    "query": "What judgment introduced the concept of continuous mandamus in PIL?",
+    "intent": "PRECEDENT_QUERY"
+  },
+  {
+    "query": "Which case made candidate asset disclosure mandatory for elections?",
+    "intent": "PRECEDENT_QUERY"
+  },
+  {
+    "query": "What precedent ruled that living wills and passive euthanasia are legal?",
+    "intent": "PRECEDENT_QUERY"
+  },
+  {
+    "query": "Which judgment struck down Section 377 regarding homosexual acts?",
+    "intent": "PRECEDENT_QUERY"
+  },
+  {
+    "query": "What precedent affirmed that Parliament amending power is limited?",
+    "intent": "PRECEDENT_QUERY"
+  },
+  {
+    "query": "Which case established guidelines on police arrest and custodial torture?",
+    "intent": "PRECEDENT_QUERY"
+  },
+  {
+    "query": "What is the primary case law regarding dissolution of state assemblies under 356?",
+    "intent": "PRECEDENT_QUERY"
+  },
+  {
+    "query": "Name the precedent on Ninth Schedule immunity and judicial review",
+    "intent": "PRECEDENT_QUERY"
+  },
+  {
+    "query": "Which case established that Preamble is an integral part of Constitution?",
+    "intent": "PRECEDENT_QUERY"
+  },
+  {
+    "query": "What judgment held that freedom of speech includes right to remain silent?",
+    "intent": "PRECEDENT_QUERY"
+  },
+  {
+    "query": "Which case struck down automatic disqualification exemptions in RPA?",
+    "intent": "PRECEDENT_QUERY"
+  },
+  {
+    "query": "Name the precedent establishing the proportionality test for fundamental rights",
+    "intent": "PRECEDENT_QUERY"
+  },
+  {
+    "query": "Which ruling established that right to speed trial is part of Article 21?",
+    "intent": "PRECEDENT_QUERY"
+  },
+  {
+    "query": "How is the term State defined under Article 12?",
+    "intent": "DEFINITION_QUERY"
+  },
+  {
+    "query": "What is the constitutional definition of Money Bill under Article 110?",
+    "intent": "DEFINITION_QUERY"
+  },
+  {
+    "query": "Define the term law as used in Article 13 of the Constitution",
+    "intent": "DEFINITION_QUERY"
+  },
+  {
+    "query": "What does the term Scheduled Castes mean under the Constitution?",
+    "intent": "DEFINITION_QUERY"
+  },
+  {
+    "query": "Define the term citizen under Part II of the Constitution",
+    "intent": "DEFINITION_QUERY"
+  },
+  {
+    "query": "What is meant by Court of Record under Article 129?",
+    "intent": "DEFINITION_QUERY"
+  },
+  {
+    "query": "Define the term Anglo-Indian under constitutional provisions",
+    "intent": "DEFINITION_QUERY"
+  },
+  {
+    "query": "What is the definition of emergency under Part XVIII?",
+    "intent": "DEFINITION_QUERY"
+  },
+  {
+    "query": "Define the term existing law under Article 366",
+    "intent": "DEFINITION_QUERY"
+  },
+  {
+    "query": "What is the constitutional meaning of remuneration under Article 125?",
+    "intent": "DEFINITION_QUERY"
+  },
+  {
+    "query": "Define the expression procedure established by law in Article 21",
+    "intent": "DEFINITION_QUERY"
+  },
+  {
+    "query": "What does backward class of citizens mean in Article 16(4)?",
+    "intent": "DEFINITION_QUERY"
+  },
+  {
+    "query": "Define the term public purpose in relation to land acquisition",
+    "intent": "DEFINITION_QUERY"
+  },
+  {
+    "query": "What is the definition of municipality under Part IXA?",
+    "intent": "DEFINITION_QUERY"
+  },
+  {
+    "query": "Define the office of profit under Article 102",
+    "intent": "DEFINITION_QUERY"
+  },
+  {
+    "query": "What is the meaning of martial law under Article 34?",
+    "intent": "DEFINITION_QUERY"
+  },
+  {
+    "query": "Define the term financial emergency under Article 360",
+    "intent": "DEFINITION_QUERY"
+  },
+  {
+    "query": "What is the definition of tax and duty under Article 366?",
+    "intent": "DEFINITION_QUERY"
+  },
+  {
+    "query": "Define the term goods and services tax under the Constitution",
+    "intent": "DEFINITION_QUERY"
+  },
+  {
+    "query": "What is the meaning of consultation in the context of judicial appointments?",
+    "intent": "DEFINITION_QUERY"
+  },
+  {
+    "query": "What is the procedure for impeaching the President of India?",
+    "intent": "CONSTITUTIONAL_PROCEDURE"
+  },
+  {
+    "query": "How is a Supreme Court judge removed from office?",
+    "intent": "CONSTITUTIONAL_PROCEDURE"
+  },
+  {
+    "query": "What is the procedure for enacting a constitutional amendment?",
+    "intent": "CONSTITUTIONAL_PROCEDURE"
+  },
+  {
+    "query": "How is the proclamation of national emergency approved by Parliament?",
+    "intent": "CONSTITUTIONAL_PROCEDURE"
+  },
+  {
+    "query": "What steps must be followed to impose President Rule under Article 356?",
+    "intent": "CONSTITUTIONAL_PROCEDURE"
+  },
+  {
+    "query": "How does Parliament pass a Money Bill versus an Ordinary Bill?",
+    "intent": "CONSTITUTIONAL_PROCEDURE"
+  },
+  {
+    "query": "What is the procedure for resolving deadlock between Lok Sabha and Rajya Sabha?",
+    "intent": "CONSTITUTIONAL_PROCEDURE"
+  },
+  {
+    "query": "How are members of the Election Commission appointed and removed?",
+    "intent": "CONSTITUTIONAL_PROCEDURE"
+  },
+  {
+    "query": "What procedure governs the proclamation of financial emergency?",
+    "intent": "CONSTITUTIONAL_PROCEDURE"
+  },
+  {
+    "query": "How can a new State be formed or boundaries altered under Article 3?",
+    "intent": "CONSTITUTIONAL_PROCEDURE"
+  },
+  {
+    "query": "What is the procedure for presidential assent or return of a bill under Article 111?",
+    "intent": "CONSTITUTIONAL_PROCEDURE"
+  },
+  {
+    "query": "How does the Governor reserve a state bill for consideration of the President?",
+    "intent": "CONSTITUTIONAL_PROCEDURE"
+  },
+  {
+    "query": "What procedure must the President follow when seeking advisory opinion under Article 143?",
+    "intent": "CONSTITUTIONAL_PROCEDURE"
+  },
+  {
+    "query": "How are All-India Services created by resolution under Article 312?",
+    "intent": "CONSTITUTIONAL_PROCEDURE"
+  },
+  {
+    "query": "What is the procedure for forming a National Judicial Commission or collegium list?",
+    "intent": "CONSTITUTIONAL_PROCEDURE"
+  },
+  {
+    "query": "How is a joint sitting of Parliament convened under Article 108?",
+    "intent": "CONSTITUTIONAL_PROCEDURE"
+  },
+  {
+    "query": "What procedure governs the introduction of the Annual Financial Statement budget?",
+    "intent": "CONSTITUTIONAL_PROCEDURE"
+  },
+  {
+    "query": "How can Parliament legislate on State List matters under Article 249?",
+    "intent": "CONSTITUTIONAL_PROCEDURE"
+  },
+  {
+    "query": "What is the procedure for ratification of constitutional amendments by State legislatures?",
+    "intent": "CONSTITUTIONAL_PROCEDURE"
+  },
+  {
+    "query": "How does a High Court judge get transferred to another High Court under Article 222?",
+    "intent": "CONSTITUTIONAL_PROCEDURE"
+  },
+  {
+    "query": "How do Kesavananda Bharati, Minerva Mills, and Waman Rao relate on amending power?",
+    "intent": "MULTI_DOCUMENT_QUERY"
+  },
+  {
+    "query": "Analyze the connection between Articles 14, 19, 21, and the Maneka Gandhi judgment",
+    "intent": "MULTI_DOCUMENT_QUERY"
+  },
+  {
+    "query": "How do Puttaswamy, Kharak Singh, and Article 21 trace privacy evolution?",
+    "intent": "MULTI_DOCUMENT_QUERY"
+  },
+  {
+    "query": "Explain the interaction between Article 16, Indra Sawhney, and the 103rd Amendment",
+    "intent": "MULTI_DOCUMENT_QUERY"
+  },
+  {
+    "query": "How do SR Bommai, the Preamble, and Article 25 define Indian secularism?",
+    "intent": "MULTI_DOCUMENT_QUERY"
+  },
+  {
+    "query": "Analyze the relation between Article 32, Article 226, and Supreme Court writ jurisprudence",
+    "intent": "MULTI_DOCUMENT_QUERY"
+  },
+  {
+    "query": "How did Golak Nath lead to the 24th Amendment and Kesavananda Bharati?",
+    "intent": "MULTI_DOCUMENT_QUERY"
+  },
+  {
+    "query": "Analyze the connection between the 42nd Amendment, Article 31C, and Minerva Mills",
+    "intent": "MULTI_DOCUMENT_QUERY"
+  },
+  {
+    "query": "How do Shreya Singhal, Romesh Thappar, and Article 19 define free speech online and offline?",
+    "intent": "MULTI_DOCUMENT_QUERY"
+  },
+  {
+    "query": "Examine how ADM Jabalpur, the 44th Amendment, and Puttaswamy transformed liberty",
+    "intent": "MULTI_DOCUMENT_QUERY"
+  },
+  {
+    "query": "How do First Judges, Second Judges, Third Judges, and Fourth Judges cases trace appointments?",
+    "intent": "MULTI_DOCUMENT_QUERY"
+  },
+  {
+    "query": "Analyze the interplay between Article 21, Article 39A, and the DK Basu arrest guidelines",
+    "intent": "MULTI_DOCUMENT_QUERY"
+  },
+  {
+    "query": "How do Champakam Dorairajan, the 1st Amendment, and Indra Sawhney shape reservation history?",
+    "intent": "MULTI_DOCUMENT_QUERY"
+  },
+  {
+    "query": "Examine the relationship between Article 356, Article 355, and the SR Bommai judgment",
+    "intent": "MULTI_DOCUMENT_QUERY"
+  },
+  {
+    "query": "How do Article 21A, the 86th Amendment, and the Mohini Jain judgment interact?",
+    "intent": "MULTI_DOCUMENT_QUERY"
+  },
+  {
+    "query": "Analyze the connection between Article 105, Article 194, and legislative privilege precedents",
+    "intent": "MULTI_DOCUMENT_QUERY"
+  },
+  {
+    "query": "How do Section 66A, Article 19(1)(a), and Article 19(2) interact in Shreya Singhal?",
+    "intent": "MULTI_DOCUMENT_QUERY"
+  },
+  {
+    "query": "Examine the relationship between the Tenth Schedule, Kihoto Hollohan, and Nabam Rebia",
+    "intent": "MULTI_DOCUMENT_QUERY"
+  },
+  {
+    "query": "How do Article 300A, the 44th Amendment, and Bela Banerjee trace the right to property?",
+    "intent": "MULTI_DOCUMENT_QUERY"
+  },
+  {
+    "query": "Analyze the relationship between Article 141, Article 142, and the Curative Petition doctrine",
+    "intent": "MULTI_DOCUMENT_QUERY"
+  },
+  {
+    "query": "Who won the cricket World Cup match between India and Australia yesterday?",
+    "intent": "OUT_OF_SCOPE"
+  },
+  {
+    "query": "What is the best recipe for baking Italian chocolate cake?",
+    "intent": "OUT_OF_SCOPE"
+  },
+  {
+    "query": "What are the current stock share prices of Google and Apple on NASDAQ?",
+    "intent": "OUT_OF_SCOPE"
+  },
+  {
+    "query": "How do I install Python on a Windows computer?",
+    "intent": "OUT_OF_SCOPE"
+  },
+  {
+    "query": "What is the weather forecast for Mumbai tomorrow afternoon?",
+    "intent": "OUT_OF_SCOPE"
+  },
+  {
+    "query": "Who won the best actor award at the Oscars this year?",
+    "intent": "OUT_OF_SCOPE"
+  },
+  {
+    "query": "What is the distance between Earth and Mars in kilometers?",
+    "intent": "OUT_OF_SCOPE"
+  },
+  {
+    "query": "How do I troubleshoot a leaking water pipe in my bathroom?",
+    "intent": "OUT_OF_SCOPE"
+  },
+  {
+    "query": "What are the top tourist destinations to visit in Paris?",
+    "intent": "OUT_OF_SCOPE"
+  },
+  {
+    "query": "Who is the current manager of Manchester United football club?",
+    "intent": "OUT_OF_SCOPE"
+  },
+  {
+    "query": "What is the chemical formula for photosynthesis?",
+    "intent": "OUT_OF_SCOPE"
+  },
+  {
+    "query": "How do I reset my Gmail account password?",
+    "intent": "OUT_OF_SCOPE"
+  },
+  {
+    "query": "What are the health benefits of drinking green tea every morning?",
+    "intent": "OUT_OF_SCOPE"
+  },
+  {
+    "query": "Can you write a poem about the sunset in the mountains?",
+    "intent": "OUT_OF_SCOPE"
+  },
+  {
+    "query": "What are the reviews for the latest Hollywood action movie?",
+    "intent": "OUT_OF_SCOPE"
+  },
+  {
+    "query": "How do I train for running a marathon in six months?",
+    "intent": "OUT_OF_SCOPE"
+  },
+  {
+    "query": "What is the population of Tokyo in 2026?",
+    "intent": "OUT_OF_SCOPE"
+  },
+  {
+    "query": "How do I solve quadratic equations using factoring?",
+    "intent": "OUT_OF_SCOPE"
+  },
+  {
+    "query": "What is the exchange rate between US Dollar and Japanese Yen today?",
+    "intent": "OUT_OF_SCOPE"
+  },
+  {
+    "query": "What are the ingredients needed to cook chicken biryani?",
+    "intent": "OUT_OF_SCOPE"
+  }
 ]

@@ -119,3 +119,23 @@ class TestGroundedGenerator:
             assert "citation_key" in cit
             assert "supporting_chunk_ids" in cit
             assert isinstance(cit["supporting_chunk_ids"], list)
+
+    def test_api_failure_and_timeout_fallback(self, mock_recovered_context):
+        """Simulate external LLM API failure/timeout; ensure graceful fallback to deterministic synthesis."""
+        from unittest.mock import MagicMock
+
+        generator = GroundedGenerator()
+        generator.llm_available = True
+        mock_llm = MagicMock()
+        mock_llm.invoke.side_effect = TimeoutError("Simulated Gemini API network timeout")
+        generator.llm = mock_llm
+
+        res = generator.generate(
+            query="What is Article 21?",
+            recovered_context=mock_recovered_context,
+        )
+
+        assert res["used_llm"] is False
+        assert "Article 21" in res["answer"]
+        assert len(res["citations"]) > 0
+        assert res["has_insufficient_evidence"] is False

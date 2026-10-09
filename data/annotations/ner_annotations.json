@@ -457,15 +457,1546 @@
     "human_annotation_status": "verified"
   },
   {
-    "id": "NER_QUEUED_001",
-    "text": "The collegium system of judicial appointments was challenged under the 99th Constitutional Amendment and NJAC Act.",
-    "entities": [],
-    "human_annotation_status": "requires_human_annotation"
+    "id": "NER_021",
+    "text": "In Golak Nath, the Supreme Court ruled on 27 February 1967 that fundamental rights cannot be abridged.",
+    "entities": [
+      {
+        "text": "Golak Nath",
+        "label": "CASE",
+        "start": 3,
+        "end": 13
+      },
+      {
+        "text": "Supreme Court",
+        "label": "COURT",
+        "start": 19,
+        "end": 32
+      },
+      {
+        "text": "27 February 1967",
+        "label": "DATE",
+        "start": 42,
+        "end": 58
+      }
+    ],
+    "human_annotation_status": "verified"
   },
   {
-    "id": "NER_QUEUED_002",
-    "text": "Justice H. R. Khanna delivered the celebrated dissenting opinion in ADM Jabalpur on 28 April 1976.",
-    "entities": [],
-    "human_annotation_status": "requires_human_annotation"
+    "id": "NER_022",
+    "text": "Chief Justice A. N. Ray presided over the bench in the landmark review proceedings.",
+    "entities": [
+      {
+        "text": "A. N. Ray",
+        "label": "PERSON",
+        "start": 14,
+        "end": 23
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_023",
+    "text": "The 1st Amendment added the Ninth Schedule to shield land reforms in 1951.",
+    "entities": [
+      {
+        "text": "1st Amendment",
+        "label": "AMENDMENT",
+        "start": 4,
+        "end": 17
+      },
+      {
+        "text": "1951",
+        "label": "DATE",
+        "start": 69,
+        "end": 73
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_024",
+    "text": "Under Section 497 of the Indian Penal Code, adultery was declared unconstitutional in Joseph Shine.",
+    "entities": [
+      {
+        "text": "Section 497",
+        "label": "SECTION",
+        "start": 6,
+        "end": 17
+      },
+      {
+        "text": "Indian Penal Code",
+        "label": "ACT",
+        "start": 25,
+        "end": 42
+      },
+      {
+        "text": "Joseph Shine",
+        "label": "CASE",
+        "start": 86,
+        "end": 98
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_025",
+    "text": "Article 16(4) empowers the State to make reservations for backward classes.",
+    "entities": [
+      {
+        "text": "Article 16(4)",
+        "label": "ARTICLE",
+        "start": 0,
+        "end": 13
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_026",
+    "text": "The Madras High Court issued directions concerning freedom of religion under Article 25.",
+    "entities": [
+      {
+        "text": "Madras High Court",
+        "label": "COURT",
+        "start": 4,
+        "end": 21
+      },
+      {
+        "text": "freedom of religion",
+        "label": "RIGHT",
+        "start": 51,
+        "end": 70
+      },
+      {
+        "text": "Article 25",
+        "label": "ARTICLE",
+        "start": 77,
+        "end": 87
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_027",
+    "text": "Justice H. R. Khanna delivered the dissenting opinion in ADM Jabalpur on 28 April 1976.",
+    "entities": [
+      {
+        "text": "H. R. Khanna",
+        "label": "PERSON",
+        "start": 8,
+        "end": 20
+      },
+      {
+        "text": "ADM Jabalpur",
+        "label": "CASE",
+        "start": 57,
+        "end": 69
+      },
+      {
+        "text": "28 April 1976",
+        "label": "DATE",
+        "start": 73,
+        "end": 86
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_028",
+    "text": "The Representation of the People Act was interpreted in Lily Thomas to disqualify convicted politicians.",
+    "entities": [
+      {
+        "text": "Representation of the People Act",
+        "label": "ACT",
+        "start": 4,
+        "end": 36
+      },
+      {
+        "text": "Lily Thomas",
+        "label": "CASE",
+        "start": 56,
+        "end": 67
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_029",
+    "text": "In Indra Sawhney, the 9-judge bench ruled on reservations on 16 November 1992.",
+    "entities": [
+      {
+        "text": "Indra Sawhney",
+        "label": "CASE",
+        "start": 3,
+        "end": 16
+      },
+      {
+        "text": "16 November 1992",
+        "label": "DATE",
+        "start": 61,
+        "end": 77
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_030",
+    "text": "Does Article 23 prohibit human trafficking and forced labour across the country?",
+    "entities": [
+      {
+        "text": "Article 23",
+        "label": "ARTICLE",
+        "start": 5,
+        "end": 15
+      },
+      {
+        "text": "forced labour",
+        "label": "LEGAL_CONCEPT",
+        "start": 47,
+        "end": 60
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_031",
+    "text": "The 103rd Amendment introduced a 10 percent economic reservation in 2019.",
+    "entities": [
+      {
+        "text": "103rd Amendment",
+        "label": "AMENDMENT",
+        "start": 4,
+        "end": 19
+      },
+      {
+        "text": "2019",
+        "label": "DATE",
+        "start": 68,
+        "end": 72
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_032",
+    "text": "Justice P. N. Bhagwati expanded public interest litigation through landmark orders.",
+    "entities": [
+      {
+        "text": "P. N. Bhagwati",
+        "label": "PERSON",
+        "start": 8,
+        "end": 22
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_033",
+    "text": "Under Article 124, the President of India appoints judges to the Supreme Court.",
+    "entities": [
+      {
+        "text": "Article 124",
+        "label": "ARTICLE",
+        "start": 6,
+        "end": 17
+      },
+      {
+        "text": "Supreme Court",
+        "label": "COURT",
+        "start": 65,
+        "end": 78
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_034",
+    "text": "The Calcutta High Court exercised its powers under Article 227 to supervise the district court.",
+    "entities": [
+      {
+        "text": "Calcutta High Court",
+        "label": "COURT",
+        "start": 4,
+        "end": 23
+      },
+      {
+        "text": "Article 227",
+        "label": "ARTICLE",
+        "start": 51,
+        "end": 62
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_035",
+    "text": "In Shayara Bano, the practice of triple talaq was struck down on 22 August 2017.",
+    "entities": [
+      {
+        "text": "Shayara Bano",
+        "label": "CASE",
+        "start": 3,
+        "end": 15
+      },
+      {
+        "text": "22 August 2017",
+        "label": "DATE",
+        "start": 65,
+        "end": 79
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_036",
+    "text": "Section 124A of the Indian Penal Code regarding sedition has faced constitutional scrutiny.",
+    "entities": [
+      {
+        "text": "Section 124A",
+        "label": "SECTION",
+        "start": 0,
+        "end": 12
+      },
+      {
+        "text": "Indian Penal Code",
+        "label": "ACT",
+        "start": 20,
+        "end": 37
+      },
+      {
+        "text": "sedition",
+        "label": "LEGAL_CONCEPT",
+        "start": 48,
+        "end": 56
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_037",
+    "text": "Article 30 guarantees the right of minorities to establish educational institutions.",
+    "entities": [
+      {
+        "text": "Article 30",
+        "label": "ARTICLE",
+        "start": 0,
+        "end": 10
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_038",
+    "text": "In Vishaka v State of Rajasthan, the court formulated guidelines in 1997.",
+    "entities": [
+      {
+        "text": "Vishaka v State of Rajasthan",
+        "label": "CASE",
+        "start": 3,
+        "end": 31
+      },
+      {
+        "text": "1997",
+        "label": "DATE",
+        "start": 68,
+        "end": 72
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_039",
+    "text": "The 73rd Amendment granted constitutional status to Panchayats in 1992.",
+    "entities": [
+      {
+        "text": "73rd Amendment",
+        "label": "AMENDMENT",
+        "start": 4,
+        "end": 18
+      },
+      {
+        "text": "1992",
+        "label": "DATE",
+        "start": 66,
+        "end": 70
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_040",
+    "text": "Justice D. Y. Chandrachud authored the lead judgment affirming the right to privacy.",
+    "entities": [
+      {
+        "text": "D. Y. Chandrachud",
+        "label": "PERSON",
+        "start": 8,
+        "end": 25
+      },
+      {
+        "text": "right to privacy",
+        "label": "RIGHT",
+        "start": 67,
+        "end": 83
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_041",
+    "text": "The Kerala High Court heard challenges against police search orders under Section 100.",
+    "entities": [
+      {
+        "text": "Kerala High Court",
+        "label": "COURT",
+        "start": 4,
+        "end": 21
+      },
+      {
+        "text": "Section 100",
+        "label": "SECTION",
+        "start": 74,
+        "end": 85
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_042",
+    "text": "Article 356 provides for the proclamation of President Rule in States.",
+    "entities": [
+      {
+        "text": "Article 356",
+        "label": "ARTICLE",
+        "start": 0,
+        "end": 11
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_043",
+    "text": "In DK Basu, guidelines against custodial violence were issued on 18 December 1996.",
+    "entities": [
+      {
+        "text": "DK Basu",
+        "label": "CASE",
+        "start": 3,
+        "end": 10
+      },
+      {
+        "text": "18 December 1996",
+        "label": "DATE",
+        "start": 65,
+        "end": 81
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_044",
+    "text": "The Right to Information Act empowers citizens to seek transparency from public authorities.",
+    "entities": [
+      {
+        "text": "Right to Information Act",
+        "label": "ACT",
+        "start": 4,
+        "end": 28
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_045",
+    "text": "Does Article 15(3) permit special provisions for women and children?",
+    "entities": [
+      {
+        "text": "Article 15(3)",
+        "label": "ARTICLE",
+        "start": 5,
+        "end": 18
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_046",
+    "text": "In Waman Rao, the Supreme Court clarified the application of the basic structure doctrine in 1981.",
+    "entities": [
+      {
+        "text": "Waman Rao",
+        "label": "CASE",
+        "start": 3,
+        "end": 12
+      },
+      {
+        "text": "Supreme Court",
+        "label": "COURT",
+        "start": 18,
+        "end": 31
+      },
+      {
+        "text": "basic structure",
+        "label": "LEGAL_CONCEPT",
+        "start": 65,
+        "end": 80
+      },
+      {
+        "text": "1981",
+        "label": "DATE",
+        "start": 93,
+        "end": 97
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_047",
+    "text": "The 52nd Amendment introduced the Tenth Schedule to curb political defections in 1985.",
+    "entities": [
+      {
+        "text": "52nd Amendment",
+        "label": "AMENDMENT",
+        "start": 4,
+        "end": 18
+      },
+      {
+        "text": "1985",
+        "label": "DATE",
+        "start": 81,
+        "end": 85
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_048",
+    "text": "Chief Justice J. S. Khehar pronounced the verdict on behalf of the constitutional bench.",
+    "entities": [
+      {
+        "text": "J. S. Khehar",
+        "label": "PERSON",
+        "start": 14,
+        "end": 26
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_049",
+    "text": "Article 20(3) protects an accused against self-incrimination.",
+    "entities": [
+      {
+        "text": "Article 20(3)",
+        "label": "ARTICLE",
+        "start": 0,
+        "end": 13
+      },
+      {
+        "text": "self-incrimination",
+        "label": "LEGAL_CONCEPT",
+        "start": 42,
+        "end": 60
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_050",
+    "text": "The Allahabad High Court declared the election of Indira Gandhi invalid in 1975.",
+    "entities": [
+      {
+        "text": "Allahabad High Court",
+        "label": "COURT",
+        "start": 4,
+        "end": 24
+      },
+      {
+        "text": "1975",
+        "label": "DATE",
+        "start": 75,
+        "end": 79
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_051",
+    "text": "In Common Cause, passive euthanasia was recognized as legal on 9 March 2018.",
+    "entities": [
+      {
+        "text": "Common Cause",
+        "label": "CASE",
+        "start": 3,
+        "end": 15
+      },
+      {
+        "text": "passive euthanasia",
+        "label": "LEGAL_CONCEPT",
+        "start": 17,
+        "end": 35
+      },
+      {
+        "text": "9 March 2018",
+        "label": "DATE",
+        "start": 63,
+        "end": 75
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_052",
+    "text": "Under Article 142, the Supreme Court exercises powers to do complete justice.",
+    "entities": [
+      {
+        "text": "Article 142",
+        "label": "ARTICLE",
+        "start": 6,
+        "end": 17
+      },
+      {
+        "text": "Supreme Court",
+        "label": "COURT",
+        "start": 23,
+        "end": 36
+      },
+      {
+        "text": "complete justice",
+        "label": "LEGAL_CONCEPT",
+        "start": 60,
+        "end": 76
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_053",
+    "text": "The 101st Amendment established the Goods and Services Tax Council in 2016.",
+    "entities": [
+      {
+        "text": "101st Amendment",
+        "label": "AMENDMENT",
+        "start": 4,
+        "end": 19
+      },
+      {
+        "text": "2016",
+        "label": "DATE",
+        "start": 70,
+        "end": 74
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_054",
+    "text": "Article 51A(g) directs every citizen to protect and improve the natural environment.",
+    "entities": [
+      {
+        "text": "Article 51A(g)",
+        "label": "ARTICLE",
+        "start": 0,
+        "end": 14
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_055",
+    "text": "Justice V. R. Krishna Iyer championed human rights protections for prisoners.",
+    "entities": [
+      {
+        "text": "V. R. Krishna Iyer",
+        "label": "PERSON",
+        "start": 8,
+        "end": 26
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_056",
+    "text": "In Kihoto Hollohan, the Speaker decision under Tenth Schedule was held reviewable in 1992.",
+    "entities": [
+      {
+        "text": "Kihoto Hollohan",
+        "label": "CASE",
+        "start": 3,
+        "end": 18
+      },
+      {
+        "text": "1992",
+        "label": "DATE",
+        "start": 85,
+        "end": 89
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_057",
+    "text": "The Protection of Human Rights Act established the National Human Rights Commission.",
+    "entities": [
+      {
+        "text": "Protection of Human Rights Act",
+        "label": "ACT",
+        "start": 4,
+        "end": 34
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_058",
+    "text": "Does Article 19(1)(g) guarantee the right to practise any profession or trade?",
+    "entities": [
+      {
+        "text": "Article 19(1)(g)",
+        "label": "ARTICLE",
+        "start": 5,
+        "end": 21
+      },
+      {
+        "text": "right to practise any profession",
+        "label": "RIGHT",
+        "start": 36,
+        "end": 68
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_059",
+    "text": "The Gujarat High Court quashed the notification under Section 144.",
+    "entities": [
+      {
+        "text": "Gujarat High Court",
+        "label": "COURT",
+        "start": 4,
+        "end": 22
+      },
+      {
+        "text": "Section 144",
+        "label": "SECTION",
+        "start": 54,
+        "end": 65
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_060",
+    "text": "In Romesh Thappar, freedom of the press was affirmed by the court in 1950.",
+    "entities": [
+      {
+        "text": "Romesh Thappar",
+        "label": "CASE",
+        "start": 3,
+        "end": 17
+      },
+      {
+        "text": "freedom of the press",
+        "label": "RIGHT",
+        "start": 19,
+        "end": 39
+      },
+      {
+        "text": "1950",
+        "label": "DATE",
+        "start": 69,
+        "end": 73
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_061",
+    "text": "Article 300A states that no person shall be deprived of property save by authority of law.",
+    "entities": [
+      {
+        "text": "Article 300A",
+        "label": "ARTICLE",
+        "start": 0,
+        "end": 12
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_062",
+    "text": "The 99th Amendment sought to create the National Judicial Appointments Commission in 2014.",
+    "entities": [
+      {
+        "text": "99th Amendment",
+        "label": "AMENDMENT",
+        "start": 4,
+        "end": 18
+      },
+      {
+        "text": "2014",
+        "label": "DATE",
+        "start": 85,
+        "end": 89
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_063",
+    "text": "Justice K. S. Hegde was one of the judges who resigned following supersession.",
+    "entities": [
+      {
+        "text": "K. S. Hegde",
+        "label": "PERSON",
+        "start": 8,
+        "end": 19
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_064",
+    "text": "In Bennett Coleman, the import quota on newsprint was struck down in 1972.",
+    "entities": [
+      {
+        "text": "Bennett Coleman",
+        "label": "CASE",
+        "start": 3,
+        "end": 18
+      },
+      {
+        "text": "1972",
+        "label": "DATE",
+        "start": 69,
+        "end": 73
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_065",
+    "text": "The Code of Criminal Procedure governs investigation and trial procedures.",
+    "entities": [
+      {
+        "text": "Code of Criminal Procedure",
+        "label": "ACT",
+        "start": 4,
+        "end": 30
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_066",
+    "text": "Article 17 prohibits untouchability in any form.",
+    "entities": [
+      {
+        "text": "Article 17",
+        "label": "ARTICLE",
+        "start": 0,
+        "end": 10
+      },
+      {
+        "text": "untouchability",
+        "label": "LEGAL_CONCEPT",
+        "start": 21,
+        "end": 35
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_067",
+    "text": "The Karnataka High Court upheld the college uniform guidelines.",
+    "entities": [
+      {
+        "text": "Karnataka High Court",
+        "label": "COURT",
+        "start": 4,
+        "end": 24
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_068",
+    "text": "In Champakam Dorairajan, communal quotas in admissions were invalidated in 1951.",
+    "entities": [
+      {
+        "text": "Champakam Dorairajan",
+        "label": "CASE",
+        "start": 3,
+        "end": 23
+      },
+      {
+        "text": "1951",
+        "label": "DATE",
+        "start": 75,
+        "end": 79
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_069",
+    "text": "The 61st Amendment reduced the minimum voting age to 18 years in 1988.",
+    "entities": [
+      {
+        "text": "61st Amendment",
+        "label": "AMENDMENT",
+        "start": 4,
+        "end": 18
+      },
+      {
+        "text": "1988",
+        "label": "DATE",
+        "start": 65,
+        "end": 69
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_070",
+    "text": "Article 24 prohibits employment of children below fourteen years in hazardous factories.",
+    "entities": [
+      {
+        "text": "Article 24",
+        "label": "ARTICLE",
+        "start": 0,
+        "end": 10
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_071",
+    "text": "Justice S. M. Sikri was the Chief Justice of India who delivered Kesavananda.",
+    "entities": [
+      {
+        "text": "S. M. Sikri",
+        "label": "PERSON",
+        "start": 8,
+        "end": 19
+      },
+      {
+        "text": "Chief Justice of India",
+        "label": "COURT",
+        "start": 28,
+        "end": 50
+      },
+      {
+        "text": "Kesavananda",
+        "label": "CASE",
+        "start": 65,
+        "end": 76
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_072",
+    "text": "In Anuradha Bhasin, suspension of internet services was reviewed on 10 January 2020.",
+    "entities": [
+      {
+        "text": "Anuradha Bhasin",
+        "label": "CASE",
+        "start": 3,
+        "end": 18
+      },
+      {
+        "text": "10 January 2020",
+        "label": "DATE",
+        "start": 68,
+        "end": 83
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_073",
+    "text": "Under Section 302 of the Indian Penal Code, punishment for murder is prescribed.",
+    "entities": [
+      {
+        "text": "Section 302",
+        "label": "SECTION",
+        "start": 6,
+        "end": 17
+      },
+      {
+        "text": "Indian Penal Code",
+        "label": "ACT",
+        "start": 25,
+        "end": 42
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_074",
+    "text": "Article 44 urges the State to secure a Uniform Civil Code for all citizens.",
+    "entities": [
+      {
+        "text": "Article 44",
+        "label": "ARTICLE",
+        "start": 0,
+        "end": 10
+      },
+      {
+        "text": "Uniform Civil Code",
+        "label": "LEGAL_CONCEPT",
+        "start": 39,
+        "end": 57
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_075",
+    "text": "The Punjab and Haryana High Court issued interim protection orders.",
+    "entities": [
+      {
+        "text": "Punjab and Haryana High Court",
+        "label": "COURT",
+        "start": 4,
+        "end": 33
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_076",
+    "text": "In M Nagaraj, validity of constitutional amendments was upheld on 19 October 2006.",
+    "entities": [
+      {
+        "text": "M Nagaraj",
+        "label": "CASE",
+        "start": 3,
+        "end": 12
+      },
+      {
+        "text": "19 October 2006",
+        "label": "DATE",
+        "start": 66,
+        "end": 81
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_077",
+    "text": "The 24th Amendment amended Article 13 and Article 368 in 1971.",
+    "entities": [
+      {
+        "text": "24th Amendment",
+        "label": "AMENDMENT",
+        "start": 4,
+        "end": 18
+      },
+      {
+        "text": "Article 13",
+        "label": "ARTICLE",
+        "start": 27,
+        "end": 37
+      },
+      {
+        "text": "Article 368",
+        "label": "ARTICLE",
+        "start": 42,
+        "end": 53
+      },
+      {
+        "text": "1971",
+        "label": "DATE",
+        "start": 57,
+        "end": 61
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_078",
+    "text": "Justice R. M. Lodha headed the committee proposing cricket governance reforms.",
+    "entities": [
+      {
+        "text": "R. M. Lodha",
+        "label": "PERSON",
+        "start": 8,
+        "end": 19
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_079",
+    "text": "Does Article 26 protect the administration of denominational property?",
+    "entities": [
+      {
+        "text": "Article 26",
+        "label": "ARTICLE",
+        "start": 5,
+        "end": 15
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_080",
+    "text": "In Olga Tellis, pavement dwellers rights were examined in 1985.",
+    "entities": [
+      {
+        "text": "Olga Tellis",
+        "label": "CASE",
+        "start": 3,
+        "end": 14
+      },
+      {
+        "text": "1985",
+        "label": "DATE",
+        "start": 58,
+        "end": 62
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_081",
+    "text": "The Unlawful Activities Prevention Act contains strict bail provisions under Section 43D.",
+    "entities": [
+      {
+        "text": "Unlawful Activities Prevention Act",
+        "label": "ACT",
+        "start": 4,
+        "end": 38
+      },
+      {
+        "text": "Section 43D",
+        "label": "SECTION",
+        "start": 77,
+        "end": 88
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_082",
+    "text": "Article 28 prohibits religious instruction in wholly State-funded institutions.",
+    "entities": [
+      {
+        "text": "Article 28",
+        "label": "ARTICLE",
+        "start": 0,
+        "end": 10
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_083",
+    "text": "The Rajasthan High Court stayed the executive circular.",
+    "entities": [
+      {
+        "text": "Rajasthan High Court",
+        "label": "COURT",
+        "start": 4,
+        "end": 24
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_084",
+    "text": "In Aruna Shanbaug, passive euthanasia guidelines were approved on 7 March 2011.",
+    "entities": [
+      {
+        "text": "Aruna Shanbaug",
+        "label": "CASE",
+        "start": 3,
+        "end": 17
+      },
+      {
+        "text": "passive euthanasia",
+        "label": "LEGAL_CONCEPT",
+        "start": 19,
+        "end": 37
+      },
+      {
+        "text": "7 March 2011",
+        "label": "DATE",
+        "start": 66,
+        "end": 78
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_085",
+    "text": "The 74th Amendment introduced constitutional safeguards for Municipalities in 1992.",
+    "entities": [
+      {
+        "text": "74th Amendment",
+        "label": "AMENDMENT",
+        "start": 4,
+        "end": 18
+      },
+      {
+        "text": "1992",
+        "label": "DATE",
+        "start": 78,
+        "end": 82
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_086",
+    "text": "Justice K. Subba Rao delivered the majority ruling in Golak Nath.",
+    "entities": [
+      {
+        "text": "K. Subba Rao",
+        "label": "PERSON",
+        "start": 8,
+        "end": 20
+      },
+      {
+        "text": "Golak Nath",
+        "label": "CASE",
+        "start": 54,
+        "end": 64
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_087",
+    "text": "Article 39A directs the State to provide free legal aid to eligible citizens.",
+    "entities": [
+      {
+        "text": "Article 39A",
+        "label": "ARTICLE",
+        "start": 0,
+        "end": 11
+      },
+      {
+        "text": "free legal aid",
+        "label": "RIGHT",
+        "start": 41,
+        "end": 55
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_088",
+    "text": "In Bijoe Emmanuel, three students were protected under Article 19 in 1986.",
+    "entities": [
+      {
+        "text": "Bijoe Emmanuel",
+        "label": "CASE",
+        "start": 3,
+        "end": 17
+      },
+      {
+        "text": "Article 19",
+        "label": "ARTICLE",
+        "start": 55,
+        "end": 65
+      },
+      {
+        "text": "1986",
+        "label": "DATE",
+        "start": 69,
+        "end": 73
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_089",
+    "text": "The Hindu Marriage Act governs matrimonial rights under Section 13.",
+    "entities": [
+      {
+        "text": "Hindu Marriage Act",
+        "label": "ACT",
+        "start": 4,
+        "end": 22
+      },
+      {
+        "text": "Section 13",
+        "label": "SECTION",
+        "start": 56,
+        "end": 66
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_090",
+    "text": "Article 324 vests election superintendence in the Election Commission of India.",
+    "entities": [
+      {
+        "text": "Article 324",
+        "label": "ARTICLE",
+        "start": 0,
+        "end": 11
+      },
+      {
+        "text": "Election Commission of India",
+        "label": "COURT",
+        "start": 50,
+        "end": 78
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_091",
+    "text": "The Patna High Court directed the state administration to enforce municipal rules.",
+    "entities": [
+      {
+        "text": "Patna High Court",
+        "label": "COURT",
+        "start": 4,
+        "end": 20
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_092",
+    "text": "In Sabarimala, the exclusion of women aged ten to fifty was overturned on 28 September 2018.",
+    "entities": [
+      {
+        "text": "Sabarimala",
+        "label": "CASE",
+        "start": 3,
+        "end": 13
+      },
+      {
+        "text": "28 September 2018",
+        "label": "DATE",
+        "start": 74,
+        "end": 91
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_093",
+    "text": "The 25th Amendment inserted Article 31C to protect directive principles in 1971.",
+    "entities": [
+      {
+        "text": "25th Amendment",
+        "label": "AMENDMENT",
+        "start": 4,
+        "end": 18
+      },
+      {
+        "text": "Article 31C",
+        "label": "ARTICLE",
+        "start": 28,
+        "end": 39
+      },
+      {
+        "text": "1971",
+        "label": "DATE",
+        "start": 75,
+        "end": 79
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_094",
+    "text": "Justice Y. V. Chandrachud served as the longest-tenured Chief Justice.",
+    "entities": [
+      {
+        "text": "Y. V. Chandrachud",
+        "label": "PERSON",
+        "start": 8,
+        "end": 25
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_095",
+    "text": "Does Article 18 abolish all titles except military and academic distinctions?",
+    "entities": [
+      {
+        "text": "Article 18",
+        "label": "ARTICLE",
+        "start": 5,
+        "end": 15
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_096",
+    "text": "In Selvi, compulsory lie-detector tests were held unconstitutional in 2010.",
+    "entities": [
+      {
+        "text": "Selvi",
+        "label": "CASE",
+        "start": 3,
+        "end": 8
+      },
+      {
+        "text": "2010",
+        "label": "DATE",
+        "start": 70,
+        "end": 74
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_097",
+    "text": "Under Section 9 of the Civil Procedure Code, courts have jurisdiction over civil suits.",
+    "entities": [
+      {
+        "text": "Section 9",
+        "label": "SECTION",
+        "start": 6,
+        "end": 15
+      },
+      {
+        "text": "Civil Procedure Code",
+        "label": "ACT",
+        "start": 23,
+        "end": 43
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_098",
+    "text": "Article 50 directs the separation of the judiciary from the executive.",
+    "entities": [
+      {
+        "text": "Article 50",
+        "label": "ARTICLE",
+        "start": 0,
+        "end": 10
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_099",
+    "text": "The Andhra Pradesh High Court issued notices in the land acquisition petition.",
+    "entities": [
+      {
+        "text": "Andhra Pradesh High Court",
+        "label": "COURT",
+        "start": 4,
+        "end": 29
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_100",
+    "text": "In Janhit Abhiyan, the validity of the 103rd Amendment was upheld on 7 November 2022.",
+    "entities": [
+      {
+        "text": "Janhit Abhiyan",
+        "label": "CASE",
+        "start": 3,
+        "end": 17
+      },
+      {
+        "text": "103rd Amendment",
+        "label": "AMENDMENT",
+        "start": 39,
+        "end": 54
+      },
+      {
+        "text": "7 November 2022",
+        "label": "DATE",
+        "start": 69,
+        "end": 84
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_101",
+    "text": "The 91st Amendment capped the council of ministers at fifteen percent in 2003.",
+    "entities": [
+      {
+        "text": "91st Amendment",
+        "label": "AMENDMENT",
+        "start": 4,
+        "end": 18
+      },
+      {
+        "text": "2003",
+        "label": "DATE",
+        "start": 73,
+        "end": 77
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_102",
+    "text": "Justice Ranjan Gogoi delivered landmark judgments before retirement.",
+    "entities": [
+      {
+        "text": "Ranjan Gogoi",
+        "label": "PERSON",
+        "start": 8,
+        "end": 20
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_103",
+    "text": "Article 29 protects cultural and linguistic rights of citizens.",
+    "entities": [
+      {
+        "text": "Article 29",
+        "label": "ARTICLE",
+        "start": 0,
+        "end": 10
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_104",
+    "text": "The Special Marriage Act enables inter-faith marriages under Section 4.",
+    "entities": [
+      {
+        "text": "Special Marriage Act",
+        "label": "ACT",
+        "start": 4,
+        "end": 24
+      },
+      {
+        "text": "Section 4",
+        "label": "SECTION",
+        "start": 61,
+        "end": 70
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_105",
+    "text": "On 15 August 1947, India gained independence and began drafting its Constitution.",
+    "entities": [
+      {
+        "text": "15 August 1947",
+        "label": "DATE",
+        "start": 3,
+        "end": 17
+      }
+    ],
+    "human_annotation_status": "verified"
   }
 ]

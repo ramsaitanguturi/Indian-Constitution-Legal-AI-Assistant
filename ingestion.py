@@ -170,7 +170,17 @@ class ParentChildIngestor:
         return parent_store, child_chunks
 
     def save_parent_store(self) -> None:
-        """Persist parent store to JSON."""
+        """Persist parent store to JSON, preserving full corpus records if existing store is larger."""
+        if os.path.exists(PARENT_STORE_PATH):
+            try:
+                with open(PARENT_STORE_PATH, "r", encoding="utf-8") as f:
+                    existing = json.load(f)
+                if len(existing) > len(self.parent_store):
+                    existing.update(self.parent_store)
+                    self.parent_store = existing
+            except Exception:
+                pass
+
         with open(PARENT_STORE_PATH, "w", encoding="utf-8") as f:
             json.dump(self.parent_store, f, indent=2, ensure_ascii=False)
 

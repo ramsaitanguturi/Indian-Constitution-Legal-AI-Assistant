@@ -1,4 +1,4 @@
 Model,Sample_Count,Accuracy,Macro_Precision,Macro_Recall,Macro_F1,Weighted_F1
-rule_based_baseline,28,0.7857,0.9123,0.8182,0.8123,0.7986
-tfidf_logistic_regression,28,0.6429,0.697,0.6591,0.6487,0.6378
-hybrid_classifier,28,0.8214,0.9432,0.8636,0.8647,0.8287
+rule_based_baseline,33,0.697,0.5939,0.697,0.629,0.629
+tfidf_logistic_regression,33,0.8485,0.8727,0.8485,0.8331,0.8331
+hybrid_classifier,33,0.697,0.6,0.697,0.6301,0.6301

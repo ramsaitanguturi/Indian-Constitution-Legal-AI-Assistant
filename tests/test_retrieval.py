@@ -528,3 +528,52 @@ class TestHybridRetrieverAblations:
         for item in results:
             assert "score" in item
             assert 0.0 <= item["score"] <= 1.0
+
+    def test_bm25_metadata_filtering(self, mock_bm25_retriever):
+        """Verifies BM25 filtering by doc_type."""
+        # Query that matches both constitution and judgment
+        const_hits = mock_bm25_retriever.retrieve("Article 21 privacy", filter_doc_type="constitution")
+        for hit in const_hits:
+            assert hit.get("doc_type") == "constitution" or hit.get("metadata", {}).get("doc_type") == "constitution"
+
+        judgment_hits = mock_bm25_retriever.retrieve("Article 21 privacy", filter_doc_type="judgment")
+        for hit in judgment_hits:
+            assert hit.get("doc_type") == "judgment" or hit.get("metadata", {}).get("doc_type") == "judgment"
+
+    def test_dense_metadata_filtering(self, mock_parent_store):
+        """Verifies DenseRetriever filtering by doc_type."""
+        mock_col = MockChromaCollection(count=2)
+        dense = DenseRetriever(collection=mock_col, parent_store=mock_parent_store)
+        const_hits = dense.retrieve("right to life", filter_doc_type="constitution")
+        for hit in const_hits:
+            assert hit.get("doc_type") == "constitution" or hit.get("metadata", {}).get("doc_type") == "constitution"
+
+    def test_hybrid_metadata_filtering(self, mock_bm25_retriever, mock_parent_store):
+        """Verifies HybridRetriever end-to-end metadata filtering."""
+        mock_col = MockChromaCollection(count=2)
+        dense = DenseRetriever(collection=mock_col, parent_store=mock_parent_store)
+        hybrid = HybridRetriever(
+            bm25_retriever=mock_bm25_retriever,
+            dense_retriever=dense,
+            parent_store=mock_parent_store,
+            use_bm25=True,
+            use_dense=True,
+        )
+        const_results = hybrid.retrieve("Article 21 life", filter_doc_type="constitution", top_k=2)
+        assert len(const_results) > 0
+        for r in const_results:
+            assert r.get("doc_type") == "constitution" or r.get("metadata", {}).get("doc_type") == "constitution"
+
+    def test_empty_and_malformed_retrieval_queries(self, mock_bm25_retriever, mock_parent_store):
+        """Verifies robust boundary handling for malformed queries across retrieval components."""
+        mock_col = MockChromaCollection(count=2)
+        dense = DenseRetriever(collection=mock_col, parent_store=mock_parent_store)
+        hybrid = HybridRetriever(
+            bm25_retriever=mock_bm25_retriever,
+            dense_retriever=dense,
+            parent_store=mock_parent_store,
+        )
+        for bad_query in [None, "", "   ", "\n\t", "!@#$%^&*()_+"]:
+            assert mock_bm25_retriever.retrieve(bad_query) == []
+            assert dense.retrieve(bad_query) == []
+            assert hybrid.retrieve(bad_query) == []

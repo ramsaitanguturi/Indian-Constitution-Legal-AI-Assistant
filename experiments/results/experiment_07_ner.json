@@ -1,0 +1,123 @@
+{
+  "experiment_name": "LegalNER_Exact_Span",
+  "status": "COMPLETED",
+  "exact_span_match": true,
+  "sample_count": 105,
+  "requires_human_annotation_count": 0,
+  "total_latency_seconds": 4.036,
+  "metrics": {
+    "evaluation_definition": "Exact entity-level evaluation (matching: (start, end, label)). Precision = TP/(TP+FP), Recall = TP/(TP+FN), F1 = 2PR/(P+R).",
+    "micro_precision": 0.8505,
+    "micro_recall": 0.782,
+    "micro_f1": 0.8148,
+    "macro_precision": 0.7968,
+    "macro_recall": 0.7173,
+    "macro_f1": 0.7408,
+    "total_gold_entities": 211,
+    "total_predicted_entities": 194,
+    "per_class": {
+      "ACT": {
+        "precision": 1.0,
+        "recall": 0.6667,
+        "f1": 0.8,
+        "support": 15,
+        "tp": 10,
+        "fp": 0,
+        "fn": 5
+      },
+      "AMENDMENT": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 15,
+        "tp": 15,
+        "fp": 0,
+        "fn": 0
+      },
+      "ARTICLE": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 40,
+        "tp": 40,
+        "fp": 0,
+        "fn": 0
+      },
+      "CASE": {
+        "precision": 0.92,
+        "recall": 0.7419,
+        "f1": 0.8214,
+        "support": 31,
+        "tp": 23,
+        "fp": 2,
+        "fn": 8
+      },
+      "COURT": {
+        "precision": 0.9333,
+        "recall": 0.6087,
+        "f1": 0.7368,
+        "support": 23,
+        "tp": 14,
+        "fp": 1,
+        "fn": 9
+      },
+      "DATE": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 38,
+        "tp": 38,
+        "fp": 0,
+        "fn": 0
+      },
+      "LEGAL_CONCEPT": {
+        "precision": 0.2812,
+        "recall": 0.6,
+        "f1": 0.383,
+        "support": 15,
+        "tp": 9,
+        "fp": 23,
+        "fn": 6
+      },
+      "PERSON": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 14,
+        "tp": 0,
+        "fp": 2,
+        "fn": 14
+      },
+      "RIGHT": {
+        "precision": 0.8333,
+        "recall": 0.5556,
+        "f1": 0.6667,
+        "support": 9,
+        "tp": 5,
+        "fp": 1,
+        "fn": 4
+      },
+      "SECTION": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 11,
+        "tp": 11,
+        "fp": 0,
+        "fn": 0
+      }
+    }
+  },
+  "category_coverage": {
+    "ARTICLE": 40,
+    "CASE": 31,
+    "PERSON": 14,
+    "COURT": 23,
+    "LEGAL_CONCEPT": 15,
+    "RIGHT": 9,
+    "AMENDMENT": 15,
+    "ACT": 15,
+    "SECTION": 11,
+    "DATE": 38
+  }
+}

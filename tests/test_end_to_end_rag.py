@@ -135,6 +135,45 @@ class TestEndToEndLegalRAGPipeline:
         assert "### ⚖️ Grounded Legal Analysis" in result.generated_answer
         assert "### 📚 Verified Citations" in result.generated_answer
 
+    def test_pipeline_empty_and_whitespace_query(self, rag_pipeline):
+        """Empty and whitespace queries safely abstain without error."""
+        for empty_q in ["", "   ", "\n\t"]:
+            res = rag_pipeline.run(empty_q)
+            assert res.abstained is True
+            assert res.abstention_reason == "EMPTY_QUERY"
+            assert res.confidence["confidence_score"] == 0.0
+
+    def test_pipeline_with_mocked_external_llm_call(self, rag_pipeline):
+        """End-to-end query execution with external LLM call mocked."""
+        from unittest.mock import MagicMock
+
+        orig_llm = rag_pipeline.generator.llm
+        orig_avail = rag_pipeline.generator.llm_available
+
+        mock_llm = MagicMock()
+        mock_llm.invoke.return_value = (
+            "### 📜 Direct Legal Evidence\n"
+            "Article 21 guarantees protection of life and personal liberty.\n\n"
+            "### ⚖️ Grounded Legal Analysis\n"
+            "The right to life is a foundational fundamental right under the Constitution.\n\n"
+            "### 📚 Verified Citations\n"
+            "- [Doc: parent_const_art_21] Article 21"
+        )
+
+        try:
+            rag_pipeline.generator.llm = mock_llm
+            rag_pipeline.generator.llm_available = True
+
+            result = rag_pipeline.run("What does Article 21 guarantee?")
+            assert result.is_success is True
+            assert result.abstained is False
+            assert "Direct Legal Evidence" in result.generated_answer
+            assert len(result.citations) >= 1
+            assert result.citation_validation["valid"] is True
+        finally:
+            rag_pipeline.generator.llm = orig_llm
+            rag_pipeline.generator.llm_available = orig_avail
+
 
 class TestBackwardCompatibility:
     """Verifies that existing modules and facades remain fully functional."""

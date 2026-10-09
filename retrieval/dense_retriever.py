@@ -6,6 +6,7 @@ and returns candidates adhering to the standardized schema.
 
 import json
 import os
+import re
 from typing import Dict, List, Any, Optional
 import chromadb
 from chromadb.utils import embedding_functions
@@ -70,18 +71,27 @@ class DenseRetriever:
             child_chunks=getattr(ingestor, "child_chunks", None),
         )
 
-    def retrieve(self, query: str, top_k: int = 20) -> List[Dict[str, Any]]:
+    def retrieve(
+        self,
+        query: str,
+        top_k: int = 20,
+        filter_doc_type: Optional[str] = None,
+    ) -> List[Dict[str, Any]]:
         """
         Execute dense vector search and return standardized candidate dictionaries.
 
         Args:
             query: User search query string.
             top_k: Maximum number of ranked candidates to return.
+            filter_doc_type: Optional metadata filter by doc_type ('constitution', 'judgment', 'amendment').
 
         Returns:
             List of structured result dictionaries with uniform schema.
         """
-        if not query or not query.strip() or top_k <= 0:
+        if not query or not str(query).strip() or top_k <= 0:
+            return []
+
+        if not re.search(r"[a-zA-Z0-9]+", str(query)):
             return []
 
         if self.collection is None:
@@ -92,11 +102,20 @@ class DenseRetriever:
             return []
 
         n_results = min(top_k, count)
-        query_results = self.collection.query(
-            query_texts=[query],
-            n_results=n_results,
-            include=["documents", "metadatas", "distances"],
-        )
+        query_kwargs = {
+            "query_texts": [query],
+            "n_results": n_results,
+            "include": ["documents", "metadatas", "distances"],
+        }
+        if filter_doc_type:
+            query_kwargs["where"] = {"doc_type": filter_doc_type}
+
+        try:
+            query_results = self.collection.query(**query_kwargs)
+        except Exception:
+            # Fallback if mock collection does not support 'where' argument
+            query_kwargs.pop("where", None)
+            query_results = self.collection.query(**query_kwargs)
 
         if not query_results or not query_results.get("ids") or not query_results["ids"][0]:
             return []
@@ -150,5 +169,14 @@ class DenseRetriever:
                 "raw_distance": float(dist),
             }
             results.append(candidate)
+
+        if filter_doc_type:
+            results = [
+                c for c in results
+                if c.get("doc_type") == filter_doc_type
+                or c.get("metadata", {}).get("doc_type") == filter_doc_type
+            ]
+            for r_idx, c in enumerate(results, start=1):
+                c["rank"] = r_idx
 
         return results

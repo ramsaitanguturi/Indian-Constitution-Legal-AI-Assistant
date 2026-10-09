@@ -5,6 +5,7 @@ components in the retrieval/ package (BM25Retriever, DenseRetriever, fuse, apply
 CrossEncoderReranker, and HybridRetriever).
 """
 
+import os
 import re
 from typing import Dict, List, Tuple, Any, Optional
 import chromadb
@@ -19,6 +20,7 @@ from config import (
     DEFAULT_TOP_K,
     ENTITY_BOOST_WEIGHT,
     FINAL_TOP_K,
+    PARENT_STORE_PATH,
 )
 from ingestion import ParentChildIngestor, simple_tokenize
 from retrieval.bm25_retriever import BM25Retriever
@@ -101,7 +103,6 @@ class HybridRRFRetriever:
         if ingestor is None:
             ingestor = ParentChildIngestor()
             ingestor.process_parent_child_chunks()
-            ingestor.save_parent_store()
             ingestor.build_vector_store()
             ingestor.build_bm25_index()
 

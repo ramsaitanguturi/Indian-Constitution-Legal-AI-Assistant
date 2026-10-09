@@ -59,6 +59,21 @@ class AbstentionManager:
         }
 
         # -------------------------------------------------------------
+        # 0. Query Validation: Empty or Malformed Input
+        # -------------------------------------------------------------
+        if query is not None and not str(query).strip():
+            return {
+                "should_abstain": True,
+                "abstention_reason": "EMPTY_QUERY",
+                "safe_response": (
+                    "**Notice**: The query was empty or contained no readable characters. "
+                    "Please submit a valid legal question regarding the Constitution of India."
+                ),
+                "abstention_stage": "PREPROCESSING",
+                "thresholds_applied": thresholds,
+            }
+
+        # -------------------------------------------------------------
         # 1. Routing Stage: Out-of-Scope or Unsupported Language
         # -------------------------------------------------------------
         if routing_decision is not None:

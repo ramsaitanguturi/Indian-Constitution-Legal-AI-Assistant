@@ -1,0 +1,741 @@
+{
+  "status": "COMPLETED",
+  "total_samples": 220,
+  "train_samples": 187,
+  "test_samples": 33,
+  "random_seed": 42,
+  "split_ratio": "85/15",
+  "total_latency_seconds": 0.677,
+  "models": {
+    "rule_based_baseline": {
+      "sample_count": 33,
+      "accuracy": 0.697,
+      "macro_precision": 0.5939,
+      "macro_recall": 0.697,
+      "macro_f1": 0.629,
+      "weighted_f1": 0.629,
+      "per_class": {
+        "ARTICLE_LOOKUP": {
+          "precision": 1.0,
+          "recall": 0.6667,
+          "f1": 0.8,
+          "support": 3
+        },
+        "CASE_LAW_QUERY": {
+          "precision": 0.6,
+          "recall": 1.0,
+          "f1": 0.75,
+          "support": 3
+        },
+        "CASE_COMPARISON": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3
+        },
+        "LEGAL_EXPLANATION": {
+          "precision": 0.5,
+          "recall": 0.6667,
+          "f1": 0.5714,
+          "support": 3
+        },
+        "RIGHTS_QUERY": {
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571,
+          "support": 3
+        },
+        "AMENDMENT_QUERY": {
+          "precision": 0.6667,
+          "recall": 0.6667,
+          "f1": 0.6667,
+          "support": 3
+        },
+        "PRECEDENT_QUERY": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3
+        },
+        "DEFINITION_QUERY": {
+          "precision": 0.6667,
+          "recall": 0.6667,
+          "f1": 0.6667,
+          "support": 3
+        },
+        "CONSTITUTIONAL_PROCEDURE": {
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571,
+          "support": 3
+        },
+        "MULTI_DOCUMENT_QUERY": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3
+        },
+        "OUT_OF_SCOPE": {
+          "precision": 0.6,
+          "recall": 1.0,
+          "f1": 0.75,
+          "support": 3
+        }
+      },
+      "classes": [
+        "ARTICLE_LOOKUP",
+        "CASE_LAW_QUERY",
+        "CASE_COMPARISON",
+        "LEGAL_EXPLANATION",
+        "RIGHTS_QUERY",
+        "AMENDMENT_QUERY",
+        "PRECEDENT_QUERY",
+        "DEFINITION_QUERY",
+        "CONSTITUTIONAL_PROCEDURE",
+        "MULTI_DOCUMENT_QUERY",
+        "OUT_OF_SCOPE"
+      ],
+      "confusion_matrix": [
+        [
+          2,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ]
+      ]
+    },
+    "tfidf_logistic_regression": {
+      "sample_count": 33,
+      "accuracy": 0.8485,
+      "macro_precision": 0.8727,
+      "macro_recall": 0.8485,
+      "macro_f1": 0.8331,
+      "weighted_f1": 0.8331,
+      "per_class": {
+        "ARTICLE_LOOKUP": {
+          "precision": 1.0,
+          "recall": 0.6667,
+          "f1": 0.8,
+          "support": 3
+        },
+        "CASE_LAW_QUERY": {
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571,
+          "support": 3
+        },
+        "CASE_COMPARISON": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3
+        },
+        "LEGAL_EXPLANATION": {
+          "precision": 0.5,
+          "recall": 0.3333,
+          "f1": 0.4,
+          "support": 3
+        },
+        "RIGHTS_QUERY": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3
+        },
+        "AMENDMENT_QUERY": {
+          "precision": 1.0,
+          "recall": 0.3333,
+          "f1": 0.5,
+          "support": 3
+        },
+        "PRECEDENT_QUERY": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3
+        },
+        "DEFINITION_QUERY": {
+          "precision": 0.6,
+          "recall": 1.0,
+          "f1": 0.75,
+          "support": 3
+        },
+        "CONSTITUTIONAL_PROCEDURE": {
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571,
+          "support": 3
+        },
+        "MULTI_DOCUMENT_QUERY": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3
+        },
+        "OUT_OF_SCOPE": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3
+        }
+      },
+      "classes": [
+        "ARTICLE_LOOKUP",
+        "CASE_LAW_QUERY",
+        "CASE_COMPARISON",
+        "LEGAL_EXPLANATION",
+        "RIGHTS_QUERY",
+        "AMENDMENT_QUERY",
+        "PRECEDENT_QUERY",
+        "DEFINITION_QUERY",
+        "CONSTITUTIONAL_PROCEDURE",
+        "MULTI_DOCUMENT_QUERY",
+        "OUT_OF_SCOPE"
+      ],
+      "confusion_matrix": [
+        [
+          2,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ]
+      ]
+    },
+    "hybrid_classifier": {
+      "sample_count": 33,
+      "accuracy": 0.697,
+      "macro_precision": 0.6,
+      "macro_recall": 0.697,
+      "macro_f1": 0.6301,
+      "weighted_f1": 0.6301,
+      "per_class": {
+        "ARTICLE_LOOKUP": {
+          "precision": 1.0,
+          "recall": 0.6667,
+          "f1": 0.8,
+          "support": 3
+        },
+        "CASE_LAW_QUERY": {
+          "precision": 0.6,
+          "recall": 1.0,
+          "f1": 0.75,
+          "support": 3
+        },
+        "CASE_COMPARISON": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3
+        },
+        "LEGAL_EXPLANATION": {
+          "precision": 0.6667,
+          "recall": 0.6667,
+          "f1": 0.6667,
+          "support": 3
+        },
+        "RIGHTS_QUERY": {
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571,
+          "support": 3
+        },
+        "AMENDMENT_QUERY": {
+          "precision": 0.6667,
+          "recall": 0.6667,
+          "f1": 0.6667,
+          "support": 3
+        },
+        "PRECEDENT_QUERY": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3
+        },
+        "DEFINITION_QUERY": {
+          "precision": 0.6667,
+          "recall": 0.6667,
+          "f1": 0.6667,
+          "support": 3
+        },
+        "CONSTITUTIONAL_PROCEDURE": {
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571,
+          "support": 3
+        },
+        "MULTI_DOCUMENT_QUERY": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3
+        },
+        "OUT_OF_SCOPE": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6667,
+          "support": 3
+        }
+      },
+      "classes": [
+        "ARTICLE_LOOKUP",
+        "CASE_LAW_QUERY",
+        "CASE_COMPARISON",
+        "LEGAL_EXPLANATION",
+        "RIGHTS_QUERY",
+        "AMENDMENT_QUERY",
+        "PRECEDENT_QUERY",
+        "DEFINITION_QUERY",
+        "CONSTITUTIONAL_PROCEDURE",
+        "MULTI_DOCUMENT_QUERY",
+        "OUT_OF_SCOPE"
+      ],
+      "confusion_matrix": [
+        [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ]
+      ]
+    }
+  },
+  "comparison_summary": {
+    "rule_vs_ml_accuracy_delta": 0.1515,
+    "rule_vs_ml_macro_f1_delta": 0.2041,
+    "hybrid_vs_ml_accuracy_delta": -0.1515,
+    "hybrid_vs_ml_macro_f1_delta": -0.203
+  },
+  "cross_validation_ml_5fold": {
+    "folds": 5,
+    "mean_accuracy": 0.7591,
+    "std_accuracy": 0.0422,
+    "mean_macro_f1": 0.7444,
+    "std_macro_f1": 0.0417,
+    "fold_accuracies": [
+      0.7955,
+      0.7727,
+      0.75,
+      0.6818,
+      0.7955
+    ],
+    "fold_macro_f1s": [
+      0.7887,
+      0.767,
+      0.7075,
+      0.6823,
+      0.7763
+    ]
+  },
+  "statistical_limitation": "DATASET LIMITATION: Total benchmark contains 220 examples across 11 classes (~20 samples/class). The held-out test set contains 33 samples (~3 per class). Class distributions have variance; 5-fold cross-validation is reported to provide confidence intervals."
+}

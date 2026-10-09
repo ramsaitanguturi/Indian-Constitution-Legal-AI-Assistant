@@ -118,6 +118,7 @@ class HybridRetriever:
         query: str,
         entities: Optional[Any] = None,
         top_k: Optional[int] = None,
+        filter_doc_type: Optional[str] = None,
     ) -> List[Dict[str, Any]]:
         """
         Execute full retrieval pipeline with configured ablation components.
@@ -126,6 +127,7 @@ class HybridRetriever:
             query: User query string.
             entities: Extracted or linked legal entities for entity-aware boosting.
             top_k: Number of final results to return (defaults to self.final_top_k).
+            filter_doc_type: Optional metadata filter ('constitution', 'judgment', 'amendment').
 
         Returns:
             List of structured result dictionaries with uniform schema.
@@ -140,12 +142,16 @@ class HybridRetriever:
         # Step 1: Candidate Generation (Sparse BM25)
         bm25_results: List[Dict[str, Any]] = []
         if self.use_bm25 and self.bm25_retriever is not None:
-            bm25_results = self.bm25_retriever.retrieve(query, top_k=self.top_k_candidates)
+            bm25_results = self.bm25_retriever.retrieve(
+                query, top_k=self.top_k_candidates, filter_doc_type=filter_doc_type
+            )
 
         # Step 2: Candidate Generation (Dense ChromaDB)
         dense_results: List[Dict[str, Any]] = []
         if self.use_dense and self.dense_retriever is not None:
-            dense_results = self.dense_retriever.retrieve(query, top_k=self.top_k_candidates)
+            dense_results = self.dense_retriever.retrieve(
+                query, top_k=self.top_k_candidates, filter_doc_type=filter_doc_type
+            )
 
         # Step 3: Candidate Merging / Fusion
         fused_candidates: List[Dict[str, Any]] = []

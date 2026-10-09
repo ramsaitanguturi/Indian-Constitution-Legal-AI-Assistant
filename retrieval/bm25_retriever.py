@@ -73,13 +73,19 @@ class BM25Retriever:
             parent_store=getattr(ingestor, "parent_store", None),
         )
 
-    def retrieve(self, query: str, top_k: int = 20) -> List[Dict[str, Any]]:
+    def retrieve(
+        self,
+        query: str,
+        top_k: int = 20,
+        filter_doc_type: Optional[str] = None,
+    ) -> List[Dict[str, Any]]:
         """
         Execute BM25 lexical search and return standardized candidate dictionaries.
 
         Args:
             query: User search query string.
             top_k: Maximum number of ranked candidates to return.
+            filter_doc_type: Optional metadata filter by doc_type ('constitution', 'judgment', 'amendment').
 
         Returns:
             List of structured result dictionaries with uniform schema.
@@ -111,6 +117,18 @@ class BM25Retriever:
             positive_indices = [i for i, s in enumerate(tf_scores) if s > 0.0]
             if positive_indices:
                 raw_scores = tf_scores
+            else:
+                return []
+
+        # Optional metadata filtering by doc_type
+        if filter_doc_type:
+            filtered_indices = [
+                i for i in positive_indices
+                if self.child_chunks[i].get("doc_type") == filter_doc_type
+                or self.child_chunks[i].get("metadata", {}).get("doc_type") == filter_doc_type
+            ]
+            if filtered_indices:
+                positive_indices = filtered_indices
             else:
                 return []
 
