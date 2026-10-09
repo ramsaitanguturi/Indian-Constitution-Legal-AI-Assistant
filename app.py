@@ -25,6 +25,8 @@ from ingestion import ParentChildIngestor
 from retriever import HybridRRFRetriever, LegalNERExtractor
 from agents import MultiAgentRouter
 from rag.pipeline import get_legal_rag_pipeline, LegalRAGPipeline, PipelineResult
+from rag.pipeline_inspector import render_pipeline_inspector
+from evaluation.dashboard_view import render_research_dashboard
 
 # Configure Streamlit Page
 st.set_page_config(
@@ -245,6 +247,14 @@ with st.sidebar:
     top_k = st.slider("Top-K Retrieved Contexts", min_value=2, max_value=8, value=DEFAULT_TOP_K)
 
     st.markdown("---")
+    st.subheader("🔬 Diagnostic Controls")
+    show_inspector = st.checkbox(
+        "Enable Pipeline Inspector",
+        value=True,
+        help="Shows the 10-stage NLP Query Understanding & Retrieval Diagnostic Inspector panel below query results."
+    )
+
+    st.markdown("---")
     st.subheader("📊 System Metrics")
     m1, m2 = st.columns(2)
     with m1:
@@ -286,11 +296,12 @@ with st.sidebar:
 
 
 # MAIN NAVIGATION TABS
-tab1, tab2, tab3, tab4 = st.tabs([
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
     "💬 Ask Assistant & RAG Query",
     "⚖️ Case Comparator",
     "📜 Constitution & Cases Database",
-    "🏗️ RAG Architecture & Methodology"
+    "🏗️ RAG Architecture & Methodology",
+    "📊 Empirical Research Dashboard"
 ])
 
 
@@ -388,7 +399,9 @@ with tab1:
                 for concept in res.entities.get("LEGAL_CONCEPT", []):
                     ent_str += f'<span class="entity-pill">💡 {concept.title()}</span>'
                 for linked in res.linked_entities:
-                    ent_str += f'<span class="entity-pill" style="border-color: #8957e5;">🔗 {linked["surface_text"]} &rarr; {linked["canonical_id"]}</span>'
+                    s_txt = linked.get("surface_form") or linked.get("surface_text") or "Entity"
+                    c_id = linked.get("canonical_id") or linked.get("entity_id") or "N/A"
+                    ent_str += f'<span class="entity-pill" style="border-color: #8957e5;">🔗 {s_txt} &rarr; {c_id}</span>'
 
                 if ent_str:
                     st.markdown(ent_str, unsafe_allow_html=True)
@@ -423,11 +436,29 @@ with tab1:
                     st.markdown("##### 🔬 Confidence Signal Breakdown")
                     st.caption("*Note: Confidence estimation is an explainable weighted heuristic, not a mathematically calibrated probability.*")
                     breakdown = res.confidence.get("signal_breakdown", {})
+                    weights = res.confidence.get("signal_weights", {})
                     if breakdown:
-                        df_signals = pd.DataFrame([
-                            {"Signal": k.replace("_", " ").title(), "Weight": v.get("weight"), "Score": v.get("score"), "Weighted": v.get("weighted_value"), "Details": v.get("details")}
-                            for k, v in breakdown.items()
-                        ])
+                        sig_records = []
+                        for k, v in breakdown.items():
+                            sig_label = k.replace("_", " ").title()
+                            if isinstance(v, dict):
+                                sig_records.append({
+                                    "Signal": sig_label,
+                                    "Weight": v.get("weight", "N/A"),
+                                    "Score": v.get("score", "N/A"),
+                                    "Weighted": v.get("weighted_value", "N/A"),
+                                    "Details": v.get("details", ""),
+                                })
+                            else:
+                                w_val = weights.get(k, 0.0) if isinstance(weights, dict) else 0.0
+                                sig_records.append({
+                                    "Signal": sig_label,
+                                    "Weight": f"{w_val:.2f}" if isinstance(w_val, (int, float)) else str(w_val),
+                                    "Score": f"{v:.4f}" if isinstance(v, (int, float)) else str(v),
+                                    "Weighted": f"{v * w_val:.4f}" if isinstance(v, (int, float)) and isinstance(w_val, (int, float)) else "N/A",
+                                    "Details": "Calculated heuristic signal",
+                                })
+                        df_signals = pd.DataFrame(sig_records)
                         st.dataframe(df_signals, use_container_width=True)
 
                     if res.citation_validation.get("invalid_citations"):
@@ -485,6 +516,11 @@ with tab1:
                                     st.markdown(f"**Ratio Decidendi**: {p.get('ratio_decidendi')}")
                                 if p.get("verdict"):
                                     st.markdown(f"**Verdict**: {p.get('verdict')}")
+
+                # NLP Pipeline Diagnostic Inspector
+                if show_inspector:
+                    st.markdown("---")
+                    render_pipeline_inspector(res, expanded=False)
 
             else:
                 # LEGACY MULTI-AGENT EXECUTION PATH
@@ -580,6 +616,62 @@ with tab1:
                                 st.markdown(f"**Bench**: {pdata.get('bench')}")
                                 st.markdown(f"**Ratio Decidendi**: {pdata.get('ratio_decidendi')}")
                                 st.markdown(f"**Verdict**: {pdata.get('verdict')}")
+
+                # NLP Pipeline Diagnostic Inspector (Legacy Adaptation)
+                if show_inspector:
+                    st.markdown("---")
+                    legacy_diag = {
+                        "original_query": user_query,
+                        "normalized_query": user_query,
+                        "language": {"language": "en", "is_english": True, "confidence": 1.0},
+                        "intent": {"intent": classified_agent, "confidence": 0.8, "routing_mode": "legacy_keyword_router"},
+                        "entities": entities,
+                        "linked_entities": [],
+                        "routing_decision": {
+                            "strategy": classified_agent,
+                            "use_bm25": True,
+                            "use_dense": True,
+                            "use_rrf": True,
+                            "use_entity_boost": True,
+                            "use_reranker": False,
+                            "final_top_k": top_k
+                        },
+                        "retrieved_chunks": context_docs,
+                        "reranked_chunks": context_docs,
+                        "parent_context": {
+                            "parents": [
+                                {
+                                    "parent_id": d.get("parent_id", f"parent_{idx}"),
+                                    "doc_type": d.get("doc_type", "constitution"),
+                                    "title": d.get("parent_data", {}).get("title", d.get("parent_data", {}).get("case_name", "")),
+                                    "article_number": d.get("parent_data", {}).get("article_number", ""),
+                                    "citation": d.get("parent_data", {}).get("citation", ""),
+                                    "supporting_children": [d]
+                                }
+                                for idx, d in enumerate(context_docs, 1)
+                            ],
+                            "parent_count": len(context_docs)
+                        },
+                        "citations": [],
+                        "generated_answer": agent_result["response"],
+                        "citation_validation": {
+                            "valid": True,
+                            "citations_checked": 0,
+                            "valid_citations": [],
+                            "invalid_citations": [],
+                            "unsupported_claims": [],
+                            "summary": "Legacy mode does not execute structural citation validation."
+                        },
+                        "confidence": {
+                            "confidence_score": 0.70,
+                            "confidence_level": "MEDIUM",
+                            "is_calibrated": False,
+                            "explanation": "Heuristic estimate in legacy multi-agent mode.",
+                            "signal_breakdown": {}
+                        },
+                        "abstained": False,
+                    }
+                    render_pipeline_inspector(legacy_diag, expanded=False)
 
 
 # ---------------------------------------------------------
@@ -700,3 +792,11 @@ with tab4:
     - **Explainable Confidence Estimator**: Transparent weighted composite over 6 verifiable signals (retrieval strength, evidence volume, entity alignment, retrieval agreement, citation validity, query coverage) with explicit uncalibrated disclosure.
     - **Multi-Stage Automated Abstention**: Safely refuses out-of-scope queries, zero-result retrievals, sub-threshold evidence, and citation validation failures to eliminate hallucinations.
     """)
+
+
+# ---------------------------------------------------------
+# TAB 5: EMPIRICAL RESEARCH DASHBOARD
+# ---------------------------------------------------------
+with tab5:
+    render_research_dashboard()
+
