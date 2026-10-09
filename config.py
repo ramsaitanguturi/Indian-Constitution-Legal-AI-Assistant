@@ -124,3 +124,21 @@ CONFIDENCE_SIGNAL_WEIGHTS = {
     "evidence_coverage": 0.10,
 }
 
+# Stage 5: Evaluation Framework Paths & Constants
+EVALUATION_DIR = BASE_DIR / "evaluation"
+EVALUATION_RESULTS_DIR = EVALUATION_DIR / "results"
+EVALUATION_RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+
+RETRIEVAL_BENCHMARK_PATH = BENCHMARK_DIR / "retrieval_queries.json"
+NER_BENCHMARK_PATH = BENCHMARK_DIR / "ner_annotations.json"
+ENTITY_LINKING_BENCHMARK_PATH = BENCHMARK_DIR / "entity_linking_queries.json"
+RAG_BENCHMARK_PATH = BENCHMARK_DIR / "rag_questions.json"
+RELEVANCE_LABELS_PATH = ANNOTATIONS_DIR / "relevance_labels.json"
+NER_ANNOTATIONS_PATH = ANNOTATIONS_DIR / "ner_annotations.json"
+QUERY_EXPANSION_BENCHMARK_PATH = BENCHMARK_DIR / "query_expansion_benchmark.json"
+
+EVAL_RANDOM_SEED = 42
+EVAL_TRAIN_RATIO = 0.70
+EVAL_VAL_RATIO = 0.15
+EVAL_TEST_RATIO = 0.15
+

@@ -1,0 +1,329 @@
+[
+  {
+    "query_id": "RET_001",
+    "query": "What constitutional remedies are available under Article 32 for fundamental rights violations?",
+    "intent": "RIGHTS_QUERY",
+    "query_type": "direct_article_lookup",
+    "relevant_documents": [
+      "parent_const_art_32"
+    ],
+    "relevant_chunks": [
+      "child_const_const_art_32_0"
+    ],
+    "human_annotation_status": "verified",
+    "provenance": "Constitution of India, Article 32"
+  },
+  {
+    "query_id": "RET_002",
+    "query": "What does Article 21 guarantee regarding protection of life and personal liberty?",
+    "intent": "ARTICLE_LOOKUP",
+    "query_type": "direct_article_lookup",
+    "relevant_documents": [
+      "parent_const_art_21"
+    ],
+    "relevant_chunks": [
+      "child_const_const_art_21_0"
+    ],
+    "human_annotation_status": "verified",
+    "provenance": "Constitution of India, Article 21"
+  },
+  {
+    "query_id": "RET_003",
+    "query": "Explain equality before law and equal protection of the laws under Article 14",
+    "intent": "ARTICLE_LOOKUP",
+    "query_type": "direct_article_lookup",
+    "relevant_documents": [
+      "parent_const_art_14"
+    ],
+    "relevant_chunks": [
+      "child_const_const_art_14_0"
+    ],
+    "human_annotation_status": "verified",
+    "provenance": "Constitution of India, Article 14"
+  },
+  {
+    "query_id": "RET_004",
+    "query": "What six fundamental freedoms are guaranteed to citizens under Article 19?",
+    "intent": "RIGHTS_QUERY",
+    "query_type": "direct_article_lookup",
+    "relevant_documents": [
+      "parent_const_art_19"
+    ],
+    "relevant_chunks": [
+      "child_const_const_art_19_0"
+    ],
+    "human_annotation_status": "verified",
+    "provenance": "Constitution of India, Article 19"
+  },
+  {
+    "query_id": "RET_005",
+    "query": "What are the core ideals and objectives set out in the Preamble of the Constitution?",
+    "intent": "ARTICLE_LOOKUP",
+    "query_type": "direct_article_lookup",
+    "relevant_documents": [
+      "parent_const_preamble"
+    ],
+    "relevant_chunks": [
+      "child_const_const_preamble_0"
+    ],
+    "human_annotation_status": "verified",
+    "provenance": "Constitution of India, Preamble"
+  },
+  {
+    "query_id": "RET_006",
+    "query": "How is the term State defined under Article 12 for the purpose of Part III?",
+    "intent": "ARTICLE_LOOKUP",
+    "query_type": "direct_article_lookup",
+    "relevant_documents": [
+      "parent_const_art_12"
+    ],
+    "relevant_chunks": [
+      "child_const_const_art_12_0"
+    ],
+    "human_annotation_status": "verified",
+    "provenance": "Constitution of India, Article 12"
+  },
+  {
+    "query_id": "RET_007",
+    "query": "What does Article 21A provide regarding the fundamental right to free and compulsory education?",
+    "intent": "RIGHTS_QUERY",
+    "query_type": "direct_article_lookup",
+    "relevant_documents": [
+      "parent_const_art_21A"
+    ],
+    "relevant_chunks": [
+      "child_const_const_art_21A_0"
+    ],
+    "human_annotation_status": "verified",
+    "provenance": "Constitution of India, Article 21A (86th Amendment)"
+  },
+  {
+    "query_id": "RET_008",
+    "query": "Explain the power of Parliament to amend the Constitution and procedure under Article 368",
+    "intent": "AMENDMENT_QUERY",
+    "query_type": "direct_article_lookup",
+    "relevant_documents": [
+      "parent_const_art_368"
+    ],
+    "relevant_chunks": [
+      "child_const_const_art_368_0"
+    ],
+    "human_annotation_status": "verified",
+    "provenance": "Constitution of India, Article 368"
+  },
+  {
+    "query_id": "RET_009",
+    "query": "What was the historical scope and special status granted under Article 370?",
+    "intent": "ARTICLE_LOOKUP",
+    "query_type": "direct_article_lookup",
+    "relevant_documents": [
+      "parent_const_art_370"
+    ],
+    "relevant_chunks": [
+      "child_const_const_art_370_0"
+    ],
+    "human_annotation_status": "verified",
+    "provenance": "Constitution of India, Article 370"
+  },
+  {
+    "query_id": "RET_010",
+    "query": "Explain the landmark ruling in Kesavananda Bharati regarding the basic structure doctrine",
+    "intent": "CASE_LAW_QUERY",
+    "query_type": "landmark_precedent",
+    "relevant_documents": [
+      "parent_case_kesavananda",
+      "parent_const_art_368"
+    ],
+    "relevant_chunks": [
+      "child_case_kesavananda_0"
+    ],
+    "human_annotation_status": "verified",
+    "provenance": "Kesavananda Bharati v. State of Kerala (1973) 4 SCC 225"
+  },
+  {
+    "query_id": "RET_011",
+    "query": "What did the Supreme Court hold in Justice KS Puttaswamy regarding right to privacy under Article 21?",
+    "intent": "CASE_LAW_QUERY",
+    "query_type": "landmark_precedent",
+    "relevant_documents": [
+      "parent_case_puttaswamy",
+      "parent_const_art_21"
+    ],
+    "relevant_chunks": [
+      "child_case_puttaswamy_0"
+    ],
+    "human_annotation_status": "verified",
+    "provenance": "Justice K.S. Puttaswamy v. Union of India (2017) 10 SCC 1"
+  },
+  {
+    "query_id": "RET_012",
+    "query": "What were the facts and ratio decidendi of Maneka Gandhi v Union of India on personal liberty?",
+    "intent": "CASE_LAW_QUERY",
+    "query_type": "landmark_precedent",
+    "relevant_documents": [
+      "parent_case_maneka",
+      "parent_const_art_21",
+      "parent_const_art_14",
+      "parent_const_art_19"
+    ],
+    "relevant_chunks": [
+      "child_case_maneka_0"
+    ],
+    "human_annotation_status": "verified",
+    "provenance": "Maneka Gandhi v. Union of India (1978) 1 SCC 248"
+  },
+  {
+    "query_id": "RET_013",
+    "query": "How did Minerva Mills v Union of India reinforce Kesavananda Bharati and strike down unamendable clauses?",
+    "intent": "CASE_LAW_QUERY",
+    "query_type": "landmark_precedent",
+    "relevant_documents": [
+      "parent_case_minerva",
+      "parent_case_kesavananda",
+      "parent_const_art_368"
+    ],
+    "relevant_chunks": [
+      "child_case_minerva_0"
+    ],
+    "human_annotation_status": "verified",
+    "provenance": "Minerva Mills Ltd. v. Union of India (1980) 3 SCC 625"
+  },
+  {
+    "query_id": "RET_014",
+    "query": "What guidelines were established in SR Bommai regarding President Rule and secularism?",
+    "intent": "CASE_LAW_QUERY",
+    "query_type": "landmark_precedent",
+    "relevant_documents": [
+      "parent_case_bommai"
+    ],
+    "relevant_chunks": [
+      "child_case_bommai_0"
+    ],
+    "human_annotation_status": "verified",
+    "provenance": "S.R. Bommai v. Union of India (1994) 3 SCC 1"
+  },
+  {
+    "query_id": "RET_015",
+    "query": "Can Parliament amend fundamental rights to destroy the basic structure of the Constitution?",
+    "intent": "AMENDMENT_QUERY",
+    "query_type": "concept_cross_document",
+    "relevant_documents": [
+      "parent_case_kesavananda",
+      "parent_const_art_368"
+    ],
+    "relevant_chunks": [
+      "child_case_kesavananda_0"
+    ],
+    "human_annotation_status": "verified",
+    "provenance": "Kesavananda Bharati and Article 368 interaction"
+  },
+  {
+    "query_id": "RET_016",
+    "query": "Is privacy recognized as an intrinsic part of the right to life and liberty in India?",
+    "intent": "RIGHTS_QUERY",
+    "query_type": "concept_cross_document",
+    "relevant_documents": [
+      "parent_const_art_21",
+      "parent_case_puttaswamy"
+    ],
+    "relevant_chunks": [
+      "child_const_const_art_21_0",
+      "child_case_puttaswamy_0"
+    ],
+    "human_annotation_status": "verified",
+    "provenance": "Puttaswamy privacy doctrine"
+  },
+  {
+    "query_id": "RET_017",
+    "query": "Explain the interconnected golden triangle of fundamental rights under Articles 14, 19 and 21",
+    "intent": "LEGAL_EXPLANATION",
+    "query_type": "concept_cross_document",
+    "relevant_documents": [
+      "parent_const_art_14",
+      "parent_const_art_19",
+      "parent_const_art_21",
+      "parent_case_maneka"
+    ],
+    "relevant_chunks": [
+      "child_case_maneka_0"
+    ],
+    "human_annotation_status": "verified",
+    "provenance": "Maneka Gandhi golden triangle doctrine"
+  },
+  {
+    "query_id": "RET_018",
+    "query": "How is secularism protected under the Constitution as affirmed in SR Bommai and Preamble?",
+    "intent": "LEGAL_EXPLANATION",
+    "query_type": "concept_cross_document",
+    "relevant_documents": [
+      "parent_const_preamble",
+      "parent_case_bommai"
+    ],
+    "relevant_chunks": [
+      "child_const_const_preamble_0",
+      "child_case_bommai_0"
+    ],
+    "human_annotation_status": "verified",
+    "provenance": "Preamble and SR Bommai secularism doctrine"
+  },
+  {
+    "query_id": "RET_019",
+    "query": "Writ jurisdiction of the Supreme Court to issue directions, orders or writs under Article 32",
+    "intent": "RIGHTS_QUERY",
+    "query_type": "remedy_lookup",
+    "relevant_documents": [
+      "parent_const_art_32"
+    ],
+    "relevant_chunks": [
+      "child_const_const_art_32_0"
+    ],
+    "human_annotation_status": "verified",
+    "provenance": "Article 32 writ mechanisms"
+  },
+  {
+    "query_id": "RET_020",
+    "query": "What is the procedure established by law versus substantive due process post Maneka Gandhi?",
+    "intent": "CASE_COMPARISON",
+    "query_type": "concept_cross_document",
+    "relevant_documents": [
+      "parent_case_maneka",
+      "parent_const_art_21"
+    ],
+    "relevant_chunks": [
+      "child_case_maneka_0",
+      "child_const_const_art_21_0"
+    ],
+    "human_annotation_status": "verified",
+    "provenance": "Article 21 and Maneka Gandhi due process synthesis"
+  },
+  {
+    "query_id": "RET_QUEUED_001",
+    "query": "What are the exceptions to non-discrimination in public employment under Article 16?",
+    "intent": "RIGHTS_QUERY",
+    "query_type": "queued_for_corpus_expansion",
+    "relevant_documents": [],
+    "relevant_chunks": [],
+    "human_annotation_status": "requires_human_annotation",
+    "provenance": "Pending human annotation against full 395-article corpus"
+  },
+  {
+    "query_id": "RET_QUEUED_002",
+    "query": "What grounds justify the proclamation of national emergency by the President under Article 352?",
+    "intent": "CONSTITUTIONAL_PROCEDURE",
+    "query_type": "queued_for_corpus_expansion",
+    "relevant_documents": [],
+    "relevant_chunks": [],
+    "human_annotation_status": "requires_human_annotation",
+    "provenance": "Pending human annotation against emergency provisions"
+  },
+  {
+    "query_id": "RET_QUEUED_003",
+    "query": "How did Indra Sawhney determine the 50 percent reservation ceiling and creamy layer principle?",
+    "intent": "CASE_LAW_QUERY",
+    "query_type": "queued_for_corpus_expansion",
+    "relevant_documents": [],
+    "relevant_chunks": [],
+    "human_annotation_status": "requires_human_annotation",
+    "provenance": "Pending human annotation against full Supreme Court judgment corpus"
+  }
+]

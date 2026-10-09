@@ -1,0 +1,115 @@
+[
+  {
+    "question_id": "RAG_001",
+    "question": "What did the Supreme Court decide in Justice KS Puttaswamy regarding the right to privacy under Article 21?",
+    "is_answerable": true,
+    "expected_citations": [
+      "parent_case_puttaswamy",
+      "parent_const_art_21"
+    ],
+    "key_legal_points": [
+      "Right to privacy is a fundamental right under Article 21",
+      "Privacy is an intrinsic part of life and personal liberty",
+      "State intrusions must satisfy legality, legitimate state aim, and proportionality"
+    ],
+    "expected_action": "answer",
+    "human_annotation_status": "verified"
+  },
+  {
+    "question_id": "RAG_002",
+    "question": "What is the basic structure doctrine established in Kesavananda Bharati?",
+    "is_answerable": true,
+    "expected_citations": [
+      "parent_case_kesavananda",
+      "parent_const_art_368"
+    ],
+    "key_legal_points": [
+      "Parliament has wide amending power under Article 368",
+      "Amending power cannot alter or destroy the basic structure or essential framework",
+      "Judicial review, secularism, democracy and rule of law are basic structure elements"
+    ],
+    "expected_action": "answer",
+    "human_annotation_status": "verified"
+  },
+  {
+    "question_id": "RAG_003",
+    "question": "How did Maneka Gandhi expand the interpretation of personal liberty and procedure established by law?",
+    "is_answerable": true,
+    "expected_citations": [
+      "parent_case_maneka",
+      "parent_const_art_21"
+    ],
+    "key_legal_points": [
+      "Procedure depriving personal liberty must be just, fair and reasonable",
+      "Articles 14, 19, and 21 form an interconnected golden triangle",
+      "Overruled narrow interpretation from AK Gopalan"
+    ],
+    "expected_action": "answer",
+    "human_annotation_status": "verified"
+  },
+  {
+    "question_id": "RAG_004",
+    "question": "What remedies are provided under Article 32 for the enforcement of fundamental rights?",
+    "is_answerable": true,
+    "expected_citations": [
+      "parent_const_art_32"
+    ],
+    "key_legal_points": [
+      "Right to move the Supreme Court for enforcement of Part III rights is itself a fundamental right",
+      "Supreme Court has power to issue writs including habeas corpus, mandamus, prohibition, quo warranto, and certiorari"
+    ],
+    "expected_action": "answer",
+    "human_annotation_status": "verified"
+  },
+  {
+    "question_id": "RAG_005",
+    "question": "What did Minerva Mills hold regarding the balance between fundamental rights and directive principles?",
+    "is_answerable": true,
+    "expected_citations": [
+      "parent_case_minerva",
+      "parent_const_art_368"
+    ],
+    "key_legal_points": [
+      "Indian Constitution is founded on the bedrock of the balance between Part III and Part IV",
+      "Clauses (4) and (5) of Article 368 seeking to exclude judicial review were held unconstitutional"
+    ],
+    "expected_action": "answer",
+    "human_annotation_status": "verified"
+  },
+  {
+    "question_id": "RAG_OOS_001",
+    "question": "Who won the cricket match between India and Australia yesterday?",
+    "is_answerable": false,
+    "expected_citations": [],
+    "key_legal_points": [],
+    "expected_action": "abstain",
+    "human_annotation_status": "verified"
+  },
+  {
+    "question_id": "RAG_OOS_002",
+    "question": "What is the recommended recipe for making Italian pasta carbonara?",
+    "is_answerable": false,
+    "expected_citations": [],
+    "key_legal_points": [],
+    "expected_action": "abstain",
+    "human_annotation_status": "verified"
+  },
+  {
+    "question_id": "RAG_OOS_003",
+    "question": "What are the latest stock market share prices for Apple Inc in New York?",
+    "is_answerable": false,
+    "expected_citations": [],
+    "key_legal_points": [],
+    "expected_action": "abstain",
+    "human_annotation_status": "verified"
+  },
+  {
+    "question_id": "RAG_QUEUED_001",
+    "question": "How did the Supreme Court interpret the essential religious practices test in the Sabarimala review petition?",
+    "is_answerable": false,
+    "expected_citations": [],
+    "key_legal_points": [],
+    "expected_action": "abstain",
+    "human_annotation_status": "requires_human_annotation"
+  }
+]

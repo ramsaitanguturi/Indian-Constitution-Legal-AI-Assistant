@@ -1,0 +1,219 @@
+[
+  {
+    "id": "EL_001",
+    "mention": "Article 21",
+    "entity_type": "ARTICLE",
+    "expected_canonical_id": "ARTICLE_21",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_002",
+    "mention": "Art 21",
+    "entity_type": "ARTICLE",
+    "expected_canonical_id": "ARTICLE_21",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_003",
+    "mention": "Art. 14",
+    "entity_type": "ARTICLE",
+    "expected_canonical_id": "ARTICLE_14",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_004",
+    "mention": "Article 19",
+    "entity_type": "ARTICLE",
+    "expected_canonical_id": "ARTICLE_19",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_005",
+    "mention": "Article 32",
+    "entity_type": "ARTICLE",
+    "expected_canonical_id": "ARTICLE_32",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_006",
+    "mention": "Preamble",
+    "entity_type": "ARTICLE",
+    "expected_canonical_id": "ARTICLE_PREAMBLE",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_007",
+    "mention": "Article 368",
+    "entity_type": "ARTICLE",
+    "expected_canonical_id": "ARTICLE_368",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_008",
+    "mention": "Article 21A",
+    "entity_type": "ARTICLE",
+    "expected_canonical_id": "ARTICLE_21A",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_009",
+    "mention": "Art. 12",
+    "entity_type": "ARTICLE",
+    "expected_canonical_id": "ARTICLE_12",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_010",
+    "mention": "Puttaswamy",
+    "entity_type": "CASE",
+    "expected_canonical_id": "CASE_PUTTASWAMY_2017",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_011",
+    "mention": "Justice K.S. Puttaswamy",
+    "entity_type": "CASE",
+    "expected_canonical_id": "CASE_PUTTASWAMY_2017",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_012",
+    "mention": "Right to Privacy case",
+    "entity_type": "CASE",
+    "expected_canonical_id": "CASE_PUTTASWAMY_2017",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_013",
+    "mention": "Kesavananda Bharati",
+    "entity_type": "CASE",
+    "expected_canonical_id": "CASE_KESAVANANDA_1973",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_014",
+    "mention": "basic structure case",
+    "entity_type": "CASE",
+    "expected_canonical_id": "CASE_KESAVANANDA_1973",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_015",
+    "mention": "Maneka Gandhi",
+    "entity_type": "CASE",
+    "expected_canonical_id": "CASE_MANEKA_1978",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_016",
+    "mention": "passport case",
+    "entity_type": "CASE",
+    "expected_canonical_id": "CASE_MANEKA_1978",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_017",
+    "mention": "Minerva Mills",
+    "entity_type": "CASE",
+    "expected_canonical_id": "CASE_MINERVA_1980",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_018",
+    "mention": "SR Bommai",
+    "entity_type": "CASE",
+    "expected_canonical_id": "CASE_BOMMAI_1994",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_019",
+    "mention": "president rule case",
+    "entity_type": "CASE",
+    "expected_canonical_id": "CASE_BOMMAI_1994",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_020",
+    "mention": "Indra Sawhney",
+    "entity_type": "CASE",
+    "expected_canonical_id": "CASE_INDRA_SAWHNEY_1992",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_021",
+    "mention": "mandal case",
+    "entity_type": "CASE",
+    "expected_canonical_id": "CASE_INDRA_SAWHNEY_1992",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_022",
+    "mention": "42nd Amendment",
+    "entity_type": "AMENDMENT",
+    "expected_canonical_id": "AMENDMENT_42",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_023",
+    "mention": "Forty-fourth Amendment",
+    "entity_type": "AMENDMENT",
+    "expected_canonical_id": "AMENDMENT_44",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_024",
+    "mention": "86th Amendment",
+    "entity_type": "AMENDMENT",
+    "expected_canonical_id": "AMENDMENT_86",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_025",
+    "mention": "basic structure doctrine",
+    "entity_type": "LEGAL_CONCEPT",
+    "expected_canonical_id": "CONCEPT_BASIC_STRUCTURE",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_026",
+    "mention": "procedure established by law",
+    "entity_type": "LEGAL_CONCEPT",
+    "expected_canonical_id": "CONCEPT_PROCEDURE_ESTABLISHED_BY_LAW",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_027",
+    "mention": "right to privacy",
+    "entity_type": "RIGHT",
+    "expected_canonical_id": "CONCEPT_RIGHT_TO_PRIVACY",
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_028",
+    "mention": "Section 999 of municipal by-laws",
+    "entity_type": "UNKNOWN",
+    "expected_canonical_id": null,
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_029",
+    "mention": "John Doe versus Jane Doe 1850",
+    "entity_type": "UNKNOWN",
+    "expected_canonical_id": null,
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_030",
+    "mention": "Arbitrary unregistered policy 2026",
+    "entity_type": "UNKNOWN",
+    "expected_canonical_id": null,
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "EL_QUEUED_001",
+    "mention": "First Judges Case",
+    "entity_type": "CASE",
+    "expected_canonical_id": null,
+    "human_annotation_status": "requires_human_annotation"
+  }
+]

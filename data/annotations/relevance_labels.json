@@ -1,0 +1,76 @@
+{
+  "RET_001": {
+    "parent_const_art_32": 2
+  },
+  "RET_002": {
+    "parent_const_art_21": 2
+  },
+  "RET_003": {
+    "parent_const_art_14": 2
+  },
+  "RET_004": {
+    "parent_const_art_19": 2
+  },
+  "RET_005": {
+    "parent_const_preamble": 2
+  },
+  "RET_006": {
+    "parent_const_art_12": 2
+  },
+  "RET_007": {
+    "parent_const_art_21A": 2
+  },
+  "RET_008": {
+    "parent_const_art_368": 2
+  },
+  "RET_009": {
+    "parent_const_art_370": 2
+  },
+  "RET_010": {
+    "parent_case_kesavananda": 2,
+    "parent_const_art_368": 1
+  },
+  "RET_011": {
+    "parent_case_puttaswamy": 2,
+    "parent_const_art_21": 1
+  },
+  "RET_012": {
+    "parent_case_maneka": 2,
+    "parent_const_art_21": 1,
+    "parent_const_art_14": 1,
+    "parent_const_art_19": 1
+  },
+  "RET_013": {
+    "parent_case_minerva": 2,
+    "parent_case_kesavananda": 1,
+    "parent_const_art_368": 1
+  },
+  "RET_014": {
+    "parent_case_bommai": 2
+  },
+  "RET_015": {
+    "parent_case_kesavananda": 2,
+    "parent_const_art_368": 1
+  },
+  "RET_016": {
+    "parent_const_art_21": 2,
+    "parent_case_puttaswamy": 1
+  },
+  "RET_017": {
+    "parent_const_art_14": 2,
+    "parent_const_art_19": 1,
+    "parent_const_art_21": 1,
+    "parent_case_maneka": 1
+  },
+  "RET_018": {
+    "parent_const_preamble": 2,
+    "parent_case_bommai": 1
+  },
+  "RET_019": {
+    "parent_const_art_32": 2
+  },
+  "RET_020": {
+    "parent_case_maneka": 2,
+    "parent_const_art_21": 1
+  }
+}

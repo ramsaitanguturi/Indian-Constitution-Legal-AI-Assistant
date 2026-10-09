@@ -1,0 +1,71 @@
+[
+  {
+    "query_id": "QE_001",
+    "query": "Can the government take away privacy?",
+    "trigger": "privacy",
+    "expected_useful_terms": [
+      "right to privacy",
+      "Article 21",
+      "Puttaswamy",
+      "personal liberty"
+    ],
+    "distractor_terms": [
+      "tax collection",
+      "criminal procedure code",
+      "traffic rules"
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "query_id": "QE_002",
+    "query": "What is the basic structure of the constitution?",
+    "trigger": "basic structure",
+    "expected_useful_terms": [
+      "Kesavananda Bharati",
+      "Article 368",
+      "judicial review",
+      "Minerva Mills"
+    ],
+    "distractor_terms": [
+      "financial bill",
+      "state municipal election"
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "query_id": "QE_003",
+    "query": "Explain freedom of speech and expression",
+    "trigger": "freedom of speech",
+    "expected_useful_terms": [
+      "Article 19(1)(a)",
+      "reasonable restrictions",
+      "Article 19(2)"
+    ],
+    "distractor_terms": [
+      "income tax",
+      "corporate merger"
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "query_id": "QE_004",
+    "query": "What are the rules regarding preventive detention in India?",
+    "trigger": "preventive detention",
+    "expected_useful_terms": [
+      "Article 22",
+      "detention advisory board"
+    ],
+    "distractor_terms": [
+      "trademark registration"
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "query_id": "QE_QUEUED_001",
+    "query": "How are election commissioners appointed under current constitutional conventions?",
+    "trigger": "election commissioners",
+    "expected_useful_terms": [],
+    "distractor_terms": [],
+    "human_annotation_status": "requires_human_annotation"
+  }
+]

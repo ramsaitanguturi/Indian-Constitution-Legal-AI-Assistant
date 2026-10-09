@@ -1,0 +1,4797 @@
+{
+  "metadata": {
+    "timestamp": "2026-10-09T11:27:19.307964",
+    "dataset_version": "1.0.0-capstone",
+    "random_seed": 42,
+    "total_run_time_seconds": 46.029,
+    "quick_mode": false
+  },
+  "retrieval": [
+    {
+      "experiment_name": "Exp 1: BM25 Only",
+      "status": "COMPLETED",
+      "sample_count": 20,
+      "requires_human_annotation_count": 3,
+      "total_latency_seconds": 0.076,
+      "avg_latency_ms": 3.8,
+      "metrics": {
+        "Hit@1": 0.2,
+        "Hit@3": 0.25,
+        "Hit@5": 0.35,
+        "Hit@10": 0.35,
+        "Recall@5": 0.2417,
+        "Recall@10": 0.2417,
+        "MRR": 0.25,
+        "NDCG@5": 0.1978,
+        "NDCG@10": 0.1978
+      },
+      "query_details": [
+        {
+          "query_id": "RET_001",
+          "query": "What constitutional remedies are available under Article 32 for fundamental rights violations?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_32"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_032",
+            "parent_case_sc_bandhua_mukti_1984",
+            "parent_case_sc_golak_nath_1967",
+            "parent_case_sc_shirur_mutt_1954",
+            "parent_const_art_012"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_002",
+          "query": "What does Article 21 guarantee regarding protection of life and personal liberty?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_021",
+            "parent_case_sc_francis_coralie_1981",
+            "parent_case_sc_maneka_gandhi_1978",
+            "parent_const_art_020",
+            "parent_const_art_359"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_003",
+          "query": "Explain equality before law and equal protection of the laws under Article 14",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_14"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_014",
+            "parent_case_sc_royappa_1974",
+            "parent_const_art_004",
+            "parent_const_art_022",
+            "parent_case_sc_supriyo_2023"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_004",
+          "query": "What six fundamental freedoms are guaranteed to citizens under Article 19?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_19"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_358",
+            "parent_case_sc_shirur_mutt_1954",
+            "parent_const_art_051a",
+            "parent_case_sc_chintaman_rao_1951",
+            "parent_case_sc_puttaswamy_privacy_2017"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_005",
+          "query": "What are the core ideals and objectives set out in the Preamble of the Constitution?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_preamble"
+          ],
+          "retrieved_top_5": [
+            "parent_const_preamble",
+            "parent_const_art_051a",
+            "parent_const_art_047",
+            "parent_case_sc_shirur_mutt_1954",
+            "parent_const_art_012"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 1.0,
+            "NDCG@5": 1.0,
+            "NDCG@10": 1.0
+          }
+        },
+        {
+          "query_id": "RET_006",
+          "query": "How is the term State defined under Article 12 for the purpose of Part III?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_12"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_056",
+            "parent_const_art_036",
+            "parent_const_art_359",
+            "parent_const_art_012",
+            "parent_const_art_226"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_007",
+          "query": "What does Article 21A provide regarding the fundamental right to free and compulsory education?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_21A"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_021a",
+            "parent_amend_086",
+            "parent_const_art_051a",
+            "parent_case_sc_subhash_kumar_1991",
+            "parent_const_art_045"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_008",
+          "query": "Explain the power of Parliament to amend the Constitution and procedure under Article 368",
+          "intent": "AMENDMENT_QUERY",
+          "gold_relevant": [
+            "parent_const_art_368"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_368",
+            "parent_amend_024",
+            "parent_const_art_105",
+            "parent_case_sc_kesavananda_1973",
+            "parent_const_art_035"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 1.0,
+            "NDCG@5": 1.0,
+            "NDCG@10": 1.0
+          }
+        },
+        {
+          "query_id": "RET_009",
+          "query": "What was the historical scope and special status granted under Article 370?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_370"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_article_370_2023",
+            "parent_const_art_370",
+            "parent_const_art_074",
+            "parent_const_art_371",
+            "parent_const_art_371a"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.5,
+            "NDCG@5": 0.6309,
+            "NDCG@10": 0.6309
+          }
+        },
+        {
+          "query_id": "RET_010",
+          "query": "Explain the landmark ruling in Kesavananda Bharati regarding the basic structure doctrine",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_kesavananda",
+            "parent_const_art_368"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_kesavananda_1973",
+            "parent_const_art_013",
+            "parent_case_sc_waman_rao_1981",
+            "parent_const_art_368",
+            "parent_const_preamble"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.5,
+            "Recall@10": 0.5,
+            "MRR": 0.25,
+            "NDCG@5": 0.1186,
+            "NDCG@10": 0.1186
+          }
+        },
+        {
+          "query_id": "RET_011",
+          "query": "What did the Supreme Court hold in Justice KS Puttaswamy regarding right to privacy under Article 21?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_puttaswamy",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_puttaswamy_privacy_2017",
+            "parent_const_art_021",
+            "parent_case_sc_francis_coralie_1981",
+            "parent_case_sc_puttaswamy_aadhaar_2018",
+            "parent_case_sc_mp_sharma_1954"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_012",
+          "query": "What were the facts and ratio decidendi of Maneka Gandhi v Union of India on personal liberty?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_maneka",
+            "parent_const_art_14",
+            "parent_const_art_19",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_maneka_gandhi_1978",
+            "parent_const_art_021",
+            "parent_case_sc_rameshwar_prasad_2006",
+            "parent_case_sc_puttaswamy_privacy_2017",
+            "parent_case_sc_selvi_2010"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_013",
+          "query": "How did Minerva Mills v Union of India reinforce Kesavananda Bharati and strike down unamendable clauses?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_kesavananda",
+            "parent_const_art_368",
+            "parent_case_minerva"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_031c",
+            "parent_case_sc_minerva_mills_1980",
+            "parent_case_sc_kesavananda_1973",
+            "parent_const_art_368"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.3333,
+            "Recall@10": 0.3333,
+            "MRR": 0.25,
+            "NDCG@5": 0.1043,
+            "NDCG@10": 0.1043
+          }
+        },
+        {
+          "query_id": "RET_014",
+          "query": "What guidelines were established in SR Bommai regarding President Rule and secularism?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_bommai"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_356",
+            "parent_case_sc_sr_bommai_1994",
+            "parent_case_sc_dk_basu_1997",
+            "parent_const_art_074",
+            "parent_case_sc_pucl_phone_tapping_1997"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_015",
+          "query": "Can Parliament amend fundamental rights to destroy the basic structure of the Constitution?",
+          "intent": "AMENDMENT_QUERY",
+          "gold_relevant": [
+            "parent_case_kesavananda",
+            "parent_const_art_368"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_368",
+            "parent_case_sc_kesavananda_1973",
+            "parent_const_preamble",
+            "parent_case_sc_chandra_kumar_1997",
+            "parent_const_art_013"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.5,
+            "Recall@10": 0.5,
+            "MRR": 1.0,
+            "NDCG@5": 0.2754,
+            "NDCG@10": 0.2754
+          }
+        },
+        {
+          "query_id": "RET_016",
+          "query": "Is privacy recognized as an intrinsic part of the right to life and liberty in India?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_case_puttaswamy",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_puttaswamy_privacy_2017",
+            "parent_const_art_021",
+            "parent_case_sc_olga_tellis_1985",
+            "parent_case_sc_maneka_gandhi_1978",
+            "parent_case_sc_nalsa_2014"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_017",
+          "query": "Explain the interconnected golden triangle of fundamental rights under Articles 14, 19 and 21",
+          "intent": "LEGAL_EXPLANATION",
+          "gold_relevant": [
+            "parent_case_maneka",
+            "parent_const_art_14",
+            "parent_const_art_19",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_maneka_gandhi_1978",
+            "parent_case_sc_kharak_singh_1963",
+            "parent_case_sc_nalsa_2014",
+            "parent_const_art_359",
+            "parent_case_sc_ir_coelho_2007"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_018",
+          "query": "How is secularism protected under the Constitution as affirmed in SR Bommai and Preamble?",
+          "intent": "LEGAL_EXPLANATION",
+          "gold_relevant": [
+            "parent_const_preamble",
+            "parent_case_bommai"
+          ],
+          "retrieved_top_5": [
+            "parent_const_preamble",
+            "parent_case_sc_sr_bommai_1994",
+            "parent_const_art_356",
+            "parent_case_sc_berubari_1960",
+            "parent_case_sc_kesavananda_1973"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.5,
+            "Recall@10": 0.5,
+            "MRR": 1.0,
+            "NDCG@5": 0.8262,
+            "NDCG@10": 0.8262
+          }
+        },
+        {
+          "query_id": "RET_019",
+          "query": "Writ jurisdiction of the Supreme Court to issue directions, orders or writs under Article 32",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_32"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_032",
+            "parent_const_art_226",
+            "parent_const_art_137",
+            "parent_const_art_142",
+            "parent_case_sc_chandra_kumar_1997"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_020",
+          "query": "What is the procedure established by law versus substantive due process post Maneka Gandhi?",
+          "intent": "CASE_COMPARISON",
+          "gold_relevant": [
+            "parent_case_maneka",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_maneka_gandhi_1978",
+            "parent_const_art_021",
+            "parent_case_sc_ak_gopalan_1950",
+            "parent_const_art_014"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "experiment_name": "Exp 2: Dense Only",
+      "status": "COMPLETED",
+      "sample_count": 20,
+      "requires_human_annotation_count": 3,
+      "total_latency_seconds": 0.435,
+      "avg_latency_ms": 21.75,
+      "metrics": {
+        "Hit@1": 0.25,
+        "Hit@3": 0.8,
+        "Hit@5": 0.95,
+        "Hit@10": 0.95,
+        "Recall@5": 0.7167,
+        "Recall@10": 0.8167,
+        "MRR": 0.5325,
+        "NDCG@5": 0.5153,
+        "NDCG@10": 0.5536
+      },
+      "query_details": [
+        {
+          "query_id": "RET_001",
+          "query": "What constitutional remedies are available under Article 32 for fundamental rights violations?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_32"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_032",
+            "parent_const_art_32",
+            "parent_const_art_039",
+            "parent_const_art_035",
+            "parent_amend_024"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.5,
+            "NDCG@5": 0.6309,
+            "NDCG@10": 0.6309
+          }
+        },
+        {
+          "query_id": "RET_002",
+          "query": "What does Article 21 guarantee regarding protection of life and personal liberty?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_021",
+            "parent_const_art_21",
+            "parent_const_art_020",
+            "parent_const_art_032",
+            "parent_const_art_022"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.5,
+            "NDCG@5": 0.6309,
+            "NDCG@10": 0.6309
+          }
+        },
+        {
+          "query_id": "RET_003",
+          "query": "Explain equality before law and equal protection of the laws under Article 14",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_14"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_014",
+            "parent_const_art_14",
+            "parent_const_art_039a",
+            "parent_case_sc_royappa_1974",
+            "parent_const_art_013"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.5,
+            "NDCG@5": 0.6309,
+            "NDCG@10": 0.6309
+          }
+        },
+        {
+          "query_id": "RET_004",
+          "query": "What six fundamental freedoms are guaranteed to citizens under Article 19?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_19"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_019",
+            "parent_const_art_19",
+            "parent_const_art_21",
+            "parent_const_art_358",
+            "parent_const_art_021"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.5,
+            "NDCG@5": 0.6309,
+            "NDCG@10": 0.6309
+          }
+        },
+        {
+          "query_id": "RET_005",
+          "query": "What are the core ideals and objectives set out in the Preamble of the Constitution?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_preamble"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_368",
+            "parent_const_preamble",
+            "parent_amend_042",
+            "parent_amend_061",
+            "parent_const_art_19"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.5,
+            "NDCG@5": 0.6309,
+            "NDCG@10": 0.6309
+          }
+        },
+        {
+          "query_id": "RET_006",
+          "query": "How is the term State defined under Article 12 for the purpose of Part III?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_12"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_012",
+            "parent_const_art_036",
+            "parent_const_art_003",
+            "parent_const_art_001"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_007",
+          "query": "What does Article 21A provide regarding the fundamental right to free and compulsory education?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_21A"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_21A",
+            "parent_const_art_021a",
+            "parent_amend_086",
+            "parent_const_art_028",
+            "parent_const_art_041"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 1.0,
+            "NDCG@5": 1.0,
+            "NDCG@10": 1.0
+          }
+        },
+        {
+          "query_id": "RET_008",
+          "query": "Explain the power of Parliament to amend the Constitution and procedure under Article 368",
+          "intent": "AMENDMENT_QUERY",
+          "gold_relevant": [
+            "parent_const_art_368"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_368",
+            "parent_case_sc_kesavananda_1973",
+            "parent_case_kesavananda"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 1.0,
+            "NDCG@5": 1.0,
+            "NDCG@10": 1.0
+          }
+        },
+        {
+          "query_id": "RET_009",
+          "query": "What was the historical scope and special status granted under Article 370?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_370"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_370",
+            "parent_case_sc_article_370_2023",
+            "parent_const_art_144",
+            "parent_const_art_142",
+            "parent_const_art_143"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 1.0,
+            "NDCG@5": 1.0,
+            "NDCG@10": 1.0
+          }
+        },
+        {
+          "query_id": "RET_010",
+          "query": "Explain the landmark ruling in Kesavananda Bharati regarding the basic structure doctrine",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_kesavananda",
+            "parent_const_art_368"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_037",
+            "parent_case_sc_kesavananda_1973",
+            "parent_const_preamble",
+            "parent_const_art_031c",
+            "parent_case_kesavananda"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.5,
+            "Recall@10": 1.0,
+            "MRR": 0.2,
+            "NDCG@5": 0.3196,
+            "NDCG@10": 0.4177
+          }
+        },
+        {
+          "query_id": "RET_011",
+          "query": "What did the Supreme Court hold in Justice KS Puttaswamy regarding right to privacy under Article 21?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_puttaswamy",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_021",
+            "parent_case_sc_puttaswamy_privacy_2017",
+            "parent_case_puttaswamy",
+            "parent_case_sc_mp_sharma_1954",
+            "parent_const_art_019"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.5,
+            "Recall@10": 1.0,
+            "MRR": 0.3333,
+            "NDCG@5": 0.4131,
+            "NDCG@10": 0.5112
+          }
+        },
+        {
+          "query_id": "RET_012",
+          "query": "What were the facts and ratio decidendi of Maneka Gandhi v Union of India on personal liberty?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_maneka",
+            "parent_const_art_14",
+            "parent_const_art_19",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_maneka_gandhi_1978",
+            "parent_case_sc_chandra_kumar_1997",
+            "parent_case_sc_adr_2002",
+            "parent_const_art_102",
+            "parent_case_maneka"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.25,
+            "Recall@10": 0.25,
+            "MRR": 0.2,
+            "NDCG@5": 0.2544,
+            "NDCG@10": 0.2544
+          }
+        },
+        {
+          "query_id": "RET_013",
+          "query": "How did Minerva Mills v Union of India reinforce Kesavananda Bharati and strike down unamendable clauses?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_kesavananda",
+            "parent_const_art_368",
+            "parent_case_minerva"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_minerva_mills_1980",
+            "parent_case_minerva",
+            "parent_const_art_031c",
+            "parent_case_sc_kesavananda_1973",
+            "parent_case_sc_sr_bommai_1994"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.3333,
+            "Recall@10": 0.3333,
+            "MRR": 0.5,
+            "NDCG@5": 0.4582,
+            "NDCG@10": 0.4582
+          }
+        },
+        {
+          "query_id": "RET_014",
+          "query": "What guidelines were established in SR Bommai regarding President Rule and secularism?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_bommai"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_sr_bommai_1994",
+            "parent_const_art_356",
+            "parent_case_bommai",
+            "parent_case_sc_syedna_taher_1962",
+            "parent_const_art_025"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.3333,
+            "NDCG@5": 0.5,
+            "NDCG@10": 0.5
+          }
+        },
+        {
+          "query_id": "RET_015",
+          "query": "Can Parliament amend fundamental rights to destroy the basic structure of the Constitution?",
+          "intent": "AMENDMENT_QUERY",
+          "gold_relevant": [
+            "parent_case_kesavananda",
+            "parent_const_art_368"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_368",
+            "parent_amend_024",
+            "parent_case_kesavananda",
+            "parent_case_minerva",
+            "parent_case_sc_minerva_mills_1980"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 1.0,
+            "NDCG@5": 0.6885,
+            "NDCG@10": 0.6885
+          }
+        },
+        {
+          "query_id": "RET_016",
+          "query": "Is privacy recognized as an intrinsic part of the right to life and liberty in India?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_case_puttaswamy",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_mp_sharma_1954",
+            "parent_case_sc_puttaswamy_privacy_2017",
+            "parent_case_puttaswamy",
+            "parent_case_sc_kharak_singh_1963",
+            "parent_const_art_021"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.5,
+            "Recall@10": 1.0,
+            "MRR": 0.3333,
+            "NDCG@5": 0.1377,
+            "NDCG@10": 0.4131
+          }
+        },
+        {
+          "query_id": "RET_017",
+          "query": "Explain the interconnected golden triangle of fundamental rights under Articles 14, 19 and 21",
+          "intent": "LEGAL_EXPLANATION",
+          "gold_relevant": [
+            "parent_case_maneka",
+            "parent_const_art_14",
+            "parent_const_art_19",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_maneka",
+            "parent_const_art_013",
+            "parent_const_art_032",
+            "parent_const_art_039",
+            "parent_const_art_021a"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.25,
+            "Recall@10": 0.25,
+            "MRR": 1.0,
+            "NDCG@5": 0.2192,
+            "NDCG@10": 0.2192
+          }
+        },
+        {
+          "query_id": "RET_018",
+          "query": "How is secularism protected under the Constitution as affirmed in SR Bommai and Preamble?",
+          "intent": "LEGAL_EXPLANATION",
+          "gold_relevant": [
+            "parent_const_preamble",
+            "parent_case_bommai"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_sr_bommai_1994",
+            "parent_const_art_356",
+            "parent_case_sc_syedna_taher_1962",
+            "parent_const_preamble",
+            "parent_const_art_028"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.5,
+            "Recall@10": 0.5,
+            "MRR": 0.25,
+            "NDCG@5": 0.3558,
+            "NDCG@10": 0.3558
+          }
+        },
+        {
+          "query_id": "RET_019",
+          "query": "Writ jurisdiction of the Supreme Court to issue directions, orders or writs under Article 32",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_32"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_032",
+            "parent_const_art_32",
+            "parent_const_art_226",
+            "parent_const_art_131",
+            "parent_const_art_144"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.5,
+            "NDCG@5": 0.6309,
+            "NDCG@10": 0.6309
+          }
+        },
+        {
+          "query_id": "RET_020",
+          "query": "What is the procedure established by law versus substantive due process post Maneka Gandhi?",
+          "intent": "CASE_COMPARISON",
+          "gold_relevant": [
+            "parent_case_maneka",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_maneka_gandhi_1978",
+            "parent_const_art_21",
+            "parent_case_sc_ak_gopalan_1950",
+            "parent_case_sc_ram_jawaya_1955",
+            "parent_case_sc_pa_inamdar_2005"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.5,
+            "Recall@10": 1.0,
+            "MRR": 0.5,
+            "NDCG@5": 0.1738,
+            "NDCG@10": 0.4681
+          }
+        }
+      ]
+    },
+    {
+      "experiment_name": "Exp 3: BM25 + Dense (Linear)",
+      "status": "COMPLETED",
+      "sample_count": 20,
+      "requires_human_annotation_count": 3,
+      "total_latency_seconds": 0.452,
+      "avg_latency_ms": 22.6,
+      "metrics": {
+        "Hit@1": 0.2,
+        "Hit@3": 0.25,
+        "Hit@5": 0.35,
+        "Hit@10": 0.35,
+        "Recall@5": 0.2417,
+        "Recall@10": 0.2417,
+        "MRR": 0.25,
+        "NDCG@5": 0.1978,
+        "NDCG@10": 0.1978
+      },
+      "query_details": [
+        {
+          "query_id": "RET_001",
+          "query": "What constitutional remedies are available under Article 32 for fundamental rights violations?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_32"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_032",
+            "parent_case_sc_bandhua_mukti_1984",
+            "parent_case_sc_golak_nath_1967",
+            "parent_case_sc_shirur_mutt_1954",
+            "parent_const_art_012"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_002",
+          "query": "What does Article 21 guarantee regarding protection of life and personal liberty?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_021",
+            "parent_case_sc_francis_coralie_1981",
+            "parent_case_sc_maneka_gandhi_1978",
+            "parent_const_art_020",
+            "parent_const_art_359"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_003",
+          "query": "Explain equality before law and equal protection of the laws under Article 14",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_14"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_014",
+            "parent_case_sc_royappa_1974",
+            "parent_const_art_004",
+            "parent_const_art_022",
+            "parent_case_sc_supriyo_2023"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_004",
+          "query": "What six fundamental freedoms are guaranteed to citizens under Article 19?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_19"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_358",
+            "parent_case_sc_shirur_mutt_1954",
+            "parent_const_art_051a",
+            "parent_case_sc_chintaman_rao_1951",
+            "parent_case_sc_puttaswamy_privacy_2017"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_005",
+          "query": "What are the core ideals and objectives set out in the Preamble of the Constitution?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_preamble"
+          ],
+          "retrieved_top_5": [
+            "parent_const_preamble",
+            "parent_const_art_051a",
+            "parent_const_art_047",
+            "parent_case_sc_shirur_mutt_1954",
+            "parent_const_art_012"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 1.0,
+            "NDCG@5": 1.0,
+            "NDCG@10": 1.0
+          }
+        },
+        {
+          "query_id": "RET_006",
+          "query": "How is the term State defined under Article 12 for the purpose of Part III?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_12"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_056",
+            "parent_const_art_036",
+            "parent_const_art_359",
+            "parent_const_art_012",
+            "parent_const_art_226"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_007",
+          "query": "What does Article 21A provide regarding the fundamental right to free and compulsory education?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_21A"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_021a",
+            "parent_amend_086",
+            "parent_const_art_051a",
+            "parent_case_sc_subhash_kumar_1991",
+            "parent_const_art_045"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_008",
+          "query": "Explain the power of Parliament to amend the Constitution and procedure under Article 368",
+          "intent": "AMENDMENT_QUERY",
+          "gold_relevant": [
+            "parent_const_art_368"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_368",
+            "parent_amend_024",
+            "parent_const_art_105",
+            "parent_case_sc_kesavananda_1973",
+            "parent_const_art_035"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 1.0,
+            "NDCG@5": 1.0,
+            "NDCG@10": 1.0
+          }
+        },
+        {
+          "query_id": "RET_009",
+          "query": "What was the historical scope and special status granted under Article 370?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_370"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_article_370_2023",
+            "parent_const_art_370",
+            "parent_const_art_074",
+            "parent_const_art_371",
+            "parent_const_art_371a"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.5,
+            "NDCG@5": 0.6309,
+            "NDCG@10": 0.6309
+          }
+        },
+        {
+          "query_id": "RET_010",
+          "query": "Explain the landmark ruling in Kesavananda Bharati regarding the basic structure doctrine",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_kesavananda",
+            "parent_const_art_368"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_kesavananda_1973",
+            "parent_const_art_013",
+            "parent_case_sc_waman_rao_1981",
+            "parent_const_art_368",
+            "parent_const_preamble"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.5,
+            "Recall@10": 0.5,
+            "MRR": 0.25,
+            "NDCG@5": 0.1186,
+            "NDCG@10": 0.1186
+          }
+        },
+        {
+          "query_id": "RET_011",
+          "query": "What did the Supreme Court hold in Justice KS Puttaswamy regarding right to privacy under Article 21?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_puttaswamy",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_puttaswamy_privacy_2017",
+            "parent_const_art_021",
+            "parent_case_sc_francis_coralie_1981",
+            "parent_case_sc_puttaswamy_aadhaar_2018",
+            "parent_case_sc_mp_sharma_1954"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_012",
+          "query": "What were the facts and ratio decidendi of Maneka Gandhi v Union of India on personal liberty?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_maneka",
+            "parent_const_art_14",
+            "parent_const_art_19",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_maneka_gandhi_1978",
+            "parent_const_art_021",
+            "parent_case_sc_rameshwar_prasad_2006",
+            "parent_case_sc_puttaswamy_privacy_2017",
+            "parent_case_sc_selvi_2010"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_013",
+          "query": "How did Minerva Mills v Union of India reinforce Kesavananda Bharati and strike down unamendable clauses?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_kesavananda",
+            "parent_const_art_368",
+            "parent_case_minerva"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_031c",
+            "parent_case_sc_minerva_mills_1980",
+            "parent_case_sc_kesavananda_1973",
+            "parent_const_art_368"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.3333,
+            "Recall@10": 0.3333,
+            "MRR": 0.25,
+            "NDCG@5": 0.1043,
+            "NDCG@10": 0.1043
+          }
+        },
+        {
+          "query_id": "RET_014",
+          "query": "What guidelines were established in SR Bommai regarding President Rule and secularism?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_bommai"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_356",
+            "parent_case_sc_sr_bommai_1994",
+            "parent_case_sc_dk_basu_1997",
+            "parent_const_art_074",
+            "parent_case_sc_pucl_phone_tapping_1997"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_015",
+          "query": "Can Parliament amend fundamental rights to destroy the basic structure of the Constitution?",
+          "intent": "AMENDMENT_QUERY",
+          "gold_relevant": [
+            "parent_case_kesavananda",
+            "parent_const_art_368"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_368",
+            "parent_case_sc_kesavananda_1973",
+            "parent_const_preamble",
+            "parent_case_sc_chandra_kumar_1997",
+            "parent_const_art_013"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.5,
+            "Recall@10": 0.5,
+            "MRR": 1.0,
+            "NDCG@5": 0.2754,
+            "NDCG@10": 0.2754
+          }
+        },
+        {
+          "query_id": "RET_016",
+          "query": "Is privacy recognized as an intrinsic part of the right to life and liberty in India?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_case_puttaswamy",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_puttaswamy_privacy_2017",
+            "parent_const_art_021",
+            "parent_case_sc_olga_tellis_1985",
+            "parent_case_sc_maneka_gandhi_1978",
+            "parent_case_sc_nalsa_2014"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_017",
+          "query": "Explain the interconnected golden triangle of fundamental rights under Articles 14, 19 and 21",
+          "intent": "LEGAL_EXPLANATION",
+          "gold_relevant": [
+            "parent_case_maneka",
+            "parent_const_art_14",
+            "parent_const_art_19",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_maneka_gandhi_1978",
+            "parent_case_sc_kharak_singh_1963",
+            "parent_case_sc_nalsa_2014",
+            "parent_const_art_359",
+            "parent_case_sc_ir_coelho_2007"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_018",
+          "query": "How is secularism protected under the Constitution as affirmed in SR Bommai and Preamble?",
+          "intent": "LEGAL_EXPLANATION",
+          "gold_relevant": [
+            "parent_const_preamble",
+            "parent_case_bommai"
+          ],
+          "retrieved_top_5": [
+            "parent_const_preamble",
+            "parent_case_sc_sr_bommai_1994",
+            "parent_const_art_356",
+            "parent_case_sc_berubari_1960",
+            "parent_case_sc_kesavananda_1973"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.5,
+            "Recall@10": 0.5,
+            "MRR": 1.0,
+            "NDCG@5": 0.8262,
+            "NDCG@10": 0.8262
+          }
+        },
+        {
+          "query_id": "RET_019",
+          "query": "Writ jurisdiction of the Supreme Court to issue directions, orders or writs under Article 32",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_32"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_032",
+            "parent_const_art_226",
+            "parent_const_art_137",
+            "parent_const_art_142",
+            "parent_case_sc_chandra_kumar_1997"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_020",
+          "query": "What is the procedure established by law versus substantive due process post Maneka Gandhi?",
+          "intent": "CASE_COMPARISON",
+          "gold_relevant": [
+            "parent_case_maneka",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_maneka_gandhi_1978",
+            "parent_const_art_021",
+            "parent_case_sc_ak_gopalan_1950",
+            "parent_const_art_014"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "experiment_name": "Exp 4: BM25 + Dense + RRF",
+      "status": "COMPLETED",
+      "sample_count": 20,
+      "requires_human_annotation_count": 3,
+      "total_latency_seconds": 0.416,
+      "avg_latency_ms": 20.8,
+      "metrics": {
+        "Hit@1": 0.15,
+        "Hit@3": 0.25,
+        "Hit@5": 0.45,
+        "Hit@10": 0.5,
+        "Recall@5": 0.3125,
+        "Recall@10": 0.3625,
+        "MRR": 0.2413,
+        "NDCG@5": 0.2007,
+        "NDCG@10": 0.2174
+      },
+      "query_details": [
+        {
+          "query_id": "RET_001",
+          "query": "What constitutional remedies are available under Article 32 for fundamental rights violations?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_32"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_032",
+            "parent_const_art_035",
+            "parent_const_art_013",
+            "parent_case_sc_sajjan_singh_1965",
+            "parent_amend_044"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_002",
+          "query": "What does Article 21 guarantee regarding protection of life and personal liberty?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_021",
+            "parent_case_sc_francis_coralie_1981",
+            "parent_const_art_020",
+            "parent_case_sc_pucl_food_2001",
+            "parent_const_art_019"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_003",
+          "query": "Explain equality before law and equal protection of the laws under Article 14",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_14"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_014",
+            "parent_case_sc_royappa_1974",
+            "parent_const_art_013",
+            "parent_const_art_039a",
+            "parent_const_art_031c"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_004",
+          "query": "What six fundamental freedoms are guaranteed to citizens under Article 19?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_19"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_358",
+            "parent_const_art_019",
+            "parent_case_sc_shirur_mutt_1954",
+            "parent_const_art_051a",
+            "parent_case_sc_chintaman_rao_1951"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.0,
+            "Recall@10": 1.0,
+            "MRR": 0.1429,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.3333
+          }
+        },
+        {
+          "query_id": "RET_005",
+          "query": "What are the core ideals and objectives set out in the Preamble of the Constitution?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_preamble"
+          ],
+          "retrieved_top_5": [
+            "parent_const_preamble",
+            "parent_const_art_051a",
+            "parent_amend_042",
+            "parent_const_art_039",
+            "parent_const_art_368"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 1.0,
+            "NDCG@5": 1.0,
+            "NDCG@10": 1.0
+          }
+        },
+        {
+          "query_id": "RET_006",
+          "query": "How is the term State defined under Article 12 for the purpose of Part III?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_12"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_036",
+            "parent_const_art_012",
+            "parent_const_art_003",
+            "parent_const_art_201",
+            "parent_const_art_056"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_007",
+          "query": "What does Article 21A provide regarding the fundamental right to free and compulsory education?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_21A"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_021a",
+            "parent_amend_086",
+            "parent_const_art_041",
+            "parent_case_sc_hussainara_khatoon_1979",
+            "parent_const_art_028"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_008",
+          "query": "Explain the power of Parliament to amend the Constitution and procedure under Article 368",
+          "intent": "AMENDMENT_QUERY",
+          "gold_relevant": [
+            "parent_const_art_368"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_368",
+            "parent_amend_024",
+            "parent_case_sc_kesavananda_1973",
+            "parent_const_art_105",
+            "parent_const_art_246"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 1.0,
+            "NDCG@5": 1.0,
+            "NDCG@10": 1.0
+          }
+        },
+        {
+          "query_id": "RET_009",
+          "query": "What was the historical scope and special status granted under Article 370?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_370"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_article_370_2023",
+            "parent_const_art_370",
+            "parent_const_art_371",
+            "parent_const_art_371d"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.5,
+            "NDCG@5": 0.6309,
+            "NDCG@10": 0.6309
+          }
+        },
+        {
+          "query_id": "RET_010",
+          "query": "Explain the landmark ruling in Kesavananda Bharati regarding the basic structure doctrine",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_kesavananda",
+            "parent_const_art_368"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_kesavananda_1973",
+            "parent_case_sc_waman_rao_1981",
+            "parent_const_art_037",
+            "parent_const_art_013",
+            "parent_const_art_368"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.5,
+            "Recall@10": 0.5,
+            "MRR": 0.2,
+            "NDCG@5": 0.1065,
+            "NDCG@10": 0.1065
+          }
+        },
+        {
+          "query_id": "RET_011",
+          "query": "What did the Supreme Court hold in Justice KS Puttaswamy regarding right to privacy under Article 21?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_puttaswamy",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_puttaswamy_privacy_2017",
+            "parent_const_art_021",
+            "parent_case_sc_mp_sharma_1954",
+            "parent_case_sc_r_rajagopal_1994",
+            "parent_case_sc_pucl_phone_tapping_1997"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_012",
+          "query": "What were the facts and ratio decidendi of Maneka Gandhi v Union of India on personal liberty?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_maneka",
+            "parent_const_art_14",
+            "parent_const_art_19",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_maneka_gandhi_1978",
+            "parent_case_sc_indira_gandhi_1975",
+            "parent_case_sc_nagaraj_2006",
+            "parent_const_art_021",
+            "parent_case_sc_chandra_kumar_1997"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_013",
+          "query": "How did Minerva Mills v Union of India reinforce Kesavananda Bharati and strike down unamendable clauses?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_kesavananda",
+            "parent_const_art_368",
+            "parent_case_minerva"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_minerva_mills_1980",
+            "parent_const_art_031c",
+            "parent_case_sc_kesavananda_1973",
+            "parent_case_sc_waman_rao_1981"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_014",
+          "query": "What guidelines were established in SR Bommai regarding President Rule and secularism?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_bommai"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_356",
+            "parent_case_sc_sr_bommai_1994",
+            "parent_const_art_025",
+            "parent_case_sc_shirur_mutt_1954",
+            "parent_case_bommai"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.2,
+            "NDCG@5": 0.3869,
+            "NDCG@10": 0.3869
+          }
+        },
+        {
+          "query_id": "RET_015",
+          "query": "Can Parliament amend fundamental rights to destroy the basic structure of the Constitution?",
+          "intent": "AMENDMENT_QUERY",
+          "gold_relevant": [
+            "parent_case_kesavananda",
+            "parent_const_art_368"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_368",
+            "parent_amend_024",
+            "parent_case_sc_kesavananda_1973",
+            "parent_case_sc_golak_nath_1967",
+            "parent_case_sc_minerva_mills_1980"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.5,
+            "Recall@10": 0.5,
+            "MRR": 1.0,
+            "NDCG@5": 0.2754,
+            "NDCG@10": 0.2754
+          }
+        },
+        {
+          "query_id": "RET_016",
+          "query": "Is privacy recognized as an intrinsic part of the right to life and liberty in India?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_case_puttaswamy",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_puttaswamy_privacy_2017",
+            "parent_const_art_021",
+            "parent_case_sc_kharak_singh_1963",
+            "parent_case_sc_maneka_gandhi_1978",
+            "parent_case_sc_r_rajagopal_1994"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_017",
+          "query": "Explain the interconnected golden triangle of fundamental rights under Articles 14, 19 and 21",
+          "intent": "LEGAL_EXPLANATION",
+          "gold_relevant": [
+            "parent_case_maneka",
+            "parent_const_art_14",
+            "parent_const_art_19",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_021",
+            "parent_const_art_013",
+            "parent_case_sc_maneka_gandhi_1978",
+            "parent_case_maneka",
+            "parent_case_sc_kharak_singh_1963"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.25,
+            "Recall@10": 0.25,
+            "MRR": 0.25,
+            "NDCG@5": 0.0944,
+            "NDCG@10": 0.0944
+          }
+        },
+        {
+          "query_id": "RET_018",
+          "query": "How is secularism protected under the Constitution as affirmed in SR Bommai and Preamble?",
+          "intent": "LEGAL_EXPLANATION",
+          "gold_relevant": [
+            "parent_const_preamble",
+            "parent_case_bommai"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_sr_bommai_1994",
+            "parent_const_art_356",
+            "parent_const_preamble",
+            "parent_const_art_025",
+            "parent_amend_042"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.5,
+            "Recall@10": 0.5,
+            "MRR": 0.3333,
+            "NDCG@5": 0.4131,
+            "NDCG@10": 0.4131
+          }
+        },
+        {
+          "query_id": "RET_019",
+          "query": "Writ jurisdiction of the Supreme Court to issue directions, orders or writs under Article 32",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_32"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_032",
+            "parent_const_art_226",
+            "parent_const_art_144",
+            "parent_const_art_142",
+            "parent_const_art_131"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_020",
+          "query": "What is the procedure established by law versus substantive due process post Maneka Gandhi?",
+          "intent": "CASE_COMPARISON",
+          "gold_relevant": [
+            "parent_case_maneka",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_maneka_gandhi_1978",
+            "parent_case_sc_ak_gopalan_1950",
+            "parent_const_art_021",
+            "parent_case_sc_indira_gandhi_1975",
+            "parent_const_art_21"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.5,
+            "Recall@10": 0.5,
+            "MRR": 0.2,
+            "NDCG@5": 0.1065,
+            "NDCG@10": 0.1065
+          }
+        }
+      ]
+    },
+    {
+      "experiment_name": "Exp 5: RRF + Entity Boost",
+      "status": "COMPLETED",
+      "sample_count": 20,
+      "requires_human_annotation_count": 3,
+      "total_latency_seconds": 1.295,
+      "avg_latency_ms": 64.75,
+      "metrics": {
+        "Hit@1": 0.25,
+        "Hit@3": 0.75,
+        "Hit@5": 0.9,
+        "Hit@10": 0.9,
+        "Recall@5": 0.7542,
+        "Recall@10": 0.8042,
+        "MRR": 0.51,
+        "NDCG@5": 0.5381,
+        "NDCG@10": 0.556
+      },
+      "query_details": [
+        {
+          "query_id": "RET_001",
+          "query": "What constitutional remedies are available under Article 32 for fundamental rights violations?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_32"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_32",
+            "parent_const_art_032",
+            "parent_const_art_013",
+            "parent_case_sc_sajjan_singh_1965"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 1.0,
+            "NDCG@5": 1.0,
+            "NDCG@10": 1.0
+          }
+        },
+        {
+          "query_id": "RET_002",
+          "query": "What does Article 21 guarantee regarding protection of life and personal liberty?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_021",
+            "parent_const_art_21",
+            "parent_const_art_021a",
+            "parent_const_art_020",
+            "parent_const_art_359"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.5,
+            "NDCG@5": 0.6309,
+            "NDCG@10": 0.6309
+          }
+        },
+        {
+          "query_id": "RET_003",
+          "query": "Explain equality before law and equal protection of the laws under Article 14",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_14"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_014",
+            "parent_const_art_14",
+            "parent_case_sc_royappa_1974",
+            "parent_const_art_013",
+            "parent_const_art_039a"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.5,
+            "NDCG@5": 0.6309,
+            "NDCG@10": 0.6309
+          }
+        },
+        {
+          "query_id": "RET_004",
+          "query": "What six fundamental freedoms are guaranteed to citizens under Article 19?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_19"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_358",
+            "parent_const_art_019",
+            "parent_const_art_19"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.3333,
+            "NDCG@5": 0.5,
+            "NDCG@10": 0.5
+          }
+        },
+        {
+          "query_id": "RET_005",
+          "query": "What are the core ideals and objectives set out in the Preamble of the Constitution?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_preamble"
+          ],
+          "retrieved_top_5": [
+            "parent_const_preamble",
+            "parent_const_art_051a",
+            "parent_amend_042",
+            "parent_const_art_039"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 1.0,
+            "NDCG@5": 1.0,
+            "NDCG@10": 1.0
+          }
+        },
+        {
+          "query_id": "RET_006",
+          "query": "How is the term State defined under Article 12 for the purpose of Part III?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_12"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_012",
+            "parent_const_art_001",
+            "parent_const_art_12",
+            "parent_const_art_036",
+            "parent_const_art_003"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.3333,
+            "NDCG@5": 0.5,
+            "NDCG@10": 0.5
+          }
+        },
+        {
+          "query_id": "RET_007",
+          "query": "What does Article 21A provide regarding the fundamental right to free and compulsory education?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_21A"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_021a",
+            "parent_const_art_21A",
+            "parent_const_art_21",
+            "parent_const_art_021",
+            "parent_amend_086"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.5,
+            "NDCG@5": 0.6309,
+            "NDCG@10": 0.6309
+          }
+        },
+        {
+          "query_id": "RET_008",
+          "query": "Explain the power of Parliament to amend the Constitution and procedure under Article 368",
+          "intent": "AMENDMENT_QUERY",
+          "gold_relevant": [
+            "parent_const_art_368"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_368",
+            "parent_amend_024",
+            "parent_case_sc_kesavananda_1973"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 1.0,
+            "NDCG@5": 1.0,
+            "NDCG@10": 1.0
+          }
+        },
+        {
+          "query_id": "RET_009",
+          "query": "What was the historical scope and special status granted under Article 370?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_370"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_article_370_2023",
+            "parent_const_art_370"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.5,
+            "NDCG@5": 0.6309,
+            "NDCG@10": 0.6309
+          }
+        },
+        {
+          "query_id": "RET_010",
+          "query": "Explain the landmark ruling in Kesavananda Bharati regarding the basic structure doctrine",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_kesavananda",
+            "parent_const_art_368"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_kesavananda_1973",
+            "parent_case_kesavananda",
+            "parent_case_sc_waman_rao_1981",
+            "parent_const_art_013",
+            "parent_case_sc_indira_gandhi_1975"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.5,
+            "Recall@10": 0.5,
+            "MRR": 0.5,
+            "NDCG@5": 0.5213,
+            "NDCG@10": 0.5213
+          }
+        },
+        {
+          "query_id": "RET_011",
+          "query": "What did the Supreme Court hold in Justice KS Puttaswamy regarding right to privacy under Article 21?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_puttaswamy",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_puttaswamy_privacy_2017",
+            "parent_case_puttaswamy",
+            "parent_const_art_21",
+            "parent_const_art_021",
+            "parent_case_sc_puttaswamy_aadhaar_2018"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.5,
+            "NDCG@5": 0.659,
+            "NDCG@10": 0.659
+          }
+        },
+        {
+          "query_id": "RET_012",
+          "query": "What were the facts and ratio decidendi of Maneka Gandhi v Union of India on personal liberty?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_maneka",
+            "parent_const_art_14",
+            "parent_const_art_19",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_maneka_gandhi_1978",
+            "parent_case_sc_puttaswamy_privacy_2017",
+            "parent_case_sc_indira_gandhi_1975",
+            "parent_case_sc_nagaraj_2006",
+            "parent_case_sc_chandra_kumar_1997"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_013",
+          "query": "How did Minerva Mills v Union of India reinforce Kesavananda Bharati and strike down unamendable clauses?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_kesavananda",
+            "parent_const_art_368",
+            "parent_case_minerva"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_minerva_mills_1980",
+            "parent_case_sc_kesavananda_1973",
+            "parent_case_sc_waman_rao_1981",
+            "parent_case_sc_sarbananda_sonowal_2005",
+            "parent_case_minerva"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.3333,
+            "Recall@10": 0.3333,
+            "MRR": 0.2,
+            "NDCG@5": 0.2809,
+            "NDCG@10": 0.2809
+          }
+        },
+        {
+          "query_id": "RET_014",
+          "query": "What guidelines were established in SR Bommai regarding President Rule and secularism?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_bommai"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_356",
+            "parent_case_sc_sr_bommai_1994",
+            "parent_const_art_025",
+            "parent_case_bommai"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.25,
+            "NDCG@5": 0.4307,
+            "NDCG@10": 0.4307
+          }
+        },
+        {
+          "query_id": "RET_015",
+          "query": "Can Parliament amend fundamental rights to destroy the basic structure of the Constitution?",
+          "intent": "AMENDMENT_QUERY",
+          "gold_relevant": [
+            "parent_case_kesavananda",
+            "parent_const_art_368"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_368",
+            "parent_amend_024",
+            "parent_case_sc_golak_nath_1967",
+            "parent_case_sc_minerva_mills_1980",
+            "parent_const_art_031c"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.5,
+            "Recall@10": 1.0,
+            "MRR": 1.0,
+            "NDCG@5": 0.2754,
+            "NDCG@10": 0.5361
+          }
+        },
+        {
+          "query_id": "RET_016",
+          "query": "Is privacy recognized as an intrinsic part of the right to life and liberty in India?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_case_puttaswamy",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_puttaswamy_privacy_2017",
+            "parent_case_sc_kharak_singh_1963",
+            "parent_case_sc_r_rajagopal_1994",
+            "parent_case_sc_pucl_food_2001",
+            "parent_case_sc_pucl_phone_tapping_1997"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 0.0,
+            "Hit@10": 0.0,
+            "Recall@5": 0.0,
+            "Recall@10": 0.0,
+            "MRR": 0.0,
+            "NDCG@5": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        {
+          "query_id": "RET_017",
+          "query": "Explain the interconnected golden triangle of fundamental rights under Articles 14, 19 and 21",
+          "intent": "LEGAL_EXPLANATION",
+          "gold_relevant": [
+            "parent_case_maneka",
+            "parent_const_art_14",
+            "parent_const_art_19",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_021",
+            "parent_const_art_013",
+            "parent_case_sc_maneka_gandhi_1978",
+            "parent_case_maneka",
+            "parent_case_sc_kharak_singh_1963"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 0.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.25,
+            "Recall@10": 0.25,
+            "MRR": 0.25,
+            "NDCG@5": 0.0944,
+            "NDCG@10": 0.0944
+          }
+        },
+        {
+          "query_id": "RET_018",
+          "query": "How is secularism protected under the Constitution as affirmed in SR Bommai and Preamble?",
+          "intent": "LEGAL_EXPLANATION",
+          "gold_relevant": [
+            "parent_const_preamble",
+            "parent_case_bommai"
+          ],
+          "retrieved_top_5": [
+            "parent_const_preamble",
+            "parent_case_sc_sr_bommai_1994",
+            "parent_const_art_356",
+            "parent_const_art_025",
+            "parent_case_bommai"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 1.0,
+            "NDCG@5": 0.9328,
+            "NDCG@10": 0.9328
+          }
+        },
+        {
+          "query_id": "RET_019",
+          "query": "Writ jurisdiction of the Supreme Court to issue directions, orders or writs under Article 32",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_32"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_032",
+            "parent_const_art_32",
+            "parent_const_art_226",
+            "parent_const_art_144",
+            "parent_const_art_142"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.5,
+            "NDCG@5": 0.6309,
+            "NDCG@10": 0.6309
+          }
+        },
+        {
+          "query_id": "RET_020",
+          "query": "What is the procedure established by law versus substantive due process post Maneka Gandhi?",
+          "intent": "CASE_COMPARISON",
+          "gold_relevant": [
+            "parent_case_maneka",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_maneka_gandhi_1978",
+            "parent_case_sc_indira_gandhi_1975",
+            "parent_case_maneka",
+            "parent_case_sc_ak_gopalan_1950",
+            "parent_const_art_021"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.5,
+            "Recall@10": 1.0,
+            "MRR": 0.3333,
+            "NDCG@5": 0.4131,
+            "NDCG@10": 0.5112
+          }
+        }
+      ]
+    },
+    {
+      "experiment_name": "Exp 6: Full Pipeline (+ Cross-Encoder)",
+      "status": "COMPLETED",
+      "sample_count": 20,
+      "requires_human_annotation_count": 3,
+      "total_latency_seconds": 19.373,
+      "avg_latency_ms": 968.65,
+      "metrics": {
+        "Hit@1": 0.4,
+        "Hit@3": 1.0,
+        "Hit@5": 1.0,
+        "Hit@10": 1.0,
+        "Recall@5": 0.8583,
+        "Recall@10": 0.8583,
+        "MRR": 0.6583,
+        "NDCG@5": 0.6296,
+        "NDCG@10": 0.6296
+      },
+      "query_details": [
+        {
+          "query_id": "RET_001",
+          "query": "What constitutional remedies are available under Article 32 for fundamental rights violations?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_32"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_032",
+            "parent_const_art_32",
+            "parent_const_art_031c",
+            "parent_amend_044",
+            "parent_case_sc_golak_nath_1967"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.5,
+            "NDCG@5": 0.6309,
+            "NDCG@10": 0.6309
+          }
+        },
+        {
+          "query_id": "RET_002",
+          "query": "What does Article 21 guarantee regarding protection of life and personal liberty?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_021",
+            "parent_const_art_21",
+            "parent_const_art_020",
+            "parent_case_sc_francis_coralie_1981",
+            "parent_case_sc_puttaswamy_privacy_2017"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.5,
+            "NDCG@5": 0.6309,
+            "NDCG@10": 0.6309
+          }
+        },
+        {
+          "query_id": "RET_003",
+          "query": "Explain equality before law and equal protection of the laws under Article 14",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_14"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_014",
+            "parent_const_art_14",
+            "parent_case_sc_royappa_1974",
+            "parent_const_art_016",
+            "parent_case_sc_indira_gandhi_1975"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.5,
+            "NDCG@5": 0.6309,
+            "NDCG@10": 0.6309
+          }
+        },
+        {
+          "query_id": "RET_004",
+          "query": "What six fundamental freedoms are guaranteed to citizens under Article 19?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_19"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_19",
+            "parent_const_art_019",
+            "parent_case_sc_anuradha_bhasin_2020"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 1.0,
+            "NDCG@5": 1.0,
+            "NDCG@10": 1.0
+          }
+        },
+        {
+          "query_id": "RET_005",
+          "query": "What are the core ideals and objectives set out in the Preamble of the Constitution?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_preamble"
+          ],
+          "retrieved_top_5": [
+            "parent_const_preamble",
+            "parent_amend_042",
+            "parent_const_art_038",
+            "parent_case_sc_kesavananda_1973",
+            "parent_const_art_051a"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 1.0,
+            "NDCG@5": 1.0,
+            "NDCG@10": 1.0
+          }
+        },
+        {
+          "query_id": "RET_006",
+          "query": "How is the term State defined under Article 12 for the purpose of Part III?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_12"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_12",
+            "parent_const_art_012",
+            "parent_const_art_036",
+            "parent_const_art_359",
+            "parent_const_art_226"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 1.0,
+            "NDCG@5": 1.0,
+            "NDCG@10": 1.0
+          }
+        },
+        {
+          "query_id": "RET_007",
+          "query": "What does Article 21A provide regarding the fundamental right to free and compulsory education?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_21A"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_021a",
+            "parent_const_art_21A",
+            "parent_amend_086",
+            "parent_case_sc_unni_krishnan_1993",
+            "parent_const_art_21"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.5,
+            "NDCG@5": 0.6309,
+            "NDCG@10": 0.6309
+          }
+        },
+        {
+          "query_id": "RET_008",
+          "query": "Explain the power of Parliament to amend the Constitution and procedure under Article 368",
+          "intent": "AMENDMENT_QUERY",
+          "gold_relevant": [
+            "parent_const_art_368"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_368",
+            "parent_amend_024",
+            "parent_case_kesavananda",
+            "parent_case_sc_kesavananda_1973"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 1.0,
+            "NDCG@5": 1.0,
+            "NDCG@10": 1.0
+          }
+        },
+        {
+          "query_id": "RET_009",
+          "query": "What was the historical scope and special status granted under Article 370?",
+          "intent": "ARTICLE_LOOKUP",
+          "gold_relevant": [
+            "parent_const_art_370"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_370",
+            "parent_case_sc_article_370_2023",
+            "parent_const_art_371d"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 1.0,
+            "NDCG@5": 1.0,
+            "NDCG@10": 1.0
+          }
+        },
+        {
+          "query_id": "RET_010",
+          "query": "Explain the landmark ruling in Kesavananda Bharati regarding the basic structure doctrine",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_kesavananda",
+            "parent_const_art_368"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_kesavananda_1973",
+            "parent_const_art_013",
+            "parent_const_art_368",
+            "parent_const_preamble",
+            "parent_case_kesavananda"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.3333,
+            "NDCG@5": 0.4573,
+            "NDCG@10": 0.4573
+          }
+        },
+        {
+          "query_id": "RET_011",
+          "query": "What did the Supreme Court hold in Justice KS Puttaswamy regarding right to privacy under Article 21?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_puttaswamy",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_puttaswamy_privacy_2017",
+            "parent_const_art_021",
+            "parent_case_puttaswamy",
+            "parent_case_sc_r_rajagopal_1994",
+            "parent_case_sc_puttaswamy_aadhaar_2018"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.5,
+            "Recall@10": 0.5,
+            "MRR": 0.3333,
+            "NDCG@5": 0.4131,
+            "NDCG@10": 0.4131
+          }
+        },
+        {
+          "query_id": "RET_012",
+          "query": "What were the facts and ratio decidendi of Maneka Gandhi v Union of India on personal liberty?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_maneka",
+            "parent_const_art_14",
+            "parent_const_art_19",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_maneka_gandhi_1978",
+            "parent_case_sc_puttaswamy_privacy_2017",
+            "parent_case_maneka",
+            "parent_case_sc_madhav_rao_1971",
+            "parent_case_sc_nagaraj_2006"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.25,
+            "Recall@10": 0.25,
+            "MRR": 0.3333,
+            "NDCG@5": 0.3288,
+            "NDCG@10": 0.3288
+          }
+        },
+        {
+          "query_id": "RET_013",
+          "query": "How did Minerva Mills v Union of India reinforce Kesavananda Bharati and strike down unamendable clauses?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_kesavananda",
+            "parent_const_art_368",
+            "parent_case_minerva"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_minerva_mills_1980",
+            "parent_case_minerva",
+            "parent_case_sc_kesavananda_1973",
+            "parent_case_kesavananda"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.6667,
+            "Recall@10": 0.6667,
+            "MRR": 0.5,
+            "NDCG@5": 0.5625,
+            "NDCG@10": 0.5625
+          }
+        },
+        {
+          "query_id": "RET_014",
+          "query": "What guidelines were established in SR Bommai regarding President Rule and secularism?",
+          "intent": "CASE_LAW_QUERY",
+          "gold_relevant": [
+            "parent_case_bommai"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_356",
+            "parent_case_bommai",
+            "parent_case_sc_sr_bommai_1994",
+            "parent_amend_042"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.5,
+            "NDCG@5": 0.6309,
+            "NDCG@10": 0.6309
+          }
+        },
+        {
+          "query_id": "RET_015",
+          "query": "Can Parliament amend fundamental rights to destroy the basic structure of the Constitution?",
+          "intent": "AMENDMENT_QUERY",
+          "gold_relevant": [
+            "parent_case_kesavananda",
+            "parent_const_art_368"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_368",
+            "parent_case_minerva",
+            "parent_case_sc_kesavananda_1973",
+            "parent_case_kesavananda",
+            "parent_case_sc_golak_nath_1967"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 1.0,
+            "NDCG@5": 0.6313,
+            "NDCG@10": 0.6313
+          }
+        },
+        {
+          "query_id": "RET_016",
+          "query": "Is privacy recognized as an intrinsic part of the right to life and liberty in India?",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_case_puttaswamy",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_puttaswamy_privacy_2017",
+            "parent_case_puttaswamy",
+            "parent_const_art_021",
+            "parent_const_art_21",
+            "parent_case_sc_maneka_gandhi_1978"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.5,
+            "NDCG@5": 0.5296,
+            "NDCG@10": 0.5296
+          }
+        },
+        {
+          "query_id": "RET_017",
+          "query": "Explain the interconnected golden triangle of fundamental rights under Articles 14, 19 and 21",
+          "intent": "LEGAL_EXPLANATION",
+          "gold_relevant": [
+            "parent_case_maneka",
+            "parent_const_art_14",
+            "parent_const_art_19",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_case_maneka",
+            "parent_case_sc_maneka_gandhi_1978",
+            "parent_const_art_021",
+            "parent_const_art_013",
+            "parent_case_sc_golak_nath_1967"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.25,
+            "Recall@10": 0.25,
+            "MRR": 1.0,
+            "NDCG@5": 0.2192,
+            "NDCG@10": 0.2192
+          }
+        },
+        {
+          "query_id": "RET_018",
+          "query": "How is secularism protected under the Constitution as affirmed in SR Bommai and Preamble?",
+          "intent": "LEGAL_EXPLANATION",
+          "gold_relevant": [
+            "parent_const_preamble",
+            "parent_case_bommai"
+          ],
+          "retrieved_top_5": [
+            "parent_case_sc_sr_bommai_1994",
+            "parent_const_art_356",
+            "parent_const_preamble",
+            "parent_amend_042",
+            "parent_case_bommai"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.3333,
+            "NDCG@5": 0.5197,
+            "NDCG@10": 0.5197
+          }
+        },
+        {
+          "query_id": "RET_019",
+          "query": "Writ jurisdiction of the Supreme Court to issue directions, orders or writs under Article 32",
+          "intent": "RIGHTS_QUERY",
+          "gold_relevant": [
+            "parent_const_art_32"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_032",
+            "parent_const_art_226",
+            "parent_const_art_32",
+            "parent_const_art_142",
+            "parent_case_sc_chandra_kumar_1997"
+          ],
+          "metrics": {
+            "Hit@1": 0.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 1.0,
+            "Recall@10": 1.0,
+            "MRR": 0.3333,
+            "NDCG@5": 0.5,
+            "NDCG@10": 0.5
+          }
+        },
+        {
+          "query_id": "RET_020",
+          "query": "What is the procedure established by law versus substantive due process post Maneka Gandhi?",
+          "intent": "CASE_COMPARISON",
+          "gold_relevant": [
+            "parent_case_maneka",
+            "parent_const_art_21"
+          ],
+          "retrieved_top_5": [
+            "parent_const_art_21",
+            "parent_const_art_021",
+            "parent_case_sc_maneka_gandhi_1978",
+            "parent_case_sc_ak_gopalan_1950",
+            "parent_const_art_014"
+          ],
+          "metrics": {
+            "Hit@1": 1.0,
+            "Hit@3": 1.0,
+            "Hit@5": 1.0,
+            "Hit@10": 1.0,
+            "Recall@5": 0.5,
+            "Recall@10": 0.5,
+            "MRR": 1.0,
+            "NDCG@5": 0.2754,
+            "NDCG@10": 0.2754
+          }
+        }
+      ]
+    }
+  ],
+  "ner": {
+    "experiment_name": "LegalNER_Exact_Span",
+    "status": "COMPLETED",
+    "exact_span_match": true,
+    "sample_count": 20,
+    "requires_human_annotation_count": 2,
+    "total_latency_seconds": 0.758,
+    "metrics": {
+      "evaluation_definition": "Exact entity-level evaluation (matching: (start, end, label)). Precision = TP/(TP+FP), Recall = TP/(TP+FN), F1 = 2PR/(P+R).",
+      "micro_precision": 0.8103,
+      "micro_recall": 0.8868,
+      "micro_f1": 0.8468,
+      "macro_precision": 0.7846,
+      "macro_recall": 0.8274,
+      "macro_f1": 0.8011,
+      "total_gold_entities": 53,
+      "total_predicted_entities": 58,
+      "per_class": {
+        "ACT": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4,
+          "tp": 4,
+          "fp": 0,
+          "fn": 0
+        },
+        "AMENDMENT": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "ARTICLE": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 13,
+          "tp": 13,
+          "fp": 0,
+          "fn": 0
+        },
+        "CASE": {
+          "precision": 0.8571,
+          "recall": 0.8571,
+          "f1": 0.8571,
+          "support": 7,
+          "tp": 6,
+          "fp": 1,
+          "fn": 1
+        },
+        "COURT": {
+          "precision": 0.875,
+          "recall": 1.0,
+          "f1": 0.9333,
+          "support": 7,
+          "tp": 7,
+          "fp": 1,
+          "fn": 0
+        },
+        "DATE": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 5,
+          "tp": 5,
+          "fp": 0,
+          "fn": 0
+        },
+        "LEGAL_CONCEPT": {
+          "precision": 0.3636,
+          "recall": 0.6667,
+          "f1": 0.4706,
+          "support": 6,
+          "tp": 4,
+          "fp": 7,
+          "fn": 2
+        },
+        "PERSON": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2,
+          "tp": 0,
+          "fp": 1,
+          "fn": 2
+        },
+        "RIGHT": {
+          "precision": 0.75,
+          "recall": 0.75,
+          "f1": 0.75,
+          "support": 4,
+          "tp": 3,
+          "fp": 1,
+          "fn": 1
+        },
+        "SECTION": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2,
+          "tp": 2,
+          "fp": 0,
+          "fn": 0
+        }
+      }
+    },
+    "category_coverage": {
+      "ARTICLE": 13,
+      "CASE": 7,
+      "PERSON": 2,
+      "COURT": 7,
+      "LEGAL_CONCEPT": 6,
+      "RIGHT": 4,
+      "AMENDMENT": 3,
+      "ACT": 4,
+      "SECTION": 2,
+      "DATE": 5
+    }
+  },
+  "intent_classification": {
+    "status": "COMPLETED",
+    "total_samples": 183,
+    "train_samples": 155,
+    "test_samples": 28,
+    "random_seed": 42,
+    "split_ratio": "85/15",
+    "total_latency_seconds": 0.606,
+    "models": {
+      "rule_based_baseline": {
+        "sample_count": 28,
+        "accuracy": 0.7857,
+        "macro_precision": 0.9123,
+        "macro_recall": 0.8182,
+        "macro_f1": 0.8123,
+        "weighted_f1": 0.7986,
+        "per_class": {
+          "ARTICLE_LOOKUP": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6667,
+            "support": 4
+          },
+          "CASE_LAW_QUERY": {
+            "precision": 1.0,
+            "recall": 0.6667,
+            "f1": 0.8,
+            "support": 3
+          },
+          "CASE_COMPARISON": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          "LEGAL_EXPLANATION": {
+            "precision": 0.2857,
+            "recall": 1.0,
+            "f1": 0.4444,
+            "support": 2
+          },
+          "RIGHTS_QUERY": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          "AMENDMENT_QUERY": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6667,
+            "support": 2
+          },
+          "PRECEDENT_QUERY": {
+            "precision": 1.0,
+            "recall": 0.3333,
+            "f1": 0.5,
+            "support": 3
+          },
+          "DEFINITION_QUERY": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 3
+          },
+          "CONSTITUTIONAL_PROCEDURE": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          "MULTI_DOCUMENT_QUERY": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          "OUT_OF_SCOPE": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571,
+            "support": 3
+          }
+        },
+        "classes": [
+          "ARTICLE_LOOKUP",
+          "CASE_LAW_QUERY",
+          "CASE_COMPARISON",
+          "LEGAL_EXPLANATION",
+          "RIGHTS_QUERY",
+          "AMENDMENT_QUERY",
+          "PRECEDENT_QUERY",
+          "DEFINITION_QUERY",
+          "CONSTITUTIONAL_PROCEDURE",
+          "MULTI_DOCUMENT_QUERY",
+          "OUT_OF_SCOPE"
+        ],
+        "confusion_matrix": [
+          [
+            2,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3
+          ]
+        ]
+      },
+      "tfidf_logistic_regression": {
+        "sample_count": 28,
+        "accuracy": 0.6429,
+        "macro_precision": 0.697,
+        "macro_recall": 0.6591,
+        "macro_f1": 0.6487,
+        "weighted_f1": 0.6378,
+        "per_class": {
+          "ARTICLE_LOOKUP": {
+            "precision": 0.75,
+            "recall": 0.75,
+            "f1": 0.75,
+            "support": 4
+          },
+          "CASE_LAW_QUERY": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 3
+          },
+          "CASE_COMPARISON": {
+            "precision": 0.5,
+            "recall": 0.5,
+            "f1": 0.5,
+            "support": 2
+          },
+          "LEGAL_EXPLANATION": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6667,
+            "support": 2
+          },
+          "RIGHTS_QUERY": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6667,
+            "support": 2
+          },
+          "AMENDMENT_QUERY": {
+            "precision": 0.6667,
+            "recall": 1.0,
+            "f1": 0.8,
+            "support": 2
+          },
+          "PRECEDENT_QUERY": {
+            "precision": 0.25,
+            "recall": 0.3333,
+            "f1": 0.2857,
+            "support": 3
+          },
+          "DEFINITION_QUERY": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 3
+          },
+          "CONSTITUTIONAL_PROCEDURE": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6667,
+            "support": 2
+          },
+          "MULTI_DOCUMENT_QUERY": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          "OUT_OF_SCOPE": {
+            "precision": 1.0,
+            "recall": 0.6667,
+            "f1": 0.8,
+            "support": 3
+          }
+        },
+        "classes": [
+          "ARTICLE_LOOKUP",
+          "CASE_LAW_QUERY",
+          "CASE_COMPARISON",
+          "LEGAL_EXPLANATION",
+          "RIGHTS_QUERY",
+          "AMENDMENT_QUERY",
+          "PRECEDENT_QUERY",
+          "DEFINITION_QUERY",
+          "CONSTITUTIONAL_PROCEDURE",
+          "MULTI_DOCUMENT_QUERY",
+          "OUT_OF_SCOPE"
+        ],
+        "confusion_matrix": [
+          [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2
+          ]
+        ]
+      },
+      "hybrid_classifier": {
+        "sample_count": 28,
+        "accuracy": 0.8214,
+        "macro_precision": 0.9432,
+        "macro_recall": 0.8636,
+        "macro_f1": 0.8647,
+        "weighted_f1": 0.8287,
+        "per_class": {
+          "ARTICLE_LOOKUP": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6667,
+            "support": 4
+          },
+          "CASE_LAW_QUERY": {
+            "precision": 1.0,
+            "recall": 0.6667,
+            "f1": 0.8,
+            "support": 3
+          },
+          "CASE_COMPARISON": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          "LEGAL_EXPLANATION": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          "RIGHTS_QUERY": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          "AMENDMENT_QUERY": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          "PRECEDENT_QUERY": {
+            "precision": 1.0,
+            "recall": 0.3333,
+            "f1": 0.5,
+            "support": 3
+          },
+          "DEFINITION_QUERY": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 3
+          },
+          "CONSTITUTIONAL_PROCEDURE": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          "MULTI_DOCUMENT_QUERY": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          "OUT_OF_SCOPE": {
+            "precision": 0.375,
+            "recall": 1.0,
+            "f1": 0.5455,
+            "support": 3
+          }
+        },
+        "classes": [
+          "ARTICLE_LOOKUP",
+          "CASE_LAW_QUERY",
+          "CASE_COMPARISON",
+          "LEGAL_EXPLANATION",
+          "RIGHTS_QUERY",
+          "AMENDMENT_QUERY",
+          "PRECEDENT_QUERY",
+          "DEFINITION_QUERY",
+          "CONSTITUTIONAL_PROCEDURE",
+          "MULTI_DOCUMENT_QUERY",
+          "OUT_OF_SCOPE"
+        ],
+        "confusion_matrix": [
+          [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2
+          ],
+          [
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3
+          ]
+        ]
+      }
+    },
+    "comparison_summary": {
+      "rule_vs_ml_accuracy_delta": -0.1428,
+      "rule_vs_ml_macro_f1_delta": -0.1636,
+      "hybrid_vs_ml_accuracy_delta": 0.1785,
+      "hybrid_vs_ml_macro_f1_delta": 0.216
+    },
+    "cross_validation_ml_5fold": {
+      "folds": 5,
+      "mean_accuracy": 0.618,
+      "std_accuracy": 0.07,
+      "mean_macro_f1": 0.5888,
+      "std_macro_f1": 0.0831,
+      "fold_accuracies": [
+        0.6486,
+        0.6216,
+        0.4865,
+        0.6389,
+        0.6944
+      ],
+      "fold_macro_f1s": [
+        0.6098,
+        0.6009,
+        0.4318,
+        0.6221,
+        0.6792
+      ]
+    },
+    "statistical_limitation": "DATASET LIMITATION: Total benchmark contains 183 examples across 11 classes (~16 samples/class). The held-out test set contains 28 samples (~2 per class). Class distributions have variance; 5-fold cross-validation is reported to provide confidence intervals."
+  },
+  "entity_linking": {
+    "experiment_name": "Canonical_Entity_Linker",
+    "status": "COMPLETED",
+    "sample_count": 30,
+    "requires_human_annotation_count": 1,
+    "total_latency_seconds": 0.001,
+    "avg_latency_ms": 0.03,
+    "metrics": {
+      "sample_count": 30,
+      "exact_linking_accuracy": 0.8667,
+      "correct_entity_id_rate": 0.8667,
+      "out_of_kb_rejection_accuracy": 1.0,
+      "per_entity_type": {
+        "ARTICLE": {
+          "accuracy": 0.8889,
+          "correct": 8,
+          "total": 9
+        },
+        "CASE": {
+          "accuracy": 1.0,
+          "correct": 12,
+          "total": 12
+        },
+        "AMENDMENT": {
+          "accuracy": 0.6667,
+          "correct": 2,
+          "total": 3
+        },
+        "LEGAL_CONCEPT": {
+          "accuracy": 0.5,
+          "correct": 1,
+          "total": 2
+        },
+        "RIGHT": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 1
+        },
+        "UNKNOWN": {
+          "accuracy": 1.0,
+          "correct": 3,
+          "total": 3
+        }
+      }
+    },
+    "predictions": [
+      {
+        "id": "EL_001",
+        "mention": "Article 21",
+        "entity_type": "ARTICLE",
+        "predicted_canonical_id": "ARTICLE_21"
+      },
+      {
+        "id": "EL_002",
+        "mention": "Art 21",
+        "entity_type": "ARTICLE",
+        "predicted_canonical_id": "ARTICLE_21"
+      },
+      {
+        "id": "EL_003",
+        "mention": "Art. 14",
+        "entity_type": "ARTICLE",
+        "predicted_canonical_id": "ARTICLE_14"
+      },
+      {
+        "id": "EL_004",
+        "mention": "Article 19",
+        "entity_type": "ARTICLE",
+        "predicted_canonical_id": "ARTICLE_19"
+      },
+      {
+        "id": "EL_005",
+        "mention": "Article 32",
+        "entity_type": "ARTICLE",
+        "predicted_canonical_id": "ARTICLE_32"
+      },
+      {
+        "id": "EL_006",
+        "mention": "Preamble",
+        "entity_type": "ARTICLE",
+        "predicted_canonical_id": "PREAMBLE"
+      },
+      {
+        "id": "EL_007",
+        "mention": "Article 368",
+        "entity_type": "ARTICLE",
+        "predicted_canonical_id": "ARTICLE_368"
+      },
+      {
+        "id": "EL_008",
+        "mention": "Article 21A",
+        "entity_type": "ARTICLE",
+        "predicted_canonical_id": "ARTICLE_21A"
+      },
+      {
+        "id": "EL_009",
+        "mention": "Art. 12",
+        "entity_type": "ARTICLE",
+        "predicted_canonical_id": "ARTICLE_12"
+      },
+      {
+        "id": "EL_010",
+        "mention": "Puttaswamy",
+        "entity_type": "CASE",
+        "predicted_canonical_id": "CASE_PUTTASWAMY_2017"
+      },
+      {
+        "id": "EL_011",
+        "mention": "Justice K.S. Puttaswamy",
+        "entity_type": "CASE",
+        "predicted_canonical_id": "CASE_PUTTASWAMY_2017"
+      },
+      {
+        "id": "EL_012",
+        "mention": "Right to Privacy case",
+        "entity_type": "CASE",
+        "predicted_canonical_id": "CASE_PUTTASWAMY_2017"
+      },
+      {
+        "id": "EL_013",
+        "mention": "Kesavananda Bharati",
+        "entity_type": "CASE",
+        "predicted_canonical_id": "CASE_KESAVANANDA_1973"
+      },
+      {
+        "id": "EL_014",
+        "mention": "basic structure case",
+        "entity_type": "CASE",
+        "predicted_canonical_id": "CASE_KESAVANANDA_1973"
+      },
+      {
+        "id": "EL_015",
+        "mention": "Maneka Gandhi",
+        "entity_type": "CASE",
+        "predicted_canonical_id": "CASE_MANEKA_1978"
+      },
+      {
+        "id": "EL_016",
+        "mention": "passport case",
+        "entity_type": "CASE",
+        "predicted_canonical_id": "CASE_MANEKA_1978"
+      },
+      {
+        "id": "EL_017",
+        "mention": "Minerva Mills",
+        "entity_type": "CASE",
+        "predicted_canonical_id": "CASE_MINERVA_1980"
+      },
+      {
+        "id": "EL_018",
+        "mention": "SR Bommai",
+        "entity_type": "CASE",
+        "predicted_canonical_id": "CASE_BOMMAI_1994"
+      },
+      {
+        "id": "EL_019",
+        "mention": "president rule case",
+        "entity_type": "CASE",
+        "predicted_canonical_id": "CASE_BOMMAI_1994"
+      },
+      {
+        "id": "EL_020",
+        "mention": "Indra Sawhney",
+        "entity_type": "CASE",
+        "predicted_canonical_id": "CASE_INDRA_SAWHNEY_1992"
+      },
+      {
+        "id": "EL_021",
+        "mention": "mandal case",
+        "entity_type": "CASE",
+        "predicted_canonical_id": "CASE_INDRA_SAWHNEY_1992"
+      },
+      {
+        "id": "EL_022",
+        "mention": "42nd Amendment",
+        "entity_type": "AMENDMENT",
+        "predicted_canonical_id": "AMENDMENT_42"
+      },
+      {
+        "id": "EL_023",
+        "mention": "Forty-fourth Amendment",
+        "entity_type": "AMENDMENT",
+        "predicted_canonical_id": null
+      },
+      {
+        "id": "EL_024",
+        "mention": "86th Amendment",
+        "entity_type": "AMENDMENT",
+        "predicted_canonical_id": "AMENDMENT_86"
+      },
+      {
+        "id": "EL_025",
+        "mention": "basic structure doctrine",
+        "entity_type": "LEGAL_CONCEPT",
+        "predicted_canonical_id": "CONCEPT_BASIC_STRUCTURE"
+      },
+      {
+        "id": "EL_026",
+        "mention": "procedure established by law",
+        "entity_type": "LEGAL_CONCEPT",
+        "predicted_canonical_id": null
+      },
+      {
+        "id": "EL_027",
+        "mention": "right to privacy",
+        "entity_type": "RIGHT",
+        "predicted_canonical_id": "RIGHT_PRIVACY"
+      },
+      {
+        "id": "EL_028",
+        "mention": "Section 999 of municipal by-laws",
+        "entity_type": "UNKNOWN",
+        "predicted_canonical_id": null
+      },
+      {
+        "id": "EL_029",
+        "mention": "John Doe versus Jane Doe 1850",
+        "entity_type": "UNKNOWN",
+        "predicted_canonical_id": null
+      },
+      {
+        "id": "EL_030",
+        "mention": "Arbitrary unregistered policy 2026",
+        "entity_type": "UNKNOWN",
+        "predicted_canonical_id": null
+      }
+    ]
+  },
+  "rag_citations": {
+    "experiment_name": "citation_integrity_eval",
+    "status": "COMPLETED",
+    "sample_count": 8,
+    "requires_human_annotation_count": 1,
+    "total_latency_seconds": 0.001,
+    "metrics": {
+      "sample_count": 8,
+      "citation_validity_rate": 1.0,
+      "citation_precision": 1.0,
+      "evidence_coverage": 1.0,
+      "supported_claim_rate": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstention_accuracy": 1.0,
+      "total_citations_checked": 9,
+      "total_valid_citations": 9,
+      "structural_vs_semantic_note": "Notice: Structural citation validation verifies evidence provenance and prevents fabricated citations. It does NOT claim semantic or substantive legal truth."
+    },
+    "sample_runs": [
+      {
+        "question_id": "RAG_001",
+        "question": "What did the Supreme Court decide in Justice KS Puttaswamy regarding the right to privacy under Article 21?",
+        "expected_action": "answer",
+        "actual_action": "answer",
+        "citations_checked": 2,
+        "valid_citations_count": 2,
+        "invalid_citations_count": 0,
+        "retrieved_evidence_count": 2,
+        "cited_evidence_count": 2,
+        "supported_claims_count": 1,
+        "unsupported_claims_count": 0,
+        "validation_details": {
+          "valid": true,
+          "citations_checked": 2,
+          "valid_citations": [
+            {
+              "document_id": "parent_case_puttaswamy",
+              "source_title": "Doc parent_case_puttaswamy",
+              "doc_type": "constitution"
+            },
+            {
+              "document_id": "parent_const_art_21",
+              "source_title": "Doc parent_const_art_21",
+              "doc_type": "constitution"
+            }
+          ],
+          "invalid_citations": [],
+          "unsupported_claims": [],
+          "validation_score": 1.0,
+          "structural_validation": {
+            "all_docs_exist": true,
+            "all_docs_in_retrieved_evidence": true,
+            "has_required_metadata": true
+          },
+          "claim_verification": {
+            "level": "surface_token_overlap",
+            "overlap_score": 0.1,
+            "disclaimer": "Structural citation validation verifies document existence and retrieval provenance. Semantic factual verification is heuristic and does not guarantee complete legal correctness."
+          },
+          "summary": "Validation passed (2/2 valid citations)."
+        }
+      },
+      {
+        "question_id": "RAG_002",
+        "question": "What is the basic structure doctrine established in Kesavananda Bharati?",
+        "expected_action": "answer",
+        "actual_action": "answer",
+        "citations_checked": 2,
+        "valid_citations_count": 2,
+        "invalid_citations_count": 0,
+        "retrieved_evidence_count": 2,
+        "cited_evidence_count": 2,
+        "supported_claims_count": 1,
+        "unsupported_claims_count": 0,
+        "validation_details": {
+          "valid": true,
+          "citations_checked": 2,
+          "valid_citations": [
+            {
+              "document_id": "parent_case_kesavananda",
+              "source_title": "Doc parent_case_kesavananda",
+              "doc_type": "constitution"
+            },
+            {
+              "document_id": "parent_const_art_368",
+              "source_title": "Doc parent_const_art_368",
+              "doc_type": "constitution"
+            }
+          ],
+          "invalid_citations": [],
+          "unsupported_claims": [],
+          "validation_score": 1.0,
+          "structural_validation": {
+            "all_docs_exist": true,
+            "all_docs_in_retrieved_evidence": true,
+            "has_required_metadata": true
+          },
+          "claim_verification": {
+            "level": "surface_token_overlap",
+            "overlap_score": 0.1,
+            "disclaimer": "Structural citation validation verifies document existence and retrieval provenance. Semantic factual verification is heuristic and does not guarantee complete legal correctness."
+          },
+          "summary": "Validation passed (2/2 valid citations)."
+        }
+      },
+      {
+        "question_id": "RAG_003",
+        "question": "How did Maneka Gandhi expand the interpretation of personal liberty and procedure established by law?",
+        "expected_action": "answer",
+        "actual_action": "answer",
+        "citations_checked": 2,
+        "valid_citations_count": 2,
+        "invalid_citations_count": 0,
+        "retrieved_evidence_count": 2,
+        "cited_evidence_count": 2,
+        "supported_claims_count": 1,
+        "unsupported_claims_count": 0,
+        "validation_details": {
+          "valid": true,
+          "citations_checked": 2,
+          "valid_citations": [
+            {
+              "document_id": "parent_case_maneka",
+              "source_title": "Doc parent_case_maneka",
+              "doc_type": "constitution"
+            },
+            {
+              "document_id": "parent_const_art_21",
+              "source_title": "Doc parent_const_art_21",
+              "doc_type": "constitution"
+            }
+          ],
+          "invalid_citations": [],
+          "unsupported_claims": [],
+          "validation_score": 1.0,
+          "structural_validation": {
+            "all_docs_exist": true,
+            "all_docs_in_retrieved_evidence": true,
+            "has_required_metadata": true
+          },
+          "claim_verification": {
+            "level": "surface_token_overlap",
+            "overlap_score": 0.1,
+            "disclaimer": "Structural citation validation verifies document existence and retrieval provenance. Semantic factual verification is heuristic and does not guarantee complete legal correctness."
+          },
+          "summary": "Validation passed (2/2 valid citations)."
+        }
+      },
+      {
+        "question_id": "RAG_004",
+        "question": "What remedies are provided under Article 32 for the enforcement of fundamental rights?",
+        "expected_action": "answer",
+        "actual_action": "answer",
+        "citations_checked": 1,
+        "valid_citations_count": 1,
+        "invalid_citations_count": 0,
+        "retrieved_evidence_count": 1,
+        "cited_evidence_count": 1,
+        "supported_claims_count": 1,
+        "unsupported_claims_count": 0,
+        "validation_details": {
+          "valid": true,
+          "citations_checked": 1,
+          "valid_citations": [
+            {
+              "document_id": "parent_const_art_32",
+              "source_title": "Doc parent_const_art_32",
+              "doc_type": "constitution"
+            }
+          ],
+          "invalid_citations": [],
+          "unsupported_claims": [],
+          "validation_score": 1.0,
+          "structural_validation": {
+            "all_docs_exist": true,
+            "all_docs_in_retrieved_evidence": true,
+            "has_required_metadata": true
+          },
+          "claim_verification": {
+            "level": "surface_token_overlap",
+            "overlap_score": 0.1,
+            "disclaimer": "Structural citation validation verifies document existence and retrieval provenance. Semantic factual verification is heuristic and does not guarantee complete legal correctness."
+          },
+          "summary": "Validation passed (1/1 valid citations)."
+        }
+      },
+      {
+        "question_id": "RAG_005",
+        "question": "What did Minerva Mills hold regarding the balance between fundamental rights and directive principles?",
+        "expected_action": "answer",
+        "actual_action": "answer",
+        "citations_checked": 2,
+        "valid_citations_count": 2,
+        "invalid_citations_count": 0,
+        "retrieved_evidence_count": 2,
+        "cited_evidence_count": 2,
+        "supported_claims_count": 1,
+        "unsupported_claims_count": 0,
+        "validation_details": {
+          "valid": true,
+          "citations_checked": 2,
+          "valid_citations": [
+            {
+              "document_id": "parent_case_minerva",
+              "source_title": "Doc parent_case_minerva",
+              "doc_type": "constitution"
+            },
+            {
+              "document_id": "parent_const_art_368",
+              "source_title": "Doc parent_const_art_368",
+              "doc_type": "constitution"
+            }
+          ],
+          "invalid_citations": [],
+          "unsupported_claims": [],
+          "validation_score": 1.0,
+          "structural_validation": {
+            "all_docs_exist": true,
+            "all_docs_in_retrieved_evidence": true,
+            "has_required_metadata": true
+          },
+          "claim_verification": {
+            "level": "surface_token_overlap",
+            "overlap_score": 0.1,
+            "disclaimer": "Structural citation validation verifies document existence and retrieval provenance. Semantic factual verification is heuristic and does not guarantee complete legal correctness."
+          },
+          "summary": "Validation passed (2/2 valid citations)."
+        }
+      },
+      {
+        "question_id": "RAG_OOS_001",
+        "question": "Who won the cricket match between India and Australia yesterday?",
+        "expected_action": "abstain",
+        "actual_action": "abstain",
+        "citations_checked": 0,
+        "valid_citations_count": 0,
+        "invalid_citations_count": 0,
+        "retrieved_evidence_count": 0,
+        "cited_evidence_count": 0,
+        "supported_claims_count": 0,
+        "unsupported_claims_count": 0,
+        "abstention_details": {
+          "should_abstain": true,
+          "abstention_reason": "NO_RETRIEVAL_RESULTS",
+          "safe_response": "**Abstention Notice**: No relevant constitutional articles or landmark judgments were found in the verified legal database for your inquiry. To prevent hallucination, generation has been safely withheld. Please verify Article numbers or case citations and try again.",
+          "abstention_stage": "RETRIEVAL",
+          "thresholds_applied": {
+            "confidence_threshold": 0.3,
+            "min_retrieval_score": 0.005,
+            "strict_citation_validation": false
+          }
+        }
+      },
+      {
+        "question_id": "RAG_OOS_002",
+        "question": "What is the recommended recipe for making Italian pasta carbonara?",
+        "expected_action": "abstain",
+        "actual_action": "abstain",
+        "citations_checked": 0,
+        "valid_citations_count": 0,
+        "invalid_citations_count": 0,
+        "retrieved_evidence_count": 0,
+        "cited_evidence_count": 0,
+        "supported_claims_count": 0,
+        "unsupported_claims_count": 0,
+        "abstention_details": {
+          "should_abstain": true,
+          "abstention_reason": "NO_RETRIEVAL_RESULTS",
+          "safe_response": "**Abstention Notice**: No relevant constitutional articles or landmark judgments were found in the verified legal database for your inquiry. To prevent hallucination, generation has been safely withheld. Please verify Article numbers or case citations and try again.",
+          "abstention_stage": "RETRIEVAL",
+          "thresholds_applied": {
+            "confidence_threshold": 0.3,
+            "min_retrieval_score": 0.005,
+            "strict_citation_validation": false
+          }
+        }
+      },
+      {
+        "question_id": "RAG_OOS_003",
+        "question": "What are the latest stock market share prices for Apple Inc in New York?",
+        "expected_action": "abstain",
+        "actual_action": "abstain",
+        "citations_checked": 0,
+        "valid_citations_count": 0,
+        "invalid_citations_count": 0,
+        "retrieved_evidence_count": 0,
+        "cited_evidence_count": 0,
+        "supported_claims_count": 0,
+        "unsupported_claims_count": 0,
+        "abstention_details": {
+          "should_abstain": true,
+          "abstention_reason": "NO_RETRIEVAL_RESULTS",
+          "safe_response": "**Abstention Notice**: No relevant constitutional articles or landmark judgments were found in the verified legal database for your inquiry. To prevent hallucination, generation has been safely withheld. Please verify Article numbers or case citations and try again.",
+          "abstention_stage": "RETRIEVAL",
+          "thresholds_applied": {
+            "confidence_threshold": 0.3,
+            "min_retrieval_score": 0.005,
+            "strict_citation_validation": false
+          }
+        }
+      }
+    ]
+  },
+  "query_expansion": {
+    "experiment_name": "query_expansion_usefulness_eval",
+    "status": "COMPLETED",
+    "sample_count": 4,
+    "requires_human_annotation_count": 1,
+    "metrics": {
+      "sample_count": 4,
+      "expansion_precision": 0.75,
+      "drift_rate": 0.0,
+      "average_terms_added": 3.0
+    },
+    "details": [
+      {
+        "query_id": "QE_001",
+        "query": "Can the government take away privacy?",
+        "expanded_terms": [
+          "right to privacy",
+          "personal liberty",
+          "Article 21"
+        ],
+        "expected_useful_terms": [
+          "right to privacy",
+          "Article 21",
+          "Puttaswamy",
+          "personal liberty"
+        ],
+        "distractor_terms": [
+          "tax collection",
+          "criminal procedure code",
+          "traffic rules"
+        ]
+      },
+      {
+        "query_id": "QE_002",
+        "query": "What is the basic structure of the constitution?",
+        "expanded_terms": [
+          "Basic Structure Doctrine",
+          "Article 368",
+          "Kesavananda Bharati v. State of Kerala"
+        ],
+        "expected_useful_terms": [
+          "Kesavananda Bharati",
+          "Article 368",
+          "judicial review",
+          "Minerva Mills"
+        ],
+        "distractor_terms": [
+          "financial bill",
+          "state municipal election"
+        ]
+      },
+      {
+        "query_id": "QE_003",
+        "query": "Explain freedom of speech and expression",
+        "expanded_terms": [
+          "Article 19(1)(a)",
+          "reasonable restrictions",
+          "Article 19(2)"
+        ],
+        "expected_useful_terms": [
+          "Article 19(1)(a)",
+          "reasonable restrictions",
+          "Article 19(2)"
+        ],
+        "distractor_terms": [
+          "income tax",
+          "corporate merger"
+        ]
+      },
+      {
+        "query_id": "QE_004",
+        "query": "What are the rules regarding preventive detention in India?",
+        "expanded_terms": [
+          "Article 22",
+          "A.K. Gopalan v. State of Madras",
+          "safeguards against arrest"
+        ],
+        "expected_useful_terms": [
+          "Article 22",
+          "detention advisory board"
+        ],
+        "distractor_terms": [
+          "trademark registration"
+        ]
+      }
+    ]
+  }
+}

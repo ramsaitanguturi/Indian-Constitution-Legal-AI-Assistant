@@ -1,0 +1,471 @@
+[
+  {
+    "id": "NER_001",
+    "text": "What did Puttaswamy decide about privacy under Article 21?",
+    "entities": [
+      {
+        "text": "Puttaswamy",
+        "label": "CASE",
+        "start": 9,
+        "end": 19
+      },
+      {
+        "text": "privacy",
+        "label": "LEGAL_CONCEPT",
+        "start": 33,
+        "end": 40
+      },
+      {
+        "text": "Article 21",
+        "label": "ARTICLE",
+        "start": 47,
+        "end": 57
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_002",
+    "text": "In Kesavananda Bharati, the Supreme Court of India established the basic structure doctrine in 1973.",
+    "entities": [
+      {
+        "text": "Kesavananda Bharati",
+        "label": "CASE",
+        "start": 3,
+        "end": 22
+      },
+      {
+        "text": "Supreme Court of India",
+        "label": "COURT",
+        "start": 28,
+        "end": 50
+      },
+      {
+        "text": "basic structure",
+        "label": "LEGAL_CONCEPT",
+        "start": 67,
+        "end": 82
+      },
+      {
+        "text": "1973",
+        "label": "DATE",
+        "start": 95,
+        "end": 99
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_003",
+    "text": "Maneka Gandhi challenged passport impoundment violating Article 14, Article 19, and Article 21.",
+    "entities": [
+      {
+        "text": "Maneka Gandhi",
+        "label": "PERSON",
+        "start": 0,
+        "end": 13
+      },
+      {
+        "text": "Article 14",
+        "label": "ARTICLE",
+        "start": 56,
+        "end": 66
+      },
+      {
+        "text": "Article 19",
+        "label": "ARTICLE",
+        "start": 68,
+        "end": 78
+      },
+      {
+        "text": "Article 21",
+        "label": "ARTICLE",
+        "start": 84,
+        "end": 94
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_004",
+    "text": "The 42nd Amendment added the words socialist and secular to the Preamble in 1976.",
+    "entities": [
+      {
+        "text": "42nd Amendment",
+        "label": "AMENDMENT",
+        "start": 4,
+        "end": 18
+      },
+      {
+        "text": "secular",
+        "label": "LEGAL_CONCEPT",
+        "start": 49,
+        "end": 56
+      },
+      {
+        "text": "Preamble",
+        "label": "ARTICLE",
+        "start": 64,
+        "end": 72
+      },
+      {
+        "text": "1976",
+        "label": "DATE",
+        "start": 76,
+        "end": 80
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_005",
+    "text": "The Supreme Court struck down Section 66A of the Information Technology Act in Shreya Singhal.",
+    "entities": [
+      {
+        "text": "Supreme Court",
+        "label": "COURT",
+        "start": 4,
+        "end": 17
+      },
+      {
+        "text": "Section 66A",
+        "label": "SECTION",
+        "start": 30,
+        "end": 41
+      },
+      {
+        "text": "Information Technology Act",
+        "label": "ACT",
+        "start": 49,
+        "end": 75
+      },
+      {
+        "text": "Shreya Singhal",
+        "label": "CASE",
+        "start": 79,
+        "end": 93
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_006",
+    "text": "Article 32 guarantees the right to constitutional remedies before the Supreme Court of India.",
+    "entities": [
+      {
+        "text": "Article 32",
+        "label": "ARTICLE",
+        "start": 0,
+        "end": 10
+      },
+      {
+        "text": "right to constitutional remedies",
+        "label": "RIGHT",
+        "start": 26,
+        "end": 58
+      },
+      {
+        "text": "Supreme Court of India",
+        "label": "COURT",
+        "start": 70,
+        "end": 92
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_007",
+    "text": "Dr. B. R. Ambedkar referred to Article 32 as the heart and soul of the Constitution.",
+    "entities": [
+      {
+        "text": "B. R. Ambedkar",
+        "label": "PERSON",
+        "start": 4,
+        "end": 18
+      },
+      {
+        "text": "Article 32",
+        "label": "ARTICLE",
+        "start": 31,
+        "end": 41
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_008",
+    "text": "Does Article 19(1)(a) protect freedom of speech and expression?",
+    "entities": [
+      {
+        "text": "Article 19(1)(a)",
+        "label": "ARTICLE",
+        "start": 5,
+        "end": 21
+      },
+      {
+        "text": "freedom of speech",
+        "label": "RIGHT",
+        "start": 30,
+        "end": 47
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_009",
+    "text": "In Minerva Mills, the court held that Parliament cannot exercise unlimited amending power under Article 368.",
+    "entities": [
+      {
+        "text": "Minerva Mills",
+        "label": "CASE",
+        "start": 3,
+        "end": 16
+      },
+      {
+        "text": "Article 368",
+        "label": "ARTICLE",
+        "start": 96,
+        "end": 107
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_010",
+    "text": "The 86th Amendment inserted Article 21A guaranteeing the right to education in 2002.",
+    "entities": [
+      {
+        "text": "86th Amendment",
+        "label": "AMENDMENT",
+        "start": 4,
+        "end": 18
+      },
+      {
+        "text": "Article 21A",
+        "label": "ARTICLE",
+        "start": 28,
+        "end": 39
+      },
+      {
+        "text": "right to education",
+        "label": "RIGHT",
+        "start": 57,
+        "end": 75
+      },
+      {
+        "text": "2002",
+        "label": "DATE",
+        "start": 79,
+        "end": 83
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_011",
+    "text": "In SR Bommai, the Supreme Court ruled that secularism is an integral component of the basic structure.",
+    "entities": [
+      {
+        "text": "SR Bommai",
+        "label": "CASE",
+        "start": 3,
+        "end": 12
+      },
+      {
+        "text": "Supreme Court",
+        "label": "COURT",
+        "start": 18,
+        "end": 31
+      },
+      {
+        "text": "secularism",
+        "label": "LEGAL_CONCEPT",
+        "start": 43,
+        "end": 53
+      },
+      {
+        "text": "basic structure",
+        "label": "LEGAL_CONCEPT",
+        "start": 86,
+        "end": 101
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_012",
+    "text": "Section 377 of the Indian Penal Code was read down by the Supreme Court in Navtej Singh Johar.",
+    "entities": [
+      {
+        "text": "Section 377",
+        "label": "SECTION",
+        "start": 0,
+        "end": 11
+      },
+      {
+        "text": "Indian Penal Code",
+        "label": "ACT",
+        "start": 19,
+        "end": 36
+      },
+      {
+        "text": "Supreme Court",
+        "label": "COURT",
+        "start": 58,
+        "end": 71
+      },
+      {
+        "text": "Navtej Singh Johar",
+        "label": "CASE",
+        "start": 75,
+        "end": 93
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_013",
+    "text": "Article 14 guarantees equality before law and prohibits arbitrary action by the State.",
+    "entities": [
+      {
+        "text": "Article 14",
+        "label": "ARTICLE",
+        "start": 0,
+        "end": 10
+      },
+      {
+        "text": "equality before law",
+        "label": "RIGHT",
+        "start": 22,
+        "end": 41
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_014",
+    "text": "Can preventive detention under Article 22 be exercised without judicial review?",
+    "entities": [
+      {
+        "text": "Article 22",
+        "label": "ARTICLE",
+        "start": 31,
+        "end": 41
+      },
+      {
+        "text": "judicial review",
+        "label": "LEGAL_CONCEPT",
+        "start": 63,
+        "end": 78
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_015",
+    "text": "On 26 November 1949, the Constituent Assembly adopted the Constitution of India.",
+    "entities": [
+      {
+        "text": "26 November 1949",
+        "label": "DATE",
+        "start": 3,
+        "end": 19
+      },
+      {
+        "text": "Constitution of India",
+        "label": "ACT",
+        "start": 58,
+        "end": 79
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_016",
+    "text": "The Delhi High Court delivered its verdict in the public interest litigation.",
+    "entities": [
+      {
+        "text": "Delhi High Court",
+        "label": "COURT",
+        "start": 4,
+        "end": 20
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_017",
+    "text": "What is the procedure to file a writ petition under Article 226 before the High Court of Bombay?",
+    "entities": [
+      {
+        "text": "Article 226",
+        "label": "ARTICLE",
+        "start": 52,
+        "end": 63
+      },
+      {
+        "text": "High Court of Bombay",
+        "label": "COURT",
+        "start": 75,
+        "end": 95
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_018",
+    "text": "How does the Aadhaar Act comply with proportionality guidelines laid down in Puttaswamy?",
+    "entities": [
+      {
+        "text": "Aadhaar Act",
+        "label": "ACT",
+        "start": 13,
+        "end": 24
+      },
+      {
+        "text": "Puttaswamy",
+        "label": "CASE",
+        "start": 77,
+        "end": 87
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_019",
+    "text": "Explain the significance of the 44th Amendment in restoring fundamental rights protections after 1978.",
+    "entities": [
+      {
+        "text": "44th Amendment",
+        "label": "AMENDMENT",
+        "start": 32,
+        "end": 46
+      },
+      {
+        "text": "1978",
+        "label": "DATE",
+        "start": 97,
+        "end": 101
+      }
+    ],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_020",
+    "text": "What is the weather like in New Delhi today?",
+    "entities": [],
+    "human_annotation_status": "verified"
+  },
+  {
+    "id": "NER_QUEUED_001",
+    "text": "The collegium system of judicial appointments was challenged under the 99th Constitutional Amendment and NJAC Act.",
+    "entities": [],
+    "human_annotation_status": "requires_human_annotation"
+  },
+  {
+    "id": "NER_QUEUED_002",
+    "text": "Justice H. R. Khanna delivered the celebrated dissenting opinion in ADM Jabalpur on 28 April 1976.",
+    "entities": [],
+    "human_annotation_status": "requires_human_annotation"
+  }
+]
