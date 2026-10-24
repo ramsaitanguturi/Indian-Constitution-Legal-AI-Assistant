@@ -49,3 +49,18 @@ Thumbs.db
 
 # HuggingFace & Torch cache
 .cache/
+
+# LaTeX temporary compilation files (excluding publication PDFs and sources)
+*.aux
+*.bbl
+*.blg
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+paper/*.log
+paper/figures/*.log
+paper/figures/*.aux
+!paper/main.pdf
+!paper/figures/*.pdf

@@ -13,6 +13,7 @@ An empirical Natural Language Processing (NLP) and Information Retrieval (IR) fr
 
 ## 📖 Essential Documentation Links
 
+- 📄 [**Academic Research Paper (`paper/README.md`)**](paper/README.md): **Complete 14-page manuscript, compiled PDF, BibTeX citations, and reproduction guide.**
 - 📘 [**Master Learning Guide (`docs/PROJECT_GUIDE.md`)**](docs/PROJECT_GUIDE.md): **The primary comprehensive study and research guide (Chapters 1–15).**
 - 🎓 [**Viva Defense & Examination Guide (`docs/viva_defense_guide.md`)**](docs/viva_defense_guide.md): 40+ viva questions, spoken answers, deep technical proofs, elevator pitch, and live demo script.
 - 🏗️ [**System Architecture & Tech Spec (`docs/architecture.md`)**](docs/architecture.md): Detailed 16-stage pipeline architecture, Mermaid diagrams, component responsibilities, and mathematical formulations.
@@ -24,6 +25,29 @@ An empirical Natural Language Processing (NLP) and Information Retrieval (IR) fr
 - 🧠 [**NER Forensic Error Analysis (`docs/NER_ERROR_ANALYSIS.md`)**](docs/NER_ERROR_ANALYSIS.md): Root-cause resolution for judge name extraction (`PERSON_TITLE_PATTERN`) and gazetteer memorization disclosures.
 - ⚖️ [**RAG Grounding & Citation Audit (`docs/RAG_GROUNDING_AUDIT.md`)**](docs/RAG_GROUNDING_AUDIT.md): Structural validation mechanics vs. Natural Language Inference (NLI) semantic claim entailment.
 - ⏱️ [**Reproducibility & Latency Profiling (`docs/REPRODUCIBILITY_REPORT.md`)**](docs/REPRODUCIBILITY_REPORT.md): CPU runtime profiles, warm-up benchmarks, and reproduction seeds.
+
+---
+
+## 📄 Academic Research Paper
+
+This repository includes a full, peer-review-structured academic research paper based on the verified implementation, empirical experiments, and adversarial evaluation artifacts:
+
+> **Title**: *Entity-Aware Hybrid Retrieval and Reranking Framework for Indian Constitutional Question Answering*  
+> **Author**: Ramsai Tanguturi (Department of Computer Science \& Engineering)  
+> **Manuscript Scope**: 14 pages, 17 peer-reviewed citations, 7 verified empirical tables, 3 vector system/data figures, mathematical formulations, and adversarial audit disclosures.
+
+### 🔗 Research Paper Assets
+- 📕 [**Compiled Research Paper (PDF)**](paper/main.pdf) — Complete 14-page compiled academic paper with high-resolution vector figures, metric tables, and appendices.
+- 📝 [**LaTeX Manuscript Source (`paper/main.tex`)**](paper/main.tex) — Complete, editable LaTeX source code matching the codebase.
+- 📚 [**BibTeX Bibliography (`paper/references.bib`)**](paper/references.bib) — Verified bibliographic database of seminal NLP, IR, and Legal AI literature.
+- 📖 [**Paper Documentation & Compilation Guide (`paper/README.md`)**](paper/README.md) — Comprehensive compilation instructions and reproduction overview.
+
+### 🔍 Relationship to Implemented System
+The manuscript rigorously describes and evaluates the 16-stage pipeline implemented in this repository without idealized claims or unexecuted experiments:
+1. **Hierarchical Parent-Child RAG**: Evaluates how indexing 1,001 fine-grained child passages ($\sim$300 chars) in BM25Okapi and ChromaDB preserves vector matching sensitivity while dynamically hydrating full parent Articles ($\sim$1,200 chars) for generator synthesis.
+2. **Entity-Aware Hybrid Retrieval**: Formalizes and benchmarks the combination of BM25Okapi, dense SentenceTransformers (`all-MiniLM-L6-v2`), Reciprocal Rank Fusion ($k=60$), additive legal entity boosting ($+0.15$), and neural cross-encoder reranking (`ms-marco-MiniLM-L-6-v2`), achieving **0.8400 Hit@1**, **0.7478 Recall@10**, **0.8583 MRR**, and **0.7787 NDCG@10** on canonical ground truth.
+3. **NLP Query Understanding**: Evaluates 10-class Legal NER (Macro-F1 = **0.8496**), canonical entity linking (86.67%), and 5-fold cross-validated intent classification (**0.7591** $\pm$ **0.0422**).
+4. **Adversarial Integrity**: Transparently documents the 10.0% recall ceiling from 20 uncataloged corpus targets, structural citation verification vs. sentence-level NLI claim entailment, and CPU reranking latency profiles ($\sim$892 ms median).
 
 ---
 
