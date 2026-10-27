@@ -209,7 +209,9 @@ class MultiAgentRouter:
             self.llm = ChatGoogleGenerativeAI(
                 model=self.model,
                 google_api_key=target_key,
-                temperature=0.1
+                temperature=0.1,
+                timeout=5.0,
+                max_retries=1
             )
             self.llm_available = True
             self.api_key = target_key

@@ -13,12 +13,14 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional, Set, Tuple
 
 from config import PARENT_STORE_PATH
+from rag.nli_verifier import get_nli_verifier, NLIVerifier
 
 
 class CitationValidator:
     """
     Validates structural integrity and evidence provenance of citations in RAG answers.
-    Detects unretrieved documents, fabricated IDs, missing metadata, and unsupported references.
+    Detects unretrieved documents, fabricated IDs, missing metadata, and unsupported references,
+    with atomic proposition-level Natural Language Inference (NLI) claim verification.
     """
 
     # Regex patterns for detecting inline citations and legal entity references in answer text
@@ -33,8 +35,13 @@ class CitationValidator:
         "Golak Nath", "ADM Jabalpur", "Bachan Singh", "Vishaka"
     ]
 
-    def __init__(self, parent_store: Optional[Dict[str, Dict[str, Any]]] = None):
+    def __init__(
+        self,
+        parent_store: Optional[Dict[str, Dict[str, Any]]] = None,
+        nli_verifier: Optional[NLIVerifier] = None
+    ):
         self.parent_store = parent_store if parent_store is not None else {}
+        self.nli_verifier = nli_verifier or get_nli_verifier()
         if not self.parent_store and os.path.exists(PARENT_STORE_PATH):
             try:
                 with open(PARENT_STORE_PATH, "r", encoding="utf-8") as f:
@@ -244,10 +251,21 @@ class CitationValidator:
         # Surface claim overlap check (Heuristic)
         claim_overlap_score = self._compute_surface_overlap(generated_answer, combined_evidence_corpus)
 
+        # Natural Language Inference (NLI) Claim-Level Verification
+        nli_report = self.nli_verifier.verify_answer(generated_answer, recovered_context)
+        if nli_report.get("has_contradictions"):
+            for clm in nli_report.get("claims_breakdown", []):
+                if clm.get("verdict") == "CONTRADICTION":
+                    unsupported_claims.append(
+                        f"Fact contradicted by retrieved evidence: '{clm['claim']}'"
+                    )
+            is_valid = False
+            validation_score = max(0.0, round(validation_score - 0.30, 4))
+
         summary_msg = (
-            f"Validation passed ({len(valid_citations)}/{total_checked} valid citations)."
+            f"Validation passed ({len(valid_citations)}/{total_checked} valid citations, NLI: {nli_report.get('nli_status')})."
             if is_valid
-            else f"Validation failed ({len(invalid_citations)} invalid citations, {len(unsupported_claims)} unsupported references detected)."
+            else f"Validation failed ({len(invalid_citations)} invalid citations, {len(unsupported_claims)} unsupported/contradicted references detected)."
         )
 
         return {
@@ -269,13 +287,17 @@ class CitationValidator:
                 ),
             },
             "claim_verification": {
-                "level": "surface_token_overlap",
+                "level": "atomic_nli_entailment_and_surface_overlap",
+                "nli_status": nli_report.get("nli_status", "UNKNOWN"),
+                "entailment_ratio": nli_report.get("entailment_ratio", 0.0),
                 "overlap_score": claim_overlap_score,
                 "disclaimer": (
                     "Structural citation validation verifies document existence and retrieval provenance. "
-                    "Semantic factual verification is heuristic and does not guarantee complete legal correctness."
+                    "Semantic factual verification is heuristic and claim-level NLI verifies propositional consistency. "
+                    "This system is an academic research prototype and does not constitute legally binding counsel."
                 ),
             },
+            "nli_verification": nli_report,
             "summary": summary_msg,
         }
 

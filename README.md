@@ -1,11 +1,11 @@
 # Indian Constitution Legal AI Assistant — NLP Capstone
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![Tests Passing](https://img.shields.io/badge/tests-254%20passed-success.svg)](tests/)
+[![Tests Passing](https://img.shields.io/badge/tests-265%20passed-success.svg)](tests/)
 [![Framework](https://img.shields.io/badge/framework-Streamlit%20%7C%20ChromaDB%20%7C%20PyTorch-orange.svg)](app.py)
-[![Status](https://img.shields.io/badge/status-Academic%20Research%20Prototype-gold.svg)](docs/INDEPENDENT_AUDIT_REPORT.md)
+[![Status](https://img.shields.io/badge/status-Academic%20Research%20Prototype-gold.svg)](docs/FINAL_AUDIT.md)
 
-An empirical Natural Language Processing (NLP) and Information Retrieval (IR) framework for Question Answering over Indian Constitutional Law. Integrates domain-specific Legal Named Entity Recognition (NER), canonical entity linking, hybrid retrieval with Reciprocal Rank Fusion (RRF), Cross-Encoder neural reranking, evidence-grounded generation, structural citation validation, explainable confidence estimation, an interactive Research Dashboard, and a 10-stage NLP Pipeline Inspector.
+An empirical Natural Language Processing (NLP) and Information Retrieval (IR) framework for Question Answering over Indian Constitutional Law. Integrates domain-specific Legal Named Entity Recognition (NER), canonical entity linking, hybrid retrieval with Reciprocal Rank Fusion (RRF), Cross-Encoder neural reranking, evidence-grounded generation, proposition-level Natural Language Inference (NLI) verification, structural citation validation, explainable confidence estimation, an interactive Research Dashboard, and a 10-stage NLP Pipeline Inspector.
 
 **Research Title**: *Entity-Aware Hybrid Retrieval and Reranking Framework for Indian Constitutional Question Answering*
 
@@ -13,11 +13,15 @@ An empirical Natural Language Processing (NLP) and Information Retrieval (IR) fr
 
 ## 📖 Essential Documentation Links
 
+- 📋 [**Final Audit & Resolution Report (`docs/FINAL_AUDIT.md`)**](docs/FINAL_AUDIT.md): **Comprehensive repository audit, bug resolutions, and 265/265 test verification.**
+- 🎯 [**Benchmark Integrity & Quality Assurance (`docs/DATASET_AND_BENCHMARK.md`)**](docs/DATASET_AND_BENCHMARK.md): 180 in-corpus partition, 20 uncataloged targets audit, class balance, and span offsets.
+- 🔁 [**Reproducibility Guide & Runbook (`docs/REPRODUCIBILITY.md`)**](docs/REPRODUCIBILITY.md): Exact reproduction commands, seed (`EVAL_RANDOM_SEED = 42`), and CPU latency benchmarks.
+- ⚠️ [**System Limitations & Ethical Disclaimers (`docs/LIMITATIONS.md`)**](docs/LIMITATIONS.md): Corpus boundaries (137-article subset), NLI heuristics, and legal counsel disclaimers.
+- ✅ [**Submission Readiness Checklist (`docs/SUBMISSION_CHECKLIST.md`)**](docs/SUBMISSION_CHECKLIST.md): Item-by-item rubric compliance checklist and readiness decision.
 - 📄 [**Academic Research Paper (`paper/README.md`)**](paper/README.md): **Complete 14-page manuscript, compiled PDF, BibTeX citations, and reproduction guide.**
 - 📘 [**Master Learning Guide (`docs/PROJECT_GUIDE.md`)**](docs/PROJECT_GUIDE.md): **The primary comprehensive study and research guide (Chapters 1–15).**
 - 🎓 [**Viva Defense & Examination Guide (`docs/viva_defense_guide.md`)**](docs/viva_defense_guide.md): 40+ viva questions, spoken answers, deep technical proofs, elevator pitch, and live demo script.
 - 🏗️ [**System Architecture & Tech Spec (`docs/architecture.md`)**](docs/architecture.md): Detailed 16-stage pipeline architecture, Mermaid diagrams, component responsibilities, and mathematical formulations.
-- 📜 [**Dataset & Corpus Provenance (`docs/dataset.md`)**](docs/dataset.md): Official legal sources, 270 parent documents, 1,001 vector passages, JSON schemas, chunking rules, and limitations.
 - 🔬 [**Empirical Experiments & Findings (`docs/experiments.md`)**](docs/experiments.md): Full documentation of Experiments 1–8, dual retrieval matrix (Original vs. Canonical), and latency profiles.
 - 📊 [**Evaluation Methodology & Metrics (`docs/evaluation.md`)**](docs/evaluation.md): Mathematical formulations for IR metrics (Hit@K, MRR, NDCG@K), NER exact-span metrics, and intent 5-fold cross-validation.
 - 🛡️ [**Independent Adversarial Audit Report (`docs/INDEPENDENT_AUDIT_REPORT.md`)**](docs/INDEPENDENT_AUDIT_REPORT.md): Academic readiness verdict, overclaim corrections, and verified code changes.
@@ -202,13 +206,19 @@ streamlit run app.py
 Open `http://localhost:8501` in your browser.  
 *(Optional: Provide a `GEMINI_API_KEY` in `.env` or in the sidebar. If omitted, the application runs 100% offline using the built-in Heuristic Legal Synthesizer).*
 
-### 4.4 Run Automated Tests
+### 4.4 Run Benchmark Integrity Validation
+```powershell
+python scripts/validate_benchmark.py
+```
+**Expected outcome: All 5 benchmarks verified; 180 in-corpus targets, 20 out-of-corpus targets partitioned; exit code 0.**
+
+### 4.5 Run Automated Tests
 ```powershell
 .\venv\Scripts\pytest -q
 ```
-**Expected outcome: 254 passed in ~150s (0 errors, 0 skipped).**
+**Expected outcome: 265 passed in ~95s (0 errors, 0 failed, 0 skipped).**
 
-### 4.5 Reproduce Empirical Benchmarks
+### 4.6 Reproduce Empirical Benchmarks
 ```powershell
 python scripts/run_all_evaluations.py
 ```
@@ -218,8 +228,8 @@ python scripts/run_all_evaluations.py
 ## 5. Known Limitations & Research Disclosures
 
 1. **Corpus Coverage**: The database contains 137 constitutional Articles, 18 Amendments, and 104 Supreme Court landmark judgments (270 parent records). It does not index the entire 395-article Constitution; provisions covering Finance (Part XII) or Services (Part XIV) are not present.
-2. **Benchmark Scope**: 20 queries in the 200-query retrieval benchmark target provisions outside the 137-article subset, bounding full-benchmark recall at ~0.75. On in-corpus queries, Hit@10 is 0.9333 and Recall@10 is 0.7781.
-3. **Structural vs. Semantic Citation Grounding**: The citation validator confirms structural presence and retrieval set inclusion. Sentence-level Natural Language Inference (NLI) claim entailment is identified as ongoing future work.
+2. **Benchmark Scope**: 20 queries in the 200-query retrieval benchmark target provisions outside the 137-article subset, bounding full-benchmark recall at ~0.75. On in-corpus queries (180 queries), Hit@10 is 0.9333 and Recall@10 is 0.7781.
+3. **Propositional NLI Grounding**: The citation validator checks structural document presence, retrieval provenance, and proposition-level polarity contradiction analysis (`rag/nli_verifier.py`). Complex multi-hop conditional deductions are subject to ongoing neural NLI research.
 4. **Academic Standing**: This software is an academic B.Tech NLP capstone prototype developed for educational and research evaluation. It does not constitute formal legal counsel.
 
 ---

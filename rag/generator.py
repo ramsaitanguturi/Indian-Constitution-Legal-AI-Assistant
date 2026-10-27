@@ -74,7 +74,8 @@ class GroundedGenerator:
                 model=target_model,
                 google_api_key=target_key,
                 temperature=0.0,  # Zero temperature for maximal grounding determinism
-                timeout=10,  # Prevent test / network hangs
+                timeout=5.0,  # Prevent test / network hangs
+                max_retries=1,
             )
             self.llm_available = True
             self.api_key = target_key

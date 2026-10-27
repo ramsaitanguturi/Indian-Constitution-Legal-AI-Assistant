@@ -1,0 +1,325 @@
+{
+  "overall_verdict": "PASS",
+  "critical_violations": [],
+  "retrieval": {
+    "benchmark_file": "C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\data\\benchmark\\retrieval_queries.json",
+    "total_queries": 200,
+    "valid_in_corpus_queries": 180,
+    "uncataloged_corpus_queries": 20,
+    "queries_with_missing_targets": [],
+    "duplicate_queries": [],
+    "malformed_queries": [],
+    "relevance_labels_canonicalized_status": "PASS",
+    "uncataloged_details": [
+      {
+        "query_id": "RET_049",
+        "query": "Explain the promotion of cooperative societies under Article 43B",
+        "intended_targets": [
+          "parent_const_art_043b",
+          "parent_const_art_43b"
+        ],
+        "canonical_in_corpus": [],
+        "status": "UNCATALOGED_OUT_OF_CORPUS",
+        "justification": "Target constitutional provision is absent from the 137-article indexed subset."
+      },
+      {
+        "query_id": "RET_085",
+        "query": "What constitutional protections against arbitrary dismissal or reduction in rank are given to civil servants under Article 311?",
+        "intended_targets": [
+          "parent_const_art_311",
+          "parent_const_art_311"
+        ],
+        "canonical_in_corpus": [],
+        "status": "UNCATALOGED_OUT_OF_CORPUS",
+        "justification": "Target constitutional provision is absent from the 137-article indexed subset."
+      },
+      {
+        "query_id": "RET_086",
+        "query": "Explain the establishment and powers of administrative tribunals under Article 323A",
+        "intended_targets": [
+          "parent_const_art_323a",
+          "parent_const_art_323a"
+        ],
+        "canonical_in_corpus": [],
+        "status": "UNCATALOGED_OUT_OF_CORPUS",
+        "justification": "Target constitutional provision is absent from the 137-article indexed subset."
+      },
+      {
+        "query_id": "RET_090",
+        "query": "Explain the effect of proclamation of emergency on Union and State relations under Article 353",
+        "intended_targets": [
+          "parent_const_art_353",
+          "parent_const_art_353"
+        ],
+        "canonical_in_corpus": [],
+        "status": "UNCATALOGED_OUT_OF_CORPUS",
+        "justification": "Target constitutional provision is absent from the 137-article indexed subset."
+      },
+      {
+        "query_id": "RET_097",
+        "query": "Explain the reorganization of States and abolition of Part A, B, C categories under the 7th Amendment 1956",
+        "intended_targets": [
+          "parent_amend_007"
+        ],
+        "canonical_in_corpus": [],
+        "status": "UNCATALOGED_OUT_OF_CORPUS",
+        "justification": "Target constitutional provision is absent from the 137-article indexed subset."
+      },
+      {
+        "query_id": "RET_182",
+        "query": "What restrictions on freedom of trade and commerce can be imposed by Parliament and State legislatures under Articles 302 to 304?",
+        "intended_targets": [
+          "parent_const_art_302",
+          "parent_const_art_302",
+          "parent_const_art_304",
+          "parent_const_art_304"
+        ],
+        "canonical_in_corpus": [],
+        "status": "UNCATALOGED_OUT_OF_CORPUS",
+        "justification": "Target constitutional provision is absent from the 137-article indexed subset."
+      },
+      {
+        "query_id": "RET_183",
+        "query": "How does the Finance Commission function and make recommendations on tax devolution under Article 280?",
+        "intended_targets": [
+          "parent_const_art_280",
+          "parent_const_art_280"
+        ],
+        "canonical_in_corpus": [],
+        "status": "UNCATALOGED_OUT_OF_CORPUS",
+        "justification": "Target constitutional provision is absent from the 137-article indexed subset."
+      },
+      {
+        "query_id": "RET_184",
+        "query": "Explain the duties of the Comptroller and Auditor-General of India regarding public accounts audits under Article 148 and 149",
+        "intended_targets": [
+          "parent_const_art_148",
+          "parent_const_art_148"
+        ],
+        "canonical_in_corpus": [],
+        "status": "UNCATALOGED_OUT_OF_CORPUS",
+        "justification": "Target constitutional provision is absent from the 137-article indexed subset."
+      },
+      {
+        "query_id": "RET_185",
+        "query": "What are the rules governing the Consolidated Fund of India and Contingency Fund under Articles 266 and 267?",
+        "intended_targets": [
+          "parent_const_art_266",
+          "parent_const_art_266",
+          "parent_const_art_267",
+          "parent_const_art_267"
+        ],
+        "canonical_in_corpus": [],
+        "status": "UNCATALOGED_OUT_OF_CORPUS",
+        "justification": "Target constitutional provision is absent from the 137-article indexed subset."
+      },
+      {
+        "query_id": "RET_187",
+        "query": "What are the powers, privileges and immunities of State Legislative Assemblies and their members under Article 194?",
+        "intended_targets": [
+          "parent_const_art_194",
+          "parent_const_art_194"
+        ],
+        "canonical_in_corpus": [],
+        "status": "UNCATALOGED_OUT_OF_CORPUS",
+        "justification": "Target constitutional provision is absent from the 137-article indexed subset."
+      },
+      {
+        "query_id": "RET_190",
+        "query": "How does Article 312 govern the creation of All-India Services by the Council of States Rajya Sabha?",
+        "intended_targets": [
+          "parent_const_art_312",
+          "parent_const_art_312"
+        ],
+        "canonical_in_corpus": [],
+        "status": "UNCATALOGED_OUT_OF_CORPUS",
+        "justification": "Target constitutional provision is absent from the 137-article indexed subset."
+      },
+      {
+        "query_id": "RET_191",
+        "query": "Explain the functions of the Union Public Service Commission and State PSCs under Article 320",
+        "intended_targets": [
+          "parent_const_art_320",
+          "parent_const_art_320"
+        ],
+        "canonical_in_corpus": [],
+        "status": "UNCATALOGED_OUT_OF_CORPUS",
+        "justification": "Target constitutional provision is absent from the 137-article indexed subset."
+      },
+      {
+        "query_id": "RET_192",
+        "query": "What is the constitutional provision for the Special Officer for Linguistic Minorities under Article 350B?",
+        "intended_targets": [
+          "parent_const_art_350b",
+          "parent_const_art_350b"
+        ],
+        "canonical_in_corpus": [],
+        "status": "UNCATALOGED_OUT_OF_CORPUS",
+        "justification": "Target constitutional provision is absent from the 137-article indexed subset."
+      },
+      {
+        "query_id": "RET_193",
+        "query": "Explain the official language of the Union and devanagari script provisions under Article 343",
+        "intended_targets": [
+          "parent_const_art_343",
+          "parent_const_art_343"
+        ],
+        "canonical_in_corpus": [],
+        "status": "UNCATALOGED_OUT_OF_CORPUS",
+        "justification": "Target constitutional provision is absent from the 137-article indexed subset."
+      },
+      {
+        "query_id": "RET_194",
+        "query": "What language is mandated for proceedings in the Supreme Court and High Courts under Article 348?",
+        "intended_targets": [
+          "parent_const_art_348",
+          "parent_const_art_348"
+        ],
+        "canonical_in_corpus": [],
+        "status": "UNCATALOGED_OUT_OF_CORPUS",
+        "justification": "Target constitutional provision is absent from the 137-article indexed subset."
+      },
+      {
+        "query_id": "RET_195",
+        "query": "Explain the duty of the Union to promote the spread of the Hindi language under Article 351",
+        "intended_targets": [
+          "parent_const_art_351",
+          "parent_const_art_351"
+        ],
+        "canonical_in_corpus": [],
+        "status": "UNCATALOGED_OUT_OF_CORPUS",
+        "justification": "Target constitutional provision is absent from the 137-article indexed subset."
+      },
+      {
+        "query_id": "RET_197",
+        "query": "How can Parliament legislate on State List matters in national interest under Article 249 with Rajya Sabha resolution?",
+        "intended_targets": [
+          "parent_const_art_249",
+          "parent_const_art_249"
+        ],
+        "canonical_in_corpus": [],
+        "status": "UNCATALOGED_OUT_OF_CORPUS",
+        "justification": "Target constitutional provision is absent from the 137-article indexed subset."
+      },
+      {
+        "query_id": "RET_198",
+        "query": "Explain the power of Parliament to legislate for two or more States by consent under Article 252",
+        "intended_targets": [
+          "parent_const_art_252",
+          "parent_const_art_252"
+        ],
+        "canonical_in_corpus": [],
+        "status": "UNCATALOGED_OUT_OF_CORPUS",
+        "justification": "Target constitutional provision is absent from the 137-article indexed subset."
+      },
+      {
+        "query_id": "RET_199",
+        "query": "What power does Parliament have to make laws implementing international treaties and conventions under Article 253?",
+        "intended_targets": [
+          "parent_const_art_253",
+          "parent_const_art_253"
+        ],
+        "canonical_in_corpus": [],
+        "status": "UNCATALOGED_OUT_OF_CORPUS",
+        "justification": "Target constitutional provision is absent from the 137-article indexed subset."
+      },
+      {
+        "query_id": "RET_200",
+        "query": "Explain the constitutional guarantee and jurisdiction regarding suits against the Government under Article 300",
+        "intended_targets": [
+          "parent_const_art_300",
+          "parent_const_art_300"
+        ],
+        "canonical_in_corpus": [],
+        "status": "UNCATALOGED_OUT_OF_CORPUS",
+        "justification": "Target constitutional provision is absent from the 137-article indexed subset."
+      }
+    ]
+  },
+  "intent": {
+    "benchmark_file": "C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\data\\benchmark\\classification_queries.json",
+    "total_queries": 220,
+    "classes_found": {
+      "ARTICLE_LOOKUP": 20,
+      "CASE_LAW_QUERY": 20,
+      "CASE_COMPARISON": 20,
+      "LEGAL_EXPLANATION": 20,
+      "RIGHTS_QUERY": 20,
+      "AMENDMENT_QUERY": 20,
+      "PRECEDENT_QUERY": 20,
+      "DEFINITION_QUERY": 20,
+      "CONSTITUTIONAL_PROCEDURE": 20,
+      "MULTI_DOCUMENT_QUERY": 20,
+      "OUT_OF_SCOPE": 20
+    },
+    "expected_classes": 11,
+    "duplicate_queries": [],
+    "malformed_queries": [],
+    "is_balanced": true
+  },
+  "ner": {
+    "benchmark_file": "C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\data\\benchmark\\ner_annotations.json",
+    "total_queries": 105,
+    "total_spans": 211,
+    "spans_per_label": {
+      "CASE": 31,
+      "LEGAL_CONCEPT": 15,
+      "ARTICLE": 40,
+      "COURT": 23,
+      "DATE": 38,
+      "PERSON": 14,
+      "AMENDMENT": 15,
+      "SECTION": 11,
+      "ACT": 15,
+      "RIGHT": 9
+    },
+    "span_alignment_errors": [],
+    "invalid_label_errors": [],
+    "overlapping_spans": []
+  },
+  "rag": {
+    "benchmark_file": "C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\data\\benchmark\\rag_questions.json",
+    "total_questions": 100,
+    "answer_actions": 82,
+    "abstain_actions": 18,
+    "missing_citation_in_store": [
+      {
+        "id": "RAG_045",
+        "citation": "parent_const_art_311"
+      },
+      {
+        "id": "RAG_053",
+        "citation": "parent_amend_0103"
+      },
+      {
+        "id": "RAG_063",
+        "citation": "parent_case_sc_ep_royappa_1974"
+      },
+      {
+        "id": "RAG_065",
+        "citation": "parent_case_sc_m_nagaraj_2006"
+      },
+      {
+        "id": "RAG_067",
+        "citation": "parent_case_sc_bennett_coleman_1972"
+      },
+      {
+        "id": "RAG_074",
+        "citation": "parent_case_sc_scara_second_judges_1993"
+      },
+      {
+        "id": "RAG_075",
+        "citation": "parent_case_sc_njac_fourth_judges_2015"
+      },
+      {
+        "id": "RAG_083",
+        "citation": "parent_const_art_191"
+      },
+      {
+        "id": "RAG_084",
+        "citation": "parent_case_sc_adr_voter_rights_2002"
+      }
+    ],
+    "malformed_questions": []
+  }
+}

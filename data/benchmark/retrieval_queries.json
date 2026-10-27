@@ -12,7 +12,8 @@
       "child_const_const_art_32_0"
     ],
     "human_annotation_status": "verified",
-    "provenance": "Constitution of India, Article 32"
+    "provenance": "Constitution of India, Article 32",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_002",
@@ -27,7 +28,8 @@
       "child_const_const_art_21_0"
     ],
     "human_annotation_status": "verified",
-    "provenance": "Constitution of India, Article 21"
+    "provenance": "Constitution of India, Article 21",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_003",
@@ -42,7 +44,8 @@
       "child_const_const_art_14_0"
     ],
     "human_annotation_status": "verified",
-    "provenance": "Constitution of India, Article 14"
+    "provenance": "Constitution of India, Article 14",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_004",
@@ -57,7 +60,8 @@
       "child_const_const_art_19_0"
     ],
     "human_annotation_status": "verified",
-    "provenance": "Constitution of India, Article 19"
+    "provenance": "Constitution of India, Article 19",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_005",
@@ -71,7 +75,8 @@
       "child_const_const_preamble_0"
     ],
     "human_annotation_status": "verified",
-    "provenance": "Constitution of India, Preamble"
+    "provenance": "Constitution of India, Preamble",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_006",
@@ -86,7 +91,8 @@
       "child_const_const_art_12_0"
     ],
     "human_annotation_status": "verified",
-    "provenance": "Constitution of India, Article 12"
+    "provenance": "Constitution of India, Article 12",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_007",
@@ -101,7 +107,8 @@
       "child_const_const_art_21A_0"
     ],
     "human_annotation_status": "verified",
-    "provenance": "Constitution of India, Article 21A (86th Amendment)"
+    "provenance": "Constitution of India, Article 21A (86th Amendment)",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_008",
@@ -115,7 +122,8 @@
       "child_const_const_art_368_0"
     ],
     "human_annotation_status": "verified",
-    "provenance": "Constitution of India, Article 368"
+    "provenance": "Constitution of India, Article 368",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_009",
@@ -129,7 +137,8 @@
       "child_const_const_art_370_0"
     ],
     "human_annotation_status": "verified",
-    "provenance": "Constitution of India, Article 370"
+    "provenance": "Constitution of India, Article 370",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_010",
@@ -145,7 +154,8 @@
       "child_case_kesavananda_0"
     ],
     "human_annotation_status": "verified",
-    "provenance": "Kesavananda Bharati v. State of Kerala (1973) 4 SCC 225"
+    "provenance": "Kesavananda Bharati v. State of Kerala (1973) 4 SCC 225",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_011",
@@ -162,7 +172,8 @@
       "child_case_puttaswamy_0"
     ],
     "human_annotation_status": "verified",
-    "provenance": "Justice K.S. Puttaswamy v. Union of India (2017) 10 SCC 1"
+    "provenance": "Justice K.S. Puttaswamy v. Union of India (2017) 10 SCC 1",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_012",
@@ -183,7 +194,8 @@
       "child_case_maneka_0"
     ],
     "human_annotation_status": "verified",
-    "provenance": "Maneka Gandhi v. Union of India (1978) 1 SCC 248"
+    "provenance": "Maneka Gandhi v. Union of India (1978) 1 SCC 248",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_013",
@@ -201,7 +213,8 @@
       "child_case_minerva_0"
     ],
     "human_annotation_status": "verified",
-    "provenance": "Minerva Mills Ltd. v. Union of India (1980) 3 SCC 625"
+    "provenance": "Minerva Mills Ltd. v. Union of India (1980) 3 SCC 625",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_014",
@@ -216,7 +229,8 @@
       "child_case_bommai_0"
     ],
     "human_annotation_status": "verified",
-    "provenance": "S.R. Bommai v. Union of India (1994) 3 SCC 1"
+    "provenance": "S.R. Bommai v. Union of India (1994) 3 SCC 1",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_015",
@@ -232,7 +246,8 @@
       "child_case_kesavananda_0"
     ],
     "human_annotation_status": "verified",
-    "provenance": "Kesavananda Bharati and Article 368 interaction"
+    "provenance": "Kesavananda Bharati and Article 368 interaction",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_016",
@@ -250,7 +265,8 @@
       "child_case_puttaswamy_0"
     ],
     "human_annotation_status": "verified",
-    "provenance": "Puttaswamy privacy doctrine"
+    "provenance": "Puttaswamy privacy doctrine",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_017",
@@ -271,7 +287,8 @@
       "child_case_maneka_0"
     ],
     "human_annotation_status": "verified",
-    "provenance": "Maneka Gandhi golden triangle doctrine"
+    "provenance": "Maneka Gandhi golden triangle doctrine",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_018",
@@ -288,7 +305,8 @@
       "child_case_bommai_0"
     ],
     "human_annotation_status": "verified",
-    "provenance": "Preamble and SR Bommai secularism doctrine"
+    "provenance": "Preamble and SR Bommai secularism doctrine",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_019",
@@ -303,7 +321,8 @@
       "child_const_const_art_32_0"
     ],
     "human_annotation_status": "verified",
-    "provenance": "Article 32 writ mechanisms"
+    "provenance": "Article 32 writ mechanisms",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_020",
@@ -321,7 +340,8 @@
       "child_const_const_art_21_0"
     ],
     "human_annotation_status": "verified",
-    "provenance": "Article 21 and Maneka Gandhi due process synthesis"
+    "provenance": "Article 21 and Maneka Gandhi due process synthesis",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_021",
@@ -334,7 +354,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 13 Judicial Review"
+    "provenance": "Article 13 Judicial Review",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_022",
@@ -347,7 +368,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 15 Non-discrimination"
+    "provenance": "Article 15 Non-discrimination",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_023",
@@ -360,7 +382,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 16 Public Employment"
+    "provenance": "Article 16 Public Employment",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_024",
@@ -373,7 +396,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 17 Abolition of Untouchability"
+    "provenance": "Article 17 Abolition of Untouchability",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_025",
@@ -386,7 +410,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 18 Abolition of Titles"
+    "provenance": "Article 18 Abolition of Titles",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_026",
@@ -399,7 +424,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 20 Protection in Conviction"
+    "provenance": "Article 20 Protection in Conviction",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_027",
@@ -412,7 +438,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 22 Protection against Arrest"
+    "provenance": "Article 22 Protection against Arrest",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_028",
@@ -425,7 +452,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 23 Prohibition of Traffic"
+    "provenance": "Article 23 Prohibition of Traffic",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_029",
@@ -438,7 +466,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 24 Child Labour Prohibition"
+    "provenance": "Article 24 Child Labour Prohibition",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_030",
@@ -451,7 +480,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 25 Freedom of Conscience"
+    "provenance": "Article 25 Freedom of Conscience",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_031",
@@ -464,7 +494,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 26 Religious Affairs"
+    "provenance": "Article 26 Religious Affairs",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_032",
@@ -477,7 +508,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 27 Freedom from Religious Taxation"
+    "provenance": "Article 27 Freedom from Religious Taxation",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_033",
@@ -490,7 +522,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 28 Religious Instruction"
+    "provenance": "Article 28 Religious Instruction",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_034",
@@ -503,7 +536,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 29 Protection of Minorities"
+    "provenance": "Article 29 Protection of Minorities",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_035",
@@ -516,7 +550,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 30 Minority Educational Rights"
+    "provenance": "Article 30 Minority Educational Rights",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_036",
@@ -529,7 +564,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 33 Armed Forces Modification"
+    "provenance": "Article 33 Armed Forces Modification",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_037",
@@ -542,7 +578,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 34 Martial Law Indemnity"
+    "provenance": "Article 34 Martial Law Indemnity",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_038",
@@ -555,7 +592,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 35 Legislation for Part III"
+    "provenance": "Article 35 Legislation for Part III",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_039",
@@ -568,7 +606,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 36 State in Part IV"
+    "provenance": "Article 36 State in Part IV",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_040",
@@ -581,7 +620,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 37 Directive Principles Application"
+    "provenance": "Article 37 Directive Principles Application",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_041",
@@ -594,7 +634,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 38 Social Order Welfare"
+    "provenance": "Article 38 Social Order Welfare",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_042",
@@ -607,7 +648,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 39 Directive Policy Principles"
+    "provenance": "Article 39 Directive Policy Principles",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_043",
@@ -620,7 +662,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 39A Free Legal Aid"
+    "provenance": "Article 39A Free Legal Aid",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_044",
@@ -633,7 +676,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 40 Village Panchayats"
+    "provenance": "Article 40 Village Panchayats",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_045",
@@ -646,7 +690,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 41 Right to Work Assistance"
+    "provenance": "Article 41 Right to Work Assistance",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_046",
@@ -659,7 +704,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 42 Maternity Relief Work"
+    "provenance": "Article 42 Maternity Relief Work",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_047",
@@ -672,7 +718,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 43 Living Wage Workers"
+    "provenance": "Article 43 Living Wage Workers",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_048",
@@ -685,7 +732,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 43A Worker Participation"
+    "provenance": "Article 43A Worker Participation",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_049",
@@ -698,7 +746,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 43B Cooperative Societies"
+    "provenance": "Article 43B Cooperative Societies",
+    "corpus_status": "uncataloged_out_of_corpus"
   },
   {
     "query_id": "RET_050",
@@ -711,7 +760,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 44 Uniform Civil Code"
+    "provenance": "Article 44 Uniform Civil Code",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_051",
@@ -724,7 +774,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 45 Early Childhood Care"
+    "provenance": "Article 45 Early Childhood Care",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_052",
@@ -737,7 +788,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 46 Promotion of SC/ST"
+    "provenance": "Article 46 Promotion of SC/ST",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_053",
@@ -750,7 +802,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 47 Nutrition Public Health"
+    "provenance": "Article 47 Nutrition Public Health",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_054",
@@ -763,7 +816,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 48 Agriculture Animal Husbandry"
+    "provenance": "Article 48 Agriculture Animal Husbandry",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_055",
@@ -776,7 +830,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 48A Environmental Protection"
+    "provenance": "Article 48A Environmental Protection",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_056",
@@ -789,7 +844,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 49 Monument Protection"
+    "provenance": "Article 49 Monument Protection",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_057",
@@ -802,7 +858,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 50 Separation of Judiciary"
+    "provenance": "Article 50 Separation of Judiciary",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_058",
@@ -815,7 +872,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 51 International Peace"
+    "provenance": "Article 51 International Peace",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_059",
@@ -828,7 +886,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 51A Fundamental Duties"
+    "provenance": "Article 51A Fundamental Duties",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_060",
@@ -842,7 +901,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "42nd Amendment Part IVA Duties"
+    "provenance": "42nd Amendment Part IVA Duties",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_061",
@@ -855,7 +915,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 52 President of India"
+    "provenance": "Article 52 President of India",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_062",
@@ -868,7 +929,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 53 Union Executive Power"
+    "provenance": "Article 53 Union Executive Power",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_063",
@@ -881,7 +943,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 72 Presidential Pardon"
+    "provenance": "Article 72 Presidential Pardon",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_064",
@@ -894,7 +957,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 74 Council of Ministers"
+    "provenance": "Article 74 Council of Ministers",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_065",
@@ -907,7 +971,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 75 Prime Minister Appointment"
+    "provenance": "Article 75 Prime Minister Appointment",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_066",
@@ -920,7 +985,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 76 Attorney General"
+    "provenance": "Article 76 Attorney General",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_067",
@@ -933,7 +999,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 124 Supreme Court Establishment"
+    "provenance": "Article 124 Supreme Court Establishment",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_068",
@@ -946,7 +1013,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 129 Court of Record"
+    "provenance": "Article 129 Court of Record",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_069",
@@ -959,7 +1027,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 131 Original Federal Jurisdiction"
+    "provenance": "Article 131 Original Federal Jurisdiction",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_070",
@@ -972,7 +1041,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 132 Constitutional Appeals"
+    "provenance": "Article 132 Constitutional Appeals",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_071",
@@ -985,7 +1055,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 136 Special Leave Petition"
+    "provenance": "Article 136 Special Leave Petition",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_072",
@@ -998,7 +1069,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 137 Review Jurisdiction"
+    "provenance": "Article 137 Review Jurisdiction",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_073",
@@ -1011,7 +1083,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 141 Law Binding All Courts"
+    "provenance": "Article 141 Law Binding All Courts",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_074",
@@ -1024,7 +1097,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 142 Complete Justice"
+    "provenance": "Article 142 Complete Justice",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_075",
@@ -1037,7 +1111,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 143 Advisory Jurisdiction"
+    "provenance": "Article 143 Advisory Jurisdiction",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_076",
@@ -1050,7 +1125,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 144 Aid to Supreme Court"
+    "provenance": "Article 144 Aid to Supreme Court",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_077",
@@ -1063,7 +1139,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 214 High Courts for States"
+    "provenance": "Article 214 High Courts for States",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_078",
@@ -1076,7 +1153,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 215 High Court Record"
+    "provenance": "Article 215 High Court Record",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_079",
@@ -1089,7 +1167,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 226 High Court Writs"
+    "provenance": "Article 226 High Court Writs",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_080",
@@ -1102,7 +1181,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 227 High Court Superintendence"
+    "provenance": "Article 227 High Court Superintendence",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_081",
@@ -1115,7 +1195,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 245 Legislative Extent"
+    "provenance": "Article 245 Legislative Extent",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_082",
@@ -1128,7 +1209,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 246 Subject Matter Lists"
+    "provenance": "Article 246 Subject Matter Lists",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_083",
@@ -1141,7 +1223,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 254 Repugnancy Doctrine"
+    "provenance": "Article 254 Repugnancy Doctrine",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_084",
@@ -1154,7 +1237,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 300A Right to Property"
+    "provenance": "Article 300A Right to Property",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_085",
@@ -1167,7 +1251,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 311 Civil Servants Protection"
+    "provenance": "Article 311 Civil Servants Protection",
+    "corpus_status": "uncataloged_out_of_corpus"
   },
   {
     "query_id": "RET_086",
@@ -1180,7 +1265,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 323A Administrative Tribunals"
+    "provenance": "Article 323A Administrative Tribunals",
+    "corpus_status": "uncataloged_out_of_corpus"
   },
   {
     "query_id": "RET_087",
@@ -1193,7 +1279,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 324 Election Commission"
+    "provenance": "Article 324 Election Commission",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_088",
@@ -1206,7 +1293,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 326 Adult Suffrage"
+    "provenance": "Article 326 Adult Suffrage",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_089",
@@ -1219,7 +1307,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 352 National Emergency"
+    "provenance": "Article 352 National Emergency",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_090",
@@ -1232,7 +1321,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 353 Effect of Emergency"
+    "provenance": "Article 353 Effect of Emergency",
+    "corpus_status": "uncataloged_out_of_corpus"
   },
   {
     "query_id": "RET_091",
@@ -1245,7 +1335,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 355 Duty to Protect States"
+    "provenance": "Article 355 Duty to Protect States",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_092",
@@ -1258,7 +1349,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 356 President Rule"
+    "provenance": "Article 356 President Rule",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_093",
@@ -1273,7 +1365,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 358 Suspension of Article 19"
+    "provenance": "Article 358 Suspension of Article 19",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_094",
@@ -1287,7 +1380,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 359 Suspension of Enforcement"
+    "provenance": "Article 359 Suspension of Enforcement",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_095",
@@ -1300,7 +1394,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 360 Financial Emergency"
+    "provenance": "Article 360 Financial Emergency",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_096",
@@ -1312,7 +1407,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "1st Amendment 1951"
+    "provenance": "1st Amendment 1951",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_097",
@@ -1324,7 +1420,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "7th Amendment 1956"
+    "provenance": "7th Amendment 1956",
+    "corpus_status": "uncataloged_out_of_corpus"
   },
   {
     "query_id": "RET_098",
@@ -1338,7 +1435,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "24th Amendment 1971"
+    "provenance": "24th Amendment 1971",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_099",
@@ -1350,7 +1448,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "25th Amendment 1971"
+    "provenance": "25th Amendment 1971",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_100",
@@ -1362,7 +1461,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "42nd Amendment 1976"
+    "provenance": "42nd Amendment 1976",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_101",
@@ -1376,7 +1476,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "44th Amendment 1978"
+    "provenance": "44th Amendment 1978",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_102",
@@ -1388,7 +1489,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "52nd Amendment 1985"
+    "provenance": "52nd Amendment 1985",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_103",
@@ -1402,7 +1504,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "61st Amendment 1988"
+    "provenance": "61st Amendment 1988",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_104",
@@ -1414,7 +1517,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "73rd Amendment 1992"
+    "provenance": "73rd Amendment 1992",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_105",
@@ -1426,7 +1530,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "74th Amendment 1992"
+    "provenance": "74th Amendment 1992",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_106",
@@ -1440,7 +1545,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "86th Amendment 2002"
+    "provenance": "86th Amendment 2002",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_107",
@@ -1454,7 +1560,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "91st Amendment 2003"
+    "provenance": "91st Amendment 2003",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_108",
@@ -1468,7 +1575,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "99th Amendment NJAC"
+    "provenance": "99th Amendment NJAC",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_109",
@@ -1480,7 +1588,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "101st Amendment GST"
+    "provenance": "101st Amendment GST",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_110",
@@ -1492,7 +1601,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "102nd Amendment NCBC"
+    "provenance": "102nd Amendment NCBC",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_111",
@@ -1508,7 +1618,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "103rd Amendment EWS"
+    "provenance": "103rd Amendment EWS",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_112",
@@ -1520,7 +1631,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "104th Amendment SC/ST Representation"
+    "provenance": "104th Amendment SC/ST Representation",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_113",
@@ -1532,7 +1644,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "105th Amendment SEBC Power"
+    "provenance": "105th Amendment SEBC Power",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_114",
@@ -1547,7 +1660,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Shankari Prasad 1951"
+    "provenance": "Shankari Prasad 1951",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_115",
@@ -1562,7 +1676,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Sajjan Singh 1965"
+    "provenance": "Sajjan Singh 1965",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_116",
@@ -1579,7 +1694,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Golak Nath 1967"
+    "provenance": "Golak Nath 1967",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_117",
@@ -1592,7 +1708,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Indira Nehru Gandhi 1975"
+    "provenance": "Indira Nehru Gandhi 1975",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_118",
@@ -1605,7 +1722,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Waman Rao 1981"
+    "provenance": "Waman Rao 1981",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_119",
@@ -1618,7 +1736,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "IR Coelho 2007"
+    "provenance": "IR Coelho 2007",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_120",
@@ -1633,7 +1752,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "AK Gopalan 1950"
+    "provenance": "AK Gopalan 1950",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_121",
@@ -1648,7 +1768,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Kharak Singh 1962"
+    "provenance": "Kharak Singh 1962",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_122",
@@ -1663,7 +1784,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Sunil Batra 1978"
+    "provenance": "Sunil Batra 1978",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_123",
@@ -1678,7 +1800,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Olga Tellis 1985"
+    "provenance": "Olga Tellis 1985",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_124",
@@ -1693,7 +1816,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Francis Coralie Mullin 1981"
+    "provenance": "Francis Coralie Mullin 1981",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_125",
@@ -1710,7 +1834,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Bandhua Mukti Morcha 1984"
+    "provenance": "Bandhua Mukti Morcha 1984",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_126",
@@ -1725,7 +1850,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Prem Shankar Shukla 1980"
+    "provenance": "Prem Shankar Shukla 1980",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_127",
@@ -1740,7 +1866,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Champakam Dorairajan 1951"
+    "provenance": "Champakam Dorairajan 1951",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_128",
@@ -1755,7 +1882,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "EP Royappa 1974"
+    "provenance": "EP Royappa 1974",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_129",
@@ -1770,7 +1898,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Indra Sawhney Mandal 1992"
+    "provenance": "Indra Sawhney Mandal 1992",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_130",
@@ -1785,7 +1914,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "M Nagaraj 2006"
+    "provenance": "M Nagaraj 2006",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_131",
@@ -1800,7 +1930,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Jarnail Singh 2018"
+    "provenance": "Jarnail Singh 2018",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_132",
@@ -1814,7 +1945,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Janhit Abhiyan EWS 2022"
+    "provenance": "Janhit Abhiyan EWS 2022",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_133",
@@ -1829,7 +1961,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Romesh Thappar 1950"
+    "provenance": "Romesh Thappar 1950",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_134",
@@ -1844,7 +1977,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Brij Bhushan 1950"
+    "provenance": "Brij Bhushan 1950",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_135",
@@ -1859,7 +1993,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Bennett Coleman 1972"
+    "provenance": "Bennett Coleman 1972",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_136",
@@ -1874,7 +2009,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Sakal Papers 1962"
+    "provenance": "Sakal Papers 1962",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_137",
@@ -1889,7 +2025,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Shreya Singhal 2015"
+    "provenance": "Shreya Singhal 2015",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_138",
@@ -1904,7 +2041,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Anuradha Bhasin 2020"
+    "provenance": "Anuradha Bhasin 2020",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_139",
@@ -1921,7 +2059,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Shirur Mutt 1954"
+    "provenance": "Shirur Mutt 1954",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_140",
@@ -1936,7 +2075,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Ismail Faruqui 1994"
+    "provenance": "Ismail Faruqui 1994",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_141",
@@ -1951,7 +2091,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Shayara Bano 2017"
+    "provenance": "Shayara Bano 2017",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_142",
@@ -1968,7 +2109,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Sabarimala 2018"
+    "provenance": "Sabarimala 2018",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_143",
@@ -1985,7 +2127,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Bijoe Emmanuel 1986"
+    "provenance": "Bijoe Emmanuel 1986",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_144",
@@ -2000,7 +2143,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "SP Gupta First Judges 1981"
+    "provenance": "SP Gupta First Judges 1981",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_145",
@@ -2015,7 +2159,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Second Judges 1993"
+    "provenance": "Second Judges 1993",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_146",
@@ -2032,7 +2177,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Third Judges 1998"
+    "provenance": "Third Judges 1998",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_147",
@@ -2048,7 +2194,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Fourth Judges NJAC 2015"
+    "provenance": "Fourth Judges NJAC 2015",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_148",
@@ -2065,7 +2212,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "ADM Jabalpur 1976"
+    "provenance": "ADM Jabalpur 1976",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_149",
@@ -2080,7 +2228,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "DK Basu Custodial Violence 1997"
+    "provenance": "DK Basu Custodial Violence 1997",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_150",
@@ -2099,7 +2248,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Vishaka Workplace Harassment 1997"
+    "provenance": "Vishaka Workplace Harassment 1997",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_151",
@@ -2118,7 +2268,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Navtej Singh Johar 2018"
+    "provenance": "Navtej Singh Johar 2018",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_152",
@@ -2135,7 +2286,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Joseph Shine Adultery 2018"
+    "provenance": "Joseph Shine Adultery 2018",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_153",
@@ -2150,7 +2302,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Common Cause Passive Euthanasia 2018"
+    "provenance": "Common Cause Passive Euthanasia 2018",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_154",
@@ -2165,7 +2318,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Aruna Shanbaug 2011"
+    "provenance": "Aruna Shanbaug 2011",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_155",
@@ -2182,7 +2336,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Jallikattu Animal Rights 2014"
+    "provenance": "Jallikattu Animal Rights 2014",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_156",
@@ -2199,7 +2354,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Selvi Narco Analysis 2010"
+    "provenance": "Selvi Narco Analysis 2010",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_157",
@@ -2216,7 +2372,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "KM Nanavati 1961"
+    "provenance": "KM Nanavati 1961",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_158",
@@ -2233,7 +2390,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Lily Thomas Disqualification 2013"
+    "provenance": "Lily Thomas Disqualification 2013",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_159",
@@ -2248,7 +2406,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "ADR Voter Information 2002"
+    "provenance": "ADR Voter Information 2002",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_160",
@@ -2263,7 +2422,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "PUCL NOTA 2013"
+    "provenance": "PUCL NOTA 2013",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_161",
@@ -2277,7 +2437,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Kihoto Hollohan Anti-Defection 1992"
+    "provenance": "Kihoto Hollohan Anti-Defection 1992",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_162",
@@ -2294,7 +2455,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Nabam Rebia 2016"
+    "provenance": "Nabam Rebia 2016",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_163",
@@ -2309,7 +2471,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Subhash Desai Shiv Sena 2023"
+    "provenance": "Subhash Desai Shiv Sena 2023",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_164",
@@ -2324,7 +2487,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "NCT of Delhi Federalism 2018"
+    "provenance": "NCT of Delhi Federalism 2018",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_165",
@@ -2339,7 +2503,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "State of Rajasthan 1977"
+    "provenance": "State of Rajasthan 1977",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_166",
@@ -2358,7 +2523,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Golden Triangle Basic Structure"
+    "provenance": "Golden Triangle Basic Structure",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_167",
@@ -2373,7 +2539,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 32 vs 226 Scope"
+    "provenance": "Article 32 vs 226 Scope",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_168",
@@ -2389,7 +2556,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "42nd Amendment Minerva Mills Harmony"
+    "provenance": "42nd Amendment Minerva Mills Harmony",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_169",
@@ -2405,7 +2573,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Right to Education Evolution"
+    "provenance": "Right to Education Evolution",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_170",
@@ -2422,7 +2591,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Indra Sawhney vs Nagaraj"
+    "provenance": "Indra Sawhney vs Nagaraj",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_171",
@@ -2437,7 +2607,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Federal Legislative Competence"
+    "provenance": "Federal Legislative Competence",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_172",
@@ -2454,7 +2625,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Puttaswamy Overruling Precedents"
+    "provenance": "Puttaswamy Overruling Precedents",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_173",
@@ -2469,7 +2641,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Puttaswamy Proportionality Test"
+    "provenance": "Puttaswamy Proportionality Test",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_174",
@@ -2486,7 +2659,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Maneka Overruling Gopalan"
+    "provenance": "Maneka Overruling Gopalan",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_175",
@@ -2500,7 +2674,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Emergency Checks 44th Amendment"
+    "provenance": "Emergency Checks 44th Amendment",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_176",
@@ -2513,7 +2688,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 142 Complete Justice Applications"
+    "provenance": "Article 142 Complete Justice Applications",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_177",
@@ -2528,7 +2704,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 110 Money Bill Scope"
+    "provenance": "Article 110 Money Bill Scope",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_178",
@@ -2545,7 +2722,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Collegium vs NJAC Comparison"
+    "provenance": "Collegium vs NJAC Comparison",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_179",
@@ -2562,7 +2740,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Basic Structure Elements Synthesis"
+    "provenance": "Basic Structure Elements Synthesis",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_180",
@@ -2576,7 +2755,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Preamble Role in Constitutional Interpretation"
+    "provenance": "Preamble Role in Constitutional Interpretation",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_181",
@@ -2589,7 +2769,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 301 Trade and Commerce"
+    "provenance": "Article 301 Trade and Commerce",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_182",
@@ -2604,7 +2785,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Articles 302-304 Trade Restrictions"
+    "provenance": "Articles 302-304 Trade Restrictions",
+    "corpus_status": "uncataloged_out_of_corpus"
   },
   {
     "query_id": "RET_183",
@@ -2617,7 +2799,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 280 Finance Commission"
+    "provenance": "Article 280 Finance Commission",
+    "corpus_status": "uncataloged_out_of_corpus"
   },
   {
     "query_id": "RET_184",
@@ -2630,7 +2813,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 148 CAG of India"
+    "provenance": "Article 148 CAG of India",
+    "corpus_status": "uncataloged_out_of_corpus"
   },
   {
     "query_id": "RET_185",
@@ -2645,7 +2829,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Articles 266-267 Consolidated Fund"
+    "provenance": "Articles 266-267 Consolidated Fund",
+    "corpus_status": "uncataloged_out_of_corpus"
   },
   {
     "query_id": "RET_186",
@@ -2658,7 +2843,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 105 Parliamentary Privileges"
+    "provenance": "Article 105 Parliamentary Privileges",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_187",
@@ -2671,7 +2857,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 194 State Assembly Privileges"
+    "provenance": "Article 194 State Assembly Privileges",
+    "corpus_status": "uncataloged_out_of_corpus"
   },
   {
     "query_id": "RET_188",
@@ -2684,7 +2871,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 61 Presidential Impeachment"
+    "provenance": "Article 61 Presidential Impeachment",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_189",
@@ -2697,7 +2885,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 124 Judge Removal Procedure"
+    "provenance": "Article 124 Judge Removal Procedure",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_190",
@@ -2710,7 +2899,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 312 All India Services"
+    "provenance": "Article 312 All India Services",
+    "corpus_status": "uncataloged_out_of_corpus"
   },
   {
     "query_id": "RET_191",
@@ -2723,7 +2913,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 320 Public Service Commissions"
+    "provenance": "Article 320 Public Service Commissions",
+    "corpus_status": "uncataloged_out_of_corpus"
   },
   {
     "query_id": "RET_192",
@@ -2736,7 +2927,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 350B Linguistic Minorities"
+    "provenance": "Article 350B Linguistic Minorities",
+    "corpus_status": "uncataloged_out_of_corpus"
   },
   {
     "query_id": "RET_193",
@@ -2749,7 +2941,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 343 Official Language"
+    "provenance": "Article 343 Official Language",
+    "corpus_status": "uncataloged_out_of_corpus"
   },
   {
     "query_id": "RET_194",
@@ -2762,7 +2955,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 348 Court Language"
+    "provenance": "Article 348 Court Language",
+    "corpus_status": "uncataloged_out_of_corpus"
   },
   {
     "query_id": "RET_195",
@@ -2775,7 +2969,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 351 Hindi Promotion"
+    "provenance": "Article 351 Hindi Promotion",
+    "corpus_status": "uncataloged_out_of_corpus"
   },
   {
     "query_id": "RET_196",
@@ -2788,7 +2983,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 248 Residuary Legislative Powers"
+    "provenance": "Article 248 Residuary Legislative Powers",
+    "corpus_status": "in_corpus"
   },
   {
     "query_id": "RET_197",
@@ -2801,7 +2997,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 249 Rajya Sabha Resolution"
+    "provenance": "Article 249 Rajya Sabha Resolution",
+    "corpus_status": "uncataloged_out_of_corpus"
   },
   {
     "query_id": "RET_198",
@@ -2814,7 +3011,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 252 Legislation by Consent"
+    "provenance": "Article 252 Legislation by Consent",
+    "corpus_status": "uncataloged_out_of_corpus"
   },
   {
     "query_id": "RET_199",
@@ -2827,7 +3025,8 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 253 International Treaties"
+    "provenance": "Article 253 International Treaties",
+    "corpus_status": "uncataloged_out_of_corpus"
   },
   {
     "query_id": "RET_200",
@@ -2840,6 +3039,7 @@
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
-    "provenance": "Article 300 Government Liability Suits"
+    "provenance": "Article 300 Government Liability Suits",
+    "corpus_status": "uncataloged_out_of_corpus"
   }
 ]
