@@ -79,9 +79,10 @@ class ConfidenceEstimator:
         # Signal 1: Retrieval Strength (Reranker or Fusion Score)
         # -------------------------------------------------------------
         top_chunk = ranked_chunks[0]
-        top_score = float(top_chunk.get("rerank_score", top_chunk.get("score", top_chunk.get("rrf_score", 0.0))))
+        has_rerank = ("rerank_score" in top_chunk) or ("reranker_score" in top_chunk)
 
-        if "rerank_score" in top_chunk:
+        if has_rerank:
+            top_score = float(top_chunk.get("rerank_score", top_chunk.get("reranker_score", 0.0)))
             # Cross-encoder logits: map via sigmoid to [0.0, 1.0]
             # Logit 0.0 -> 0.5, Logit 3.0 -> 0.95, Logit -3.0 -> 0.05
             try:
@@ -89,6 +90,7 @@ class ConfidenceEstimator:
             except OverflowError:
                 retrieval_strength = 1.0 if top_score > 0 else 0.0
         else:
+            top_score = float(top_chunk.get("score", top_chunk.get("rrf_score", 0.0)))
             # RRF or dense score
             retrieval_strength = min(1.0, max(0.0, top_score * 30.0 if top_score < 0.05 else top_score))
 

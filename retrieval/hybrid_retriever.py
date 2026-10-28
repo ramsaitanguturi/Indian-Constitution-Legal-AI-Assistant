@@ -258,9 +258,12 @@ class HybridRetriever:
             text = item.get("text", "")
             item["child_id"] = chunk_id
             item["child_text"] = text
-            item["parent_id"] = parent_id
             if "rrf_score" not in item:
-                item["rrf_score"] = item.get("score", 0.0)
+                item["rrf_score"] = item.get("previous_score", item.get("score", 0.0))
+            if "rerank_score" in item and "reranker_score" not in item:
+                item["reranker_score"] = item["rerank_score"]
+            elif "reranker_score" in item and "rerank_score" not in item:
+                item["rerank_score"] = item["reranker_score"]
 
         return final_results
 

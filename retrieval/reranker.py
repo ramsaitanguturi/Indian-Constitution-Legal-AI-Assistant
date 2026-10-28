@@ -94,12 +94,14 @@ class CrossEncoderReranker:
             prev_score = float(cand_copy.get("score", 0.0))
             cand_copy["previous_score"] = prev_score
             cand_copy["reranker_score"] = round(r_score, 5)
+            cand_copy["rerank_score"] = round(r_score, 5)
 
             # Update primary score to cross-encoder score
             cand_copy["score"] = round(r_score, 5)
 
             meta = dict(cand_copy.get("metadata", {}))
             meta["reranker_score"] = round(r_score, 5)
+            meta["rerank_score"] = round(r_score, 5)
             meta["previous_score"] = prev_score
             cand_copy["metadata"] = meta
 

@@ -143,7 +143,12 @@ class RuleBasedIntentClassifier:
             return "RIGHTS_QUERY", 0.86, "Matched fundamental rights query"
 
         # 9. Case Law Query
-        if bool(ents.get("CASE")) or any(w in q_norm for w in ["judgment", "ruling", "verdict", "bench", "ratio decidendi", "case"]):
+        has_specific_case_marker = (
+            bool(ents.get("CASE"))
+            or any(w in q_norm for w in ["judgment", "ruling", "verdict", "bench", "ratio decidendi"])
+            or bool(re.search(r"\b(?:case law|landmark case|v\.|versus)\b", q_norm))
+        )
+        if has_specific_case_marker or (not ents.get("ARTICLE") and "case" in q_norm):
             return "CASE_LAW_QUERY", 0.88, "Matched landmark case query"
 
         # 10. Legal Explanation (fallback for doctrinal inquiries)
@@ -152,7 +157,7 @@ class RuleBasedIntentClassifier:
 
         # Default fallback if legal terms present
         if bool(ents.get("ARTICLE")):
-            return "ARTICLE_LOOKUP", 0.65, "Defaulted to article lookup based on extracted article"
+            return "ARTICLE_LOOKUP", 0.85, "Defaulted to article lookup based on extracted article"
 
         # If nothing matches and no legal terms present
         legal_terms = ["constitution", "court", "law", "supreme", "right", "justice", "article", "section"]
@@ -349,8 +354,25 @@ class HybridIntentClassifier:
             sorted_probs = sorted(probs.items(), key=lambda x: x[1], reverse=True)
             top_ml_label, top_ml_conf = sorted_probs[0]
 
+            has_legal_entities = bool(
+                entities and any(
+                    entities.get(k) for k in ("ARTICLE", "CASE", "AMENDMENT", "RIGHT", "LEGAL_CONCEPT", "articles", "cases", "concepts")
+                )
+            )
+
+            # Spurious out-of-scope guard: if ML says OUT_OF_SCOPE but query has legal entities or valid legal rule intent
+            if top_ml_label == "OUT_OF_SCOPE" and (has_legal_entities or (rule_label != "OUT_OF_SCOPE" and rule_conf >= 0.70)):
+                final_intent = rule_label if rule_label != "OUT_OF_SCOPE" else "LEGAL_EXPLANATION"
+                final_conf = max(rule_conf, 0.70)
+                method = "rule"
+                explanation = f"Protected legal query from spurious OUT_OF_SCOPE: {rule_exp}"
+            elif top_ml_label == "OUT_OF_SCOPE" and rule_label == "OUT_OF_SCOPE":
+                final_intent = "OUT_OF_SCOPE"
+                final_conf = max(top_ml_conf, rule_conf)
+                method = "consensus"
+                explanation = f"Both rule and ML agree query is OUT_OF_SCOPE: {rule_exp}"
             # Consensus: Both models agree
-            if top_ml_label == rule_label:
+            elif top_ml_label == rule_label:
                 final_intent = top_ml_label
                 final_conf = max(top_ml_conf, rule_conf)
                 method = "consensus"

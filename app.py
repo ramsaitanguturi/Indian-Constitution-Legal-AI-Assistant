@@ -378,7 +378,7 @@ with tab1:
                         🌐 Lang: {lang}
                     </span>
                     <span class="agent-badge {conf_badge_class}">
-                        🛡️ Confidence: {conf_lvl} ({int(conf_score * 100)}%)
+                        🛡️ Confidence: {conf_lvl} (Score: {conf_score:.2f})
                     </span>
                     <span class="agent-badge {cit_badge_class}">
                         {cit_badge_text}

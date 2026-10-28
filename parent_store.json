@@ -6335,5 +6335,25 @@
       "Curbed political misuse of Article 356 by making Presidential proclamations subject to judicial scrutiny.",
       "Mandated floor test for proving majority of state governments."
     ]
+  },
+  "parent_const_art_311": {
+    "parent_id": "parent_const_art_311",
+    "document_id": "const_art_311",
+    "doc_type": "constitution",
+    "document_type": "constitution_article",
+    "article_number": "Article 311",
+    "title": "Dismissal, removal or reduction in rank of persons employed in civil capacities under the Union or a State",
+    "part": "Part XIV - Services Under the Union and the States",
+    "category": "Public Services",
+    "full_text": "ARTICLE/TITLE: Article 311 - Dismissal, removal or reduction in rank of persons employed in civil capacities under the Union or a State\nPART: Part XIV - Services Under the Union and the States | CATEGORY: Public Services\nCONSTITUTIONAL TEXT: No civil servant dismissed or removed by authority subordinate to appointing authority, nor without inquiry and reasonable opportunity of being heard.\nLEGAL EXPLANATION: Constitutional protection of civil servants against arbitrary dismissal.\nHISTORICAL CONTEXT: Constitutional provision framed by Constituent Assembly of India under Part XIV - Services Under the Union and the States.",
+    "raw_text": "No civil servant dismissed or removed by authority subordinate to appointing authority, nor without inquiry and reasonable opportunity of being heard.",
+    "explanation": "Constitutional protection of civil servants against arbitrary dismissal.",
+    "historical_context": "Constitutional provision framed by Constituent Assembly of India under Part XIV - Services Under the Union and the States.",
+    "provenance": {
+      "source": "Legislative Department, Ministry of Law and Justice, Government of India",
+      "retrieval_date": "2026-10-08",
+      "version": "Constitution of India (as amended up to 105th Amendment Act)",
+      "verified": true
+    }
   }
 }

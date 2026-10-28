@@ -116,33 +116,50 @@ class AbstentionManager:
                 }
 
             # Check for very low retrieval score
-            top_score = float(retrieved_chunks[0].get("score", retrieved_chunks[0].get("rrf_score", 1.0)))
-            if "rerank_score" in retrieved_chunks[0]:
-                top_score = float(retrieved_chunks[0]["rerank_score"])
+            top_chunk = retrieved_chunks[0]
+            has_rerank = ("rerank_score" in top_chunk) or ("reranker_score" in top_chunk)
+
+            if has_rerank:
+                top_rerank_score = float(top_chunk.get("rerank_score", top_chunk.get("reranker_score", 0.0)))
                 # Severe cross-encoder negative logit check (e.g. < -8.0 indicates extreme irrelevance)
-                if top_score < -8.0:
+                if top_rerank_score < -8.0:
                     return {
                         "should_abstain": True,
                         "abstention_reason": "LOW_RETRIEVAL_CONFIDENCE",
                         "safe_response": (
                             "**Low Relevance Notice**: The closest retrieved legal passages exhibited very low "
-                            f"semantic relevance (score: {top_score:.2f}). To ensure reliable legal assistance, "
+                            f"semantic relevance (score: {top_rerank_score:.2f}). To ensure reliable legal assistance, "
                             "the assistant abstains from answering. Please rephrase with specific constitutional terms."
                         ),
                         "abstention_stage": "RERANKER",
                         "thresholds_applied": thresholds,
                     }
-            elif top_score < self.min_retrieval_score:
-                return {
-                    "should_abstain": True,
-                    "abstention_reason": "LOW_RETRIEVAL_CONFIDENCE",
-                    "safe_response": (
-                        "**Low Relevance Notice**: Retrieval fusion score was below the minimum confidence threshold "
-                        f"({top_score:.4f} < {self.min_retrieval_score:.4f}). Generation withheld."
-                    ),
-                    "abstention_stage": "RETRIEVAL",
-                    "thresholds_applied": thresholds,
-                }
+                # Also check underlying RRF fusion score if available
+                underlying_rrf = float(top_chunk.get("rrf_score", top_chunk.get("previous_score", 1.0)))
+                if underlying_rrf < self.min_retrieval_score:
+                    return {
+                        "should_abstain": True,
+                        "abstention_reason": "LOW_RETRIEVAL_CONFIDENCE",
+                        "safe_response": (
+                            "**Low Relevance Notice**: Retrieval fusion score was below the minimum confidence threshold "
+                            f"({underlying_rrf:.4f} < {self.min_retrieval_score:.4f}). Generation withheld."
+                        ),
+                        "abstention_stage": "RETRIEVAL",
+                        "thresholds_applied": thresholds,
+                    }
+            else:
+                top_score = float(top_chunk.get("score", top_chunk.get("rrf_score", 1.0)))
+                if top_score < self.min_retrieval_score:
+                    return {
+                        "should_abstain": True,
+                        "abstention_reason": "LOW_RETRIEVAL_CONFIDENCE",
+                        "safe_response": (
+                            "**Low Relevance Notice**: Retrieval fusion score was below the minimum confidence threshold "
+                            f"({top_score:.4f} < {self.min_retrieval_score:.4f}). Generation withheld."
+                        ),
+                        "abstention_stage": "RETRIEVAL",
+                        "thresholds_applied": thresholds,
+                    }
 
         # -------------------------------------------------------------
         # 3. Context Recovery Stage: Insufficient Evidence

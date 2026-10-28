@@ -131,7 +131,25 @@ class QueryRouter:
                 reasons=reasons,
             )
 
-        if is_out_of_scope_flag or intent_label == "OUT_OF_SCOPE" or not is_supported_lang:
+        has_legal_content = bool(article_mentions or case_mentions or amendment_mentions or right_mentions or concept_mentions)
+
+        if not is_supported_lang:
+            reasons.append(f"Query language '{lang_code}' is unsupported; routed to OUT_OF_SCOPE.")
+            return RoutingDecision(
+                strategy="OUT_OF_SCOPE",
+                retrieval_query=norm_q,
+                filter_doc_type=None,
+                use_bm25=False,
+                use_dense=False,
+                use_rrf=False,
+                use_entity_boost=False,
+                use_reranker=False,
+                is_out_of_scope=True,
+                recommended_agent="explanation_agent",
+                reasons=reasons,
+            )
+
+        if (is_out_of_scope_flag or intent_label == "OUT_OF_SCOPE") and not has_legal_content:
             reasons.append(f"Query classified as OUT_OF_SCOPE (intent='{intent_label}', lang='{lang_code}').")
             return RoutingDecision(
                 strategy="OUT_OF_SCOPE",
@@ -178,10 +196,12 @@ class QueryRouter:
             reasons.append(f"Query targets constitutional provisions or amendments (intent='{intent_label}', articles={article_mentions}).")
             # For exact article lookup, keep normalized query to avoid diluting specific article token
             target_q = norm_q if article_mentions else exp_q
+            # When amendments are queried, do not filter strictly to 'constitution' so amendment docs can be retrieved
+            doc_filter = None if (amendment_mentions or intent_label == "AMENDMENT_QUERY") else "constitution"
             return RoutingDecision(
                 strategy="ARTICLE_SEARCH",
                 retrieval_query=target_q,
-                filter_doc_type="constitution",
+                filter_doc_type=doc_filter,
                 use_bm25=True,
                 use_dense=True,
                 use_rrf=True,
@@ -203,10 +223,12 @@ class QueryRouter:
         ):
             reasons.append(f"Query targets judicial precedent or case law (intent='{intent_label}', cases={case_mentions}).")
             target_q = norm_q if case_mentions else exp_q
+            # When an article is also mentioned, allow cross-corpus retrieval so the constitutional article is not excluded
+            doc_filter = None if article_mentions else "judgment"
             return RoutingDecision(
                 strategy="CASE_SEARCH",
                 retrieval_query=target_q,
-                filter_doc_type="judgment",
+                filter_doc_type=doc_filter,
                 use_bm25=True,
                 use_dense=True,
                 use_rrf=True,
