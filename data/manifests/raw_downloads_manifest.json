@@ -1,19 +1,19 @@
 {
   "manifest_version": "2.2.0-production-expanded",
-  "timestamp": "2026-10-29T12:35:42.613715+00:00",
-  "total_sources_configured": 86,
-  "successful_downloads": 86,
+  "timestamp": "2026-10-29T13:39:53.177073+00:00",
+  "total_sources_configured": 114,
+  "successful_downloads": 114,
   "failed_downloads": 0,
-  "total_raw_bytes": 70368103,
+  "total_raw_bytes": 103155873,
   "counts_by_status": {
-    "downloaded_full_text": 83,
+    "downloaded_full_text": 111,
     "downloaded_metadata_only": 3,
     "download_failed": 0
   },
   "counts_by_category": {
     "constitution": 1,
     "central_legislation_acts": 7,
-    "supreme_court_fulltext_pdfs": 75,
+    "supreme_court_fulltext_pdfs": 103,
     "supreme_court_metadata_parquet_years": 3
   },
   "errors": [],
@@ -28,7 +28,7 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 508318,
       "sha256": "4ac17b53c465760709bf3a9467647ba8c32150d0c6269099f23e0893280e8b06",
-      "retrieved_at": "2026-10-29T12:34:34.372124+00:00",
+      "retrieved_at": "2026-10-29T13:39:27.382814+00:00",
       "attempts": 0
     },
     {
@@ -41,7 +41,7 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 328291,
       "sha256": "3940646ce396cf5313d5449523847671415be04934e295fdf9889bbe81b41988",
-      "retrieved_at": "2026-10-29T12:34:34.376987+00:00",
+      "retrieved_at": "2026-10-29T13:39:27.387803+00:00",
       "attempts": 0
     },
     {
@@ -54,7 +54,7 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 565522,
       "sha256": "e51cb0feaaa97958212a9d59b84af0dd2125f3cdb003216ca508ce85905f42df",
-      "retrieved_at": "2026-10-29T12:34:34.383987+00:00",
+      "retrieved_at": "2026-10-29T13:39:27.395803+00:00",
       "attempts": 0
     },
     {
@@ -67,7 +67,7 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 110959,
       "sha256": "cc799202bea82658ff55e83bb6c6622e7047e4068e20314213944a1bc2f481ee",
-      "retrieved_at": "2026-10-29T12:34:34.387990+00:00",
+      "retrieved_at": "2026-10-29T13:39:27.397802+00:00",
       "attempts": 0
     },
     {
@@ -80,7 +80,7 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 162240,
       "sha256": "c40e709803c0ed7401c6866e83f6640127ec94f1004672bb4528c11134776ebe",
-      "retrieved_at": "2026-10-29T12:34:34.390989+00:00",
+      "retrieved_at": "2026-10-29T13:39:27.400803+00:00",
       "attempts": 0
     },
     {
@@ -93,7 +93,7 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 41558,
       "sha256": "00a47a60e441c54befebc6292b8bdbff2eb996df9d61871212821204f24bba0a",
-      "retrieved_at": "2026-10-29T12:34:34.392987+00:00",
+      "retrieved_at": "2026-10-29T13:39:27.402811+00:00",
       "attempts": 0
     },
     {
@@ -106,7 +106,7 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 88606,
       "sha256": "4f536f52e755dcd9bcdd69558da202d94e96256bb6e93832c12d7f5f9f6c0ba9",
-      "retrieved_at": "2026-10-29T12:34:34.395987+00:00",
+      "retrieved_at": "2026-10-29T13:39:27.405817+00:00",
       "attempts": 0
     },
     {
@@ -119,7 +119,176 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 416580,
       "sha256": "9bf2e737f87800b10effcf67600ef8283967faa403f761270f7918e4737a8287",
-      "retrieved_at": "2026-10-29T12:34:34.400986+00:00",
+      "retrieved_at": "2026-10-29T13:39:27.410809+00:00",
+      "attempts": 0
+    },
+    {
+      "source_id": "sc_scr_1950_ak_gopalan",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1950/english/1950_1_88_334_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1950_1_88_334_ak_gopalan.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "description": "A.K. Gopalan v. State of Madras [1950] 1 S.C.R. 88 - Article 21 & Preventive Detention",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 8212701,
+      "sha256": "5c292ebc56bb98a721f25961ac5f81aeb96b7d63faab888e63790a170594ec9a",
+      "retrieved_at": "2026-10-29T13:39:27.439335+00:00",
+      "attempts": 0
+    },
+    {
+      "source_id": "sc_scr_1950_romesh_thappar",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1950/english/1950_1_594_605_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1950_1_594_605_romesh_thappar.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "description": "Romesh Thappar v. State of Madras [1950] 1 S.C.R. 594 - Freedom of Speech & Press",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 414585,
+      "sha256": "f0df41cba6f1092918938ff88201e56572fb7e8ba353e195d51543e68fb43f71",
+      "retrieved_at": "2026-10-29T13:39:27.444337+00:00",
+      "attempts": 0
+    },
+    {
+      "source_id": "sc_scr_1950_brij_bhushan",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1950/english/1950_1_605_620_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1950_1_605_620_brij_bhushan.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "description": "Brij Bhushan v. State of Delhi [1950] 1 S.C.R. 605 - Pre-censorship and Free Speech",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 512629,
+      "sha256": "53c98b484983f4685ea1197fd089652791540587202fa54a8a49c2faa5c95f8d",
+      "retrieved_at": "2026-10-29T13:39:27.451345+00:00",
+      "attempts": 0
+    },
+    {
+      "source_id": "sc_scr_1950_rashid_ahmed",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1950/english/1950_1_566_572_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1950_1_566_572_rashid_ahmed.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "description": "Rashid Ahmed v. Municipal Board, Kairana [1950] 1 S.C.R. 566 - Article 19(1)(g) & Article 32 Writs",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 212790,
+      "sha256": "adf7748bb818110309d412ed5a075faf2ab5501954ff8222d289bf1038d42fa4",
+      "retrieved_at": "2026-10-29T13:39:27.457335+00:00",
+      "attempts": 0
+    },
+    {
+      "source_id": "sc_scr_1950_chintaman_rao",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1950/english/1950_1_759_766_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1950_1_759_766_chintaman_rao.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "description": "Chintaman Rao v. State of Madhya Pradesh [1950] 1 S.C.R. 759 - Reasonable Restrictions on Trade",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 258691,
+      "sha256": "f49fb94f06b0904a69b0b12b82a501ebbac85d7e9d9743b9e47f1906c5d1c22b",
+      "retrieved_at": "2026-10-29T13:39:27.464334+00:00",
+      "attempts": 0
+    },
+    {
+      "source_id": "sc_scr_1950_chiranjit_lal",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1950/english/1950_1_869_940_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1950_1_869_940_chiranjit_lal.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "description": "Chiranjit Lal Chowdhuri v. Union of India [1950] 1 S.C.R. 869 - Equal Protection under Article 14",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 2412437,
+      "sha256": "46a754a4a4d79c2cc9550024b558464a6adc646f055b2b70176ab654a81a7236",
+      "retrieved_at": "2026-10-29T13:39:27.476336+00:00",
+      "attempts": 0
+    },
+    {
+      "source_id": "sc_scr_1950_nb_khare",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1950/english/1950_1_519_536_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1950_1_519_536_nb_khare.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "description": "Dr. N.B. Khare v. State of Delhi [1950] 1 S.C.R. 519 - Freedom of Movement & Externment Orders",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 602235,
+      "sha256": "f2f36a535e374b21874a2d0f4e47c854ae4947f7b18a8520fa5d1e446fec73d7",
+      "retrieved_at": "2026-10-29T13:39:27.481335+00:00",
+      "attempts": 0
+    },
+    {
+      "source_id": "sc_scr_1951_champakam_dorairajan",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1951/english/1951_1_525_533_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1951_1_525_533_champakam_dorairajan.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "description": "State of Madras v. Champakam Dorairajan [1951] 1 S.C.R. 525 - Article 15(1), Article 29(2) & 1st Amendment",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 279679,
+      "sha256": "33d5750286f081ea582b1d907b6d9dfcc870c8b2f21931a3c1a85117afbf6273",
+      "retrieved_at": "2026-10-29T13:39:27.485658+00:00",
+      "attempts": 0
+    },
+    {
+      "source_id": "sc_scr_1951_keshavan_menon",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1951/english/1951_1_228_258_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1951_1_228_258_keshavan_madhava_menon.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "description": "Keshavan Madhava Menon v. State of Bombay [1951] 1 S.C.R. 228 - Article 13(1) Non-retroactivity of Fundamental Rights",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 1055772,
+      "sha256": "0f2c188f89fd965d9038e0b878be6bc60be929e48d6c2dd980c53cd62423a9d8",
+      "retrieved_at": "2026-10-29T13:39:27.492661+00:00",
+      "attempts": 0
+    },
+    {
+      "source_id": "sc_scr_1951_fn_balsara",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1951/english/1951_1_682_729_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1951_1_682_729_fn_balsara.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "description": "State of Bombay v. F.N. Balsara [1951] 1 S.C.R. 682 - Pith and Substance Doctrine & Total Prohibition",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 1605828,
+      "sha256": "f95658be9ea254cdd29843ff758dbdb56636e37f5e0a8b0ebb92e9e7df7ff85e",
+      "retrieved_at": "2026-10-29T13:39:27.503708+00:00",
+      "attempts": 0
+    },
+    {
+      "source_id": "sc_scr_1952_shankari_prasad",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1952/english/1952_1_89_109_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1952_1_89_109_shankari_prasad.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "description": "Sri Sankari Prasad Singh Deo v. Union of India [1952] 1 S.C.R. 89 - Article 368 Constituent Power & 1st Amendment",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 832395,
+      "sha256": "dae425313462f4230b93a990696ad115764dbbf44813e1a6bdb83c6347ff9548",
+      "retrieved_at": "2026-10-29T13:39:27.511713+00:00",
+      "attempts": 0
+    },
+    {
+      "source_id": "sc_scr_1951_atma_ram",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1951/english/1951_1_167_212_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1951_1_167_212_atma_ram.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "description": "State of Bombay v. Atma Ram Sridhar Vaidya [1951] 1 S.C.R. 167 - Article 22(5) Grounds of Preventive Detention",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 1534752,
+      "sha256": "593c213c7447d998dc8d08b9231bce5026ed04bef10779150686300f76391831",
+      "retrieved_at": "2026-10-29T13:39:27.520229+00:00",
+      "attempts": 0
+    },
+    {
+      "source_id": "sc_scr_1951_shamdasani",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1951/english/1951_1_391_395_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1951_1_391_395_shamdasani.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "description": "P.D. Shamdasani v. Central Bank of India Ltd. [1952] 1 S.C.R. 391 - Article 19(1)(f) and Article 31 against Private Persons",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 241252,
+      "sha256": "cd8deb73f48b32fa5138667180fcded5745abd65f14d86d42444ff7b251d8a2e",
+      "retrieved_at": "2026-10-29T13:39:27.524227+00:00",
       "attempts": 0
     },
     {
@@ -133,7 +302,7 @@
       "processing_status": "downloaded_metadata_only",
       "bytes_downloaded": 60343,
       "sha256": "d0e8bb3eb4c266fa8abb0ee0294b7831dac4da8425eaa092e6b632eefa85f44a",
-      "retrieved_at": "2026-10-29T12:34:34.401986+00:00",
+      "retrieved_at": "2026-10-29T13:39:27.528231+00:00",
       "attempts": 0
     },
     {
@@ -147,7 +316,7 @@
       "processing_status": "downloaded_metadata_only",
       "bytes_downloaded": 85845,
       "sha256": "e6ce04687e9005403a1c26734e970320b7ffd83a589bd1ad80a9c5f8f5ac5ead",
-      "retrieved_at": "2026-10-29T12:34:34.403993+00:00",
+      "retrieved_at": "2026-10-29T13:39:27.530232+00:00",
       "attempts": 0
     },
     {
@@ -161,7 +330,7 @@
       "processing_status": "downloaded_metadata_only",
       "bytes_downloaded": 129660,
       "sha256": "d5ecad30fddae8bd9b76e876e07dd04164dc264bf7c262e9e1027080225eb7c3",
-      "retrieved_at": "2026-10-29T12:34:34.405992+00:00",
+      "retrieved_at": "2026-10-29T13:39:27.533230+00:00",
       "attempts": 0
     },
     {
@@ -176,8 +345,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 2259188,
       "sha256": "ef67270878408812b4a01fba13164b02379db0f2538ac6e7f33d92ec9b577f26",
-      "retrieved_at": "2026-10-29T12:34:35.750900+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:28.032458+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_64_74_EN.pdf",
@@ -191,8 +360,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 415104,
       "sha256": "635d8cd197c779834e34f2c1dea452c9e985e1145d6bb4bca1b1a29591835401",
-      "retrieved_at": "2026-10-29T12:34:36.450893+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:28.201520+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_754_758_EN.pdf",
@@ -206,8 +375,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 165910,
       "sha256": "6cae31bfea79c4ec66f02accbab7fae2196cf06815897fc7443c4598e8c8a119",
-      "retrieved_at": "2026-10-29T12:34:37.254649+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:28.364615+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_741_747_EN.pdf",
@@ -221,8 +390,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 225117,
       "sha256": "89a094f86145424847e86ba5547c4876b7eec2530887e813e38768d0806ef66d",
-      "retrieved_at": "2026-10-29T12:34:37.904388+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:28.528215+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_15_25_EN.pdf",
@@ -236,8 +405,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 429467,
       "sha256": "9789e45cda05cbea4886888e54277fd5831220afa3976a62d3d69025114ae7a8",
-      "retrieved_at": "2026-10-29T12:34:39.613985+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:28.693834+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_605_620_EN.pdf",
@@ -251,8 +420,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 512629,
       "sha256": "53c98b484983f4685ea1197fd089652791540587202fa54a8a49c2faa5c95f8d",
-      "retrieved_at": "2026-10-29T12:34:40.537939+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:28.848896+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_806_821_EN.pdf",
@@ -266,8 +435,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 538413,
       "sha256": "9c4e37e71367debecb296b2d5a3375ad808e38ab183d559d7add1566dc3776c4",
-      "retrieved_at": "2026-10-29T12:34:41.221163+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:29.004967+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_30_63_EN.pdf",
@@ -281,8 +450,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 1321381,
       "sha256": "4e0ab3a576a445ae09dfed9a12d1b4c6ad11cbfcc8adf5bf460c121c0439a6d7",
-      "retrieved_at": "2026-10-29T12:34:41.914296+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:29.162071+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_519_536_EN.pdf",
@@ -296,8 +465,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 602235,
       "sha256": "f2f36a535e374b21874a2d0f4e47c854ae4947f7b18a8520fa5d1e446fec73d7",
-      "retrieved_at": "2026-10-29T12:34:42.645453+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:29.317633+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_747_754_EN.pdf",
@@ -311,8 +480,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 263422,
       "sha256": "48b74fedbf003346123f26154138944e789f8a095a4aa745ddd1184a2c5b2c88",
-      "retrieved_at": "2026-10-29T12:34:43.294452+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:29.472512+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_594_605_EN.pdf",
@@ -326,8 +495,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 414585,
       "sha256": "f0df41cba6f1092918938ff88201e56572fb7e8ba353e195d51543e68fb43f71",
-      "retrieved_at": "2026-10-29T12:34:43.933140+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:29.626602+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_25_29_EN.pdf",
@@ -341,8 +510,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 189160,
       "sha256": "6f77778e8b2e0518393efa6e947fc8c0dc0d8fa58214ea4fb7f83e8cdba089c0",
-      "retrieved_at": "2026-10-29T12:34:44.638359+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:29.780659+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_563_565_EN.pdf",
@@ -356,8 +525,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 88444,
       "sha256": "6129958bffcf8ac4854323389a522c8bd7162ced3ac069c0e35d756a84f84c77",
-      "retrieved_at": "2026-10-29T12:34:45.278878+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:29.934086+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_821_833_EN.pdf",
@@ -371,8 +540,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 419804,
       "sha256": "848a226b906b031f9f4b6052e2061cd8f3aafdc5376dbfcfb256e1c979c209cd",
-      "retrieved_at": "2026-10-29T12:34:46.029760+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:30.090144+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_536_547_EN.pdf",
@@ -386,8 +555,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 397122,
       "sha256": "a30cace00f7a5ac4acb6278244edcb746b1ee8a7ead8f476021d4433469aca10",
-      "retrieved_at": "2026-10-29T12:34:46.714797+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:30.245099+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_75_87_EN.pdf",
@@ -401,8 +570,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 507779,
       "sha256": "6389eb46db080f5325944ace1718a5b5196171648a44ada53ff1a404dbe754e4",
-      "retrieved_at": "2026-10-29T12:34:47.379069+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:30.411685+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_621_741_EN.pdf",
@@ -416,8 +585,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 4009736,
       "sha256": "eac2495fc6555fd94e0ae07882b0f96c44a18810bd97fc85102741d03fa891b2",
-      "retrieved_at": "2026-10-29T12:34:48.192170+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:30.579251+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_979_1008_EN.pdf",
@@ -431,8 +600,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 996595,
       "sha256": "dce29b5450f9b530f73935bfd2b6f354b555fc111fdd207fb3dfa486920a82cd",
-      "retrieved_at": "2026-10-29T12:34:49.955330+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:30.736561+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_566_572_EN.pdf",
@@ -446,8 +615,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 212790,
       "sha256": "adf7748bb818110309d412ed5a075faf2ab5501954ff8222d289bf1038d42fa4",
-      "retrieved_at": "2026-10-29T12:34:50.611081+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:30.892695+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_88_334_EN.pdf",
@@ -461,8 +630,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 8212701,
       "sha256": "5c292ebc56bb98a721f25961ac5f81aeb96b7d63faab888e63790a170594ec9a",
-      "retrieved_at": "2026-10-29T12:34:51.692864+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:31.070291+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_553_563_EN.pdf",
@@ -476,8 +645,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 358558,
       "sha256": "12467b11f85b2c8cc650b8df95e4315abf0511d556e8fb056486d95001186923",
-      "retrieved_at": "2026-10-29T12:34:52.376804+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:31.225735+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_453_459_EN.pdf",
@@ -491,8 +660,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 243732,
       "sha256": "ba4bfb6f55c88f3a5b200c364de23bc2e8dede921179d8d006dda15057c107ea",
-      "retrieved_at": "2026-10-29T12:34:53.038512+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:31.392035+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_435_452_EN.pdf",
@@ -506,8 +675,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 673044,
       "sha256": "f0f2d79ea6ab3a7d0c1031466cff43c24c18d7ff2e0e884c08ad7c8f761b3689",
-      "retrieved_at": "2026-10-29T12:34:53.733802+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:31.548330+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_961_968_EN.pdf",
@@ -521,8 +690,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 267331,
       "sha256": "1dc6dde99e8a727ef5b76f30ab16f71a4a1f3fa237a1753c90ab7f414716f70f",
-      "retrieved_at": "2026-10-29T12:34:54.930166+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:31.702109+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1950_1950_1_1008_1018_EN.pdf",
@@ -536,7 +705,82 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 360714,
       "sha256": "81661ce9001e2cbd7dd162f80141c5fb634e6271e23ac182f30027b302971185",
-      "retrieved_at": "2026-10-29T12:34:55.632155+00:00",
+      "retrieved_at": "2026-10-29T13:39:31.870993+00:00",
+      "attempts": 0
+    },
+    {
+      "source_id": "sc_pdf_1950_1950_1_969_979_EN.pdf",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1950/english/1950_1_969_979_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1950_1_969_979_EN.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "year": 1950,
+      "filename": "1950_1_969_979_EN.pdf",
+      "description": "Supreme Court Reports Official Judgment PDF (1950)",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 378769,
+      "sha256": "faaf655d2eeca48c506bcf5c78e1c4707e909223c13d538c1d2f1b77816a2ad1",
+      "retrieved_at": "2026-10-29T13:39:32.534860+00:00",
+      "attempts": 1
+    },
+    {
+      "source_id": "sc_pdf_1950_1950_1_949_960_EN.pdf",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1950/english/1950_1_949_960_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1950_1_949_960_EN.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "year": 1950,
+      "filename": "1950_1_949_960_EN.pdf",
+      "description": "Supreme Court Reports Official Judgment PDF (1950)",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 401416,
+      "sha256": "a810e2c913da14105b4ac469193cd8881c1a72c11d48310e0f84f36d46b30cc8",
+      "retrieved_at": "2026-10-29T13:39:33.979014+00:00",
+      "attempts": 1
+    },
+    {
+      "source_id": "sc_pdf_1950_1950_1_940_949_EN.pdf",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1950/english/1950_1_940_949_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1950_1_940_949_EN.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "year": 1950,
+      "filename": "1950_1_940_949_EN.pdf",
+      "description": "Supreme Court Reports Official Judgment PDF (1950)",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 337259,
+      "sha256": "c33dead2bb3490118c676b3c665588b3aef829c97da627ae4a15d36f926959dd",
+      "retrieved_at": "2026-10-29T13:39:34.655197+00:00",
+      "attempts": 1
+    },
+    {
+      "source_id": "sc_pdf_1950_1950_1_833_840_EN.pdf",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1950/english/1950_1_833_840_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1950_1_833_840_EN.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "year": 1950,
+      "filename": "1950_1_833_840_EN.pdf",
+      "description": "Supreme Court Reports Official Judgment PDF (1950)",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 263033,
+      "sha256": "a5ed0e33f98a06f9a8d5636d7ea54ead3bc0bf352f37038f048a89245d221ed1",
+      "retrieved_at": "2026-10-29T13:39:35.229289+00:00",
+      "attempts": 1
+    },
+    {
+      "source_id": "sc_pdf_1950_1950_1_869_940_EN.pdf",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1950/english/1950_1_869_940_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1950_1_869_940_EN.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "year": 1950,
+      "filename": "1950_1_869_940_EN.pdf",
+      "description": "Supreme Court Reports Official Judgment PDF (1950)",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 2412437,
+      "sha256": "46a754a4a4d79c2cc9550024b558464a6adc646f055b2b70176ab654a81a7236",
+      "retrieved_at": "2026-10-29T13:39:36.007981+00:00",
       "attempts": 1
     },
     {
@@ -551,8 +795,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 417977,
       "sha256": "08ed13901af58a4a341d98b7b1a09ac208e739b4165c8a9ae3672f9055278eca",
-      "retrieved_at": "2026-10-29T12:34:56.562119+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:36.424033+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_594_602_EN.pdf",
@@ -566,8 +810,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 275660,
       "sha256": "72dc507934fa2260eb846ff48198b1febaa9b0859cfaadc4458791a341f0528d",
-      "retrieved_at": "2026-10-29T12:34:57.241056+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:36.578535+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_682_729_EN.pdf",
@@ -581,8 +825,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 1605828,
       "sha256": "f95658be9ea254cdd29843ff758dbdb56636e37f5e0a8b0ebb92e9e7df7ff85e",
-      "retrieved_at": "2026-10-29T12:34:57.970714+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:36.743601+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_1125_1147_EN.pdf",
@@ -596,8 +840,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 788636,
       "sha256": "428c00df420ad9650459c21f3c99b6cf86cfe6b5cf0a5062d51a499d3c5af5dc",
-      "retrieved_at": "2026-10-29T12:34:58.650218+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:36.898268+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_153_160_EN.pdf",
@@ -611,8 +855,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 258757,
       "sha256": "270da4c9ffa2f6f02f6212123432a271bf911a539786c806aab2fb2bbd1ea133",
-      "retrieved_at": "2026-10-29T12:34:59.330049+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:37.051832+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_655_671_EN.pdf",
@@ -626,8 +870,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 554388,
       "sha256": "c0b311683bd6a3a200329129a9d7621ba0e5f34e9e68321c7f07e092c4422d4a",
-      "retrieved_at": "2026-10-29T12:35:00.096949+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:37.207877+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_729_746_EN.pdf",
@@ -641,8 +885,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 842603,
       "sha256": "4600e0cf05836789ddf326139156b635be4f6529f6aafbaf9d42fc7d1966fc11",
-      "retrieved_at": "2026-10-29T12:35:01.873279+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:37.367300+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_621_654_EN.pdf",
@@ -656,8 +900,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 1145729,
       "sha256": "336b4187bed939c43a5adf8a02c357d7bb914be8fb5e445baf1e2cb101b675f8",
-      "retrieved_at": "2026-10-29T12:35:02.876210+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:37.524776+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_167_212_EN.pdf",
@@ -671,8 +915,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 1534752,
       "sha256": "593c213c7447d998dc8d08b9231bce5026ed04bef10779150686300f76391831",
-      "retrieved_at": "2026-10-29T12:35:03.733510+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:37.683377+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_572_594_EN.pdf",
@@ -686,8 +930,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 766354,
       "sha256": "f88a22819c733d6b41ec51af850d988d615c6255d20a0df304897d22767961e5",
-      "retrieved_at": "2026-10-29T12:35:04.458404+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:37.839609+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_747_1125_EN.pdf",
@@ -701,8 +945,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 12737534,
       "sha256": "2e5b151a12669510eca21945e9c1b7982b57eaab16ab49881ef0a5ef8ab6522d",
-      "retrieved_at": "2026-10-29T12:35:06.163723+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:38.040932+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_560_572_EN.pdf",
@@ -716,8 +960,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 418362,
       "sha256": "4cf0b39d8404e29eb08b031a54a63903a752cca69c2d095b80e96f16efb100ac",
-      "retrieved_at": "2026-10-29T12:35:06.937282+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:38.195826+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_676_681_EN.pdf",
@@ -731,8 +975,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 191117,
       "sha256": "120be20f98d20d1b3d8e0280f103e81c43965e3d99fa6827d5915835f66e7dc5",
-      "retrieved_at": "2026-10-29T12:35:07.589992+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:38.363099+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_671_676_EN.pdf",
@@ -746,8 +990,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 191712,
       "sha256": "03fe98be1361a17e0cf989ca04e948300f413ca2ec52c258f75f3aa982a13f49",
-      "retrieved_at": "2026-10-29T12:35:08.291165+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:38.517763+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_145_153_EN.pdf",
@@ -761,8 +1005,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 286351,
       "sha256": "20ada0b5515553d70b509f72763fe2ed5010b26e50b3b0269481b099028da421",
-      "retrieved_at": "2026-10-29T12:35:08.972209+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:38.671846+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_212_220_EN.pdf",
@@ -776,8 +1020,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 295330,
       "sha256": "a8ed4a834e7708d6ae73d47f0c3071d280bbd6b635390cbedf00648aba5fe626",
-      "retrieved_at": "2026-10-29T12:35:09.581097+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:38.826471+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_603_620_EN.pdf",
@@ -791,8 +1035,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 611017,
       "sha256": "104bd3a30d3f9db643f2d14cffbdbfdab564846e5989ef068c65dd6bb62f19f1",
-      "retrieved_at": "2026-10-29T12:35:10.557183+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:38.982411+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_525_533_EN.pdf",
@@ -806,8 +1050,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 279679,
       "sha256": "33d5750286f081ea582b1d907b6d9dfcc870c8b2f21931a3c1a85117afbf6273",
-      "retrieved_at": "2026-10-29T12:35:11.202239+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:39.146409+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_228_258_EN.pdf",
@@ -821,8 +1065,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 1055772,
       "sha256": "0f2c188f89fd965d9038e0b878be6bc60be929e48d6c2dd980c53cd62423a9d8",
-      "retrieved_at": "2026-10-29T12:35:12.028958+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:39.303461+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_474_524_EN.pdf",
@@ -836,8 +1080,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 1707317,
       "sha256": "defd23ce0056a400a0657268c6a26c0be1f58e2bd6112ce65b51b049eec9dec2",
-      "retrieved_at": "2026-10-29T12:35:15.736435+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:39.462341+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_534_548_EN.pdf",
@@ -851,8 +1095,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 480968,
       "sha256": "5b773ecfacddc8bcd42e659bd5f17ad06a5c48c04809c95f02713afb3f26155e",
-      "retrieved_at": "2026-10-29T12:35:16.610692+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:39.617392+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_128_137_EN.pdf",
@@ -866,8 +1110,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 350344,
       "sha256": "91604aad9021fd8d08a00a428ece4193fa39784483f02c0a0fe0c5f2b30b641b",
-      "retrieved_at": "2026-10-29T12:35:17.633694+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:39.771587+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_138_145_EN.pdf",
@@ -881,8 +1125,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 257462,
       "sha256": "734e691e61c9824d874b1eaa6cc3f506e436519f578e46ff2d7a367cbef610bd",
-      "retrieved_at": "2026-10-29T12:35:18.412113+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:39.929566+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_451_473_EN.pdf",
@@ -896,8 +1140,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 757209,
       "sha256": "4ecb7437e3a7b8ae629f963133dfcde56d8c24ef07f4313cf524b76f45fc811f",
-      "retrieved_at": "2026-10-29T12:35:19.289213+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:40.084613+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1951_1951_1_431_451_EN.pdf",
@@ -911,7 +1155,82 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 718609,
       "sha256": "8008e567344e9816732a7735ae254e2704393d8f5cc38039a9dcd0f8a6fa943d",
-      "retrieved_at": "2026-10-29T12:35:20.056827+00:00",
+      "retrieved_at": "2026-10-29T13:39:40.239858+00:00",
+      "attempts": 0
+    },
+    {
+      "source_id": "sc_pdf_1951_1951_1_380_430_EN.pdf",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1951/english/1951_1_380_430_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1951_1_380_430_EN.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "year": 1951,
+      "filename": "1951_1_380_430_EN.pdf",
+      "description": "Supreme Court Reports Official Judgment PDF (1951)",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 1848708,
+      "sha256": "3afc015e7a536b96a7c2f533f02d67872c852c4efd50bf8ca2ddcbee6da4ce79",
+      "retrieved_at": "2026-10-29T13:39:41.185330+00:00",
+      "attempts": 1
+    },
+    {
+      "source_id": "sc_pdf_1951_1951_1_51_127_EN.pdf",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1951/english/1951_1_51_127_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1951_1_51_127_EN.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "year": 1951,
+      "filename": "1951_1_51_127_EN.pdf",
+      "description": "Supreme Court Reports Official Judgment PDF (1951)",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 2515658,
+      "sha256": "57fb487b463a93a2019913ba5e9d6b58958754da6cea75a93ad6d43b6b090e0d",
+      "retrieved_at": "2026-10-29T13:39:43.015459+00:00",
+      "attempts": 1
+    },
+    {
+      "source_id": "sc_pdf_1951_1951_1_1_51_EN.pdf",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1951/english/1951_1_1_51_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1951_1_1_51_EN.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "year": 1951,
+      "filename": "1951_1_1_51_EN.pdf",
+      "description": "Supreme Court Reports Official Judgment PDF (1951)",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 1701970,
+      "sha256": "eeedc24578e8c65bb737efd134c22d4b9690b7325f86ad763609dcf56db9aafe",
+      "retrieved_at": "2026-10-29T13:39:43.832130+00:00",
+      "attempts": 1
+    },
+    {
+      "source_id": "sc_pdf_1951_1951_1_292_302_EN.pdf",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1951/english/1951_1_292_302_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1951_1_292_302_EN.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "year": 1951,
+      "filename": "1951_1_292_302_EN.pdf",
+      "description": "Supreme Court Reports Official Judgment PDF (1951)",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 373128,
+      "sha256": "147414297983058271e026224526a7a9016993ccf090e8e544e9582016418462",
+      "retrieved_at": "2026-10-29T13:39:44.465261+00:00",
+      "attempts": 1
+    },
+    {
+      "source_id": "sc_pdf_1951_1951_1_332_343_EN.pdf",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1951/english/1951_1_332_343_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1951_1_332_343_EN.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "year": 1951,
+      "filename": "1951_1_332_343_EN.pdf",
+      "description": "Supreme Court Reports Official Judgment PDF (1951)",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 433625,
+      "sha256": "5616cce081503b77cd1ba28590ae110b96ff8b291684e0e2654204bba48dff26",
+      "retrieved_at": "2026-10-29T13:39:45.103960+00:00",
       "attempts": 1
     },
     {
@@ -926,8 +1245,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 371814,
       "sha256": "62db4db1b33789c0fec5549812cba0aedcdbaa74f69d49e2819b86b025604107",
-      "retrieved_at": "2026-10-29T12:35:21.025024+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:45.501423+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_544_566_EN.pdf",
@@ -941,8 +1260,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 866636,
       "sha256": "65426bfa35850a93efc88ffcfa6a49b7d450b94c74bc256124afa16f41f88c72",
-      "retrieved_at": "2026-10-29T12:35:22.376823+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:45.657906+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_744_756_EN.pdf",
@@ -956,8 +1275,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 489401,
       "sha256": "bdd3f439a1a4edb7a3770d55c08ac3f81be159c58f3993c0a3b7a325705157b8",
-      "retrieved_at": "2026-10-29T12:35:24.668702+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:45.813623+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_478_490_EN.pdf",
@@ -971,8 +1290,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 489040,
       "sha256": "faeb24cd012c29f5d094b31e506853d9122a506c24dfaaabad35eddf83487d64",
-      "retrieved_at": "2026-10-29T12:35:25.560873+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:45.967407+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_135_152_EN.pdf",
@@ -986,8 +1305,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 1016417,
       "sha256": "831a897cc668679dca0021c765920fec8cd96806c0d5603965875aa0cedf58f1",
-      "retrieved_at": "2026-10-29T12:35:27.312796+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:46.123495+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_1091_1112_EN.pdf",
@@ -1001,8 +1320,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 800832,
       "sha256": "8e0e961d8d7f2fbec9f135e4c79f8d99e6bca8c98be231034de075220e04a474",
-      "retrieved_at": "2026-10-29T12:35:27.994108+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:46.279601+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_501_512_EN.pdf",
@@ -1016,8 +1335,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 470447,
       "sha256": "c517dedefb58cb26d7d93fde9a0e4fd604b4b2ad59484e570a85f8c6ee95753a",
-      "retrieved_at": "2026-10-29T12:35:28.827821+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:46.434297+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_572_582_EN.pdf",
@@ -1031,8 +1350,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 441756,
       "sha256": "fa56b4eba948158e98835e23587a0c573a52b299069e94b880526667601a9545",
-      "retrieved_at": "2026-10-29T12:35:29.585347+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:46.589661+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_172_178_EN.pdf",
@@ -1046,8 +1365,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 316459,
       "sha256": "c4560c555b664d3ed74bbff303e812e7d6e00a3b746be0301778debeaf5e028c",
-      "retrieved_at": "2026-10-29T12:35:30.455110+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:46.745950+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_877_889_EN.pdf",
@@ -1061,8 +1380,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 497552,
       "sha256": "3e2f6be455bbac3b98118b52850eb020b787b4353d32e064d2d9cf247d44d332",
-      "retrieved_at": "2026-10-29T12:35:31.209887+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:46.900788+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_696_709_EN.pdf",
@@ -1076,8 +1395,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 588050,
       "sha256": "45f564dcfc1bdd03e8b73f1bf171312f609e429c163044f6f6446a04546fea15",
-      "retrieved_at": "2026-10-29T12:35:31.916701+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:47.055346+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_683_696_EN.pdf",
@@ -1091,8 +1410,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 525890,
       "sha256": "4cc7a083e45f8fa686549783efc350d00db0750cf4e78bd9c0ea81ede13856a8",
-      "retrieved_at": "2026-10-29T12:35:32.661464+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:47.212155+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_526_543_EN.pdf",
@@ -1106,8 +1425,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 663277,
       "sha256": "e47d2849ef97c60deb509b93543c71c9eaea3a13db8f2251e8485b8bb00561d9",
-      "retrieved_at": "2026-10-29T12:35:33.377281+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:47.368578+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_153_172_EN.pdf",
@@ -1121,8 +1440,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 757972,
       "sha256": "f10ce065fb61c3c10d54e7d1ebf597501378770f9df6a5e6f91ae3a413a023ee",
-      "retrieved_at": "2026-10-29T12:35:34.068908+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:47.523898+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_36_42_EN.pdf",
@@ -1136,8 +1455,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 289453,
       "sha256": "6d244dabc301c2b86bae9bea25829e67542a71dd43ed91403d16151c9bd68ba4",
-      "retrieved_at": "2026-10-29T12:35:34.784352+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:47.680475+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_674_682_EN.pdf",
@@ -1151,8 +1470,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 345806,
       "sha256": "af0bef8d190318aec38fb09ff99576c3e0f34dd5f12a3dcbfce6d29fd7d62f90",
-      "retrieved_at": "2026-10-29T12:35:35.539041+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:47.834641+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_513_518_EN.pdf",
@@ -1166,8 +1485,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 271212,
       "sha256": "63f75a1dbc75066a79e5cc8baf9b66ca56ff59067c939b9a0e507d4b91e2ded6",
-      "retrieved_at": "2026-10-29T12:35:36.235583+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:47.988703+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_435_477_EN.pdf",
@@ -1181,8 +1500,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 1591482,
       "sha256": "df1e70b4bb83301878a751f3dd7593dbb971dc764bddee955242431f25afcb25",
-      "retrieved_at": "2026-10-29T12:35:37.013661+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:48.147480+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_269_283_EN.pdf",
@@ -1196,8 +1515,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 598216,
       "sha256": "f9351991f3b910c3bbbc4fe94b78815bb10573a98a88d2f9f6ed1cea34a36397",
-      "retrieved_at": "2026-10-29T12:35:37.702544+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:48.302760+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_654_674_EN.pdf",
@@ -1211,8 +1530,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 761045,
       "sha256": "d9a17d8b7efb4e0a00c4e790df689cf239fe7b0f93a66bc1aea32e0232b0b629",
-      "retrieved_at": "2026-10-29T12:35:38.385560+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:48.458351+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_116_127_EN.pdf",
@@ -1226,8 +1545,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 807810,
       "sha256": "3a170c62c9f9c85f7b53e0712e7a21f4fb6658771cdf0fb08324d6c30c13f149",
-      "retrieved_at": "2026-10-29T12:35:39.098761+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:48.618593+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_737_744_EN.pdf",
@@ -1241,8 +1560,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 341499,
       "sha256": "80fea899250ea7778c25ffb469f3789183d62e6b237c2f9cefdcb4355df00142",
-      "retrieved_at": "2026-10-29T12:35:39.878422+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:48.772404+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_402_417_EN.pdf",
@@ -1256,8 +1575,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 593123,
       "sha256": "08e4723694959f0be673e7db661f4c8a21aeb78ea6b01e2f9de65c68d52e74b3",
-      "retrieved_at": "2026-10-29T12:35:40.538102+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:48.927978+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_64_89_EN.pdf",
@@ -1271,8 +1590,8 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 997664,
       "sha256": "e270b1bb21f7575a2fb27ffa2daac017e01307a078431c5eece1411434a9bfb0",
-      "retrieved_at": "2026-10-29T12:35:41.421121+00:00",
-      "attempts": 1
+      "retrieved_at": "2026-10-29T13:39:49.084045+00:00",
+      "attempts": 0
     },
     {
       "source_id": "sc_pdf_1952_1952_1_869_877_EN.pdf",
@@ -1286,7 +1605,82 @@
       "processing_status": "downloaded_full_text",
       "bytes_downloaded": 362900,
       "sha256": "8cb7bce0add9b37843eb04ad813d8c65128033d95a8e855093893ba04367be3b",
-      "retrieved_at": "2026-10-29T12:35:42.612716+00:00",
+      "retrieved_at": "2026-10-29T13:39:49.239898+00:00",
+      "attempts": 0
+    },
+    {
+      "source_id": "sc_pdf_1952_1952_1_418_424_EN.pdf",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1952/english/1952_1_418_424_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1952_1_418_424_EN.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "year": 1952,
+      "filename": "1952_1_418_424_EN.pdf",
+      "description": "Supreme Court Reports Official Judgment PDF (1952)",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 307119,
+      "sha256": "b3a2dc64530a13ad7c7d445cad8d28e91296265f550c10d353981e1f8bed6c76",
+      "retrieved_at": "2026-10-29T13:39:50.292092+00:00",
+      "attempts": 1
+    },
+    {
+      "source_id": "sc_pdf_1952_1952_1_43_64_EN.pdf",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1952/english/1952_1_43_64_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1952_1_43_64_EN.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "year": 1952,
+      "filename": "1952_1_43_64_EN.pdf",
+      "description": "Supreme Court Reports Official Judgment PDF (1952)",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 849010,
+      "sha256": "21013ae2139647d4bdc93fa8f4c93f171850b8a7899d23cf410c1a6b3382fe97",
+      "retrieved_at": "2026-10-29T13:39:51.007390+00:00",
+      "attempts": 1
+    },
+    {
+      "source_id": "sc_pdf_1952_1952_1_825_839_EN.pdf",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1952/english/1952_1_825_839_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1952_1_825_839_EN.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "year": 1952,
+      "filename": "1952_1_825_839_EN.pdf",
+      "description": "Supreme Court Reports Official Judgment PDF (1952)",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 592654,
+      "sha256": "2ffc4b6073e0d020ef01835008fd132d57efb0d3c20b28770e50153c9d14ca27",
+      "retrieved_at": "2026-10-29T13:39:51.747514+00:00",
+      "attempts": 1
+    },
+    {
+      "source_id": "sc_pdf_1952_1952_1_849_869_EN.pdf",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1952/english/1952_1_849_869_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1952_1_849_869_EN.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "year": 1952,
+      "filename": "1952_1_849_869_EN.pdf",
+      "description": "Supreme Court Reports Official Judgment PDF (1952)",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 1364843,
+      "sha256": "3ae116b96a10dae57790cfe344fb3726ddd62989ea6a707e709218d7c1f59620",
+      "retrieved_at": "2026-10-29T13:39:52.446293+00:00",
+      "attempts": 1
+    },
+    {
+      "source_id": "sc_pdf_1952_1952_1_89_109_EN.pdf",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/pdf/year=1952/english/1952_1_89_109_EN.pdf",
+      "target_path": "data\\raw\\judgments\\1952_1_89_109_EN.pdf",
+      "doc_type": "judgment_fulltext_pdf",
+      "year": 1952,
+      "filename": "1952_1_89_109_EN.pdf",
+      "description": "Supreme Court Reports Official Judgment PDF (1952)",
+      "license": "Public Legal Records",
+      "processing_status": "downloaded_full_text",
+      "bytes_downloaded": 832395,
+      "sha256": "dae425313462f4230b93a990696ad115764dbbf44813e1a6bdb83c6347ff9548",
+      "retrieved_at": "2026-10-29T13:39:53.176073+00:00",
       "attempts": 1
     }
   ]

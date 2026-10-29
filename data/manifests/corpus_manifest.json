@@ -1,6 +1,6 @@
 {
   "manifest_version": "2.1.0-production",
-  "generated_at": "2026-10-29T12:47:59.211648+00:00",
+  "generated_at": "2026-10-29T13:41:12.594732+00:00",
   "is_smoke_test": false,
   "counts_by_document_type": {
     "constitution_article": 477,
@@ -9,17 +9,17 @@
     "statute": 17
   },
   "judgment_granularity": {
-    "official_full_text": 79,
-    "structured_summary_briefs": 99,
-    "registry_metadata_only": 108
+    "official_full_text": 92,
+    "structured_summary_briefs": 97,
+    "registry_metadata_only": 97
   },
   "statute_granularity": {
     "total_acts": 17,
     "total_sections_parsed": 1975
   },
   "total_documents": 886,
-  "total_character_count": 5748444,
-  "estimated_total_tokens": 1437111,
+  "total_character_count": 6440416,
+  "estimated_total_tokens": 1610104,
   "source_provenance_summary": {
     "constitution": {
       "source": "Legislative Department, Ministry of Law and Justice, Government of India",
@@ -34,7 +34,7 @@
     },
     "judgments": {
       "source": "Supreme Court of India / Open Data AWS Registry",
-      "coverage": "79 full-text SCR PDF decisions (1950–1952), 99 landmark case briefs (1950–2024), 108 registry records"
+      "coverage": "92 full-text SCR PDF decisions (1950–1952), 97 landmark case briefs (1950–2024), 97 registry records"
     },
     "legislation": {
       "source": "India Code, Ministry of Law and Justice, Government of India",

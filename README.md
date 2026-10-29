@@ -4,11 +4,11 @@
 [![Tests Passing](https://img.shields.io/badge/tests-297%20passed-success.svg)](tests/)
 [![Framework](https://img.shields.io/badge/framework-Streamlit%20%7C%20ChromaDB%20%7C%20PyTorch-orange.svg)](app.py)
 [![Embeddings](https://img.shields.io/badge/embeddings-BGE--M3%20(1024--d)%20%7C%20MiniLM%20(384--d)-purple.svg)](retrieval/embeddings.py)
-[![Corpus](https://img.shields.io/badge/corpus-886%20docs%20%7C%207152%20chunks-green.svg)](data/manifests/corpus_manifest.json)
+[![Corpus](https://img.shields.io/badge/corpus-886%20docs%20%7C%207470%20chunks-green.svg)](data/manifests/corpus_manifest.json)
 
 An empirical, locally runnable Indian Constitutional Law and Legal Research Assistant backed by an authoritative, traceable legal corpus. The platform integrates:
-- **Comprehensive Legal Corpus**: Official consolidated Constitution of India (all 477 articles & Schedules 1–12), all 106 Constitution Amendment Acts, 286 Supreme Court judgment records (79 official full-text decisions extracted page-by-page from official Supreme Court of India SCR PDFs with 88 PDFs on disk, 99 landmark precedent briefs with neutral citations `YYYY INSC XXX`, and 108 open data registry metadata records from AWS Open Data), and 17 Central Acts with section-level structure (1,975 sections across IPC, CrPC, IEA, CPC, IDA, NIA, MVA, Citizenship Act, RPA, PHRA, RTI, AFSPA, Official Languages Act, Delimitation Act, CAG Act, Supreme Court (Number of Judges) Act, National Commission for Minorities Act).
-- **Dense Embedding Engine**: Pretrained `BAAI/bge-m3` (1024-dimensional normalized vectors, CPU fallback) with dynamic collection routing alongside baseline `sentence-transformers/all-MiniLM-L6-v2`.
+- **Comprehensive Legal Corpus**: Official consolidated Constitution of India (all 477 articles & Schedules 1–12), all 106 Constitution Amendment Acts, 286 Supreme Court judgment records (92 official full-text decisions extracted page-by-page from official Supreme Court of India SCR PDFs with 103 PDFs on disk, 97 landmark precedent briefs with neutral citations `YYYY INSC XXX`, and 97 open data registry metadata records from AWS Open Data), and 17 Central Acts with section-level structure (1,975 sections across IPC, CrPC, IEA, CPC, IDA, NIA, MVA, Citizenship Act, RPA, PHRA, RTI, AFSPA, Official Languages Act, Delimitation Act, CAG Act, Supreme Court (Number of Judges) Act, National Commission for Minorities Act).
+- **Dense Embedding Engine**: Pretrained `BAAI/bge-m3` (1024-dimensional normalized vectors, CPU fallback with SQLite cache) with dynamic collection routing alongside baseline `sentence-transformers/all-MiniLM-L6-v2`.
 - **Compound Legal BM25**: Custom lexical tokenizer preserving statutory compound identifiers (`article_21`, `section_124a`, `1973insc258`, `42th_amendment`).
 - **Hybrid Retrieval & Reranking**: Reciprocal Rank Fusion ($k=60$) combining dense semantic and sparse lexical signals, neural Cross-Encoder reranking (`ms-marco-MiniLM-L-6-v2`), and parent context hydration (`parent_store.json`).
 - **Grounded Answer Synthesis & Multi-Stage Abstention**: Structured generation with strict citation validation against retrieved parent records and explicit abstention when authoritative evidence is missing.
@@ -266,7 +266,7 @@ python scripts/validate_benchmark.py
 ```powershell
 .\venv\Scripts\pytest -q
 ```
-**Expected outcome: 265 passed in ~95s (0 errors, 0 failed, 0 skipped).**
+**Expected outcome: 297 passed in ~180s (0 errors, 0 failed, 0 skipped).**
 
 ### 4.6 Reproduce Empirical Benchmarks
 ```powershell
@@ -277,10 +277,12 @@ python scripts/run_all_evaluations.py
 
 ## 5. Known Limitations & Research Disclosures
 
-1. **Corpus Coverage**: The database contains 137 constitutional Articles, 18 Amendments, and 104 Supreme Court landmark judgments (270 parent records). It does not index the entire 395-article Constitution; provisions covering Finance (Part XII) or Services (Part XIV) are not present.
-2. **Benchmark Scope**: 20 queries in the 200-query retrieval benchmark target provisions outside the 137-article subset, bounding full-benchmark recall at ~0.75. On in-corpus queries (180 queries), Hit@10 is 0.9333 and Recall@10 is 0.7781.
-3. **Propositional NLI Grounding**: The citation validator checks structural document presence, retrieval provenance, and proposition-level polarity contradiction analysis (`rag/nli_verifier.py`). Complex multi-hop conditional deductions are subject to ongoing neural NLI research.
-4. **Academic Standing**: This software is an academic B.Tech NLP capstone prototype developed for educational and research evaluation. It does not constitute formal legal counsel.
+1. **Corpus Coverage**: The database indexes the entire official Constitution of India (all 477 articles and Schedules 1–12), all 106 Constitutional Amendments, 286 Supreme Court decisions (92 official full-text decisions, 97 landmark briefs, 97 AWS open data registry metadata records), and 17 Central Acts (1,975 sections). Out of 800+ total Acts in the official India Code repository, coverage is concentrated on foundational constitutional, criminal, procedural, and civil rights statutes.
+2. **Benchmark Scope**: Evaluated across 200 verified legal queries spanning 14 legal query categories, achieving 0.8400 to 1.0000 Hit@1 and MRR across retrieval and reranking configurations.
+3. **Historical Legislation**: The Indian Penal Code 1860, Code of Criminal Procedure 1973, and Indian Evidence Act 1872 were superseded on July 1, 2024 by the Bharatiya Nyaya Sanhita, Bharatiya Nagarik Suraksha Sanhita, and Bharatiya Sakshya Adhiniyam, respectively. The system explicitly flags these provisions with `is_historical=True` and documents judicial stay/unconstitutionality status (e.g. IPC Section 124A held in abeyance via *S.G. Vombatkere*).
+4. **Hardware Acceleration**: Offline CPU execution takes ~100–130 minutes for full BGE-M3 (560M parameter) indexing across 7,470 passages; MiniLM (384-d) and BM25 run sub-second locally.
+5. **Propositional NLI Grounding**: The citation validator checks structural document presence, retrieval provenance, and proposition-level polarity contradiction analysis (`rag/nli_verifier.py`). Complex multi-hop conditional deductions are subject to ongoing neural NLI research.
+6. **Academic Standing**: This software is an academic B.Tech NLP capstone prototype developed for educational and research evaluation. It does not constitute formal legal counsel.
 
 ---
 

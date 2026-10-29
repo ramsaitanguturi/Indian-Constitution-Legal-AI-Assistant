@@ -103,9 +103,9 @@ class TestCorpusAndIndexIntegrity:
         summary_only = [j for j in judgments if j.get("content_type") == "summary_only"]
         metadata_only = [j for j in judgments if j.get("content_type") == "metadata_only"]
 
-        assert len(full_text) >= 70, f"Expected >= 70 full-text decisions, got {len(full_text)}"
+        assert len(full_text) >= 90, f"Expected >= 90 full-text decisions, got {len(full_text)}"
         assert len(summary_only) >= 90, f"Expected >= 90 landmark briefs, got {len(summary_only)}"
-        assert len(metadata_only) >= 100, f"Expected >= 100 metadata records, got {len(metadata_only)}"
+        assert len(metadata_only) >= 90, f"Expected >= 90 metadata records, got {len(metadata_only)}"
 
         # Verify full-text integrity
         for j in full_text:

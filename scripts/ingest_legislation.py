@@ -526,7 +526,11 @@ RAW_ACTS_CONFIG = [
         "commencement_date": "1862-01-01",
         "constitutional_basis": ["Article 14", "Article 19", "Article 20", "Article 21"],
         "part_reference": "Criminal Jurisprudence & Fundamental Rights",
-        "summary": "The principal criminal code of India defining offences and prescribing punishments. Directly interfaces with Article 19(1)(a) (Section 124A Sedition, Section 499 Defamation) and Article 21 (Section 302, Section 309, Section 377)."
+        "is_historical": True,
+        "superseded_by": "Bharatiya Nyaya Sanhita, 2023 (Act No. 45 of 2023)",
+        "superseded_date": "2024-07-01",
+        "historical_applicability": "Applies to offences committed prior to July 1, 2024 under Section 358 BNS and Section 6 of General Clauses Act, 1897.",
+        "summary": "The principal criminal code of India defining offences and prescribing punishments. Directly interfaces with Article 19(1)(a) (Section 124A Sedition, Section 499 Defamation) and Article 21 (Section 302, Section 309, Section 377). Superseded by Bharatiya Nyaya Sanhita, 2023 effective 1 July 2024."
     },
     {
         "raw_filename": "crpc.json",
@@ -539,7 +543,11 @@ RAW_ACTS_CONFIG = [
         "commencement_date": "1974-04-01",
         "constitutional_basis": ["Article 20", "Article 21", "Article 22"],
         "part_reference": "Criminal Procedure & Due Process",
-        "summary": "Governs the machinery for investigation of crime, apprehension of suspected criminals, collection of evidence, determination of guilt or innocence, and imposition of punishment, codifying Article 21 due process safeguards."
+        "is_historical": True,
+        "superseded_by": "Bharatiya Nagarik Suraksha Sanhita, 2023 (Act No. 46 of 2023)",
+        "superseded_date": "2024-07-01",
+        "historical_applicability": "Applies to investigations, inquiries, and trials instituted or pending prior to July 1, 2024 under Section 531 BNSS.",
+        "summary": "Governs the machinery for investigation of crime, apprehension of suspected criminals, collection of evidence, determination of guilt or innocence, and imposition of punishment, codifying Article 21 due process safeguards. Superseded by Bharatiya Nagarik Suraksha Sanhita, 2023 effective 1 July 2024."
     },
     {
         "raw_filename": "iea.json",
@@ -552,7 +560,11 @@ RAW_ACTS_CONFIG = [
         "commencement_date": "1872-09-01",
         "constitutional_basis": ["Article 20(3)", "Article 21"],
         "part_reference": "Admissibility of Evidence & Self-Incrimination",
-        "summary": "Sets out the rules on admissibility, relevancy, and weight of evidence in judicial proceedings. Enforces constitutional protections against self-incrimination under Article 20(3) (Sections 24–27)."
+        "is_historical": True,
+        "superseded_by": "Bharatiya Sakshya Adhiniyam, 2023 (Act No. 47 of 2023)",
+        "superseded_date": "2024-07-01",
+        "historical_applicability": "Applies to proceedings and evidence taken prior to July 1, 2024 under Section 170 BSA.",
+        "summary": "Sets out the rules on admissibility, relevancy, and weight of evidence in judicial proceedings. Enforces constitutional protections against self-incrimination under Article 20(3) (Sections 24–27). Superseded by Bharatiya Sakshya Adhiniyam, 2023 effective 1 July 2024."
     },
     {
         "raw_filename": "cpc.json",
@@ -634,6 +646,26 @@ def parse_raw_central_act(config_entry: Dict[str, Any], raw_path: Path) -> Dict[
             "chapter": f"Chapter {chapter}" if chapter else "",
             "text": sec_desc,
         }
+
+        # Flag historical, superseded, or constitutionally challenged provisions
+        sec_clean = sec_raw.strip().upper()
+        if config_entry["doc_id"] == "act_ipc_1860":
+            if sec_clean == "124A":
+                sec_record["constitutional_status"] = "held_in_abeyance"
+                sec_record["judicial_stay"] = "Supreme Court order in S.G. Vombatkere v. Union of India (2022) directed staying of all proceedings and registration of FIRs."
+            elif sec_clean == "377":
+                sec_record["constitutional_status"] = "partially_unconstitutional"
+                sec_record["judicial_ruling"] = "Read down by Supreme Court Constitution Bench in Navtej Singh Johar v. Union of India (2018) regarding consensual adult acts."
+            elif sec_clean == "497":
+                sec_record["constitutional_status"] = "struck_down"
+                sec_record["judicial_ruling"] = "Struck down as unconstitutional by Supreme Court in Joseph Shine v. Union of India (2018)."
+            elif sec_clean == "303":
+                sec_record["constitutional_status"] = "struck_down"
+                sec_record["judicial_ruling"] = "Declared unconstitutional in Mithu v. State of Punjab (1983)."
+            elif sec_clean == "309":
+                sec_record["constitutional_status"] = "inoperative"
+                sec_record["judicial_ruling"] = "Rendered largely inoperative by Section 115 of Mental Healthcare Act, 2017."
+
         sections.append(sec_record)
         text_parts.append(f"[Section {sec_raw}: {sec_title}]\n{sec_desc[:250]}")
 
@@ -656,6 +688,10 @@ def parse_raw_central_act(config_entry: Dict[str, Any], raw_path: Path) -> Dict[
         "constitutional_basis": config_entry["constitutional_basis"],
         "part_reference": config_entry["part_reference"],
         "legal_status": "in_force",
+        "is_historical": config_entry.get("is_historical", False),
+        "superseded_by": config_entry.get("superseded_by"),
+        "superseded_date": config_entry.get("superseded_date"),
+        "historical_applicability": config_entry.get("historical_applicability"),
         "sections": sections,
         "summary": config_entry["summary"],
         "text": full_text,
@@ -674,6 +710,8 @@ def parse_raw_central_act(config_entry: Dict[str, Any], raw_path: Path) -> Dict[
             "retrieval_date": retrieval_timestamp[:10],
             "version": config_entry["title"],
             "total_sections_parsed": len(sections),
+            "is_historical": config_entry.get("is_historical", False),
+            "superseded_by": config_entry.get("superseded_by"),
             "verified": True,
         }
     }

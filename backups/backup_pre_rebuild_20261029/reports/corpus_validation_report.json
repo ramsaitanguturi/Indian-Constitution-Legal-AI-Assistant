@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-10-29T13:33:15.102040+00:00",
+  "total_documents_validated": 886,
+  "total_issues_found": 0,
+  "total_errors": 0,
+  "total_warnings": 0,
+  "overall_status": "PASSED",
+  "category_summary": {
+    "Articles & Schedules": {
+      "records": 477,
+      "errors": 0,
+      "warnings": 0,
+      "status": "PASSED"
+    },
+    "Constitutional Amendments": {
+      "records": 106,
+      "errors": 0,
+      "warnings": 0,
+      "status": "PASSED"
+    },
+    "Landmark Judgments": {
+      "records": 286,
+      "errors": 0,
+      "warnings": 0,
+      "status": "PASSED"
+    },
+    "Central Legislation": {
+      "records": 17,
+      "errors": 0,
+      "warnings": 0,
+      "status": "PASSED"
+    }
+  },
+  "manifest_status": "VALID",
+  "issues": []
+}

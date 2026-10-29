@@ -24,6 +24,8 @@ from config import (
     EMBEDDING_BATCH_SIZE,
 )
 
+os.environ.setdefault("HF_HUB_OFFLINE", "1")
+
 CACHE_DIR = BASE_DIR / "data" / ".cache"
 EMBEDDING_DB_PATH = CACHE_DIR / "embeddings_cache.sqlite"
 
@@ -83,18 +85,26 @@ class BGEM3EmbeddingFunction(EmbeddingFunction[Documents]):
         """Lazy load SentenceTransformer model."""
         if self._model is None:
             try:
-                self._model = SentenceTransformer(self.model_name, device=self.device)
-            except Exception as e:
-                # If CUDA failed, fallback to CPU
-                if self.device != "cpu":
-                    print(f"[EMBEDDINGS] CUDA initialization failed ({e}), falling back to CPU.")
-                    self.device = "cpu"
-                    self._model = SentenceTransformer(self.model_name, device="cpu")
-                else:
-                    raise RuntimeError(
-                        f"Failed to load embedding model '{self.model_name}': {e}. "
-                        "Check disk space and HuggingFace cache."
-                    ) from e
+                self._model = SentenceTransformer(self.model_name, device=self.device, local_files_only=True)
+            except Exception:
+                try:
+                    self._model = SentenceTransformer(self.model_name, device=self.device)
+                except Exception as e:
+                    # If CUDA failed, fallback to CPU
+                    if self.device != "cpu":
+                        print(f"[EMBEDDINGS] CUDA initialization failed ({e}), falling back to CPU.")
+                        self.device = "cpu"
+                        try:
+                            self._model = SentenceTransformer(self.model_name, device="cpu", local_files_only=True)
+                        except Exception:
+                            self._model = SentenceTransformer(self.model_name, device="cpu")
+                    else:
+                        raise RuntimeError(
+                            f"Failed to load embedding model '{self.model_name}': {e}. "
+                            "Check disk space and HuggingFace cache."
+                        ) from e
+            if hasattr(self._model, "max_seq_length") and self._model.max_seq_length > 512:
+                self._model.max_seq_length = 512
         return self._model
 
     def _fetch_from_cache(self, hashes: List[str]) -> Dict[str, np.ndarray]:

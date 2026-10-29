@@ -1,18 +1,18 @@
 {
-  "timestamp": "2026-10-29T12:59:01.421720+00:00",
+  "timestamp": "2026-10-29T13:57:00.341428+00:00",
   "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
   "queries_evaluated": 25,
   "results_by_configuration": {
     "BM25 Only": {
-      "hit@1": 0.84,
+      "hit@1": 0.8,
       "hit@5": 0.92,
       "hit@10": 0.96,
-      "recall@5": 1.2717,
-      "recall@10": 1.889,
+      "recall@5": 1.2817,
+      "recall@10": 1.869,
       "precision@5": 0.576,
-      "mrr": 0.879,
-      "ndcg@10": 1.2681,
-      "latency_ms": 52.41
+      "mrr": 0.86,
+      "ndcg@10": 1.2548,
+      "latency_ms": 70.48
     },
     "Dense Only": {
       "hit@1": 0.84,
@@ -23,29 +23,29 @@
       "precision@5": 0.616,
       "mrr": 0.91,
       "ndcg@10": 1.4046,
-      "latency_ms": 32.56
+      "latency_ms": 37.2
     },
     "Hybrid (RRF + Entity Boost)": {
       "hit@1": 0.96,
       "hit@5": 1.0,
       "hit@10": 1.0,
-      "recall@5": 1.7317,
+      "recall@5": 1.7417,
       "recall@10": 2.2043,
-      "precision@5": 0.728,
+      "precision@5": 0.736,
       "mrr": 0.98,
-      "ndcg@10": 1.5482,
-      "latency_ms": 132.74
+      "ndcg@10": 1.5469,
+      "latency_ms": 184.19
     },
     "Full Pipeline (Hybrid + Reranker)": {
       "hit@1": 1.0,
       "hit@5": 1.0,
       "hit@10": 1.0,
-      "recall@5": 1.6133,
+      "recall@5": 1.6333,
       "recall@10": 2.1857,
-      "precision@5": 0.68,
+      "precision@5": 0.688,
       "mrr": 1.0,
-      "ndcg@10": 1.5202,
-      "latency_ms": 1982.97
+      "ndcg@10": 1.5227,
+      "latency_ms": 2953.06
     }
   }
 }

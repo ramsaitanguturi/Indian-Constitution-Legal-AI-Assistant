@@ -366,7 +366,7 @@ class ProductionIngestor:
                     documents=documents,
                     metadatas=metadatas
                 )
-                print(f"  -> Upserted {min(i + self.batch_size, total)} / {total} chunks")
+                print(f"  -> Upserted {min(i + self.batch_size, total)} / {total} chunks", flush=True)
 
         return collection
 
