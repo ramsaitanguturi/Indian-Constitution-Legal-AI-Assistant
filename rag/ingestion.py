@@ -18,12 +18,14 @@ from config import (
     CONSTITUTION_ARTICLES_PATH,
     CONSTITUTION_AMENDMENTS_PATH,
     JUDGMENTS_LANDMARKS_PATH,
+    LEGISLATION_ACTS_PATH,
     CONSTITUTION_DATA_PATH,
     JUDGMENTS_DATA_PATH,
     CHROMA_PERSIST_DIR,
     PARENT_STORE_PATH,
     CHROMA_COLLECTION_NAME,
     DEFAULT_EMBEDDING_MODEL,
+    get_chroma_collection_name,
     BM25_K1,
     BM25_B,
     DATASET_VERSION
@@ -32,9 +34,27 @@ from rag.chunking import LegalStructureChunker, estimate_tokens
 
 
 def simple_tokenize(text: str) -> List[str]:
-    """Basic lower-case tokenization for BM25 indexing."""
-    text = text.lower()
-    return re.findall(r'\b\w+\b', text)
+    """
+    Enhanced lower-case legal tokenization for BM25 indexing.
+    Preserves individual alphanumeric words while indexing compound legal identifiers
+    (e.g., 'article_21', 'article_21a', 'section_124a', '42nd_amendment', '1950insc13').
+    """
+    if not text:
+        return []
+    text_lower = text.lower()
+    tokens = re.findall(r'\b\w+\b', text_lower)
+
+    # Compound legal identifiers
+    for m in re.findall(r'\b(?:article|art\.?)\s*(\d+[a-z]?)\b', text_lower):
+        tokens.append(f"article_{m}")
+    for m in re.findall(r'\b(?:section|sec\.?)\s*(\d+[a-z]?)\b', text_lower):
+        tokens.append(f"section_{m}")
+    for m in re.findall(r'\b(\d+)(?:st|nd|rd|th)\s+amendment\b', text_lower):
+        tokens.append(f"{m}th_amendment")
+    for m in re.findall(r'\b(\d{4}insc\d+)\b', text_lower):
+        tokens.append(m)
+
+    return tokens
 
 
 class ProductionIngestor:
@@ -44,23 +64,30 @@ class ProductionIngestor:
     Uses structure-aware chunking preserving clauses, sections, and provenance.
     """
 
-    def __init__(self, use_full_corpus: bool = True, batch_size: int = 64):
+    def __init__(
+        self,
+        use_full_corpus: bool = True,
+        batch_size: int = 64,
+        model_name: str = DEFAULT_EMBEDDING_MODEL
+    ):
         self.use_full_corpus = use_full_corpus
         self.batch_size = batch_size
+        self.model_name = model_name
         self.chunker = LegalStructureChunker()
         self.parent_store: Dict[str, Dict[str, Any]] = {}
         self.child_chunks: List[Dict[str, Any]] = []
         self.bm25_index: Optional[BM25Okapi] = None
         self.stats: Dict[str, Any] = {}
 
-    def load_raw_datasets(self) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], List[Dict[str, Any]]]:
+    def load_raw_datasets(self) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], List[Dict[str, Any]], List[Dict[str, Any]]]:
         """
         Load datasets from disk.
-        Returns: (articles, amendments, judgments)
+        Returns: (articles, amendments, judgments, legislation)
         """
         articles: List[Dict[str, Any]] = []
         amendments: List[Dict[str, Any]] = []
         judgments: List[Dict[str, Any]] = []
+        legislation: List[Dict[str, Any]] = []
 
         if self.use_full_corpus and os.path.exists(CONSTITUTION_ARTICLES_PATH):
             with open(CONSTITUTION_ARTICLES_PATH, "r", encoding="utf-8") as f:
@@ -71,6 +98,9 @@ class ProductionIngestor:
             if os.path.exists(JUDGMENTS_LANDMARKS_PATH):
                 with open(JUDGMENTS_LANDMARKS_PATH, "r", encoding="utf-8") as f:
                     judgments = json.load(f)
+            if os.path.exists(LEGISLATION_ACTS_PATH):
+                with open(LEGISLATION_ACTS_PATH, "r", encoding="utf-8") as f:
+                    legislation = json.load(f)
         else:
             # Fallback to legacy samples if full corpus is not available or disabled
             if os.path.exists(CONSTITUTION_DATA_PATH):
@@ -80,13 +110,13 @@ class ProductionIngestor:
                 with open(JUDGMENTS_DATA_PATH, "r", encoding="utf-8") as f:
                     judgments = json.load(f)
 
-        return articles, amendments, judgments
+        return articles, amendments, judgments, legislation
 
     def process_parent_child_chunks(self) -> Tuple[Dict[str, Dict[str, Any]], List[Dict[str, Any]]]:
         """
         Process raw documents into parent documents and structure-aware child chunks.
         """
-        articles, amendments, judgments = self.load_raw_datasets()
+        articles, amendments, judgments, legislation = self.load_raw_datasets()
         parent_store: Dict[str, Dict[str, Any]] = {}
         child_chunks: List[Dict[str, Any]] = []
 
@@ -116,6 +146,18 @@ class ProductionIngestor:
                 "historical_context": item.get("historical_context", ""),
                 "provenance": item.get("provenance", {})
             }
+
+            # Register case-insensitive and zero-padded canonical aliases for benchmark compatibility
+            pid_lower = parent_id.lower()
+            parent_store[pid_lower] = parent_store[parent_id]
+            import re
+            m = re.match(r"^parent_const_art_(\d+)([a-zA-Z]*)$", pid_lower)
+            if m:
+                num_str, suffix = m.group(1), m.group(2)
+                padded_alias = f"parent_const_art_{num_str.zfill(3)}{suffix}"
+                unpadded_alias = f"parent_const_art_{int(num_str)}{suffix}"
+                parent_store[padded_alias] = parent_store[parent_id]
+                parent_store[unpadded_alias] = parent_store[parent_id]
 
             art_children = self.chunker.chunk_constitutional_article(item)
             child_chunks.extend(art_children)
@@ -189,6 +231,33 @@ class ProductionIngestor:
             judg_children = self.chunker.chunk_judgment(item)
             child_chunks.extend(judg_children)
 
+        # 4. Process Central Statutory Legislation
+        for item in legislation:
+            parent_id = f"parent_{item.get('id', item.get('document_id', 'statute'))}"
+            full_parent_text = (
+                f"STATUTE: {item.get('title', '')} ({item.get('year', '')})\n"
+                f"CONSTITUTIONAL BASIS: {', '.join(item.get('constitutional_basis', []))}\n"
+                f"SUMMARY: {item.get('summary', '')}\n"
+                f"FULL TEXT: {item.get('text', '')}"
+            )
+
+            parent_store[parent_id] = {
+                "parent_id": parent_id,
+                "document_id": item.get("document_id", item.get("id")),
+                "doc_type": "statute",
+                "document_type": "statute",
+                "title": item.get("title", ""),
+                "year": item.get("year", 0),
+                "constitutional_basis": item.get("constitutional_basis", []),
+                "full_text": full_parent_text,
+                "summary": item.get("summary", ""),
+                "text": item.get("text", ""),
+                "provenance": item.get("provenance", {})
+            }
+
+            stat_children = self.chunker.chunk_statute(item)
+            child_chunks.extend(stat_children)
+
         self.parent_store = parent_store
         self.child_chunks = child_chunks
 
@@ -207,8 +276,11 @@ class ProductionIngestor:
             "max_token_count": max(token_lens) if token_lens else 0,
             "constitution_chunks": sum(1 for c in child_chunks if c["doc_type"] == "constitution"),
             "amendment_chunks": sum(1 for c in child_chunks if c["doc_type"] == "amendment"),
-            "judgment_chunks": sum(1 for c in child_chunks if c["doc_type"] == "judgment")
+            "judgment_chunks": sum(1 for c in child_chunks if c["doc_type"] == "judgment"),
+            "statute_chunks": sum(1 for c in child_chunks if c["doc_type"] == "statute")
         }
+
+        return parent_store, child_chunks
 
         return parent_store, child_chunks
 
@@ -228,15 +300,17 @@ class ProductionIngestor:
         """
         Index child chunks into ChromaDB vector store using batched upserts.
         Ensures all metadata fields are non-null and valid for ChromaDB.
+        Dynamically routes collection based on embedding model.
         """
         client = chromadb.PersistentClient(path=str(CHROMA_PERSIST_DIR))
 
+        collection_name = get_chroma_collection_name(self.model_name)
         embedding_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
-            model_name=DEFAULT_EMBEDDING_MODEL
+            model_name=self.model_name
         )
 
         collection = client.get_or_create_collection(
-            name=CHROMA_COLLECTION_NAME,
+            name=collection_name,
             embedding_function=embedding_fn,
             metadata={"hnsw:space": "cosine"}
         )

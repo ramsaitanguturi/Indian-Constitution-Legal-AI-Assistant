@@ -1,0 +1,47 @@
+{
+  "timestamp": "2026-10-29T08:41:31.445754+00:00",
+  "total_sources": 3,
+  "successful_downloads": 3,
+  "failed_downloads": 0,
+  "sources": [
+    {
+      "source_id": "constitution_full_json",
+      "url": "https://raw.githubusercontent.com/civictech-India/constitution-of-india/main/constitution_of_india.json",
+      "target_path": "data\\raw\\constitution\\constitution_of_india.json",
+      "doc_type": "constitution",
+      "description": "Full official text of Constitution of India (465 articles from Preamble to Art 395+)",
+      "license": "Government Open Data License - India (GODL)",
+      "status": "success",
+      "bytes_downloaded": 508318,
+      "sha256": "4ac17b53c465760709bf3a9467647ba8c32150d0c6269099f23e0893280e8b06",
+      "retrieved_at": "2026-10-29T08:41:30.742755+00:00",
+      "attempts": 1
+    },
+    {
+      "source_id": "sc_judgments_sample_1950_1951",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/tar/year=1950/english/english.index.json",
+      "target_path": "data\\raw\\judgments\\sc_1950_english_index.json",
+      "doc_type": "judgment",
+      "description": "Supreme Court of India Open Data Index for 1950",
+      "license": "Open Data Commons Open Database License (ODbL) / Public Legal Records",
+      "status": "success",
+      "bytes_downloaded": 1857,
+      "sha256": "2671f38fdee99cc913d1f965edbe67057dd20a5c7c681e12d28b5016dd5d89ab",
+      "retrieved_at": "2026-10-29T08:41:31.084356+00:00",
+      "attempts": 1
+    },
+    {
+      "source_id": "sc_judgments_gopalan_metadata",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/metadata/json/year=1950/1950_1_88_334.json",
+      "target_path": "data\\raw\\judgments\\1950_1_88_334_ak_gopalan.json",
+      "doc_type": "judgment",
+      "description": "A.K. Gopalan v. State of Madras (1950 SCR 88 / 1950INSC13) metadata",
+      "license": "Public Legal Records",
+      "status": "success",
+      "bytes_downloaded": 5477,
+      "sha256": "bccb97441316d603756b94cb977563612776ca21b02adec0d2e74d33304d8e7a",
+      "retrieved_at": "2026-10-29T08:41:31.444743+00:00",
+      "attempts": 1
+    }
+  ]
+}

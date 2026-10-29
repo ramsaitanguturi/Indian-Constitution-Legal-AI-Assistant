@@ -90,7 +90,7 @@ class LegalNER:
     ]
 
     DEFAULT_LEGAL_CONCEPTS = [
-        "basic structure", "due process of law", "due process",
+        "basic structure", "due process of law", "due process", "privacy",
         "procedure established by law", "judicial review", "rule of law", "separation of powers",
         "substantive equality", "reasonable classification", "golden triangle", "manifest arbitrariness",
         "proportionality test", "proportionality", "doctrine of severability", "doctrine of eclipse",

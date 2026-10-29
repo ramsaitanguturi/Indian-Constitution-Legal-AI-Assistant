@@ -417,6 +417,70 @@ class LegalStructureChunker:
 
         return chunks
 
+    def chunk_statute(self, statute: Dict[str, Any]) -> List[Dict[str, Any]]:
+        """
+        Split a statutory Central Act into structure-aware child chunks based on sections.
+        Preserves section titles, text, and constitutional cross-references.
+        """
+        if not statute:
+            return []
+
+        parent_id = f"parent_{statute.get('id', statute.get('document_id', 'statute'))}"
+        title = statute.get("title", "")
+        short_title = statute.get("short_title", title)
+        year = statute.get("year", 0)
+        source = statute.get("provenance", {}).get("source", "India Code")
+        const_basis = statute.get("constitutional_basis", [])
+        basis_str = ", ".join(const_basis) if isinstance(const_basis, list) else str(const_basis)
+
+        chunks: List[Dict[str, Any]] = []
+        sections = statute.get("sections", [])
+
+        if sections and isinstance(sections, list):
+            for s_idx, sec in enumerate(sections):
+                sec_num = sec.get("section_number", f"Section {s_idx+1}")
+                sec_title = sec.get("title", "")
+                sec_text = sec.get("text", "").strip()
+                if not sec_text:
+                    continue
+
+                chunk_text = f"{short_title} ({year}). {sec_num}: {sec_title}. {sec_text}"
+                chunks.append({
+                    "child_id": f"child_{statute.get('id', 'statute')}_s{s_idx}",
+                    "parent_id": parent_id,
+                    "doc_type": "statute",
+                    "document_type": "statute",
+                    "title": title,
+                    "short_title": short_title,
+                    "year": year,
+                    "section": sec_num,
+                    "constitutional_basis": basis_str,
+                    "text": chunk_text,
+                    "char_count": len(chunk_text),
+                    "estimated_tokens": estimate_tokens(chunk_text),
+                    "source": source
+                })
+        else:
+            # Fallback to sliding window over full text
+            full_text = statute.get("text", "")
+            passages = self.chunk_legacy_sliding_window(full_text)
+            for p_idx, p_text in enumerate(passages):
+                chunks.append({
+                    "child_id": f"child_{statute.get('id', 'statute')}_p{p_idx}",
+                    "parent_id": parent_id,
+                    "doc_type": "statute",
+                    "document_type": "statute",
+                    "title": title,
+                    "year": year,
+                    "section": f"Passage {p_idx+1}",
+                    "text": p_text,
+                    "char_count": len(p_text),
+                    "estimated_tokens": estimate_tokens(p_text),
+                    "source": source
+                })
+
+        return chunks
+
     def chunk_legacy_sliding_window(
         self,
         text: str,

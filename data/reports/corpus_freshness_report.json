@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-10-29T08:50:47.589324+00:00",
+  "has_changes": false,
+  "sources": [
+    {
+      "source_id": "constitution_full_json",
+      "url": "https://raw.githubusercontent.com/civictech-India/constitution-of-india/main/constitution_of_india.json",
+      "local_exists": true,
+      "local_sha256": "4ac17b53c465760709bf3a9467647ba8c32150d0c6269099f23e0893280e8b06",
+      "remote_status": "HTTP 200",
+      "needs_update": false
+    },
+    {
+      "source_id": "sc_judgments_sample_1950_1951",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/tar/year=1950/english/english.index.json",
+      "local_exists": true,
+      "local_sha256": "2671f38fdee99cc913d1f965edbe67057dd20a5c7c681e12d28b5016dd5d89ab",
+      "remote_status": "HTTP 200",
+      "needs_update": false
+    },
+    {
+      "source_id": "sc_judgments_gopalan_metadata",
+      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/metadata/json/year=1950/1950_1_88_334.json",
+      "local_exists": true,
+      "local_sha256": "bccb97441316d603756b94cb977563612776ca21b02adec0d2e74d33304d8e7a",
+      "remote_status": "HTTP 200",
+      "needs_update": false
+    }
+  ]
+}

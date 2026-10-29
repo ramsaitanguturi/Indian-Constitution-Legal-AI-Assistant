@@ -145,8 +145,8 @@ class CitationValidator:
         for cit in citations:
             doc_id = cit.get("document_id", "")
             cit_key = cit.get("citation_key", f"[Doc: {doc_id}]")
-            source_title = cit.get("source_title", "")
-            doc_type = cit.get("doc_type", "")
+            source_title = cit.get("source_title") or cit.get("title", "")
+            doc_type = cit.get("doc_type") or cit.get("document_type", "")
             supporting_chunks = cit.get("supporting_chunk_ids", [])
 
             # Check 1: Required metadata exists

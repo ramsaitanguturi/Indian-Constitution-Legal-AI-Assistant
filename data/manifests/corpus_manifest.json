@@ -1,0 +1,34 @@
+{
+  "manifest_version": "2.0.0-production",
+  "generated_at": "2026-10-29T08:45:36.144454+00:00",
+  "is_smoke_test": false,
+  "counts_by_document_type": {
+    "constitution_article": 477,
+    "constitution_amendment": 106,
+    "judgment": 104,
+    "statute": 5
+  },
+  "total_documents": 692,
+  "total_character_count": 597856,
+  "estimated_total_tokens": 149464,
+  "source_provenance_summary": {
+    "constitution": {
+      "source": "Legislative Department, Ministry of Law and Justice, Government of India",
+      "version": "Amended up to 106th Amendment Act",
+      "coverage": "Preamble, Articles 1 to 395+, Schedules 1 to 12"
+    },
+    "amendments": {
+      "source": "Legislative Department, Ministry of Law and Justice, Government of India",
+      "version": "1st to 106th Constitutional Amendment Acts",
+      "coverage": "All 106 enacted Amendment Acts"
+    },
+    "judgments": {
+      "source": "Supreme Court of India / Open Data AWS Registry",
+      "coverage": "Landmark Constitutional & Public Law Precedents (1950–2024)"
+    },
+    "legislation": {
+      "source": "India Code, Ministry of Law and Justice, Government of India",
+      "coverage": "Citizenship Act, RPA 1951, PHRA 1993, RTI 2005, AFSPA 1958"
+    }
+  }
+}

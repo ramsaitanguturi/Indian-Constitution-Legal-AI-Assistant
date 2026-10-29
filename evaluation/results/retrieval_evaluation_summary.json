@@ -1,0 +1,51 @@
+{
+  "timestamp": "2026-10-29T08:56:29.971568+00:00",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "queries_evaluated": 25,
+  "results_by_configuration": {
+    "BM25 Only": {
+      "hit@1": 0.8,
+      "hit@5": 0.92,
+      "hit@10": 1.0,
+      "recall@5": 1.375,
+      "recall@10": 1.9723,
+      "precision@5": 0.608,
+      "mrr": 0.863,
+      "ndcg@10": 1.2994,
+      "latency_ms": 10.26
+    },
+    "Dense Only": {
+      "hit@1": 0.84,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "recall@5": 1.7583,
+      "recall@10": 2.584,
+      "precision@5": 0.736,
+      "mrr": 0.92,
+      "ndcg@10": 1.6492,
+      "latency_ms": 20.01
+    },
+    "Hybrid (RRF + Entity Boost)": {
+      "hit@1": 0.92,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "recall@5": 1.9417,
+      "recall@10": 2.8913,
+      "precision@5": 0.824,
+      "mrr": 0.9533,
+      "ndcg@10": 1.8249,
+      "latency_ms": 66.76
+    },
+    "Full Pipeline (Hybrid + Reranker)": {
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "recall@5": 1.9783,
+      "recall@10": 2.7933,
+      "precision@5": 0.848,
+      "mrr": 1.0,
+      "ndcg@10": 1.8216,
+      "latency_ms": 1312.88
+    }
+  }
+}

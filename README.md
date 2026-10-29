@@ -1,34 +1,84 @@
-# Indian Constitution Legal AI Assistant — NLP Capstone
+# Indian Constitution Legal AI Assistant — Enterprise Legal Research System
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![Tests Passing](https://img.shields.io/badge/tests-265%20passed-success.svg)](tests/)
+[![Tests Passing](https://img.shields.io/badge/tests-289%20passed-success.svg)](tests/)
 [![Framework](https://img.shields.io/badge/framework-Streamlit%20%7C%20ChromaDB%20%7C%20PyTorch-orange.svg)](app.py)
-[![Status](https://img.shields.io/badge/status-Academic%20Research%20Prototype-gold.svg)](docs/FINAL_AUDIT.md)
+[![Embeddings](https://img.shields.io/badge/embeddings-BGE--M3%20(1024--d)%20%7C%20MiniLM%20(384--d)-purple.svg)](retrieval/embeddings.py)
+[![Corpus](https://img.shields.io/badge/corpus-692%20docs%20%7C%202664%20chunks-green.svg)](data/manifests/corpus_manifest.json)
 
-An empirical Natural Language Processing (NLP) and Information Retrieval (IR) framework for Question Answering over Indian Constitutional Law. Integrates domain-specific Legal Named Entity Recognition (NER), canonical entity linking, hybrid retrieval with Reciprocal Rank Fusion (RRF), Cross-Encoder neural reranking, evidence-grounded generation, proposition-level Natural Language Inference (NLI) verification, structural citation validation, explainable confidence estimation, an interactive Research Dashboard, and a 10-stage NLP Pipeline Inspector.
-
-**Research Title**: *Entity-Aware Hybrid Retrieval and Reranking Framework for Indian Constitutional Question Answering*
+An empirical, locally runnable Indian Constitutional Law and Legal Research Assistant backed by an authoritative, traceable legal corpus. The platform integrates:
+- **Comprehensive Legal Corpus**: Official consolidated Constitution of India (all 477 articles & Schedules 1–12), all 106 Constitution Amendment Acts, 104 Supreme Court landmark decisions with neutral citations (`YYYY INSC XXX`), and key Central Legislation (Citizenship Act, RPA, PHRA, RTI, AFSPA).
+- **Dense Embedding Engine**: Pretrained `BAAI/bge-m3` (1024-dimensional normalized vectors, CPU fallback) with dynamic collection routing alongside baseline `sentence-transformers/all-MiniLM-L6-v2`.
+- **Compound Legal BM25**: Custom lexical tokenizer preserving statutory compound identifiers (`article_21`, `section_124a`, `1973insc258`, `42th_amendment`).
+- **Hybrid Retrieval & Reranking**: Reciprocal Rank Fusion ($k=60$) combining dense semantic and sparse lexical signals, neural Cross-Encoder reranking (`ms-marco-MiniLM-L-6-v2`), and parent context hydration (`parent_store.json`).
+- **Grounded Answer Synthesis & Multi-Stage Abstention**: Structured generation with strict citation validation against retrieved parent records and explicit abstention when authoritative evidence is missing.
+- **Production CLI Ingestion Suite**: Modular, restartable scripts for downloading, parsing, validating, indexing, evaluating, and updating the corpus.
 
 ---
 
-## 📖 Essential Documentation Links
+## 📖 Architecture & Operations Documentation
 
-- 📋 [**Final Audit & Resolution Report (`docs/FINAL_AUDIT.md`)**](docs/FINAL_AUDIT.md): **Comprehensive repository audit, bug resolutions, and 265/265 test verification.**
-- 🎯 [**Benchmark Integrity & Quality Assurance (`docs/DATASET_AND_BENCHMARK.md`)**](docs/DATASET_AND_BENCHMARK.md): 180 in-corpus partition, 20 uncataloged targets audit, class balance, and span offsets.
-- 🔁 [**Reproducibility Guide & Runbook (`docs/REPRODUCIBILITY.md`)**](docs/REPRODUCIBILITY.md): Exact reproduction commands, seed (`EVAL_RANDOM_SEED = 42`), and CPU latency benchmarks.
-- ⚠️ [**System Limitations & Ethical Disclaimers (`docs/LIMITATIONS.md`)**](docs/LIMITATIONS.md): Corpus boundaries (137-article subset), NLI heuristics, and legal counsel disclaimers.
-- ✅ [**Submission Readiness Checklist (`docs/SUBMISSION_CHECKLIST.md`)**](docs/SUBMISSION_CHECKLIST.md): Item-by-item rubric compliance checklist and readiness decision.
-- 📄 [**Academic Research Paper (`paper/README.md`)**](paper/README.md): **Complete 14-page manuscript, compiled PDF, BibTeX citations, and reproduction guide.**
-- 📘 [**Master Learning Guide (`docs/PROJECT_GUIDE.md`)**](docs/PROJECT_GUIDE.md): **The primary comprehensive study and research guide (Chapters 1–15).**
-- 🎓 [**Viva Defense & Examination Guide (`docs/viva_defense_guide.md`)**](docs/viva_defense_guide.md): 40+ viva questions, spoken answers, deep technical proofs, elevator pitch, and live demo script.
-- 🏗️ [**System Architecture & Tech Spec (`docs/architecture.md`)**](docs/architecture.md): Detailed 16-stage pipeline architecture, Mermaid diagrams, component responsibilities, and mathematical formulations.
-- 🔬 [**Empirical Experiments & Findings (`docs/experiments.md`)**](docs/experiments.md): Full documentation of Experiments 1–8, dual retrieval matrix (Original vs. Canonical), and latency profiles.
-- 📊 [**Evaluation Methodology & Metrics (`docs/evaluation.md`)**](docs/evaluation.md): Mathematical formulations for IR metrics (Hit@K, MRR, NDCG@K), NER exact-span metrics, and intent 5-fold cross-validation.
-- 🛡️ [**Independent Adversarial Audit Report (`docs/INDEPENDENT_AUDIT_REPORT.md`)**](docs/INDEPENDENT_AUDIT_REPORT.md): Academic readiness verdict, overclaim corrections, and verified code changes.
-- 🔍 [**Benchmark Quality & Independence Audit (`docs/BENCHMARK_QUALITY_REPORT.md`)**](docs/BENCHMARK_QUALITY_REPORT.md): Template repetition analysis, target concentration, and uncataloged target audit.
-- 🧠 [**NER Forensic Error Analysis (`docs/NER_ERROR_ANALYSIS.md`)**](docs/NER_ERROR_ANALYSIS.md): Root-cause resolution for judge name extraction (`PERSON_TITLE_PATTERN`) and gazetteer memorization disclosures.
-- ⚖️ [**RAG Grounding & Citation Audit (`docs/RAG_GROUNDING_AUDIT.md`)**](docs/RAG_GROUNDING_AUDIT.md): Structural validation mechanics vs. Natural Language Inference (NLI) semantic claim entailment.
-- ⏱️ [**Reproducibility & Latency Profiling (`docs/REPRODUCIBILITY_REPORT.md`)**](docs/REPRODUCIBILITY_REPORT.md): CPU runtime profiles, warm-up benchmarks, and reproduction seeds.
+- 🏛️ [**System Architecture (`docs/ARCHITECTURE.md`)**](docs/ARCHITECTURE.md): Complete 16-stage pipeline architecture, dynamic embedding routing, and parent hydration flow.
+- 📚 [**Corpus Sources & Provenance (`docs/CORPUS_SOURCES.md`)**](docs/CORPUS_SOURCES.md): Legislative Department, SCI Digital SCR, AWS Open Data, and India Code metadata.
+- 📐 [**Unified Legal Schema (`docs/DATA_SCHEMA.md`)**](docs/DATA_SCHEMA.md): Pydantic `LegalDocument` schema, deterministic document IDs, and child chunk mappings.
+- ⚙️ [**Ingestion & Update Guide (`docs/INGESTION_GUIDE.md`)**](docs/INGESTION_GUIDE.md): End-to-end execution of `download_sources.py`, `build_corpus.py`, and `build_index.py`.
+- 🔍 [**Retrieval & Grounding Pipeline (`docs/RETRIEVAL_PIPELINE.md`)**](docs/RETRIEVAL_PIPELINE.md): BM25 compound tokenization, BGE-M3 L2 normalization, RRF, and neural cross-encoders.
+- 📊 [**Evaluation Benchmark (`docs/EVALUATION.md`)**](docs/EVALUATION.md): 14-category legal question benchmark evaluating Hit@K, MRR, NDCG@K, citation validity, and latency.
+- 🛠️ [**Troubleshooting & Operations (`docs/TROUBLESHOOTING.md`)**](docs/TROUBLESHOOTING.md): CPU execution, ChromaDB lock resolution, air-gapped offline modes, and safe backups.
+- 📋 [**Implementation Plan & Status (`docs/IMPLEMENTATION_PLAN.md`)**](docs/IMPLEMENTATION_PLAN.md): Completed phase-by-phase roadmap and 16-point specification verification.
+
+---
+
+## ⚡ Quickstart & Running the System
+
+### 1. Environment Setup
+```powershell
+# Clone and create virtual environment
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Configure environment variables (optional LLM API key)
+copy .env.example .env
+```
+
+### 2. Ingestion & Indexing Pipeline
+```powershell
+# Ingest raw official sources and compile unified corpus
+python scripts/build_corpus.py
+
+# Validate schema compliance and cryptographic hashes
+python scripts/validate_corpus.py --strict
+
+# Build persistent ChromaDB vector store and BM25 index
+# Fast baseline (MiniLM, 384-d):
+python scripts/build_index.py --rebuild
+
+# SOTA Multilingual Legal (BGE-M3, 1024-d):
+python scripts/build_index.py --rebuild --model BAAI/bge-m3 --batch-size 32
+
+# Inspect index health
+python scripts/build_index.py --inspect
+```
+
+### 3. Running Information Retrieval Evaluation
+```powershell
+# Evaluate across the 14 legal query categories
+python scripts/evaluate_retrieval.py --quick
+```
+
+### 4. Running the Interactive Web Application
+```powershell
+streamlit run app.py
+```
+
+### 5. Running the Automated Test Suite
+```powershell
+# Run the complete test suite (289/289 tests)
+pytest -v
+```
 
 ---
 

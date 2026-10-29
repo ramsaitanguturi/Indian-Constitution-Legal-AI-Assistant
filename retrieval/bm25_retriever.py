@@ -19,10 +19,25 @@ from config import (
 
 
 def simple_tokenize(text: str) -> List[str]:
-    """Tokenize query or document into lower-case alphanumeric tokens."""
+    """
+    Enhanced lower-case legal tokenization for BM25 retrieval.
+    Preserves words as well as compound legal identifiers (e.g. 'article_21', 'section_124a').
+    """
     if not text:
         return []
-    return re.findall(r"\b\w+\b", text.lower())
+    text_lower = text.lower()
+    tokens = re.findall(r"\b\w+\b", text_lower)
+
+    for m in re.findall(r'\b(?:article|art\.?)\s*(\d+[a-z]?)\b', text_lower):
+        tokens.append(f"article_{m}")
+    for m in re.findall(r'\b(?:section|sec\.?)\s*(\d+[a-z]?)\b', text_lower):
+        tokens.append(f"section_{m}")
+    for m in re.findall(r'\b(\d+)(?:st|nd|rd|th)\s+amendment\b', text_lower):
+        tokens.append(f"{m}th_amendment")
+    for m in re.findall(r'\b(\d{4}insc\d+)\b', text_lower):
+        tokens.append(m)
+
+    return tokens
 
 
 class BM25Retriever:

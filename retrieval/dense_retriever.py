@@ -16,6 +16,7 @@ from config import (
     CHROMA_COLLECTION_NAME,
     DEFAULT_EMBEDDING_MODEL,
     PARENT_STORE_PATH,
+    get_chroma_collection_name,
 )
 
 
@@ -52,11 +53,12 @@ class DenseRetriever:
     def _connect_chromadb(self) -> Any:
         """Establish connection to persistent ChromaDB collection."""
         client = chromadb.PersistentClient(path=str(CHROMA_PERSIST_DIR))
+        col_name = get_chroma_collection_name(self.embedding_model_name)
         embedding_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
             model_name=self.embedding_model_name
         )
         return client.get_or_create_collection(
-            name=CHROMA_COLLECTION_NAME,
+            name=col_name,
             embedding_function=embedding_fn,
             metadata={"hnsw:space": "cosine"},
         )

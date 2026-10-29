@@ -12,8 +12,32 @@ DATA_DIR = BASE_DIR / "data"
 CHROMA_PERSIST_DIR = BASE_DIR / "chroma_db"
 PARENT_STORE_PATH = BASE_DIR / "parent_store.json"
 
-# Ensure data directory exists
-DATA_DIR.mkdir(parents=True, exist_ok=True)
+# Production Corpus Pipeline Paths
+RAW_DIR = DATA_DIR / "raw"
+PROCESSED_DIR = DATA_DIR / "processed"
+MANIFESTS_DIR = DATA_DIR / "manifests"
+REPORTS_DIR = DATA_DIR / "reports"
+
+RAW_CONSTITUTION_DIR = RAW_DIR / "constitution"
+RAW_AMENDMENTS_DIR = RAW_DIR / "amendments"
+RAW_JUDGMENTS_DIR = RAW_DIR / "judgments"
+RAW_LEGISLATION_DIR = RAW_DIR / "legislation"
+
+PROCESSED_CONSTITUTION_DIR = PROCESSED_DIR / "constitution"
+PROCESSED_AMENDMENTS_DIR = PROCESSED_DIR / "amendments"
+PROCESSED_JUDGMENTS_DIR = PROCESSED_DIR / "judgments"
+PROCESSED_LEGISLATION_DIR = PROCESSED_DIR / "legislation"
+
+CORPUS_MANIFEST_PATH = MANIFESTS_DIR / "corpus_manifest.json"
+VALIDATION_REPORT_PATH = REPORTS_DIR / "corpus_validation_report.json"
+
+# Ensure all data subdirectories exist
+for _dir in [
+    DATA_DIR, RAW_DIR, PROCESSED_DIR, MANIFESTS_DIR, REPORTS_DIR,
+    RAW_CONSTITUTION_DIR, RAW_AMENDMENTS_DIR, RAW_JUDGMENTS_DIR, RAW_LEGISLATION_DIR,
+    PROCESSED_CONSTITUTION_DIR, PROCESSED_AMENDMENTS_DIR, PROCESSED_JUDGMENTS_DIR, PROCESSED_LEGISLATION_DIR
+]:
+    _dir.mkdir(parents=True, exist_ok=True)
 
 # Datasets - Legacy Samples
 CONSTITUTION_DATA_PATH = DATA_DIR / "sample_constitution.json"
@@ -28,14 +52,28 @@ ANNOTATIONS_DIR = DATA_DIR / "annotations"
 CONSTITUTION_ARTICLES_PATH = CONSTITUTION_DIR / "articles.json"
 CONSTITUTION_AMENDMENTS_PATH = CONSTITUTION_DIR / "amendments.json"
 JUDGMENTS_LANDMARKS_PATH = JUDGMENTS_DIR / "supreme_court_landmarks.json"
+LEGISLATION_ACTS_PATH = PROCESSED_LEGISLATION_DIR / "central_acts.json"
 
-# Ensure all data subdirectories exist
+# Ensure legacy corpus directories exist
 for _dir in [CONSTITUTION_DIR, JUDGMENTS_DIR, BENCHMARK_DIR, ANNOTATIONS_DIR]:
     _dir.mkdir(parents=True, exist_ok=True)
 
 # Vector DB & Embeddings
-CHROMA_COLLECTION_NAME = "indian_legal_rag"
-DEFAULT_EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+BGE_M3_MODEL_NAME = "BAAI/bge-m3"
+MINILM_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+DEFAULT_EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", MINILM_MODEL_NAME)
+
+BGE_M3_EMBEDDING_DIM = 1024
+MINILM_EMBEDDING_DIM = 384
+EMBEDDING_BATCH_SIZE = int(os.getenv("EMBEDDING_BATCH_SIZE", "32"))
+
+# Determine collection name based on embedding model dimension
+def get_chroma_collection_name(model_name: str = DEFAULT_EMBEDDING_MODEL) -> str:
+    if "bge-m3" in model_name.lower():
+        return "indian_legal_rag_bgem3"
+    return "indian_legal_rag"
+
+CHROMA_COLLECTION_NAME = os.getenv("CHROMA_COLLECTION_NAME", "indian_legal_rag")
 
 # Chunking Hyperparameters
 PARENT_CHUNK_SIZE = 1200  # characters (~200 words)
