@@ -126,6 +126,91 @@ class TestRetrievalMetrics:
         assert agg["NDCG@5"] == 0.75
         assert aggregate_retrieval_metrics([])["Hit@1"] == 0.0
 
+    def test_id_aliases_resolution(self):
+        """Verify alias map unifies legacy and zero-padded IDs without metric degradation."""
+        alias_map = {
+            "parent_const_art_32": "parent_const_art_032",
+            "parent_const_art_39a": "parent_const_art_39A",
+            "parent_case_shankari": "parent_sc_fulltext_1951insc47_1952_1_89_109",
+        }
+        # Retriever returned canonical ID, gold had unpadded alias
+        retrieved = ["parent_const_art_032", "doc_random"]
+        gold = ["parent_const_art_32"]
+        assert hit_at_k(retrieved, gold, k=1, alias_map=alias_map) == 1.0
+        assert recall_at_k(retrieved, gold, k=1, alias_map=alias_map) == 1.0
+        assert reciprocal_rank(retrieved, gold, alias_map=alias_map) == 1.0
+
+        # Retriever returned casing difference
+        retrieved_case = ["parent_const_art_39A"]
+        gold_case = ["parent_const_art_39a"]
+        assert hit_at_k(retrieved_case, gold_case, k=1, alias_map=alias_map) == 1.0
+        assert recall_at_k(retrieved_case, gold_case, k=1, alias_map=alias_map) == 1.0
+
+        # NDCG with alias scores shouldn't inflate IDCG
+        labels = {"parent_const_art_32": 2.0, "parent_const_art_032": 1.0}
+        ndcg = ndcg_at_k(["parent_const_art_032"], labels, k=1, alias_map=alias_map)
+        assert ndcg == 1.0  # Perfect match on unified canonical ID
+
+    def test_multiple_relevant_documents(self):
+        """Verify queries with multiple distinct relevant documents calculate recall and NDCG accurately."""
+        rel_docs = ["parent_const_art_014", "parent_const_art_019", "parent_const_art_021"]
+        graded = {"parent_const_art_014": 2.0, "parent_const_art_019": 1.0, "parent_const_art_021": 1.0}
+
+        # 1 out of 3 retrieved in top 1
+        ret_1 = ["parent_const_art_014", "other_1"]
+        assert hit_at_k(ret_1, rel_docs, k=1) == 1.0
+        assert recall_at_k(ret_1, rel_docs, k=1) == pytest.approx(1/3, 0.001)
+
+        # 2 out of 3 retrieved in top 3
+        ret_2 = ["parent_const_art_014", "other_1", "parent_const_art_019"]
+        assert recall_at_k(ret_2, rel_docs, k=3) == pytest.approx(2/3, 0.001)
+
+        # All 3 retrieved in top 3
+        ret_3 = ["parent_const_art_014", "parent_const_art_019", "parent_const_art_021"]
+        assert recall_at_k(ret_3, rel_docs, k=3) == 1.0
+        assert ndcg_at_k(ret_3, graded, k=3) == 1.0
+
+    def test_zero_hit_queries(self):
+        """Verify that zero-hit / out-of-corpus queries cleanly return 0.0 without errors."""
+        retrieved = ["doc_x", "doc_y", "doc_z"]
+        gold = ["parent_const_art_043b"]
+        graded = {"parent_const_art_043b": 2.0}
+
+        assert hit_at_k(retrieved, gold, k=5) == 0.0
+        assert recall_at_k(retrieved, gold, k=5) == 0.0
+        assert precision_at_k(retrieved, gold, k=5) == 0.0
+        assert reciprocal_rank(retrieved, gold) == 0.0
+        assert dcg_at_k(retrieved, graded, k=5) == 0.0
+        assert ndcg_at_k(retrieved, graded, k=5) == 0.0
+
+        # Empty candidate list
+        assert hit_at_k([], gold, k=5) == 0.0
+        assert recall_at_k([], gold, k=5) == 0.0
+        assert reciprocal_rank([], gold) == 0.0
+        assert ndcg_at_k([], graded, k=5) == 0.0
+
+    def test_ranking_order_sensitivity(self):
+        """Verify that rank position directly governs MRR, DCG, and NDCG."""
+        graded = {"doc_primary": 2.0, "doc_secondary": 1.0}
+
+        # Perfect ranking: primary at 1, secondary at 2
+        rank_ideal = ["doc_primary", "doc_secondary"]
+        ndcg_ideal = ndcg_at_k(rank_ideal, graded, k=5)
+        rr_ideal = reciprocal_rank(rank_ideal, {"doc_primary"})
+        assert ndcg_ideal == 1.0
+        assert rr_ideal == 1.0
+
+        # Inverted ranking: secondary at 1, primary at 2
+        rank_inverted = ["doc_secondary", "doc_primary"]
+        ndcg_inverted = ndcg_at_k(rank_inverted, graded, k=5)
+        assert ndcg_inverted < ndcg_ideal
+
+        # First hit at rank 3
+        rank_late = ["distractor_1", "distractor_2", "doc_primary"]
+        rr_late = reciprocal_rank(rank_late, {"doc_primary"})
+        assert rr_late == pytest.approx(1/3, 0.001)
+        assert dcg_at_k(rank_late, graded, k=5) < dcg_at_k(rank_ideal, graded, k=5)
+
 
 # =========================================================================
 # 2. Legal NER Metrics Tests

@@ -37,6 +37,7 @@ from config import (
     PARENT_STORE_PATH,
     DATASET_VERSION,
     EVAL_RANDOM_SEED,
+    BGE_M3_MODEL_NAME,
 )
 from evaluation.retrieval_eval import RetrievalEvaluator
 from evaluation.ner_eval import NEREvaluator
@@ -58,11 +59,13 @@ class BenchmarkRunner:
         self,
         results_dir: Optional[Path] = None,
         parent_store: Optional[Dict[str, Dict[str, Any]]] = None,
-        quick_mode: bool = False
+        quick_mode: bool = False,
+        embedding_model: Optional[str] = None
     ):
         self.results_dir = Path(results_dir or EVALUATION_RESULTS_DIR)
         self.results_dir.mkdir(parents=True, exist_ok=True)
         self.quick_mode = quick_mode
+        self.embedding_model = embedding_model or os.getenv("EMBEDDING_MODEL", BGE_M3_MODEL_NAME)
 
         # Load parent store
         self.parent_store = parent_store or {}
@@ -92,10 +95,11 @@ class BenchmarkRunner:
         evaluator = RetrievalEvaluator(parent_store=self.parent_store)
         evaluable, queued = evaluator.get_evaluable_queries()
         print(f"[RETRIEVAL] Found {len(evaluable)} verified benchmark queries ({len(queued)} queued for annotation).")
+        print(f"[RETRIEVAL] Active dense embedding model: {self.embedding_model}")
 
         # Initialize shared components to optimize runtime
         bm25 = BM25Retriever(parent_store=self.parent_store)
-        dense = DenseRetriever(parent_store=self.parent_store)
+        dense = DenseRetriever(parent_store=self.parent_store, embedding_model_name=self.embedding_model)
 
         configurations = [
             ("Exp 1: BM25 Only", {"use_bm25": True, "use_dense": False, "use_rrf": False, "use_entity_boost": False, "use_reranker": False}),
@@ -260,6 +264,7 @@ def main():
     parser = argparse.ArgumentParser(description="Run Stage 5 Evaluation Framework")
     parser.add_argument("--all", action="store_true", default=True, help="Run all benchmarks")
     parser.add_argument("--quick", action="store_true", default=False, help="Run fast mode (subset of queries)")
+    parser.add_argument("--model", type=str, default=BGE_M3_MODEL_NAME, help="Embedding model name.")
     parser.add_argument("--retrieval-only", action="store_true", help="Run only retrieval benchmarks")
     parser.add_argument("--ner-only", action="store_true", help="Run only NER benchmark")
     parser.add_argument("--intent-only", action="store_true", help="Run only Intent classification benchmark")
@@ -267,7 +272,7 @@ def main():
     parser.add_argument("--rag-only", action="store_true", help="Run only RAG citation benchmark")
     args = parser.parse_args()
 
-    runner = BenchmarkRunner(quick_mode=args.quick)
+    runner = BenchmarkRunner(quick_mode=args.quick, embedding_model=args.model)
 
     if args.retrieval_only:
         runner.run_retrieval_suite()

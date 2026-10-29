@@ -21,48 +21,59 @@ from typing import Dict, List, Any, Optional, Set, Union, Tuple
 def hit_at_k(
     retrieved_ids: List[str],
     relevant_ids: Union[Set[str], List[str]],
-    k: int
+    k: int,
+    alias_map: Optional[Dict[str, str]] = None
 ) -> float:
     """
     Hit@K (Binary): Returns 1.0 if at least one relevant document appears in top-K, else 0.0.
     
     Formula:
         Hit@K = 1 if |Retrieved[:K] ∩ Relevant| > 0 else 0
+    Supports optional canonical alias_map for resolving document ID synonyms.
     """
     if k <= 0 or not retrieved_ids or not relevant_ids:
         return 0.0
-    rel_set = set(relevant_ids) if not isinstance(relevant_ids, set) else relevant_ids
-    top_k = retrieved_ids[:k]
+    if alias_map:
+        rel_set = {alias_map.get(d, d) for d in relevant_ids}
+        top_k = [alias_map.get(d, d) for d in retrieved_ids[:k]]
+    else:
+        rel_set = set(relevant_ids) if not isinstance(relevant_ids, set) else relevant_ids
+        top_k = retrieved_ids[:k]
     return 1.0 if any(doc_id in rel_set for doc_id in top_k) else 0.0
 
 
 def recall_at_k(
     retrieved_ids: List[str],
     relevant_ids: Union[Set[str], List[str]],
-    k: int
+    k: int,
+    alias_map: Optional[Dict[str, str]] = None
 ) -> float:
     """
     Recall@K: Proportion of relevant documents retrieved in top-K.
     
     Formula:
-        Recall@K = |Retrieved[:K] ∩ Relevant| / |Relevant|
+        Recall@K = |Unique(Retrieved[:K]) ∩ Relevant| / |Relevant|
+    Handles canonical alias mapping and prevents duplicate hits from inflating recall.
     """
-    if k <= 0 or not relevant_ids:
+    if k <= 0 or not relevant_ids or not retrieved_ids:
         return 0.0
-    if not retrieved_ids:
-        return 0.0
-    rel_set = set(relevant_ids) if not isinstance(relevant_ids, set) else relevant_ids
+    if alias_map:
+        rel_set = {alias_map.get(d, d) for d in relevant_ids}
+        top_k = [alias_map.get(d, d) for d in retrieved_ids[:k]]
+    else:
+        rel_set = set(relevant_ids) if not isinstance(relevant_ids, set) else relevant_ids
+        top_k = retrieved_ids[:k]
     if len(rel_set) == 0:
         return 0.0
-    top_k = retrieved_ids[:k]
-    hits = sum(1 for doc_id in top_k if doc_id in rel_set)
-    return round(float(hits) / float(len(rel_set)), 4)
+    unique_hits = set(top_k) & rel_set
+    return round(float(len(unique_hits)) / float(len(rel_set)), 4)
 
 
 def precision_at_k(
     retrieved_ids: List[str],
     relevant_ids: Union[Set[str], List[str]],
-    k: int
+    k: int,
+    alias_map: Optional[Dict[str, str]] = None
 ) -> float:
     """
     Precision@K: Proportion of top-K retrieved documents that are relevant.
@@ -74,15 +85,20 @@ def precision_at_k(
         return 0.0
     if not retrieved_ids or not relevant_ids:
         return 0.0
-    rel_set = set(relevant_ids) if not isinstance(relevant_ids, set) else relevant_ids
-    top_k = retrieved_ids[:k]
+    if alias_map:
+        rel_set = {alias_map.get(d, d) for d in relevant_ids}
+        top_k = [alias_map.get(d, d) for d in retrieved_ids[:k]]
+    else:
+        rel_set = set(relevant_ids) if not isinstance(relevant_ids, set) else relevant_ids
+        top_k = retrieved_ids[:k]
     hits = sum(1 for doc_id in top_k if doc_id in rel_set)
     return round(float(hits) / float(k), 4)
 
 
 def reciprocal_rank(
     retrieved_ids: List[str],
-    relevant_ids: Union[Set[str], List[str]]
+    relevant_ids: Union[Set[str], List[str]],
+    alias_map: Optional[Dict[str, str]] = None
 ) -> float:
     """
     Reciprocal Rank (RR): 1 / rank of the first relevant document (1-indexed).
@@ -93,10 +109,17 @@ def reciprocal_rank(
     """
     if not retrieved_ids or not relevant_ids:
         return 0.0
-    rel_set = set(relevant_ids) if not isinstance(relevant_ids, set) else relevant_ids
-    for rank, doc_id in enumerate(retrieved_ids, start=1):
-        if doc_id in rel_set:
-            return round(1.0 / rank, 4)
+    if alias_map:
+        rel_set = {alias_map.get(d, d) for d in relevant_ids}
+        for rank, doc_id in enumerate(retrieved_ids, start=1):
+            can_id = alias_map.get(doc_id, doc_id)
+            if can_id in rel_set:
+                return round(1.0 / rank, 4)
+    else:
+        rel_set = set(relevant_ids) if not isinstance(relevant_ids, set) else relevant_ids
+        for rank, doc_id in enumerate(retrieved_ids, start=1):
+            if doc_id in rel_set:
+                return round(1.0 / rank, 4)
     return 0.0
 
 
@@ -110,13 +133,15 @@ def mean_reciprocal_rank(reciprocal_ranks: List[float]) -> float:
 def dcg_at_k(
     retrieved_ids: List[str],
     relevance_scores: Union[Dict[str, float], Set[str], List[str]],
-    k: int
+    k: int,
+    alias_map: Optional[Dict[str, str]] = None
 ) -> float:
     """
     Discounted Cumulative Gain (DCG@K) using standard logarithmic discount.
     
     Formula:
         DCG@K = sum_{i=1}^K (2^{rel_i} - 1) / log2(i + 1)
+    Each distinct document is scored at most once across the top-K.
     """
     if k <= 0 or not retrieved_ids or not relevance_scores:
         return 0.0
@@ -127,10 +152,22 @@ def dcg_at_k(
     else:
         score_dict = relevance_scores
 
+    if alias_map:
+        canon_score_dict: Dict[str, float] = {}
+        for d, s in score_dict.items():
+            cd = alias_map.get(d, d)
+            canon_score_dict[cd] = max(canon_score_dict.get(cd, 0.0), float(s))
+        score_dict = canon_score_dict
+
     top_k = retrieved_ids[:k]
     dcg = 0.0
+    seen_canonical = set()
     for i, doc_id in enumerate(top_k, start=1):
-        rel = score_dict.get(doc_id, 0.0)
+        can_id = alias_map.get(doc_id, doc_id) if alias_map else doc_id
+        if can_id in seen_canonical:
+            continue
+        seen_canonical.add(can_id)
+        rel = score_dict.get(can_id, score_dict.get(doc_id, 0.0))
         gain = (2.0 ** rel) - 1.0
         discount = math.log2(i + 1)
         dcg += gain / discount
@@ -140,7 +177,8 @@ def dcg_at_k(
 def ndcg_at_k(
     retrieved_ids: List[str],
     relevance_scores: Union[Dict[str, float], Set[str], List[str]],
-    k: int
+    k: int,
+    alias_map: Optional[Dict[str, str]] = None
 ) -> float:
     """
     Normalized Discounted Cumulative Gain (NDCG@K).
@@ -148,14 +186,22 @@ def ndcg_at_k(
     Formula:
         NDCG@K = DCG@K / IDCG@K
     Returns 0.0 if IDCG@K == 0.0 (no relevant items exist).
+    Consolidates alias scores to prevent phantom IDCG inflation.
     """
-    if k <= 0 or not relevance_scores:
+    if k <= 0 or not relevance_scores or not retrieved_ids:
         return 0.0
 
     if isinstance(relevance_scores, (set, list)):
         score_dict = {doc: 1.0 for doc in relevance_scores}
     else:
         score_dict = relevance_scores
+
+    if alias_map:
+        canon_score_dict: Dict[str, float] = {}
+        for d, s in score_dict.items():
+            cd = alias_map.get(d, d)
+            canon_score_dict[cd] = max(canon_score_dict.get(cd, 0.0), float(s))
+        score_dict = canon_score_dict
 
     # Ideal ranking: sort all non-zero relevance scores descending
     sorted_rels = sorted(score_dict.values(), reverse=True)
@@ -170,7 +216,7 @@ def ndcg_at_k(
     if idcg <= 0.0:
         return 0.0
 
-    dcg = dcg_at_k(retrieved_ids, score_dict, k)
+    dcg = dcg_at_k(retrieved_ids, score_dict, k, alias_map=alias_map)
     return round(float(dcg) / float(idcg), 4)
 
 

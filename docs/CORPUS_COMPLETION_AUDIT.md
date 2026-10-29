@@ -155,6 +155,7 @@ The record counts below were computed directly by inspecting each raw, intermedi
 | **Parent Store Entries (`parent_store.json`)** | **1,660** | 886 canonical parent records + 774 alias lookup keys (neutral citations like `parent_1950insc13`, zero-padded articles `parent_const_art_021`, unpadded articles `parent_const_art_21`, case slugs). |
 | **Child Chunks** | **7,470** | Structure-aware passage chunks (2,020 constitutional, 212 amendment, 3,264 judicial, 1,974 statutory). 100% map to valid parents. |
 | **ChromaDB MiniLM Vectors (`indian_legal_rag`)** | **7,470** | 384-dimensional dense vectors indexed with cosine distance. |
+| **ChromaDB BGE-M3 Vectors (`indian_legal_rag_bgem3`)** | **7,470** | 1024-dimensional dense vectors indexed with cosine distance. |
 | **BM25 Sparse Chunks** | **7,470** | Lexical index over identical 7,470 chunk IDs using legal compound tokenizer. |
 
 ### Explanation of Conflicting Claims:
@@ -175,9 +176,9 @@ The record counts below were computed directly by inspecting each raw, intermedi
   - Chunk IDs: Exactly identical to dense vector IDs.
 - **Collection `indian_legal_rag_bgem3`**:
   - Embedding Model: `BAAI/bge-m3` (1024-d, cosine)
-  - Status: Actively compiling into persistent SQLite cache (`data/.cache/embeddings_cache.sqlite`) and ChromaDB.
-  - Blocker: Hardware constraint (CPU-only execution on Windows AMD64, no CUDA acceleration). Encoding 7,470 passages with 560M parameter model takes ~100–130 min on CPU.
-  - Resume Command: `python scripts/cache_bgem3_embeddings.py` or `python -m scripts.build_index --model BAAI/bge-m3 --batch-size 32`.
+  - Vectors: **7,470** (100% of corpus chunks indexed)
+  - Pre-computation & Cache: Pre-computed and persistently cached in `data/.cache/embeddings_cache.sqlite` (7,470 entries) across a 112.41-minute CPU compilation session.
+  - Chunk ID Mapping: Exactly 1:1 identical to `indian_legal_rag` and BM25 index.
 
 ---
 

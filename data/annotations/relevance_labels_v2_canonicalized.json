@@ -1,30 +1,24 @@
 {
   "RET_001": {
-    "parent_const_art_32": 2.0,
-    "parent_const_art_032": 1.0
+    "parent_const_art_032": 2.0
   },
   "RET_002": {
-    "parent_const_art_21": 2.0,
-    "parent_const_art_021": 1.0
+    "parent_const_art_021": 2.0
   },
   "RET_003": {
-    "parent_const_art_14": 2.0,
-    "parent_const_art_014": 1.0
+    "parent_const_art_014": 2.0
   },
   "RET_004": {
-    "parent_const_art_19": 2.0,
-    "parent_const_art_019": 1.0
+    "parent_const_art_019": 2.0
   },
   "RET_005": {
     "parent_const_preamble": 2.0
   },
   "RET_006": {
-    "parent_const_art_12": 2.0,
-    "parent_const_art_012": 1.0
+    "parent_const_art_012": 2.0
   },
   "RET_007": {
-    "parent_const_art_21A": 2.0,
-    "parent_const_art_021a": 1.0
+    "parent_const_art_21A": 2.0
   },
   "RET_008": {
     "parent_const_art_368": 2.0
@@ -33,71 +27,50 @@
     "parent_const_art_370": 2.0
   },
   "RET_010": {
-    "parent_case_kesavananda": 2.0,
-    "parent_case_sc_kesavananda_1973": 1.0,
+    "parent_case_sc_kesavananda_1973": 2.0,
     "parent_const_art_368": 1.0
   },
   "RET_011": {
-    "parent_case_puttaswamy": 2.0,
-    "parent_case_sc_puttaswamy_privacy_2017": 1.0,
-    "parent_const_art_21": 1.0,
+    "parent_case_sc_puttaswamy_privacy_2017": 2.0,
     "parent_const_art_021": 1.0
   },
   "RET_012": {
-    "parent_case_maneka": 2.0,
-    "parent_case_sc_maneka_gandhi_1978": 1.0,
-    "parent_const_art_21": 1.0,
+    "parent_case_sc_maneka_gandhi_1978": 2.0,
     "parent_const_art_021": 1.0,
-    "parent_const_art_14": 1.0,
     "parent_const_art_014": 1.0,
-    "parent_const_art_19": 1.0,
     "parent_const_art_019": 1.0
   },
   "RET_013": {
-    "parent_case_minerva": 2.0,
-    "parent_case_sc_minerva_mills_1980": 1.0,
-    "parent_case_kesavananda": 1.0,
+    "parent_case_sc_minerva_mills_1980": 2.0,
     "parent_case_sc_kesavananda_1973": 1.0,
     "parent_const_art_368": 1.0
   },
   "RET_014": {
-    "parent_case_bommai": 2.0,
-    "parent_case_sc_sr_bommai_1994": 1.0
+    "parent_case_sc_sr_bommai_1994": 2.0
   },
   "RET_015": {
-    "parent_case_kesavananda": 2.0,
-    "parent_case_sc_kesavananda_1973": 1.0,
+    "parent_case_sc_kesavananda_1973": 2.0,
     "parent_const_art_368": 1.0
   },
   "RET_016": {
-    "parent_const_art_21": 2.0,
-    "parent_const_art_021": 1.0,
-    "parent_case_puttaswamy": 1.0,
+    "parent_const_art_021": 2.0,
     "parent_case_sc_puttaswamy_privacy_2017": 1.0
   },
   "RET_017": {
-    "parent_const_art_14": 2.0,
-    "parent_const_art_014": 1.0,
-    "parent_const_art_19": 1.0,
+    "parent_const_art_014": 2.0,
     "parent_const_art_019": 1.0,
-    "parent_const_art_21": 1.0,
     "parent_const_art_021": 1.0,
-    "parent_case_maneka": 1.0,
     "parent_case_sc_maneka_gandhi_1978": 1.0
   },
   "RET_018": {
     "parent_const_preamble": 2.0,
-    "parent_case_bommai": 1.0,
     "parent_case_sc_sr_bommai_1994": 1.0
   },
   "RET_019": {
-    "parent_const_art_32": 2.0,
-    "parent_const_art_032": 1.0
+    "parent_const_art_032": 2.0
   },
   "RET_020": {
-    "parent_case_maneka": 2.0,
-    "parent_case_sc_maneka_gandhi_1978": 1.0,
-    "parent_const_art_21": 1.0,
+    "parent_case_sc_maneka_gandhi_1978": 2.0,
     "parent_const_art_021": 1.0
   },
   "RET_021": {
@@ -167,7 +140,7 @@
     "parent_const_art_039": 2.0
   },
   "RET_043": {
-    "parent_const_art_039a": 2.0
+    "parent_const_art_39A": 2.0
   },
   "RET_044": {
     "parent_const_art_040": 2.0
@@ -182,9 +155,12 @@
     "parent_const_art_043": 2.0
   },
   "RET_048": {
-    "parent_const_art_043a": 2.0
+    "parent_const_art_43A": 2.0
   },
-  "RET_049": {},
+  "RET_049": {
+    "parent_const_art_043b": 2.0,
+    "parent_const_art_43b": 1.0
+  },
   "RET_050": {
     "parent_const_art_044": 2.0
   },
@@ -201,7 +177,7 @@
     "parent_const_art_048": 2.0
   },
   "RET_055": {
-    "parent_const_art_048a": 2.0
+    "parent_const_art_48A": 2.0
   },
   "RET_056": {
     "parent_const_art_049": 2.0
@@ -213,10 +189,10 @@
     "parent_const_art_051": 2.0
   },
   "RET_059": {
-    "parent_const_art_051a": 2.0
+    "parent_const_art_51A": 2.0
   },
   "RET_060": {
-    "parent_const_art_051a": 2.0,
+    "parent_const_art_51A": 2.0,
     "parent_amend_042": 1.0
   },
   "RET_061": {
@@ -289,10 +265,14 @@
     "parent_const_art_254": 1.0
   },
   "RET_084": {
-    "parent_const_art_300a": 1.0
+    "parent_const_art_300A": 1.0
   },
-  "RET_085": {},
-  "RET_086": {},
+  "RET_085": {
+    "parent_const_art_311": 1.0
+  },
+  "RET_086": {
+    "parent_const_art_323A": 1.0
+  },
   "RET_087": {
     "parent_const_art_324": 1.0
   },
@@ -302,7 +282,9 @@
   "RET_089": {
     "parent_const_art_352": 1.0
   },
-  "RET_090": {},
+  "RET_090": {
+    "parent_const_art_353": 1.0
+  },
   "RET_091": {
     "parent_const_art_355": 1.0
   },
@@ -311,8 +293,7 @@
   },
   "RET_093": {
     "parent_const_art_358": 1.0,
-    "parent_const_art_019": 1.0,
-    "parent_const_art_19": 1.0
+    "parent_const_art_019": 1.0
   },
   "RET_094": {
     "parent_const_art_359": 1.0,
@@ -324,7 +305,9 @@
   "RET_096": {
     "parent_amend_001": 2.0
   },
-  "RET_097": {},
+  "RET_097": {
+    "parent_amend_007": 2.0
+  },
   "RET_098": {
     "parent_amend_024": 2.0,
     "parent_const_art_368": 1.0
@@ -337,7 +320,7 @@
   },
   "RET_101": {
     "parent_amend_044": 2.0,
-    "parent_const_art_300a": 1.0
+    "parent_const_art_300A": 1.0
   },
   "RET_102": {
     "parent_amend_052": 2.0
@@ -354,7 +337,7 @@
   },
   "RET_106": {
     "parent_amend_086": 2.0,
-    "parent_const_art_021a": 1.0
+    "parent_const_art_21A": 1.0
   },
   "RET_107": {
     "parent_amend_091": 2.0,
@@ -382,7 +365,7 @@
     "parent_amend_105": 2.0
   },
   "RET_114": {
-    "parent_case_sc_shankari_prasad_1951": 2.0,
+    "parent_sc_fulltext_1951insc47_1952_1_89_109": 2.0,
     "parent_const_art_368": 1.0
   },
   "RET_115": {
@@ -404,48 +387,42 @@
     "parent_case_sc_ir_coelho_2007": 2.0
   },
   "RET_120": {
-    "parent_case_sc_ak_gopalan_1950": 2.0,
-    "parent_const_art_021": 1.0,
-    "parent_const_art_21": 1.0
+    "parent_sc_fulltext_1950insc13_1950_1_88_334": 2.0,
+    "parent_const_art_021": 1.0
   },
   "RET_121": {
     "parent_case_sc_kharak_singh_1963": 2.0,
-    "parent_const_art_021": 1.0,
-    "parent_const_art_21": 1.0
+    "parent_const_art_021": 1.0
   },
   "RET_122": {
     "parent_case_sc_sunil_batra_1978": 2.0,
-    "parent_const_art_021": 1.0,
-    "parent_const_art_21": 1.0
+    "parent_const_art_021": 1.0
   },
   "RET_123": {
     "parent_case_sc_olga_tellis_1985": 2.0,
-    "parent_const_art_021": 1.0,
-    "parent_const_art_21": 1.0
+    "parent_const_art_021": 1.0
   },
   "RET_124": {
     "parent_case_sc_francis_coralie_1981": 2.0,
-    "parent_const_art_021": 1.0,
-    "parent_const_art_21": 1.0
+    "parent_const_art_021": 1.0
   },
   "RET_125": {
     "parent_case_sc_bandhua_mukti_1984": 2.0,
     "parent_const_art_021": 1.0,
-    "parent_const_art_21": 1.0,
     "parent_const_art_023": 1.0
   },
   "RET_126": {
-    "parent_const_art_021": 1.0,
-    "parent_const_art_21": 1.0
+    "parent_case_sc_prem_shankar_1980": 2.0,
+    "parent_case_prem": 1.0,
+    "parent_const_art_021": 1.0
   },
   "RET_127": {
-    "parent_case_sc_champakam_1951": 2.0,
+    "parent_sc_fulltext_1951insc26_1951_1_525_533": 2.0,
     "parent_const_art_015": 1.0
   },
   "RET_128": {
     "parent_case_sc_royappa_1974": 2.0,
-    "parent_const_art_014": 1.0,
-    "parent_const_art_14": 1.0
+    "parent_const_art_014": 1.0
   },
   "RET_129": {
     "parent_case_sc_indra_sawhney_1992": 2.0,
@@ -464,34 +441,28 @@
     "parent_amend_103": 1.0
   },
   "RET_133": {
-    "parent_case_sc_romesh_thappar_1950": 2.0,
-    "parent_const_art_019": 1.0,
-    "parent_const_art_19": 1.0
+    "parent_sc_fulltext_1950insc14_1950_1_594_605": 2.0,
+    "parent_const_art_019": 1.0
   },
   "RET_134": {
-    "parent_case_sc_brij_bhushan_1950": 2.0,
-    "parent_const_art_019": 1.0,
-    "parent_const_art_19": 1.0
+    "parent_sc_fulltext_1950insc15_1950_1_605_620": 2.0,
+    "parent_const_art_019": 1.0
   },
   "RET_135": {
     "parent_case_sc_bennett_coleman_1973": 2.0,
-    "parent_const_art_019": 1.0,
-    "parent_const_art_19": 1.0
+    "parent_const_art_019": 1.0
   },
   "RET_136": {
     "parent_case_sc_sakal_papers_1962": 2.0,
-    "parent_const_art_019": 1.0,
-    "parent_const_art_19": 1.0
+    "parent_const_art_019": 1.0
   },
   "RET_137": {
     "parent_case_sc_shreya_singhal_2015": 2.0,
-    "parent_const_art_019": 1.0,
-    "parent_const_art_19": 1.0
+    "parent_const_art_019": 1.0
   },
   "RET_138": {
     "parent_case_sc_anuradha_bhasin_2020": 2.0,
-    "parent_const_art_019": 1.0,
-    "parent_const_art_19": 1.0
+    "parent_const_art_019": 1.0
   },
   "RET_139": {
     "parent_case_sc_shirur_mutt_1954": 2.0,
@@ -499,23 +470,22 @@
     "parent_const_art_026": 1.0
   },
   "RET_140": {
+    "parent_case_sc_ismail_faruqui_1994": 2.0,
+    "parent_case_ismail": 1.0,
     "parent_const_art_025": 1.0
   },
   "RET_141": {
     "parent_case_sc_shayara_bano_2017": 2.0,
-    "parent_const_art_014": 1.0,
-    "parent_const_art_14": 1.0
+    "parent_const_art_014": 1.0
   },
   "RET_142": {
     "parent_case_sc_sabarimala_2018": 2.0,
     "parent_const_art_025": 1.0,
-    "parent_const_art_014": 1.0,
-    "parent_const_art_14": 1.0
+    "parent_const_art_014": 1.0
   },
   "RET_143": {
     "parent_case_sc_bijoe_emmanuel_1986": 2.0,
     "parent_const_art_019": 1.0,
-    "parent_const_art_19": 1.0,
     "parent_const_art_025": 1.0
   },
   "RET_144": {
@@ -539,121 +509,109 @@
   "RET_148": {
     "parent_case_sc_adm_jabalpur_1976": 2.0,
     "parent_const_art_021": 1.0,
-    "parent_const_art_21": 1.0,
     "parent_const_art_359": 1.0
   },
   "RET_149": {
     "parent_case_sc_dk_basu_1997": 2.0,
-    "parent_const_art_021": 1.0,
-    "parent_const_art_21": 1.0
+    "parent_const_art_021": 1.0
   },
   "RET_150": {
     "parent_case_sc_vishaka_1997": 2.0,
     "parent_const_art_014": 1.0,
-    "parent_const_art_14": 1.0,
     "parent_const_art_019": 1.0,
-    "parent_const_art_19": 1.0,
-    "parent_const_art_021": 1.0,
-    "parent_const_art_21": 1.0
+    "parent_const_art_021": 1.0
   },
   "RET_151": {
     "parent_case_sc_navtej_johar_2018": 2.0,
     "parent_const_art_014": 1.0,
-    "parent_const_art_14": 1.0,
     "parent_const_art_015": 1.0,
-    "parent_const_art_021": 1.0,
-    "parent_const_art_21": 1.0
+    "parent_const_art_021": 1.0
   },
   "RET_152": {
     "parent_case_sc_joseph_shine_2018": 2.0,
     "parent_const_art_014": 1.0,
-    "parent_const_art_14": 1.0,
-    "parent_const_art_021": 1.0,
-    "parent_const_art_21": 1.0
+    "parent_const_art_021": 1.0
   },
   "RET_153": {
     "parent_case_sc_common_cause_2018": 2.0,
-    "parent_const_art_021": 1.0,
-    "parent_const_art_21": 1.0
+    "parent_const_art_021": 1.0
   },
   "RET_154": {
     "parent_case_sc_aruna_shanbaug_2011": 2.0,
-    "parent_const_art_021": 1.0,
-    "parent_const_art_21": 1.0
+    "parent_const_art_021": 1.0
   },
   "RET_155": {
     "parent_case_sc_jallikattu_2014": 2.0,
     "parent_const_art_021": 1.0,
-    "parent_const_art_21": 1.0,
-    "parent_const_art_051a": 1.0
+    "parent_const_art_51A": 1.0
   },
   "RET_156": {
     "parent_case_sc_selvi_2010": 2.0,
     "parent_const_art_020": 1.0,
-    "parent_const_art_021": 1.0,
-    "parent_const_art_21": 1.0
+    "parent_const_art_021": 1.0
   },
   "RET_157": {
+    "parent_case_sc_nanavati_1961": 2.0,
+    "parent_case_nanavati": 1.0,
     "parent_const_art_142": 1.0,
     "parent_const_art_161": 1.0
   },
   "RET_158": {
     "parent_case_sc_lily_thomas_2013": 2.0,
-    "parent_const_art_102": 1.0
+    "parent_const_art_102": 1.0,
+    "parent_const_art_191": 1.0
   },
   "RET_159": {
     "parent_case_sc_adr_2002": 2.0,
-    "parent_const_art_019": 1.0,
-    "parent_const_art_19": 1.0
+    "parent_const_art_019": 1.0
   },
   "RET_160": {
     "parent_case_sc_pucl_nota_2013": 2.0,
-    "parent_const_art_019": 1.0,
-    "parent_const_art_19": 1.0
+    "parent_const_art_019": 1.0
   },
   "RET_161": {
     "parent_case_sc_kihoto_hollohan_1992": 2.0,
     "parent_amend_052": 1.0
   },
   "RET_162": {
-    "parent_const_art_163": 1.0
+    "parent_case_sc_nabam_rebia_2016": 2.0,
+    "parent_case_nabam": 1.0,
+    "parent_const_art_163": 1.0,
+    "parent_const_art_174": 1.0
   },
   "RET_163": {
-    "parent_case_sc_subhash_kumar_1991": 1.0,
+    "parent_case_sc_subhash_desai_2023": 2.0,
+    "parent_case_subhash": 1.0,
     "parent_const_art_163": 1.0
   },
   "RET_164": {
-    "parent_case_sc_nct_delhi_2018": 2.0
+    "parent_case_sc_nct_delhi_2018": 2.0,
+    "parent_const_art_239AA": 1.0
   },
   "RET_165": {
+    "parent_case_sc_state_of_rajasthan_1977": 2.0,
+    "parent_case_state": 1.0,
     "parent_const_art_356": 1.0
   },
   "RET_166": {
     "parent_case_sc_kesavananda_1973": 2.0,
-    "parent_case_kesavananda": 1.0,
     "parent_const_art_014": 1.0,
-    "parent_const_art_14": 1.0,
     "parent_const_art_019": 1.0,
-    "parent_const_art_19": 1.0,
-    "parent_const_art_021": 1.0,
-    "parent_const_art_21": 1.0
+    "parent_const_art_021": 1.0
   },
   "RET_167": {
     "parent_const_art_032": 2.0,
-    "parent_const_art_32": 1.0,
     "parent_const_art_226": 1.0
   },
   "RET_168": {
     "parent_amend_042": 2.0,
     "parent_case_sc_minerva_mills_1980": 1.0,
-    "parent_case_minerva": 1.0,
     "parent_const_art_368": 1.0
   },
   "RET_169": {
     "parent_amend_086": 2.0,
-    "parent_const_art_021a": 1.0,
-    "parent_case_sc_puttaswamy_privacy_2017": 1.0,
-    "parent_case_puttaswamy": 1.0
+    "parent_const_art_21A": 1.0,
+    "parent_case_sc_puttaswamy_privacy_2017": 1.0
   },
   "RET_170": {
     "parent_case_sc_indra_sawhney_1992": 2.0,
@@ -666,23 +624,17 @@
   },
   "RET_172": {
     "parent_case_sc_puttaswamy_privacy_2017": 2.0,
-    "parent_case_puttaswamy": 1.0,
     "parent_case_sc_kharak_singh_1963": 1.0,
-    "parent_const_art_021": 1.0,
-    "parent_const_art_21": 1.0
+    "parent_const_art_021": 1.0
   },
   "RET_173": {
     "parent_case_sc_puttaswamy_privacy_2017": 2.0,
-    "parent_case_puttaswamy": 1.0,
-    "parent_const_art_021": 1.0,
-    "parent_const_art_21": 1.0
+    "parent_const_art_021": 1.0
   },
   "RET_174": {
     "parent_case_sc_maneka_gandhi_1978": 2.0,
-    "parent_case_maneka": 1.0,
-    "parent_case_sc_ak_gopalan_1950": 1.0,
-    "parent_const_art_021": 1.0,
-    "parent_const_art_21": 1.0
+    "parent_sc_fulltext_1950insc13_1950_1_88_334": 1.0,
+    "parent_const_art_021": 1.0
   },
   "RET_175": {
     "parent_const_art_352": 1.0,
@@ -693,8 +645,7 @@
   },
   "RET_177": {
     "parent_const_art_110": 1.0,
-    "parent_case_sc_puttaswamy_privacy_2017": 1.0,
-    "parent_case_puttaswamy": 1.0
+    "parent_case_sc_puttaswamy_privacy_2017": 1.0
   },
   "RET_178": {
     "parent_case_sc_fourth_judges_njac_2015": 2.0,
@@ -703,44 +654,73 @@
   },
   "RET_179": {
     "parent_case_sc_kesavananda_1973": 2.0,
-    "parent_case_kesavananda": 1.0,
     "parent_case_sc_sr_bommai_1994": 1.0,
-    "parent_case_sc_minerva_mills_1980": 1.0,
-    "parent_case_minerva": 1.0
+    "parent_case_sc_minerva_mills_1980": 1.0
   },
   "RET_180": {
     "parent_const_preamble": 2.0,
-    "parent_case_sc_kesavananda_1973": 1.0,
-    "parent_case_kesavananda": 1.0
+    "parent_case_sc_kesavananda_1973": 1.0
   },
   "RET_181": {
     "parent_const_art_301": 1.0
   },
-  "RET_182": {},
-  "RET_183": {},
-  "RET_184": {},
-  "RET_185": {},
+  "RET_182": {
+    "parent_const_art_302": 1.0,
+    "parent_const_art_304": 1.0
+  },
+  "RET_183": {
+    "parent_const_art_280": 1.0
+  },
+  "RET_184": {
+    "parent_const_art_148": 1.0
+  },
+  "RET_185": {
+    "parent_const_art_266": 1.0,
+    "parent_const_art_267": 1.0
+  },
   "RET_186": {
     "parent_const_art_105": 1.0
   },
-  "RET_187": {},
+  "RET_187": {
+    "parent_const_art_194": 1.0
+  },
   "RET_188": {
     "parent_const_art_061": 2.0
   },
   "RET_189": {
     "parent_const_art_124": 1.0
   },
-  "RET_190": {},
-  "RET_191": {},
-  "RET_192": {},
-  "RET_193": {},
-  "RET_194": {},
-  "RET_195": {},
+  "RET_190": {
+    "parent_const_art_312": 1.0
+  },
+  "RET_191": {
+    "parent_const_art_320": 1.0
+  },
+  "RET_192": {
+    "parent_const_art_350B": 1.0
+  },
+  "RET_193": {
+    "parent_const_art_343": 1.0
+  },
+  "RET_194": {
+    "parent_const_art_348": 1.0
+  },
+  "RET_195": {
+    "parent_const_art_351": 1.0
+  },
   "RET_196": {
     "parent_const_art_248": 1.0
   },
-  "RET_197": {},
-  "RET_198": {},
-  "RET_199": {},
-  "RET_200": {}
+  "RET_197": {
+    "parent_const_art_249": 1.0
+  },
+  "RET_198": {
+    "parent_const_art_252": 1.0
+  },
+  "RET_199": {
+    "parent_const_art_253": 1.0
+  },
+  "RET_200": {
+    "parent_const_art_300": 1.0
+  }
 }

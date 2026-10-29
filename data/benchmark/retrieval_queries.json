@@ -5,7 +5,6 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_32",
       "parent_const_art_032"
     ],
     "relevant_chunks": [
@@ -21,7 +20,6 @@
     "intent": "ARTICLE_LOOKUP",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_21",
       "parent_const_art_021"
     ],
     "relevant_chunks": [
@@ -37,7 +35,6 @@
     "intent": "ARTICLE_LOOKUP",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_14",
       "parent_const_art_014"
     ],
     "relevant_chunks": [
@@ -53,7 +50,6 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_19",
       "parent_const_art_019"
     ],
     "relevant_chunks": [
@@ -84,7 +80,6 @@
     "intent": "ARTICLE_LOOKUP",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_12",
       "parent_const_art_012"
     ],
     "relevant_chunks": [
@@ -100,8 +95,7 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_21A",
-      "parent_const_art_021a"
+      "parent_const_art_21A"
     ],
     "relevant_chunks": [
       "child_const_const_art_21A_0"
@@ -146,7 +140,6 @@
     "intent": "CASE_LAW_QUERY",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_case_kesavananda",
       "parent_case_sc_kesavananda_1973",
       "parent_const_art_368"
     ],
@@ -163,9 +156,7 @@
     "intent": "CASE_LAW_QUERY",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_case_puttaswamy",
       "parent_case_sc_puttaswamy_privacy_2017",
-      "parent_const_art_21",
       "parent_const_art_021"
     ],
     "relevant_chunks": [
@@ -181,13 +172,9 @@
     "intent": "CASE_LAW_QUERY",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_case_maneka",
       "parent_case_sc_maneka_gandhi_1978",
-      "parent_const_art_21",
       "parent_const_art_021",
-      "parent_const_art_14",
       "parent_const_art_014",
-      "parent_const_art_19",
       "parent_const_art_019"
     ],
     "relevant_chunks": [
@@ -203,9 +190,7 @@
     "intent": "CASE_LAW_QUERY",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_case_minerva",
       "parent_case_sc_minerva_mills_1980",
-      "parent_case_kesavananda",
       "parent_case_sc_kesavananda_1973",
       "parent_const_art_368"
     ],
@@ -222,7 +207,6 @@
     "intent": "CASE_LAW_QUERY",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_case_bommai",
       "parent_case_sc_sr_bommai_1994"
     ],
     "relevant_chunks": [
@@ -238,7 +222,6 @@
     "intent": "AMENDMENT_QUERY",
     "query_type": "concept_cross_document",
     "relevant_documents": [
-      "parent_case_kesavananda",
       "parent_case_sc_kesavananda_1973",
       "parent_const_art_368"
     ],
@@ -255,9 +238,7 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "concept_cross_document",
     "relevant_documents": [
-      "parent_const_art_21",
       "parent_const_art_021",
-      "parent_case_puttaswamy",
       "parent_case_sc_puttaswamy_privacy_2017"
     ],
     "relevant_chunks": [
@@ -274,13 +255,9 @@
     "intent": "LEGAL_EXPLANATION",
     "query_type": "concept_cross_document",
     "relevant_documents": [
-      "parent_const_art_14",
       "parent_const_art_014",
-      "parent_const_art_19",
       "parent_const_art_019",
-      "parent_const_art_21",
       "parent_const_art_021",
-      "parent_case_maneka",
       "parent_case_sc_maneka_gandhi_1978"
     ],
     "relevant_chunks": [
@@ -297,7 +274,6 @@
     "query_type": "concept_cross_document",
     "relevant_documents": [
       "parent_const_preamble",
-      "parent_case_bommai",
       "parent_case_sc_sr_bommai_1994"
     ],
     "relevant_chunks": [
@@ -314,7 +290,6 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "remedy_lookup",
     "relevant_documents": [
-      "parent_const_art_32",
       "parent_const_art_032"
     ],
     "relevant_chunks": [
@@ -330,9 +305,7 @@
     "intent": "CASE_COMPARISON",
     "query_type": "concept_cross_document",
     "relevant_documents": [
-      "parent_case_maneka",
       "parent_case_sc_maneka_gandhi_1978",
-      "parent_const_art_21",
       "parent_const_art_021"
     ],
     "relevant_chunks": [
@@ -349,8 +322,7 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_013",
-      "parent_const_art_13"
+      "parent_const_art_013"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -363,8 +335,7 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_015",
-      "parent_const_art_15"
+      "parent_const_art_015"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -377,8 +348,7 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_016",
-      "parent_const_art_16"
+      "parent_const_art_016"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -391,8 +361,7 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_017",
-      "parent_const_art_17"
+      "parent_const_art_017"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -405,8 +374,7 @@
     "intent": "ARTICLE_LOOKUP",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_018",
-      "parent_const_art_18"
+      "parent_const_art_018"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -419,8 +387,7 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_020",
-      "parent_const_art_20"
+      "parent_const_art_020"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -433,8 +400,7 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_022",
-      "parent_const_art_22"
+      "parent_const_art_022"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -447,8 +413,7 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_023",
-      "parent_const_art_23"
+      "parent_const_art_023"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -461,8 +426,7 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_024",
-      "parent_const_art_24"
+      "parent_const_art_024"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -475,8 +439,7 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_025",
-      "parent_const_art_25"
+      "parent_const_art_025"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -489,8 +452,7 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_026",
-      "parent_const_art_26"
+      "parent_const_art_026"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -503,8 +465,7 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_027",
-      "parent_const_art_27"
+      "parent_const_art_027"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -517,8 +478,7 @@
     "intent": "ARTICLE_LOOKUP",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_028",
-      "parent_const_art_28"
+      "parent_const_art_028"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -531,8 +491,7 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_029",
-      "parent_const_art_29"
+      "parent_const_art_029"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -545,8 +504,7 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_030",
-      "parent_const_art_30"
+      "parent_const_art_030"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -559,8 +517,7 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_033",
-      "parent_const_art_33"
+      "parent_const_art_033"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -573,8 +530,7 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_034",
-      "parent_const_art_34"
+      "parent_const_art_034"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -587,8 +543,7 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_035",
-      "parent_const_art_35"
+      "parent_const_art_035"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -601,8 +556,7 @@
     "intent": "DEFINITION_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_036",
-      "parent_const_art_36"
+      "parent_const_art_036"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -615,8 +569,7 @@
     "intent": "LEGAL_EXPLANATION",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_037",
-      "parent_const_art_37"
+      "parent_const_art_037"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -629,8 +582,7 @@
     "intent": "LEGAL_EXPLANATION",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_038",
-      "parent_const_art_38"
+      "parent_const_art_038"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -643,8 +595,7 @@
     "intent": "LEGAL_EXPLANATION",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_039",
-      "parent_const_art_39"
+      "parent_const_art_039"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -657,8 +608,7 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_039a",
-      "parent_const_art_39a"
+      "parent_const_art_39A"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -671,8 +621,7 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_040",
-      "parent_const_art_40"
+      "parent_const_art_040"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -685,8 +634,7 @@
     "intent": "LEGAL_EXPLANATION",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_041",
-      "parent_const_art_41"
+      "parent_const_art_041"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -699,8 +647,7 @@
     "intent": "LEGAL_EXPLANATION",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_042",
-      "parent_const_art_42"
+      "parent_const_art_042"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -713,8 +660,7 @@
     "intent": "LEGAL_EXPLANATION",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_043",
-      "parent_const_art_43"
+      "parent_const_art_043"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -727,8 +673,7 @@
     "intent": "LEGAL_EXPLANATION",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_043a",
-      "parent_const_art_43a"
+      "parent_const_art_43A"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -755,8 +700,7 @@
     "intent": "LEGAL_EXPLANATION",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_044",
-      "parent_const_art_44"
+      "parent_const_art_044"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -769,8 +713,7 @@
     "intent": "LEGAL_EXPLANATION",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_045",
-      "parent_const_art_45"
+      "parent_const_art_045"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -783,8 +726,7 @@
     "intent": "LEGAL_EXPLANATION",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_046",
-      "parent_const_art_46"
+      "parent_const_art_046"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -797,8 +739,7 @@
     "intent": "LEGAL_EXPLANATION",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_047",
-      "parent_const_art_47"
+      "parent_const_art_047"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -811,8 +752,7 @@
     "intent": "LEGAL_EXPLANATION",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_048",
-      "parent_const_art_48"
+      "parent_const_art_048"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -825,8 +765,7 @@
     "intent": "LEGAL_EXPLANATION",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_048a",
-      "parent_const_art_48a"
+      "parent_const_art_48A"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -839,8 +778,7 @@
     "intent": "ARTICLE_LOOKUP",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_049",
-      "parent_const_art_49"
+      "parent_const_art_049"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -853,8 +791,7 @@
     "intent": "LEGAL_EXPLANATION",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_050",
-      "parent_const_art_50"
+      "parent_const_art_050"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -867,8 +804,7 @@
     "intent": "LEGAL_EXPLANATION",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_051",
-      "parent_const_art_51"
+      "parent_const_art_051"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -881,8 +817,7 @@
     "intent": "ARTICLE_LOOKUP",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_051a",
-      "parent_const_art_51a"
+      "parent_const_art_51A"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -895,8 +830,7 @@
     "intent": "AMENDMENT_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_051a",
-      "parent_const_art_51a",
+      "parent_const_art_51A",
       "parent_amend_042"
     ],
     "relevant_chunks": [],
@@ -910,8 +844,7 @@
     "intent": "ARTICLE_LOOKUP",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_052",
-      "parent_const_art_52"
+      "parent_const_art_052"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -924,8 +857,7 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_053",
-      "parent_const_art_53"
+      "parent_const_art_053"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -938,8 +870,7 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_072",
-      "parent_const_art_72"
+      "parent_const_art_072"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -952,8 +883,7 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_074",
-      "parent_const_art_74"
+      "parent_const_art_074"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -966,8 +896,7 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_075",
-      "parent_const_art_75"
+      "parent_const_art_075"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -980,8 +909,7 @@
     "intent": "ARTICLE_LOOKUP",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_076",
-      "parent_const_art_76"
+      "parent_const_art_076"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -994,7 +922,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_124",
       "parent_const_art_124"
     ],
     "relevant_chunks": [],
@@ -1008,7 +935,6 @@
     "intent": "ARTICLE_LOOKUP",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_129",
       "parent_const_art_129"
     ],
     "relevant_chunks": [],
@@ -1022,7 +948,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_131",
       "parent_const_art_131"
     ],
     "relevant_chunks": [],
@@ -1036,7 +961,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_132",
       "parent_const_art_132"
     ],
     "relevant_chunks": [],
@@ -1050,7 +974,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_136",
       "parent_const_art_136"
     ],
     "relevant_chunks": [],
@@ -1064,7 +987,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_137",
       "parent_const_art_137"
     ],
     "relevant_chunks": [],
@@ -1078,7 +1000,6 @@
     "intent": "LEGAL_EXPLANATION",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_141",
       "parent_const_art_141"
     ],
     "relevant_chunks": [],
@@ -1092,7 +1013,6 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_142",
       "parent_const_art_142"
     ],
     "relevant_chunks": [],
@@ -1106,7 +1026,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_143",
       "parent_const_art_143"
     ],
     "relevant_chunks": [],
@@ -1120,7 +1039,6 @@
     "intent": "ARTICLE_LOOKUP",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_144",
       "parent_const_art_144"
     ],
     "relevant_chunks": [],
@@ -1134,7 +1052,6 @@
     "intent": "ARTICLE_LOOKUP",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_214",
       "parent_const_art_214"
     ],
     "relevant_chunks": [],
@@ -1148,7 +1065,6 @@
     "intent": "ARTICLE_LOOKUP",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_215",
       "parent_const_art_215"
     ],
     "relevant_chunks": [],
@@ -1162,7 +1078,6 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_226",
       "parent_const_art_226"
     ],
     "relevant_chunks": [],
@@ -1176,7 +1091,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_227",
       "parent_const_art_227"
     ],
     "relevant_chunks": [],
@@ -1190,7 +1104,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_245",
       "parent_const_art_245"
     ],
     "relevant_chunks": [],
@@ -1204,7 +1117,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_246",
       "parent_const_art_246"
     ],
     "relevant_chunks": [],
@@ -1218,7 +1130,6 @@
     "intent": "LEGAL_EXPLANATION",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_254",
       "parent_const_art_254"
     ],
     "relevant_chunks": [],
@@ -1232,8 +1143,7 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_300a",
-      "parent_const_art_300a"
+      "parent_const_art_300A"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1246,7 +1156,6 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_311",
       "parent_const_art_311"
     ],
     "relevant_chunks": [],
@@ -1260,8 +1169,7 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_323a",
-      "parent_const_art_323a"
+      "parent_const_art_323A"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1274,7 +1182,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_324",
       "parent_const_art_324"
     ],
     "relevant_chunks": [],
@@ -1288,7 +1195,6 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_326",
       "parent_const_art_326"
     ],
     "relevant_chunks": [],
@@ -1302,7 +1208,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_352",
       "parent_const_art_352"
     ],
     "relevant_chunks": [],
@@ -1316,7 +1221,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_353",
       "parent_const_art_353"
     ],
     "relevant_chunks": [],
@@ -1330,7 +1234,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_355",
       "parent_const_art_355"
     ],
     "relevant_chunks": [],
@@ -1344,7 +1247,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_356",
       "parent_const_art_356"
     ],
     "relevant_chunks": [],
@@ -1359,9 +1261,7 @@
     "query_type": "direct_article_lookup",
     "relevant_documents": [
       "parent_const_art_358",
-      "parent_const_art_358",
-      "parent_const_art_019",
-      "parent_const_art_19"
+      "parent_const_art_019"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1374,7 +1274,6 @@
     "intent": "RIGHTS_QUERY",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_359",
       "parent_const_art_359",
       "parent_amend_044"
     ],
@@ -1389,7 +1288,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_360",
       "parent_const_art_360"
     ],
     "relevant_chunks": [],
@@ -1430,7 +1328,6 @@
     "query_type": "direct_article_lookup",
     "relevant_documents": [
       "parent_amend_024",
-      "parent_const_art_368",
       "parent_const_art_368"
     ],
     "relevant_chunks": [],
@@ -1471,8 +1368,7 @@
     "query_type": "direct_article_lookup",
     "relevant_documents": [
       "parent_amend_044",
-      "parent_const_art_300a",
-      "parent_const_art_300a"
+      "parent_const_art_300A"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1499,7 +1395,6 @@
     "query_type": "direct_article_lookup",
     "relevant_documents": [
       "parent_amend_061",
-      "parent_const_art_326",
       "parent_const_art_326"
     ],
     "relevant_chunks": [],
@@ -1540,8 +1435,7 @@
     "query_type": "direct_article_lookup",
     "relevant_documents": [
       "parent_amend_086",
-      "parent_const_art_021a",
-      "parent_const_art_21a"
+      "parent_const_art_21A"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1555,8 +1449,7 @@
     "query_type": "direct_article_lookup",
     "relevant_documents": [
       "parent_amend_091",
-      "parent_const_art_075",
-      "parent_const_art_75"
+      "parent_const_art_075"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1570,7 +1463,6 @@
     "query_type": "direct_article_lookup",
     "relevant_documents": [
       "parent_amend_099",
-      "parent_const_art_124",
       "parent_const_art_124"
     ],
     "relevant_chunks": [],
@@ -1612,9 +1504,7 @@
     "relevant_documents": [
       "parent_amend_103",
       "parent_const_art_015",
-      "parent_const_art_15",
-      "parent_const_art_016",
-      "parent_const_art_16"
+      "parent_const_art_016"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1653,9 +1543,7 @@
     "intent": "CASE_LAW_QUERY",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_case_sc_shankari_prasad_1951",
-      "parent_case_shankari",
-      "parent_const_art_368",
+      "parent_sc_fulltext_1951insc47_1952_1_89_109",
       "parent_const_art_368"
     ],
     "relevant_chunks": [],
@@ -1670,8 +1558,6 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_sajjan_singh_1965",
-      "parent_case_sajjan",
-      "parent_const_art_368",
       "parent_const_art_368"
     ],
     "relevant_chunks": [],
@@ -1686,10 +1572,7 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_golak_nath_1967",
-      "parent_case_golak",
       "parent_const_art_013",
-      "parent_const_art_13",
-      "parent_const_art_368",
       "parent_const_art_368"
     ],
     "relevant_chunks": [],
@@ -1703,8 +1586,7 @@
     "intent": "CASE_LAW_QUERY",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_case_sc_indira_gandhi_1975",
-      "parent_case_indira"
+      "parent_case_sc_indira_gandhi_1975"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1717,8 +1599,7 @@
     "intent": "CASE_LAW_QUERY",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_case_sc_waman_rao_1981",
-      "parent_case_waman"
+      "parent_case_sc_waman_rao_1981"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1731,8 +1612,7 @@
     "intent": "CASE_LAW_QUERY",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_case_sc_ir_coelho_2007",
-      "parent_case_ir"
+      "parent_case_sc_ir_coelho_2007"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1745,10 +1625,8 @@
     "intent": "CASE_LAW_QUERY",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_case_sc_ak_gopalan_1950",
-      "parent_case_ak",
-      "parent_const_art_021",
-      "parent_const_art_21"
+      "parent_sc_fulltext_1950insc13_1950_1_88_334",
+      "parent_const_art_021"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1761,10 +1639,8 @@
     "intent": "CASE_LAW_QUERY",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_case_sc_kharak_singh_1962",
-      "parent_case_kharak",
-      "parent_const_art_021",
-      "parent_const_art_21"
+      "parent_case_sc_kharak_singh_1963",
+      "parent_const_art_021"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1778,9 +1654,7 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_sunil_batra_1978",
-      "parent_case_sunil",
-      "parent_const_art_021",
-      "parent_const_art_21"
+      "parent_const_art_021"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1794,9 +1668,7 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_olga_tellis_1985",
-      "parent_case_olga",
-      "parent_const_art_021",
-      "parent_const_art_21"
+      "parent_const_art_021"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1810,9 +1682,7 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_francis_coralie_1981",
-      "parent_case_francis",
-      "parent_const_art_021",
-      "parent_const_art_21"
+      "parent_const_art_021"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1826,11 +1696,8 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_bandhua_mukti_1984",
-      "parent_case_bandhua",
       "parent_const_art_021",
-      "parent_const_art_21",
-      "parent_const_art_023",
-      "parent_const_art_23"
+      "parent_const_art_023"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1845,8 +1712,7 @@
     "relevant_documents": [
       "parent_case_sc_prem_shankar_1980",
       "parent_case_prem",
-      "parent_const_art_021",
-      "parent_const_art_21"
+      "parent_const_art_021"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1859,10 +1725,8 @@
     "intent": "CASE_LAW_QUERY",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_case_sc_champakam_dorairajan_1951",
-      "parent_case_champakam",
-      "parent_const_art_015",
-      "parent_const_art_15"
+      "parent_sc_fulltext_1951insc26_1951_1_525_533",
+      "parent_const_art_015"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1875,10 +1739,8 @@
     "intent": "CASE_LAW_QUERY",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_case_sc_ep_royappa_1974",
-      "parent_case_ep",
-      "parent_const_art_014",
-      "parent_const_art_14"
+      "parent_case_sc_royappa_1974",
+      "parent_const_art_014"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1892,9 +1754,7 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_indra_sawhney_1992",
-      "parent_case_indra",
-      "parent_const_art_016",
-      "parent_const_art_16"
+      "parent_const_art_016"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1907,10 +1767,8 @@
     "intent": "CASE_LAW_QUERY",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_case_sc_m_nagaraj_2006",
-      "parent_case_m",
-      "parent_const_art_016",
-      "parent_const_art_16"
+      "parent_case_sc_nagaraj_2006",
+      "parent_const_art_016"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1924,9 +1782,7 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_jarnail_singh_2018",
-      "parent_case_jarnail",
-      "parent_const_art_016",
-      "parent_const_art_16"
+      "parent_const_art_016"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1940,7 +1796,6 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_janhit_abhiyan_2022",
-      "parent_case_janhit",
       "parent_amend_103"
     ],
     "relevant_chunks": [],
@@ -1954,10 +1809,8 @@
     "intent": "CASE_LAW_QUERY",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_case_sc_romesh_thappar_1950",
-      "parent_case_romesh",
-      "parent_const_art_019",
-      "parent_const_art_19"
+      "parent_sc_fulltext_1950insc14_1950_1_594_605",
+      "parent_const_art_019"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1970,10 +1823,8 @@
     "intent": "CASE_LAW_QUERY",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_case_sc_brij_bhushan_1950",
-      "parent_case_brij",
-      "parent_const_art_019",
-      "parent_const_art_19"
+      "parent_sc_fulltext_1950insc15_1950_1_605_620",
+      "parent_const_art_019"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -1986,10 +1837,8 @@
     "intent": "CASE_LAW_QUERY",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_case_sc_bennett_coleman_1972",
-      "parent_case_bennett",
-      "parent_const_art_019",
-      "parent_const_art_19"
+      "parent_case_sc_bennett_coleman_1973",
+      "parent_const_art_019"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2003,9 +1852,7 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_sakal_papers_1962",
-      "parent_case_sakal",
-      "parent_const_art_019",
-      "parent_const_art_19"
+      "parent_const_art_019"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2019,9 +1866,7 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_shreya_singhal_2015",
-      "parent_case_shreya",
-      "parent_const_art_019",
-      "parent_const_art_19"
+      "parent_const_art_019"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2035,9 +1880,7 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_anuradha_bhasin_2020",
-      "parent_case_anuradha",
-      "parent_const_art_019",
-      "parent_const_art_19"
+      "parent_const_art_019"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2051,11 +1894,8 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_shirur_mutt_1954",
-      "parent_case_shirur",
       "parent_const_art_025",
-      "parent_const_art_25",
-      "parent_const_art_026",
-      "parent_const_art_26"
+      "parent_const_art_026"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2070,8 +1910,7 @@
     "relevant_documents": [
       "parent_case_sc_ismail_faruqui_1994",
       "parent_case_ismail",
-      "parent_const_art_025",
-      "parent_const_art_25"
+      "parent_const_art_025"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2085,9 +1924,7 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_shayara_bano_2017",
-      "parent_case_shayara",
-      "parent_const_art_014",
-      "parent_const_art_14"
+      "parent_const_art_014"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2101,11 +1938,8 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_sabarimala_2018",
-      "parent_case_sabarimala",
       "parent_const_art_025",
-      "parent_const_art_25",
-      "parent_const_art_014",
-      "parent_const_art_14"
+      "parent_const_art_014"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2119,11 +1953,8 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_bijoe_emmanuel_1986",
-      "parent_case_bijoe",
       "parent_const_art_019",
-      "parent_const_art_19",
-      "parent_const_art_025",
-      "parent_const_art_25"
+      "parent_const_art_025"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2136,9 +1967,7 @@
     "intent": "CASE_LAW_QUERY",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_case_sc_sp_gupta_1981",
-      "parent_case_sp",
-      "parent_const_art_124",
+      "parent_case_sc_first_judges_1981",
       "parent_const_art_124"
     ],
     "relevant_chunks": [],
@@ -2152,9 +1981,7 @@
     "intent": "CASE_LAW_QUERY",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_case_sc_scara_second_judges_1993",
-      "parent_case_scara",
-      "parent_const_art_124",
+      "parent_case_sc_second_judges_1993",
       "parent_const_art_124"
     ],
     "relevant_chunks": [],
@@ -2169,10 +1996,7 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_third_judges_1998",
-      "parent_case_third",
       "parent_const_art_124",
-      "parent_const_art_124",
-      "parent_const_art_143",
       "parent_const_art_143"
     ],
     "relevant_chunks": [],
@@ -2186,10 +2010,8 @@
     "intent": "CASE_LAW_QUERY",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_case_sc_njac_fourth_judges_2015",
-      "parent_case_njac",
+      "parent_case_sc_fourth_judges_njac_2015",
       "parent_amend_099",
-      "parent_const_art_124",
       "parent_const_art_124"
     ],
     "relevant_chunks": [],
@@ -2204,10 +2026,7 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_adm_jabalpur_1976",
-      "parent_case_adm",
       "parent_const_art_021",
-      "parent_const_art_21",
-      "parent_const_art_359",
       "parent_const_art_359"
     ],
     "relevant_chunks": [],
@@ -2222,9 +2041,7 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_dk_basu_1997",
-      "parent_case_dk",
-      "parent_const_art_021",
-      "parent_const_art_21"
+      "parent_const_art_021"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2238,13 +2055,9 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_vishaka_1997",
-      "parent_case_vishaka",
       "parent_const_art_014",
-      "parent_const_art_14",
       "parent_const_art_019",
-      "parent_const_art_19",
-      "parent_const_art_021",
-      "parent_const_art_21"
+      "parent_const_art_021"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2258,13 +2071,9 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_navtej_johar_2018",
-      "parent_case_navtej",
       "parent_const_art_014",
-      "parent_const_art_14",
       "parent_const_art_015",
-      "parent_const_art_15",
-      "parent_const_art_021",
-      "parent_const_art_21"
+      "parent_const_art_021"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2278,11 +2087,8 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_joseph_shine_2018",
-      "parent_case_joseph",
       "parent_const_art_014",
-      "parent_const_art_14",
-      "parent_const_art_021",
-      "parent_const_art_21"
+      "parent_const_art_021"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2296,9 +2102,7 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_common_cause_2018",
-      "parent_case_common",
-      "parent_const_art_021",
-      "parent_const_art_21"
+      "parent_const_art_021"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2312,9 +2116,7 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_aruna_shanbaug_2011",
-      "parent_case_aruna",
-      "parent_const_art_021",
-      "parent_const_art_21"
+      "parent_const_art_021"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2328,11 +2130,8 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_jallikattu_2014",
-      "parent_case_jallikattu",
       "parent_const_art_021",
-      "parent_const_art_21",
-      "parent_const_art_051a",
-      "parent_const_art_51a"
+      "parent_const_art_51A"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2346,11 +2145,8 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_selvi_2010",
-      "parent_case_selvi",
       "parent_const_art_020",
-      "parent_const_art_20",
-      "parent_const_art_021",
-      "parent_const_art_21"
+      "parent_const_art_021"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2366,8 +2162,6 @@
       "parent_case_sc_nanavati_1961",
       "parent_case_nanavati",
       "parent_const_art_142",
-      "parent_const_art_142",
-      "parent_const_art_161",
       "parent_const_art_161"
     ],
     "relevant_chunks": [],
@@ -2382,10 +2176,7 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_lily_thomas_2013",
-      "parent_case_lily",
       "parent_const_art_102",
-      "parent_const_art_102",
-      "parent_const_art_191",
       "parent_const_art_191"
     ],
     "relevant_chunks": [],
@@ -2399,10 +2190,8 @@
     "intent": "CASE_LAW_QUERY",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_case_sc_adr_voter_rights_2002",
-      "parent_case_adr",
-      "parent_const_art_019",
-      "parent_const_art_19"
+      "parent_case_sc_adr_2002",
+      "parent_const_art_019"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2416,9 +2205,7 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_pucl_nota_2013",
-      "parent_case_pucl",
-      "parent_const_art_019",
-      "parent_const_art_19"
+      "parent_const_art_019"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2432,7 +2219,6 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_kihoto_hollohan_1992",
-      "parent_case_kihoto",
       "parent_amend_052"
     ],
     "relevant_chunks": [],
@@ -2449,8 +2235,6 @@
       "parent_case_sc_nabam_rebia_2016",
       "parent_case_nabam",
       "parent_const_art_163",
-      "parent_const_art_163",
-      "parent_const_art_174",
       "parent_const_art_174"
     ],
     "relevant_chunks": [],
@@ -2466,7 +2250,6 @@
     "relevant_documents": [
       "parent_case_sc_subhash_desai_2023",
       "parent_case_subhash",
-      "parent_const_art_163",
       "parent_const_art_163"
     ],
     "relevant_chunks": [],
@@ -2481,9 +2264,7 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_nct_delhi_2018",
-      "parent_case_nct",
-      "parent_const_art_239aa",
-      "parent_const_art_239aa"
+      "parent_const_art_239AA"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2498,7 +2279,6 @@
     "relevant_documents": [
       "parent_case_sc_state_of_rajasthan_1977",
       "parent_case_state",
-      "parent_const_art_356",
       "parent_const_art_356"
     ],
     "relevant_chunks": [],
@@ -2513,13 +2293,9 @@
     "query_type": "concept_cross_document",
     "relevant_documents": [
       "parent_case_sc_kesavananda_1973",
-      "parent_case_kesavananda",
       "parent_const_art_014",
-      "parent_const_art_14",
       "parent_const_art_019",
-      "parent_const_art_19",
-      "parent_const_art_021",
-      "parent_const_art_21"
+      "parent_const_art_021"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2533,8 +2309,6 @@
     "query_type": "concept_cross_document",
     "relevant_documents": [
       "parent_const_art_032",
-      "parent_const_art_32",
-      "parent_const_art_226",
       "parent_const_art_226"
     ],
     "relevant_chunks": [],
@@ -2550,8 +2324,6 @@
     "relevant_documents": [
       "parent_amend_042",
       "parent_case_sc_minerva_mills_1980",
-      "parent_case_minerva",
-      "parent_const_art_368",
       "parent_const_art_368"
     ],
     "relevant_chunks": [],
@@ -2566,10 +2338,8 @@
     "query_type": "concept_cross_document",
     "relevant_documents": [
       "parent_amend_086",
-      "parent_const_art_021a",
-      "parent_const_art_21a",
-      "parent_case_sc_puttaswamy_privacy_2017",
-      "parent_case_puttaswamy"
+      "parent_const_art_21A",
+      "parent_case_sc_puttaswamy_privacy_2017"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2583,11 +2353,8 @@
     "query_type": "concept_cross_document",
     "relevant_documents": [
       "parent_case_sc_indra_sawhney_1992",
-      "parent_case_indra",
-      "parent_case_sc_m_nagaraj_2006",
-      "parent_case_m",
-      "parent_const_art_016",
-      "parent_const_art_16"
+      "parent_case_sc_nagaraj_2006",
+      "parent_const_art_016"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2601,9 +2368,7 @@
     "query_type": "concept_cross_document",
     "relevant_documents": [
       "parent_const_art_246",
-      "parent_const_art_246",
-      "parent_case_sc_sr_bommai_1994",
-      "parent_case_sr"
+      "parent_case_sc_sr_bommai_1994"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2617,11 +2382,8 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_puttaswamy_privacy_2017",
-      "parent_case_puttaswamy",
-      "parent_case_sc_kharak_singh_1962",
-      "parent_case_kharak",
-      "parent_const_art_021",
-      "parent_const_art_21"
+      "parent_case_sc_kharak_singh_1963",
+      "parent_const_art_021"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2635,9 +2397,7 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_puttaswamy_privacy_2017",
-      "parent_case_puttaswamy",
-      "parent_const_art_021",
-      "parent_const_art_21"
+      "parent_const_art_021"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2651,11 +2411,8 @@
     "query_type": "landmark_precedent",
     "relevant_documents": [
       "parent_case_sc_maneka_gandhi_1978",
-      "parent_case_maneka",
-      "parent_case_sc_ak_gopalan_1950",
-      "parent_case_ak",
-      "parent_const_art_021",
-      "parent_const_art_21"
+      "parent_sc_fulltext_1950insc13_1950_1_88_334",
+      "parent_const_art_021"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2668,7 +2425,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "concept_cross_document",
     "relevant_documents": [
-      "parent_const_art_352",
       "parent_const_art_352",
       "parent_amend_044"
     ],
@@ -2683,7 +2439,6 @@
     "intent": "LEGAL_EXPLANATION",
     "query_type": "landmark_precedent",
     "relevant_documents": [
-      "parent_const_art_142",
       "parent_const_art_142"
     ],
     "relevant_chunks": [],
@@ -2698,9 +2453,7 @@
     "query_type": "concept_cross_document",
     "relevant_documents": [
       "parent_const_art_110",
-      "parent_const_art_110",
-      "parent_case_sc_puttaswamy_privacy_2017",
-      "parent_case_puttaswamy"
+      "parent_case_sc_puttaswamy_privacy_2017"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2713,11 +2466,8 @@
     "intent": "CASE_COMPARISON",
     "query_type": "concept_cross_document",
     "relevant_documents": [
-      "parent_case_sc_njac_fourth_judges_2015",
-      "parent_case_njac",
-      "parent_case_sc_scara_second_judges_1993",
-      "parent_case_scara",
-      "parent_const_art_124",
+      "parent_case_sc_fourth_judges_njac_2015",
+      "parent_case_sc_second_judges_1993",
       "parent_const_art_124"
     ],
     "relevant_chunks": [],
@@ -2732,11 +2482,8 @@
     "query_type": "concept_cross_document",
     "relevant_documents": [
       "parent_case_sc_kesavananda_1973",
-      "parent_case_kesavananda",
       "parent_case_sc_sr_bommai_1994",
-      "parent_case_sr",
-      "parent_case_sc_minerva_mills_1980",
-      "parent_case_minerva"
+      "parent_case_sc_minerva_mills_1980"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2750,8 +2497,7 @@
     "query_type": "concept_cross_document",
     "relevant_documents": [
       "parent_const_preamble",
-      "parent_case_sc_kesavananda_1973",
-      "parent_case_kesavananda"
+      "parent_case_sc_kesavananda_1973"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2764,7 +2510,6 @@
     "intent": "ARTICLE_LOOKUP",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_301",
       "parent_const_art_301"
     ],
     "relevant_chunks": [],
@@ -2779,8 +2524,6 @@
     "query_type": "direct_article_lookup",
     "relevant_documents": [
       "parent_const_art_302",
-      "parent_const_art_302",
-      "parent_const_art_304",
       "parent_const_art_304"
     ],
     "relevant_chunks": [],
@@ -2794,7 +2537,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_280",
       "parent_const_art_280"
     ],
     "relevant_chunks": [],
@@ -2808,7 +2550,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_148",
       "parent_const_art_148"
     ],
     "relevant_chunks": [],
@@ -2823,8 +2564,6 @@
     "query_type": "direct_article_lookup",
     "relevant_documents": [
       "parent_const_art_266",
-      "parent_const_art_266",
-      "parent_const_art_267",
       "parent_const_art_267"
     ],
     "relevant_chunks": [],
@@ -2838,7 +2577,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_105",
       "parent_const_art_105"
     ],
     "relevant_chunks": [],
@@ -2852,7 +2590,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_194",
       "parent_const_art_194"
     ],
     "relevant_chunks": [],
@@ -2866,8 +2603,7 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_061",
-      "parent_const_art_61"
+      "parent_const_art_061"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2880,7 +2616,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_124",
       "parent_const_art_124"
     ],
     "relevant_chunks": [],
@@ -2894,7 +2629,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_312",
       "parent_const_art_312"
     ],
     "relevant_chunks": [],
@@ -2908,7 +2642,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_320",
       "parent_const_art_320"
     ],
     "relevant_chunks": [],
@@ -2922,8 +2655,7 @@
     "intent": "ARTICLE_LOOKUP",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_350b",
-      "parent_const_art_350b"
+      "parent_const_art_350B"
     ],
     "relevant_chunks": [],
     "human_annotation_status": "verified",
@@ -2936,7 +2668,6 @@
     "intent": "ARTICLE_LOOKUP",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_343",
       "parent_const_art_343"
     ],
     "relevant_chunks": [],
@@ -2950,7 +2681,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_348",
       "parent_const_art_348"
     ],
     "relevant_chunks": [],
@@ -2964,7 +2694,6 @@
     "intent": "ARTICLE_LOOKUP",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_351",
       "parent_const_art_351"
     ],
     "relevant_chunks": [],
@@ -2978,7 +2707,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_248",
       "parent_const_art_248"
     ],
     "relevant_chunks": [],
@@ -2992,7 +2720,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_249",
       "parent_const_art_249"
     ],
     "relevant_chunks": [],
@@ -3006,7 +2733,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_252",
       "parent_const_art_252"
     ],
     "relevant_chunks": [],
@@ -3020,7 +2746,6 @@
     "intent": "CONSTITUTIONAL_PROCEDURE",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_253",
       "parent_const_art_253"
     ],
     "relevant_chunks": [],
@@ -3034,7 +2759,6 @@
     "intent": "ARTICLE_LOOKUP",
     "query_type": "direct_article_lookup",
     "relevant_documents": [
-      "parent_const_art_300",
       "parent_const_art_300"
     ],
     "relevant_chunks": [],
