@@ -99,12 +99,14 @@ class LegalNER:
         "habeas corpus", "mandamus", "certiorari", "quo warranto", "prohibition",
         "public interest litigation", "locus standi", "creamy layer", "preventive detention",
         "sedition", "reasonable restrictions", "sovereignty", "fraternity", "amending power",
-        "forced labour", "complete justice", "untouchability"
+        "forced labour", "complete justice", "untouchability", "search and seizure",
+        "search warrant", "search without warrant"
     ]
 
     DEFAULT_ACTS = [
         "Constitution of India", "Aadhaar Act", "Information Technology Act",
         "Representation of the People Act", "Indian Penal Code", "Code of Criminal Procedure",
+        "Bharatiya Nagarik Suraksha Sanhita", "BNSS", "CrPC",
         "Kerala Land Reforms Act", "Armed Forces Special Powers Act", "Unlawful Activities (Prevention) Act",
         "Right to Information Act", "National Judicial Appointments Commission Act"
     ]
@@ -120,7 +122,8 @@ class LegalNER:
         "Vishaka", "Vishaka v. State of Rajasthan", "Kedar Nath Singh", "Romesh Thappar",
         "Bennett Coleman", "Subhash Kashinath Mahajan", "Joseph Shine", "Indian Young Lawyers Association",
         "Sabarimala Case", "Common Cause", "M.C. Mehta", "Bhim Singh", "E.P. Royappa", "Royappa",
-        "Unni Krishnan", "Mohini Jain", "P.A. Inamdar", "T.M.A. Pai"
+        "Unni Krishnan", "Mohini Jain", "P.A. Inamdar", "T.M.A. Pai",
+        "Kharak Singh", "Kharak Singh v. State of U.P.", "M.P. Sharma", "M.P. Sharma v. Satish Chandra"
     ]
 
     def __init__(self):

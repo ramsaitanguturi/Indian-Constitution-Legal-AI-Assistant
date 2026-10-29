@@ -288,6 +288,18 @@ class EntityLinker:
                     elif "minerva mills" in lower_name:
                         eid = "CASE_MINERVA_1980"
                         aliases = [case_name, "Minerva Mills", "minerva mills case"]
+                    elif "kharak singh" in lower_name:
+                        eid = "CASE_KHARAK_SINGH_1963"
+                        aliases = [
+                            case_name, "Kharak Singh", "Kharak Singh case",
+                            "domiciliary visits case", "house is castle case"
+                        ]
+                    elif "m.p. sharma" in lower_name or "mp sharma" in lower_name:
+                        eid = "CASE_MP_SHARMA_1954"
+                        aliases = [
+                            case_name, "M.P. Sharma", "MP Sharma", "MP Sharma case",
+                            "search and seizure case"
+                        ]
                     else:
                         lead_party = case_name.split(" v. ")[0].split(" vs. ")[0].strip()
                         clean_slug = re.sub(r"[^\w]", "_", lead_party.upper()).strip("_")

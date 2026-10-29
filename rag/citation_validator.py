@@ -13,7 +13,7 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional, Set, Tuple
 
 from config import PARENT_STORE_PATH
-from rag.nli_verifier import get_nli_verifier, NLIVerifier
+from rag.nli_verifier import get_nli_verifier, NLIVerifier, LEGAL_GENERIC_STOPWORDS
 
 
 class CitationValidator:
@@ -186,6 +186,54 @@ class CitationValidator:
                     "details": f"Chunks {unmatched_chunks} do not exist in retrieved child passages.",
                 })
                 continue
+
+            # Check 5: Substantive Evidence Support
+            # Verify that retrieved evidence for this document actually contains substantive legal support
+            matching_p = next(
+                (p for p in retrieved_parents if any(v in self._get_id_variants(p.get("document_id", "")) for v in doc_vars)),
+                None
+            )
+            if matching_p:
+                p_text_parts = [
+                    matching_p.get("text", ""),
+                    matching_p.get("raw_text", ""),
+                    matching_p.get("ratio_decidendi", ""),
+                    matching_p.get("explanation", ""),
+                    matching_p.get("summary", ""),
+                ]
+                for ch in matching_p.get("supporting_children", []):
+                    if isinstance(ch, dict):
+                        p_text_parts.append(ch.get("text", ""))
+                doc_evidence_str = " ".join(p_text_parts).lower()
+
+                if doc_evidence_str.strip():
+                    ev_tokens = set(re.findall(r"\b[a-zA-Z]{4,}\b", doc_evidence_str)) - LEGAL_GENERIC_STOPWORDS
+                    ans_tokens = set(re.findall(r"\b[a-zA-Z]{4,}\b", generated_answer.lower())) - LEGAL_GENERIC_STOPWORDS
+                    overlap = ev_tokens.intersection(ans_tokens)
+
+                    # If answer claims specific sections for this statute, check that at least one section appears in evidence
+                    claimed_sections = re.findall(r"\bSection\s+(\d+[A-Z]?)", generated_answer)
+                    if doc_type in ("statute", "legislation") and claimed_sections:
+                        has_section_match = any(
+                            f"section {s.lower()}" in doc_evidence_str or f"s{s.lower()}" in doc_evidence_str
+                            for s in claimed_sections
+                        )
+                        if not has_section_match and len(overlap) < 2:
+                            invalid_citations.append({
+                                "citation": cit,
+                                "reason": "INSUFFICIENT_SUBSTANTIVE_SUPPORT",
+                                "details": f"Evidence for '{doc_id}' does not contain claimed sections {claimed_sections} or substantive supporting concepts.",
+                            })
+                            continue
+
+                    # General substantive overlap check
+                    if len(overlap) == 0 and len(ans_tokens) > 5:
+                        invalid_citations.append({
+                            "citation": cit,
+                            "reason": "INSUFFICIENT_SUBSTANTIVE_SUPPORT",
+                            "details": f"Retrieved evidence for cited document '{doc_id}' shares no substantive legal concepts with the generated answer.",
+                        })
+                        continue
 
             valid_citations.append(cit)
 

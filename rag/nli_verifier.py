@@ -54,7 +54,11 @@ LEGAL_GENERIC_STOPWORDS = {
     "such", "than", "other", "some", "only", "then", "more", "most", "each",
     "were", "when", "what", "where", "case", "cases", "holding", "order",
     "acts", "held", "title", "text", "category", "provision", "provisions",
-    "within", "about", "there", "these", "those"
+    "within", "about", "there", "these", "those",
+    # Generic procedural terms that occur universally across legal statutes
+    "police", "officer", "section", "sections", "power", "powers", "code",
+    "procedure", "criminal", "general", "matter", "matters", "public",
+    "proceedings", "offence", "offences", "action", "rules"
 }
 
 
@@ -103,14 +107,21 @@ class NLIVerifier:
 
         # Remove markdown headers and emphasis
         cleaned = re.sub(r"^#{1,6}\s+.*$", "", cleaned, flags=re.MULTILINE)
+        cleaned = re.sub(r"^\d+\.\s+\*\*[^*]+\*\*:\s*$", "", cleaned, flags=re.MULTILINE)
         cleaned = re.sub(r"\*{1,2}([^*]+)\*{1,2}", r"\1", cleaned)
+
+        # Protect common legal abbreviations with periods from sentence splitting
+        cleaned = re.sub(r"\b([vV])\.\s+(?=[A-Z])", r"\1_DOT_ ", cleaned)
+        cleaned = re.sub(r"\b([nN]o)\.\s+(?=[0-9A-Z])", r"\1_DOT_ ", cleaned)
+        cleaned = re.sub(r"\b([aA]rt)\.\s+(?=[0-9A-Z])", r"\1_DOT_ ", cleaned)
+        cleaned = re.sub(r"\b([sS]ec)\.\s+(?=[0-9A-Z])", r"\1_DOT_ ", cleaned)
 
         # Split on sentence boundaries (avoiding splits on initials like 'B. R. Ambedkar' or 'Art. 21')
         raw_sentences = re.split(r"(?<=[.!?])\s+(?=[A-Z0-9])", cleaned)
 
         claims = []
         for s in raw_sentences:
-            s_clean = s.strip()
+            s_clean = s.replace("_DOT_", ".").strip()
             # Remove leading bullet points or numbers
             s_clean = re.sub(r"^[-*•\d\.\)]+\s*", "", s_clean).strip()
 
@@ -138,20 +149,24 @@ class NLIVerifier:
 
         for pos_pat, neg_pat in CONTRADICTION_PAIRS:
             # Case 1: Claim asserts positive, evidence asserts negative
-            if re.search(pos_pat, claim_lower) and re.search(neg_pat, evidence_lower):
-                claim_tokens = set(re.findall(r"\b[a-zA-Z]{4,}\b", claim_lower)) - LEGAL_GENERIC_STOPWORDS
-                ev_tokens = set(re.findall(r"\b[a-zA-Z]{4,}\b", evidence_lower)) - LEGAL_GENERIC_STOPWORDS
-                overlap = claim_tokens.intersection(ev_tokens)
-                if len(overlap) >= 2:
-                    return True, 0.90, f"Polarity conflict: claim asserts permission/validity whereas evidence asserts prohibition/invalidation (overlap: {overlap})"
+            # Polarity clash requires claim to assert positive without negative,
+            # and evidence to assert negative without affirming the positive on that proposition.
+            if re.search(pos_pat, claim_lower) and not re.search(neg_pat, claim_lower):
+                if re.search(neg_pat, evidence_lower) and not re.search(pos_pat, evidence_lower):
+                    claim_tokens = set(re.findall(r"\b[a-zA-Z]{4,}\b", claim_lower)) - LEGAL_GENERIC_STOPWORDS
+                    ev_tokens = set(re.findall(r"\b[a-zA-Z]{4,}\b", evidence_lower)) - LEGAL_GENERIC_STOPWORDS
+                    overlap = claim_tokens.intersection(ev_tokens)
+                    if len(overlap) >= 2:
+                        return True, 0.90, f"Polarity conflict: claim asserts permission/validity whereas evidence asserts prohibition/invalidation (overlap: {overlap})"
 
             # Case 2: Claim asserts negative, evidence asserts positive
-            if re.search(neg_pat, claim_lower) and re.search(pos_pat, evidence_lower):
-                claim_tokens = set(re.findall(r"\b[a-zA-Z]{4,}\b", claim_lower)) - LEGAL_GENERIC_STOPWORDS
-                ev_tokens = set(re.findall(r"\b[a-zA-Z]{4,}\b", evidence_lower)) - LEGAL_GENERIC_STOPWORDS
-                overlap = claim_tokens.intersection(ev_tokens)
-                if len(overlap) >= 2:
-                    return True, 0.85, f"Polarity conflict: claim asserts prohibition whereas evidence establishes affirmative constitutional protection (overlap: {overlap})"
+            if re.search(neg_pat, claim_lower) and not re.search(pos_pat, claim_lower):
+                if re.search(pos_pat, evidence_lower) and not re.search(neg_pat, evidence_lower):
+                    claim_tokens = set(re.findall(r"\b[a-zA-Z]{4,}\b", claim_lower)) - LEGAL_GENERIC_STOPWORDS
+                    ev_tokens = set(re.findall(r"\b[a-zA-Z]{4,}\b", evidence_lower)) - LEGAL_GENERIC_STOPWORDS
+                    overlap = claim_tokens.intersection(ev_tokens)
+                    if len(overlap) >= 2:
+                        return True, 0.85, f"Polarity conflict: claim asserts prohibition whereas evidence establishes affirmative constitutional protection (overlap: {overlap})"
 
         return False, 0.0, ""
 
@@ -209,6 +224,7 @@ class NLIVerifier:
         is_contradicted = False
         contradiction_reason = ""
 
+        # First pass: identify the most relevant evidence passage
         for ev in evidence_passages:
             ev_lower = ev.lower()
             ev_words = set(re.findall(r"\b[a-zA-Z0-9]{3,}\b", ev_lower))
@@ -223,13 +239,12 @@ class NLIVerifier:
                 best_overlap_ratio = ratio
                 best_ev_passage = ev
 
-            # Check for polarity contradiction on high-overlap passages
-            contra, contra_conf, reason = self._detect_polarity_contradiction(claim, ev)
+        # Second pass: check for polarity contradiction ONLY on passages with substantial overlap
+        if best_overlap_ratio >= 0.30 and best_ev_passage:
+            contra, contra_conf, reason = self._detect_polarity_contradiction(claim, best_ev_passage)
             if contra:
                 is_contradicted = True
                 contradiction_reason = reason
-                best_ev_passage = ev
-                break
 
         if is_contradicted:
             return {
@@ -298,8 +313,17 @@ class NLIVerifier:
             if isinstance(ch, dict) and ch.get("text"):
                 passages.append(ch["text"])
 
-        # If answer is empty or abstention notice
-        if not claims or "insufficient" in answer_text.lower():
+        # If answer is empty or an explicit grounded abstention notice
+        ans_lower = answer_text.lower().strip()
+        is_explicit_abstention = (
+            "insufficient evidence:" in ans_lower
+            or "notice of insufficient evidence" in ans_lower
+            or "safely withheld" in ans_lower
+            or "out of scope" in ans_lower
+            or ans_lower.startswith("**notice")
+            or ans_lower.startswith("**scope notice")
+        )
+        if not claims or (is_explicit_abstention and len(claims) <= 2):
             return {
                 "nli_status": "VERIFIED_ABSTENTION",
                 "total_claims": 0,

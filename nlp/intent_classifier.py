@@ -138,9 +138,14 @@ class RuleBasedIntentClassifier:
             if bool(ents.get("ARTICLE")) or "article" in q_norm or "preamble" in q_norm:
                 return "ARTICLE_LOOKUP", 0.90, "Matched specific constitutional article lookup"
 
-        # 8. Rights Query
-        if any(w in q_norm for w in ["fundamental right", "fundamental rights", "freedoms guaranteed", "right to", "rights protect", "discrimination"]):
-            return "RIGHTS_QUERY", 0.86, "Matched fundamental rights query"
+        # 8. Rights Query / Criminal Procedure & Personal Liberty Search
+        if any(w in q_norm for w in [
+            "fundamental right", "fundamental rights", "freedoms guaranteed",
+            "right to", "rights protect", "discrimination",
+            "search house", "search without warrant", "without warrant", "police search",
+            "search warrant", "search premises", "search of place", "criminal procedure", "issue a warrant"
+        ]):
+            return "RIGHTS_QUERY", 0.86, "Matched fundamental rights or personal liberty search query"
 
         # 9. Case Law Query
         has_specific_case_marker = (
@@ -160,7 +165,11 @@ class RuleBasedIntentClassifier:
             return "ARTICLE_LOOKUP", 0.85, "Defaulted to article lookup based on extracted article"
 
         # If nothing matches and no legal terms present
-        legal_terms = ["constitution", "court", "law", "supreme", "right", "justice", "article", "section"]
+        legal_terms = [
+            "constitution", "court", "law", "supreme", "right", "justice",
+            "article", "section", "police", "search", "warrant", "arrest",
+            "investigation", "seizure", "crpc", "bnss", "ipc", "bns"
+        ]
         if not any(lt in q_norm for lt in legal_terms):
             return "OUT_OF_SCOPE", 0.70, "No constitutional or legal terminology detected"
 

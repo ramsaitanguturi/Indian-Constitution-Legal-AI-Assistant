@@ -231,16 +231,27 @@ class HybridRetriever:
 
         # Step 6: Neural Reranking (Cross-Encoder)
         if self.use_reranker and self.reranker is not None:
-            final_results = self.reranker.rerank(
-                query=query,
-                candidates=candidates_pool,
-                top_k=target_top_k,
-            )
+            if filter_doc_type is None and target_top_k >= 3:
+                reranked_all = self.reranker.rerank(
+                    query=query,
+                    candidates=candidates_pool,
+                    top_k=len(candidates_pool),
+                )
+                final_results = self._apply_corpus_diversity(reranked_all, target_top_k)
+            else:
+                final_results = self.reranker.rerank(
+                    query=query,
+                    candidates=candidates_pool,
+                    top_k=target_top_k,
+                )
         else:
-            final_results = candidates_pool[:target_top_k]
-            # Ensure final ranks are 1..N
-            for rank, c in enumerate(final_results, start=1):
-                c["rank"] = rank
+            if filter_doc_type is None and target_top_k >= 3:
+                final_results = self._apply_corpus_diversity(candidates_pool, target_top_k)
+            else:
+                final_results = candidates_pool[:target_top_k]
+                # Ensure final ranks are 1..N
+                for rank, c in enumerate(final_results, start=1):
+                    c["rank"] = rank
 
         # Step 7: Hydrate Parent Metadata & Backward Compatibility Aliases
         for item in final_results:
@@ -266,6 +277,59 @@ class HybridRetriever:
                 item["rerank_score"] = item["reranker_score"]
 
         return final_results
+
+    def _apply_corpus_diversity(
+        self,
+        ranked_candidates: List[Dict[str, Any]],
+        top_k: int,
+        max_per_parent: Optional[int] = None,
+    ) -> List[Dict[str, Any]]:
+        """
+        Ensures cross-corpus diversity among candidates when filter_doc_type is None.
+        Prevents a single statute (e.g. CrPC) with hundreds of sections from crowding out
+        authoritative judicial precedents or constitutional provisions, while ensuring
+        the primary statute retains adequate substantive coverage (up to 3 chunks for top-5).
+        """
+        if not ranked_candidates or len(ranked_candidates) <= top_k:
+            for rank, c in enumerate(ranked_candidates, start=1):
+                c["rank"] = rank
+            return ranked_candidates
+
+        effective_max = max(2, (top_k + 1) // 2) if max_per_parent is None else max_per_parent
+
+        selected: List[Dict[str, Any]] = []
+        parent_counts: Dict[str, int] = {}
+        seen_chunk_ids = set()
+        deferred: List[Dict[str, Any]] = []
+
+        # Pass 1: Select candidates respecting effective_max cap
+        for c in ranked_candidates:
+            cid = c.get("chunk_id", "")
+            pid = c.get("parent_id") or c.get("document_id") or c.get("metadata", {}).get("parent_id", cid)
+            cnt = parent_counts.get(pid, 0)
+            if cnt < effective_max:
+                selected.append(c)
+                seen_chunk_ids.add(cid)
+                parent_counts[pid] = cnt + 1
+                if len(selected) >= top_k:
+                    break
+            else:
+                deferred.append(c)
+
+        # Pass 2: Backfill from deferred candidates if top_k not reached
+        if len(selected) < top_k and deferred:
+            for c in deferred:
+                cid = c.get("chunk_id", "")
+                if cid not in seen_chunk_ids:
+                    selected.append(c)
+                    seen_chunk_ids.add(cid)
+                    if len(selected) >= top_k:
+                        break
+
+        for rank, c in enumerate(selected, start=1):
+            c["rank"] = rank
+
+        return selected
 
     def retrieve_with_provenance(
         self,
