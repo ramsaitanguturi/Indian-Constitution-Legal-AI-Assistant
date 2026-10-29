@@ -49,40 +49,30 @@ This document records the official provenance, retrieval methodology, licenses, 
   * Registry of Open Data on AWS — Indian Supreme Court Judgments (1950–present): [https://registry.opendata.aws/indian-supreme-court-judgments/](https://registry.opendata.aws/indian-supreme-court-judgments/)
 * **License:** Public Domain / Open Data under Indian Public Records principles; non-copyrightable judicial determinations (Copyright Act, 1957 § 52(1)(q)(iv)).
 * **Scope Ingested:**
-  * 104 landmark constitutional decisions covering Fundamental Rights, Basic Structure Doctrine, Judicial Review, Federalism, Reservation, Emergency Provisions, and Secularism.
-  * **Key Cases Included:**
-    * *A.K. Gopalan v. State of Madras* (1950 INSC 14, [1950] SCR 88)
-    * *Shankari Prasad v. Union of India* (1951 INSC 45, [1952] SCR 89)
-    * *Golaknath v. State of Punjab* (1967 INSC 45, [1967] 2 SCR 762)
-    * *Kesavananda Bharati v. State of Kerala* (1973 INSC 258, [1973] Supp SCR 1)
-    * *Indira Nehru Gandhi v. Raj Narain* (1975 INSC 152, [1976] 2 SCR 347)
-    * *Maneka Gandhi v. Union of India* (1978 INSC 16, [1978] 2 SCR 621)
-    * *Minerva Mills Ltd. v. Union of India* (1980 INSC 141, [1981] 1 SCR 206)
-    * *Waman Rao v. Union of India* (1980 INSC 211, [1981] 2 SCR 1)
-    * *S.P. Gupta v. Union of India (First Judges Case)* (1981 INSC 220)
-    * *Mohd. Ahmed Khan v. Shah Bano Begum* (1985 INSC 97)
-    * *Indra Sawhney v. Union of India (Mandal Case)* (1992 INSC 260)
-    * *S.R. Bommai v. Union of India* (1994 INSC 173, [1994] 2 SCR 644)
-    * *Supreme Court Advocates-on-Record Assn v. UOI (Second Judges Case)* (1993 INSC 356)
-    * *Special Reference No. 1 of 1998 (Third Judges Case)* (1998 INSC 516)
-    * *I.R. Coelho v. State of Tamil Nadu* (2007 INSC 30, [2007] 1 SCR 706)
-    * *National Legal Services Authority (NALSA) v. UOI* (2014 INSC 275)
-    * *Supreme Court Advocates-on-Record Assn (NJAC Case)* (2015 INSC 758)
-    * *Justice K.S. Puttaswamy v. Union of India (Privacy)* (2017 INSC 777)
-    * *Navtej Singh Johar v. Union of India* (2018 INSC 790)
-    * *Joseph Shine v. Union of India* (2018 INSC 898)
-    * *Sabarimala Case (Indian Young Lawyers Assn)* (2018 INSC 904)
-    * *Jarnail Singh v. Lachhmi Narain Gupta* (2018 INSC 899)
-    * *Jarnail Singh II / Reservation Review* (2022 INSC 114)
-    * *Supriyo @ Supriya Chakraborty v. Union of India (Marriage Equality)* (2023 INSC 920)
-    * *In Re Article 370 of the Constitution* (2023 INSC 1058)
-    * *Association for Democratic Reforms v. UOI (Electoral Bonds)* (2024 INSC 113)
+  * 211 total Supreme Court judgment records, explicitly categorized by content granularity:
+    * **13 Official Full-Text Judgments (`content_type: "full_text"`):** Extracted page-by-page from official Supreme Court of India PDF documents using `pypdf` (>1.2M characters total). Key full-text decisions include:
+      * *A.K. Gopalan v. State of Madras* (1950 INSC 13, 247-page landmark constitutional bench decision on preventive detention and Article 21)
+      * *Romesh Thappar v. State of Madras* (1950 INSC 16, freedom of speech and public order)
+      * *Brij Bhushan v. State of Delhi* (1950 INSC 17, pre-censorship of the press)
+      * *Rashid Ahmed v. Municipal Board, Kairana* (1950 INSC 11, writ jurisdiction under Article 32)
+      * *Chintaman Rao v. State of M.P.* (1950 INSC 28, test of reasonable restrictions under Article 19)
+      * *Chiranjit Lal Chowdhuri v. Union of India* (1950 INSC 30, corporate rights under Article 14 & 31)
+      * *Dr. N.B. Khare v. State of Delhi* (1950 INSC 15, externment and Article 19)
+      * *State of Madras v. Champakam Dorairajan* (1951 INSC 25, caste-based reservations and Article 15)
+      * *Keshavan Madhava Menon v. State of Bombay* (1951 INSC 3, doctrine of eclipse and pre-constitutional laws)
+      * *State of Bombay v. F.N. Balsara* (1951 INSC 32, pith and substance doctrine and prohibition laws)
+      * *Shankari Prasad Singh Deo v. Union of India* (1951 INSC 45, First Constitutional Amendment challenge)
+      * *State of Bombay v. Atma Ram Sridhar Vaidya* (1951 INSC 4, preventive detention grounds under Article 22)
+      * *Shamdasani v. Central Bank of India* (1951 INSC 66, fundamental rights enforceable only against State, not private individuals)
+    * **104 Landmark Precedent Briefs (`content_type: "summary_only"`):** Digest-level legal briefs preserving case title, neutral citation (`YYYY INSC XXX`), SCR citation, coram/bench strength, procedural history, issues, ratio decidendi, and constitutional holdings (e.g. *Kesavananda Bharati*, *Maneka Gandhi*, *Minerva Mills*, *Indra Sawhney*, *S.R. Bommai*, *Puttaswamy*, *Navtej Johar*, *Sabarimala*, *Electoral Bonds*). Explicitly labeled to prevent presenting digests as official judgment text.
+    * **94 Open Data Registry Records (`content_type: "metadata_only"`):** Discovered and ingested from official AWS Open Data Registry Parquet tables (`s3://indian-supreme-court-judgments/`) for 1950 and 1951. Preserves case metadata, neutral citations, and judges.
   * **Structured Fields:**
     * Case Title, Official Neutral Citation (`YYYY INSC XXX`), SCR Citation, Date of Judgment.
-    * Bench Strength and Judges.
+    * Bench Strength and Coram / Judges.
     * Facts & Procedural History.
     * Ratio Decidendi and Constitutional Holdings.
     * Articles, Statutes, and Precedents Referenced.
+    * Full Text (where available) with SHA-256 and source PDF provenance.
 * **Local Storage:**
   * Raw: `data/raw/judgments/`
   * Processed: `data/processed/judgments/supreme_court_landmarks.json`
@@ -95,20 +85,29 @@ This document records the official provenance, retrieval methodology, licenses, 
 * **Official Portal:** [https://www.indiacode.nic.in/](https://www.indiacode.nic.in/)
 * **License:** Government Open Data License - India (GODL) / Public Domain.
 * **Scope Ingested:**
-  Statutes directly implementing or interacting with constitutional guarantees:
-  1. **Citizenship Act, 1955** (Act No. 57 of 1955) — Governs acquisition, termination, and registration of citizenship pursuant to Articles 5–11.
-  2. **Representation of the People Act, 1951** (Act No. 43 of 1951) — Governs elections, conduct of polls, disqualification of legislators under Articles 102, 191, and Part XV.
-  3. **Protection of Human Rights Act, 1993** (Act No. 10 of 1994) — Establishes NHRC and State HRCs to safeguard rights embodied in the Constitution and international covenants.
-  4. **Right to Information Act, 2005** (Act No. 22 of 2005) — Codifies freedom of speech and right to know derived under Article 19(1)(a).
-  5. **Armed Forces (Special Powers) Act, 1958** (Act No. 28 of 1958) — Relates to public order, armed forces deployments, and constitutional scrutiny under Articles 21, 33, 34, and 355.
+  12 Central Acts with complete section-level structure (1,947 sections total) directly implementing or interacting with constitutional guarantees:
+  1. **Indian Penal Code, 1860** (Act No. 45 of 1860) — 511 sections; substantive criminal law, sedition (§ 124A), defamation (§ 499), offences against state and public tranquility.
+  2. **Code of Criminal Procedure, 1973** (Act No. 2 of 1974) — 484 sections; procedural safeguards, arrest (§ 41), preventive detention (§ 151), search and seizure, bail.
+  3. **Indian Evidence Act, 1872** (Act No. 1 of 1872) — 167 sections; admissibility, burden of proof, confessions, statutory presumptions.
+  4. **Code of Civil Procedure, 1908** (Act No. 5 of 1908) — 158 sections; civil adjudication, res judicata (§ 11), inherent powers (§ 151).
+  5. **Industrial Disputes Act, 1947** (Act No. 14 of 1947) — 40 sections; labor rights, dispute resolution, strikes and lockouts pursuant to Article 43.
+  6. **Negotiable Instruments Act, 1881** (Act No. 26 of 1881) — 147 sections; commercial instruments, dishonor proceedings (§ 138).
+  7. **Motor Vehicles Act, 1988** (Act No. 59 of 1988) — 217 sections; transport regulation, third-party liability, compensation tribunals.
+  8. **Citizenship Act, 1955** (Act No. 57 of 1955) — 19 sections; governs acquisition, termination, and registration of citizenship pursuant to Articles 5–11.
+  9. **Representation of the People Act, 1951** (Act No. 43 of 1951) — 171 sections; governs elections, conduct of polls, disqualification of legislators under Articles 102, 191, and Part XV.
+  10. **Protection of Human Rights Act, 1993** (Act No. 10 of 1994) — 43 sections; establishment of NHRC, SHRCs, and Human Rights Courts.
+  11. **Right to Information Act, 2005** (Act No. 22 of 2005) — 31 sections; operationalizes freedom of expression and citizen oversight under Article 19(1)(a).
+  12. **Armed Forces (Special Powers) Act, 1958** (Act No. 28 of 1958) — 6 sections; special powers in disturbed areas, interacting with Articles 21, 33, and 34.
 * **Local Storage:**
+  * Raw: `data/raw/legislation/`
   * Processed: `data/processed/legislation/central_acts.json`
 
 ---
 
 ## 5. Corpus Extensibility & Ingestion Integrity
 
-* **Total Processed Documents:** 692 parent documents (477 constitutional articles/schedules, 106 amendments, 104 judgments, 5 statutory central acts).
+* **Total Processed Documents:** 806 parent documents (477 constitutional articles/schedules, 106 amendments, 211 judgments [13 full-text, 104 briefs, 94 metadata], 12 statutory central acts).
 * **Deterministic Content Hash:** Every record carries an invariant SHA-256 hash computed over its canonical normalized text and metadata.
 * **Extensibility:** The ingestion scripts (`scripts/ingest_*.py`, `scripts/build_corpus.py`) accept dynamic parameters, support arbitrary counts, and stream large collections without in-memory limits.
+
 

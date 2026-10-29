@@ -1,13 +1,13 @@
 # Indian Constitution Legal AI Assistant — Enterprise Legal Research System
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![Tests Passing](https://img.shields.io/badge/tests-289%20passed-success.svg)](tests/)
+[![Tests Passing](https://img.shields.io/badge/tests-296%20passed-success.svg)](tests/)
 [![Framework](https://img.shields.io/badge/framework-Streamlit%20%7C%20ChromaDB%20%7C%20PyTorch-orange.svg)](app.py)
 [![Embeddings](https://img.shields.io/badge/embeddings-BGE--M3%20(1024--d)%20%7C%20MiniLM%20(384--d)-purple.svg)](retrieval/embeddings.py)
-[![Corpus](https://img.shields.io/badge/corpus-692%20docs%20%7C%202664%20chunks-green.svg)](data/manifests/corpus_manifest.json)
+[![Corpus](https://img.shields.io/badge/corpus-806%20docs%20%7C%205067%20chunks-green.svg)](data/manifests/corpus_manifest.json)
 
 An empirical, locally runnable Indian Constitutional Law and Legal Research Assistant backed by an authoritative, traceable legal corpus. The platform integrates:
-- **Comprehensive Legal Corpus**: Official consolidated Constitution of India (all 477 articles & Schedules 1–12), all 106 Constitution Amendment Acts, 104 Supreme Court landmark decisions with neutral citations (`YYYY INSC XXX`), and key Central Legislation (Citizenship Act, RPA, PHRA, RTI, AFSPA).
+- **Comprehensive Legal Corpus**: Official consolidated Constitution of India (all 477 articles & Schedules 1–12), all 106 Constitution Amendment Acts, 211 Supreme Court judgment records (13 official full-text decisions from Supreme Court PDFs with >1.2M chars, 104 landmark precedent briefs with neutral citations `YYYY INSC XXX`, and 94 metadata registry records), and 12 Central Acts with section-level structure (1,947 sections across IPC, CrPC, IEA, CPC, IDA, NIA, MVA, Citizenship Act, RPA, PHRA, RTI, AFSPA).
 - **Dense Embedding Engine**: Pretrained `BAAI/bge-m3` (1024-dimensional normalized vectors, CPU fallback) with dynamic collection routing alongside baseline `sentence-transformers/all-MiniLM-L6-v2`.
 - **Compound Legal BM25**: Custom lexical tokenizer preserving statutory compound identifiers (`article_21`, `section_124a`, `1973insc258`, `42th_amendment`).
 - **Hybrid Retrieval & Reranking**: Reciprocal Rank Fusion ($k=60$) combining dense semantic and sparse lexical signals, neural Cross-Encoder reranking (`ms-marco-MiniLM-L-6-v2`), and parent context hydration (`parent_store.json`).

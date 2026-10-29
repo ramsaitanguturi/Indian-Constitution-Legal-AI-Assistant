@@ -29,6 +29,8 @@ PROCESSED_JUDGMENTS_DIR = PROCESSED_DIR / "judgments"
 PROCESSED_LEGISLATION_DIR = PROCESSED_DIR / "legislation"
 
 CORPUS_MANIFEST_PATH = MANIFESTS_DIR / "corpus_manifest.json"
+RAW_DOWNLOADS_MANIFEST = MANIFESTS_DIR / "raw_downloads_manifest.json"
+RAW_DOWNLOADS_MANIFEST_PATH = RAW_DOWNLOADS_MANIFEST
 VALIDATION_REPORT_PATH = REPORTS_DIR / "corpus_validation_report.json"
 
 # Ensure all data subdirectories exist

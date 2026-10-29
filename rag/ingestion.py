@@ -214,19 +214,30 @@ class ProductionIngestor:
                 "document_id": item.get("document_id", item.get("id")),
                 "doc_type": "judgment",
                 "document_type": "judgment",
+                "content_type": item.get("content_type", "summary_only"),
+                "has_full_text": item.get("has_full_text", False),
+                "is_official_full_text": item.get("is_official_full_text", False),
                 "case_name": item.get("case_name", ""),
                 "citation": item.get("citation", ""),
+                "neutral_citation": item.get("neutral_citation", ""),
                 "year": item.get("year", 0),
                 "bench": item.get("bench", ""),
                 "articles_referred": arts_ref,
                 "acts_referred": item.get("acts_referred", []),
-                "full_text": full_parent_text,
+                "full_text": item.get("text", full_parent_text) if item.get("has_full_text") else full_parent_text,
                 "facts": item.get("facts", ""),
                 "ratio_decidendi": item.get("ratio_decidendi", ""),
                 "verdict": item.get("verdict", ""),
                 "key_takeaways": takeaways,
+                "source_url": item.get("source_url", ""),
                 "provenance": item.get("provenance", {})
             }
+
+            pid_lower = parent_id.lower()
+            parent_store[pid_lower] = parent_store[parent_id]
+            if item.get("neutral_citation"):
+                nc_alias = f"parent_{item['neutral_citation'].lower()}"
+                parent_store[nc_alias] = parent_store[parent_id]
 
             judg_children = self.chunker.chunk_judgment(item)
             child_chunks.extend(judg_children)
@@ -254,6 +265,7 @@ class ProductionIngestor:
                 "text": item.get("text", ""),
                 "provenance": item.get("provenance", {})
             }
+            parent_store[parent_id.lower()] = parent_store[parent_id]
 
             stat_children = self.chunker.chunk_statute(item)
             child_chunks.extend(stat_children)

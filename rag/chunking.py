@@ -277,6 +277,29 @@ class LegalStructureChunker:
 
         chunks: List[Dict[str, Any]] = []
 
+        # If official full-text judgment is available, chunk the full ruling text
+        if judgment.get("content_type") == "full_text" or judgment.get("has_full_text"):
+            full_raw_text = judgment.get("full_text") or judgment.get("text") or ""
+            passages = self.chunk_legacy_sliding_window(full_raw_text, chunk_size=1200, overlap=150)
+            for p_idx, p_text in enumerate(passages[:30]):
+                p_chunk_text = f"{case_name} ({year}, {citation}). OFFICIAL JUDGMENT TEXT [Part {p_idx+1}]: {p_text}"
+                chunks.append({
+                    "child_id": f"child_{judgment.get('id', 'judg')}_p{p_idx}",
+                    "parent_id": parent_id,
+                    "doc_type": "judgment",
+                    "document_type": "judgment",
+                    "case_name": case_name,
+                    "citation": citation,
+                    "year": year,
+                    "bench": bench,
+                    "articles_referred": arts_str,
+                    "section": f"Official Full-Text Ruling Part {p_idx+1}",
+                    "text": p_chunk_text,
+                    "char_count": len(p_chunk_text),
+                    "estimated_tokens": estimate_tokens(p_chunk_text),
+                    "source": source
+                })
+
         # Section 1: Facts
         facts = judgment.get("facts", "").strip()
         if facts:

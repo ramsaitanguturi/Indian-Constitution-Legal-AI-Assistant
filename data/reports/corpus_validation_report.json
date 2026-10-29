@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-10-29T08:45:56.324206+00:00",
-  "total_documents_validated": 692,
+  "timestamp": "2026-10-29T10:18:41.056937+00:00",
+  "total_documents_validated": 803,
   "total_issues_found": 0,
   "total_errors": 0,
   "total_warnings": 0,
@@ -19,13 +19,13 @@
       "status": "PASSED"
     },
     "Landmark Judgments": {
-      "records": 104,
+      "records": 208,
       "errors": 0,
       "warnings": 0,
       "status": "PASSED"
     },
     "Central Legislation": {
-      "records": 5,
+      "records": 12,
       "errors": 0,
       "warnings": 0,
       "status": "PASSED"

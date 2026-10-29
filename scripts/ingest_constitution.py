@@ -324,12 +324,12 @@ def ingest_constitution() -> List[Dict[str, Any]]:
         title = item.get("title", "").strip()
         desc = item.get("description", "").strip()
 
+        clean_art = art_str.replace(" ", "").upper()
         # Format document ID
         if art_str in ("0", "preamble", "Preamble") or "preamble" in title.lower():
             doc_id = "const_preamble"
             art_num_formatted = "Preamble"
         else:
-            clean_art = art_str.replace(" ", "").upper()
             doc_id = f"const_art_{clean_art.zfill(3)}"
             art_num_formatted = f"Article {clean_art}"
 
@@ -340,6 +340,21 @@ def ingest_constitution() -> List[Dict[str, Any]]:
 
         part_name, category = determine_part_and_category(art_str)
         clauses = parse_clauses_from_text(desc, doc_id)
+
+        # Determine verifiable legal status from official text and title
+        status = "in_force"
+        desc_lower = desc.lower().strip()
+        title_lower = title.lower().strip()
+        if (desc_lower.startswith("[") and ("rep. by" in desc_lower[:180] or "repealed by" in desc_lower[:180])) or \
+           desc_lower.startswith("rep. by") or desc_lower.startswith("repealed by") or \
+           desc_lower.startswith("omitted by") or "omitted by the constitution" in desc_lower[:150]:
+            status = "repealed" if "rep" in desc_lower[:150] else "omitted"
+        elif "rep. by" in title_lower or "repealed" in title_lower or "omitted" in title_lower:
+            status = "repealed" if "rep" in title_lower else "omitted"
+        elif clean_art == "370":
+            # Note: Article 370 remains in constitutional text but special operative provisions
+            # were rendered inoperative via C.O. 272 and C.O. 273 (2019), upheld in 2023 INSC 1058.
+            status = "inoperative_special_provisions"
 
         doc_record = {
             "id": doc_id,
@@ -359,7 +374,7 @@ def ingest_constitution() -> List[Dict[str, Any]]:
             "source_hash": raw_sha256,
             "retrieved_at": retrieval_timestamp,
             "version_date": VERSION_DATE_CONSTITUTION,
-            "legal_status": "in_force",
+            "legal_status": status,
             "language": "en",
             "license": LICENSE_CONSTITUTION,
             "processing_status": "processed",

@@ -1,34 +1,44 @@
 {
-  "manifest_version": "2.0.0-production",
-  "generated_at": "2026-10-29T08:45:36.144454+00:00",
+  "manifest_version": "2.1.0-production",
+  "generated_at": "2026-10-29T10:18:11.502770+00:00",
   "is_smoke_test": false,
   "counts_by_document_type": {
     "constitution_article": 477,
     "constitution_amendment": 106,
-    "judgment": 104,
-    "statute": 5
+    "judgment": 208,
+    "statute": 12
   },
-  "total_documents": 692,
-  "total_character_count": 597856,
-  "estimated_total_tokens": 149464,
+  "judgment_granularity": {
+    "official_full_text": 13,
+    "structured_summary_briefs": 104,
+    "registry_metadata_only": 91
+  },
+  "statute_granularity": {
+    "total_acts": 12,
+    "total_sections_parsed": 1947
+  },
+  "total_documents": 803,
+  "total_character_count": 2431669,
+  "estimated_total_tokens": 607917,
   "source_provenance_summary": {
     "constitution": {
       "source": "Legislative Department, Ministry of Law and Justice, Government of India",
       "version": "Amended up to 106th Amendment Act",
-      "coverage": "Preamble, Articles 1 to 395+, Schedules 1 to 12"
+      "coverage": "Preamble, Articles 1 to 395+, Schedules 1 to 12",
+      "repealed_or_omitted_flagged": 5
     },
     "amendments": {
       "source": "Legislative Department, Ministry of Law and Justice, Government of India",
       "version": "1st to 106th Constitutional Amendment Acts",
-      "coverage": "All 106 enacted Amendment Acts"
+      "coverage": "All 106 enacted Amendment Acts with verified dates and Statement of Objects and Reasons"
     },
     "judgments": {
       "source": "Supreme Court of India / Open Data AWS Registry",
-      "coverage": "Landmark Constitutional & Public Law Precedents (1950–2024)"
+      "coverage": "13 full-text SCR PDF decisions (1950–1952), 104 landmark case briefs (1950–2024), 91 registry records"
     },
     "legislation": {
       "source": "India Code, Ministry of Law and Justice, Government of India",
-      "coverage": "Citizenship Act, RPA 1951, PHRA 1993, RTI 2005, AFSPA 1958"
+      "coverage": "12 Central Acts (1947 sections) including IPC 1860, CrPC 1973, IEA 1872, CPC 1908, Citizenship Act, RPA, PHRA, RTI, AFSPA"
     }
   }
 }

@@ -1,51 +1,51 @@
 {
-  "timestamp": "2026-10-29T08:56:29.971568+00:00",
+  "timestamp": "2026-10-29T10:27:08.396245+00:00",
   "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
   "queries_evaluated": 25,
   "results_by_configuration": {
     "BM25 Only": {
       "hit@1": 0.8,
       "hit@5": 0.92,
-      "hit@10": 1.0,
-      "recall@5": 1.375,
-      "recall@10": 1.9723,
-      "precision@5": 0.608,
-      "mrr": 0.863,
-      "ndcg@10": 1.2994,
-      "latency_ms": 10.26
+      "hit@10": 0.96,
+      "recall@5": 1.3017,
+      "recall@10": 1.939,
+      "precision@5": 0.584,
+      "mrr": 0.864,
+      "ndcg@10": 1.2749,
+      "latency_ms": 34.89
     },
     "Dense Only": {
       "hit@1": 0.84,
       "hit@5": 1.0,
       "hit@10": 1.0,
-      "recall@5": 1.7583,
-      "recall@10": 2.584,
-      "precision@5": 0.736,
+      "recall@5": 1.725,
+      "recall@10": 2.5143,
+      "precision@5": 0.72,
       "mrr": 0.92,
-      "ndcg@10": 1.6492,
-      "latency_ms": 20.01
+      "ndcg@10": 1.6088,
+      "latency_ms": 33.74
     },
     "Hybrid (RRF + Entity Boost)": {
-      "hit@1": 0.92,
+      "hit@1": 0.96,
       "hit@5": 1.0,
       "hit@10": 1.0,
-      "recall@5": 1.9417,
-      "recall@10": 2.8913,
-      "precision@5": 0.824,
-      "mrr": 0.9533,
-      "ndcg@10": 1.8249,
-      "latency_ms": 66.76
+      "recall@5": 1.985,
+      "recall@10": 2.8557,
+      "precision@5": 0.848,
+      "mrr": 0.98,
+      "ndcg@10": 1.8191,
+      "latency_ms": 144.95
     },
     "Full Pipeline (Hybrid + Reranker)": {
       "hit@1": 1.0,
       "hit@5": 1.0,
       "hit@10": 1.0,
-      "recall@5": 1.9783,
-      "recall@10": 2.7933,
-      "precision@5": 0.848,
+      "recall@5": 1.925,
+      "recall@10": 2.71,
+      "precision@5": 0.824,
       "mrr": 1.0,
-      "ndcg@10": 1.8216,
-      "latency_ms": 1312.88
+      "ndcg@10": 1.7814,
+      "latency_ms": 1871.05
     }
   }
 }

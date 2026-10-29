@@ -118,8 +118,13 @@ def build_corpus(smoke_test: bool = False) -> Dict[str, Any]:
         sum(len(l.get("text", "")) for l in legislation)
     )
 
+    full_text_judgments = sum(1 for j in judgments if j.get("content_type") == "full_text")
+    summary_judgments = sum(1 for j in judgments if j.get("content_type") == "summary_only")
+    metadata_judgments = sum(1 for j in judgments if j.get("content_type") == "metadata_only")
+    total_statute_sections = sum(len(l.get("sections", [])) for l in legislation)
+
     manifest = {
-        "manifest_version": "2.0.0-production",
+        "manifest_version": "2.1.0-production",
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "is_smoke_test": smoke_test,
         "counts_by_document_type": {
@@ -128,6 +133,15 @@ def build_corpus(smoke_test: bool = False) -> Dict[str, Any]:
             "judgment": len(judgments),
             "statute": len(legislation),
         },
+        "judgment_granularity": {
+            "official_full_text": full_text_judgments,
+            "structured_summary_briefs": summary_judgments,
+            "registry_metadata_only": metadata_judgments,
+        },
+        "statute_granularity": {
+            "total_acts": len(legislation),
+            "total_sections_parsed": total_statute_sections,
+        },
         "total_documents": total_docs,
         "total_character_count": total_chars,
         "estimated_total_tokens": round(total_chars / 4),
@@ -135,20 +149,21 @@ def build_corpus(smoke_test: bool = False) -> Dict[str, Any]:
             "constitution": {
                 "source": "Legislative Department, Ministry of Law and Justice, Government of India",
                 "version": "Amended up to 106th Amendment Act",
-                "coverage": "Preamble, Articles 1 to 395+, Schedules 1 to 12"
+                "coverage": "Preamble, Articles 1 to 395+, Schedules 1 to 12",
+                "repealed_or_omitted_flagged": sum(1 for a in articles if a.get("legal_status") in ("repealed", "omitted", "inoperative_special_provisions")),
             },
             "amendments": {
                 "source": "Legislative Department, Ministry of Law and Justice, Government of India",
                 "version": "1st to 106th Constitutional Amendment Acts",
-                "coverage": "All 106 enacted Amendment Acts"
+                "coverage": "All 106 enacted Amendment Acts with verified dates and Statement of Objects and Reasons"
             },
             "judgments": {
                 "source": "Supreme Court of India / Open Data AWS Registry",
-                "coverage": "Landmark Constitutional & Public Law Precedents (1950–2024)"
+                "coverage": f"{full_text_judgments} full-text SCR PDF decisions (1950–1952), {summary_judgments} landmark case briefs (1950–2024), {metadata_judgments} registry records"
             },
             "legislation": {
                 "source": "India Code, Ministry of Law and Justice, Government of India",
-                "coverage": "Citizenship Act, RPA 1951, PHRA 1993, RTI 2005, AFSPA 1958"
+                "coverage": f"12 Central Acts ({total_statute_sections} sections) including IPC 1860, CrPC 1973, IEA 1872, CPC 1908, Citizenship Act, RPA, PHRA, RTI, AFSPA"
             }
         }
     }
