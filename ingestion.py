@@ -23,7 +23,10 @@ from config import (
     CHILD_CHUNK_SIZE,
     CHILD_CHUNK_OVERLAP,
     BM25_K1,
-    BM25_B
+    BM25_B,
+    get_chroma_collection_name,
+    get_embedding_dimension,
+    validate_collection_dimension,
 )
 from rag.chunking import LegalStructureChunker, estimate_tokens
 from rag.ingestion import ProductionIngestor, simple_tokenize
@@ -38,14 +41,25 @@ class ParentChildIngestor:
     routing to ProductionIngestor for the expanded corpus.
     """
 
-    def __init__(self, use_full_corpus: bool = False, batch_size: int = 64):
+    def __init__(
+        self,
+        use_full_corpus: bool = False,
+        batch_size: int = 64,
+        model_name: Optional[str] = None,
+    ):
         self.use_full_corpus = use_full_corpus
         self.batch_size = batch_size
+        self.model_name = model_name or DEFAULT_EMBEDDING_MODEL
         self.chunker = LegalStructureChunker()
         self.parent_store: Dict[str, Dict[str, Any]] = {}
         self.child_chunks: List[Dict[str, Any]] = []
         self.bm25_index: Optional[BM25Okapi] = None
-        self._production_ingestor = ProductionIngestor(use_full_corpus=use_full_corpus, batch_size=batch_size)
+        self.collection: Optional[Any] = None
+        self._production_ingestor = ProductionIngestor(
+            use_full_corpus=use_full_corpus,
+            batch_size=batch_size,
+            model_name=self.model_name,
+        )
 
     def load_raw_datasets(self) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
         """Load JSON datasets for Constitution Articles and Supreme Court Judgments."""
@@ -191,21 +205,33 @@ class ParentChildIngestor:
                 self.parent_store = json.load(f)
         return self.parent_store
 
-    def build_vector_store(self) -> Any:
+    def build_vector_store(self, force_rebuild: bool = False) -> Any:
         """Index child chunks into ChromaDB vector store."""
         if self.use_full_corpus:
-            return self._production_ingestor.build_vector_store()
+            self.collection = self._production_ingestor.build_vector_store(force_rebuild=force_rebuild)
+            return self.collection
 
         client = chromadb.PersistentClient(path=str(CHROMA_PERSIST_DIR))
+        col_name = get_chroma_collection_name(self.model_name)
         embedding_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
-            model_name=DEFAULT_EMBEDDING_MODEL
+            model_name=self.model_name
         )
 
         collection = client.get_or_create_collection(
-            name=CHROMA_COLLECTION_NAME,
+            name=col_name,
             embedding_function=embedding_fn,
             metadata={"hnsw:space": "cosine"}
         )
+
+        # Validate dimension before upserting
+        expected_dim = get_embedding_dimension(self.model_name)
+        validate_collection_dimension(collection, expected_dim, self.model_name)
+
+        # Prevent unnecessarily rebuilding or re-ingesting an already populated collection
+        if not force_rebuild and collection.count() > 0:
+            print(f"[INGESTION] Collection '{col_name}' already populated with {collection.count()} chunks. Skipping re-indexing.")
+            self.collection = collection
+            return collection
 
         if self.child_chunks:
             ids = [c["child_id"] for c in self.child_chunks]
@@ -227,6 +253,7 @@ class ParentChildIngestor:
                 metadatas=metadatas
             )
 
+        self.collection = collection
         return collection
 
     def build_bm25_index(self) -> BM25Okapi:
@@ -235,7 +262,7 @@ class ParentChildIngestor:
         self.bm25_index = BM25Okapi(tokenized_corpus, k1=BM25_K1, b=BM25_B)
         return self.bm25_index
 
-    def run_pipeline(self) -> Tuple[Dict[str, Any], Any, BM25Okapi, List[Dict[str, Any]]]:
+    def run_pipeline(self, force_rebuild: bool = False) -> Tuple[Dict[str, Any], Any, BM25Okapi, List[Dict[str, Any]]]:
         """Execute complete ingestion pipeline."""
         print("[INGESTION] Processing raw datasets into Parent & Child chunks...")
         self.process_parent_child_chunks()
@@ -244,7 +271,7 @@ class ParentChildIngestor:
         print(f"[INGESTION] Generated {len(self.parent_store)} Parent documents and {len(self.child_chunks)} Child chunks.")
 
         print("[INGESTION] Indexing child chunks in ChromaDB...")
-        collection = self.build_vector_store()
+        collection = self.build_vector_store(force_rebuild=force_rebuild)
 
         print("[INGESTION] Building BM25 index...")
         bm25_index = self.build_bm25_index()

@@ -26,6 +26,8 @@ from config import (
     CHROMA_COLLECTION_NAME,
     DEFAULT_EMBEDDING_MODEL,
     get_chroma_collection_name,
+    get_embedding_dimension,
+    validate_collection_dimension,
     BM25_K1,
     BM25_B,
     DATASET_VERSION
@@ -315,7 +317,7 @@ class ProductionIngestor:
                 self.parent_store = json.load(f)
         return self.parent_store
 
-    def build_vector_store(self) -> Any:
+    def build_vector_store(self, force_rebuild: bool = False) -> Any:
         """
         Index child chunks into ChromaDB vector store using batched upserts.
         Ensures all metadata fields are non-null and valid for ChromaDB.
@@ -335,6 +337,16 @@ class ProductionIngestor:
             embedding_function=embedding_fn,
             metadata={"hnsw:space": "cosine"}
         )
+
+        # Validate dimension before upserting
+        expected_dim = get_embedding_dimension(self.model_name)
+        validate_collection_dimension(collection, expected_dim, self.model_name)
+
+        # Prevent unnecessarily rebuilding or re-ingesting an already populated collection
+        if not force_rebuild and collection.count() > 0:
+            print(f"[INGESTION] Collection '{collection_name}' already populated with {collection.count()} chunks. Skipping re-indexing.")
+            self.collection = collection
+            return collection
 
         if self.child_chunks:
             total = len(self.child_chunks)
@@ -368,6 +380,7 @@ class ProductionIngestor:
                 )
                 print(f"  -> Upserted {min(i + self.batch_size, total)} / {total} chunks", flush=True)
 
+        self.collection = collection
         return collection
 
     def build_bm25_index(self) -> BM25Okapi:
@@ -376,7 +389,7 @@ class ProductionIngestor:
         self.bm25_index = BM25Okapi(tokenized_corpus, k1=BM25_K1, b=BM25_B)
         return self.bm25_index
 
-    def run_pipeline(self) -> Tuple[Dict[str, Any], Any, BM25Okapi, List[Dict[str, Any]]]:
+    def run_pipeline(self, force_rebuild: bool = False) -> Tuple[Dict[str, Any], Any, BM25Okapi, List[Dict[str, Any]]]:
         """Execute complete ingestion pipeline."""
         corpus_mode = "EXPANDED FULL CORPUS" if self.use_full_corpus else "SAMPLE DATASET"
         print("=" * 60)
@@ -393,7 +406,7 @@ class ProductionIngestor:
         print(f"  - Avg chunk size:        {self.stats['avg_char_length']} chars (~{self.stats['avg_token_count']} tokens)")
 
         print("[INGESTION] Indexing child chunks in ChromaDB...")
-        collection = self.build_vector_store()
+        collection = self.build_vector_store(force_rebuild=force_rebuild)
 
         print("[INGESTION] Building BM25 index...")
         bm25_index = self.build_bm25_index()

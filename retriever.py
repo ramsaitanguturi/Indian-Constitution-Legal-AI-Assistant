@@ -6,6 +6,7 @@ CrossEncoderReranker, and HybridRetriever).
 """
 
 import os
+import json
 import re
 from typing import Dict, List, Tuple, Any, Optional
 import chromadb
@@ -21,6 +22,9 @@ from config import (
     ENTITY_BOOST_WEIGHT,
     FINAL_TOP_K,
     PARENT_STORE_PATH,
+    get_chroma_collection_name,
+    get_embedding_dimension,
+    validate_collection_dimension,
 )
 from ingestion import ParentChildIngestor, simple_tokenize
 from retrieval.bm25_retriever import BM25Retriever
@@ -99,26 +103,52 @@ class HybridRRFRetriever:
     Delegates to modular retrieval package components while preserving exact legacy signatures.
     """
 
-    def __init__(self, ingestor: Optional[ParentChildIngestor] = None):
+    def __init__(
+        self,
+        ingestor: Optional[ParentChildIngestor] = None,
+        embedding_model_name: Optional[str] = None
+    ):
+        self.embedding_model_name = (
+            getattr(ingestor, "model_name", None)
+            or embedding_model_name
+            or DEFAULT_EMBEDDING_MODEL
+        )
+
         if ingestor is None:
-            ingestor = ParentChildIngestor()
+            ingestor = ParentChildIngestor(model_name=self.embedding_model_name)
             ingestor.process_parent_child_chunks()
             ingestor.build_vector_store()
             ingestor.build_bm25_index()
 
-        self.parent_store = ingestor.parent_store
+        self.parent_store = dict(ingestor.parent_store) if ingestor.parent_store else {}
+        if os.path.exists(PARENT_STORE_PATH):
+            try:
+                with open(PARENT_STORE_PATH, "r", encoding="utf-8") as f:
+                    disk_parents = json.load(f)
+                disk_parents.update(self.parent_store)
+                self.parent_store = disk_parents
+            except Exception:
+                pass
         self.child_chunks = ingestor.child_chunks
         self.bm25_index = ingestor.bm25_index
 
-        # Connect to persistent ChromaDB collection
-        client = chromadb.PersistentClient(path=str(CHROMA_PERSIST_DIR))
-        embedding_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
-            model_name=DEFAULT_EMBEDDING_MODEL
-        )
-        self.collection = client.get_or_create_collection(
-            name=CHROMA_COLLECTION_NAME,
-            embedding_function=embedding_fn
-        )
+        # Connect to persistent ChromaDB collection matching the embedding model
+        if getattr(ingestor, "collection", None) is not None:
+            self.collection = ingestor.collection
+        else:
+            client = chromadb.PersistentClient(path=str(CHROMA_PERSIST_DIR))
+            col_name = get_chroma_collection_name(self.embedding_model_name)
+            embedding_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
+                model_name=self.embedding_model_name
+            )
+            self.collection = client.get_or_create_collection(
+                name=col_name,
+                embedding_function=embedding_fn
+            )
+
+        # Validate collection embedding dimension
+        expected_dim = get_embedding_dimension(self.embedding_model_name)
+        validate_collection_dimension(self.collection, expected_dim, self.embedding_model_name)
 
         # Map child_id to child dict for fast lookup
         self.child_dict = {c["child_id"]: c for c in self.child_chunks if "child_id" in c}
@@ -133,6 +163,7 @@ class HybridRRFRetriever:
             collection=self.collection,
             parent_store=self.parent_store,
             child_chunks=self.child_chunks,
+            embedding_model_name=self.embedding_model_name,
         )
         self._hybrid_retriever = HybridRetriever(
             bm25_retriever=self.bm25_retriever,
@@ -226,11 +257,40 @@ class HybridRRFRetriever:
         # Sort by final RRF score descending
         sorted_children = sorted(rrf_scores.items(), key=lambda item: item[1], reverse=True)
 
+        # Hydrate any child chunks retrieved from ChromaDB that are missing from local child_dict
+        missing_ids = [cid for cid, _ in sorted_children if cid not in self.child_dict]
+        if missing_ids and self.collection is not None:
+            try:
+                c_res = self.collection.get(ids=missing_ids, include=["documents", "metadatas"])
+                if c_res and c_res.get("ids"):
+                    for cid, doc_text, doc_meta in zip(
+                        c_res["ids"],
+                        c_res.get("documents") or [],
+                        c_res.get("metadatas") or [],
+                    ):
+                        doc_meta = doc_meta or {}
+                        self.child_dict[cid] = {
+                            "child_id": cid,
+                            "parent_id": doc_meta.get("parent_id", ""),
+                            "text": doc_text or "",
+                            "doc_type": doc_meta.get("doc_type", ""),
+                            "article_number": doc_meta.get("article_number", ""),
+                            "case_name": doc_meta.get("case_name", ""),
+                            "title": doc_meta.get("title", ""),
+                        }
+            except Exception:
+                pass
+
         fused_results = []
         for rank_idx, (child_id, final_score) in enumerate(sorted_children, start=1):
             child_data = self.child_dict.get(child_id, {})
             parent_id = child_data.get("parent_id", "")
-            parent_data = self.parent_store.get(parent_id, {})
+            parent_data = (
+                self.parent_store.get(parent_id)
+                or self.parent_store.get(parent_id.lower())
+                or self.parent_store.get(parent_id.replace("parent_", ""))
+                or {}
+            )
 
             ranks = child_rank_details.get(child_id, {})
             meta = {

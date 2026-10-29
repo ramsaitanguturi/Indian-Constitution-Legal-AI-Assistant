@@ -17,6 +17,8 @@ from config import (
     DEFAULT_EMBEDDING_MODEL,
     PARENT_STORE_PATH,
     get_chroma_collection_name,
+    get_embedding_dimension,
+    validate_collection_dimension,
 )
 
 
@@ -50,6 +52,9 @@ class DenseRetriever:
         else:
             self.collection = self._connect_chromadb()
 
+        expected_dim = get_embedding_dimension(self.embedding_model_name)
+        validate_collection_dimension(self.collection, expected_dim, self.embedding_model_name)
+
     def _connect_chromadb(self) -> Any:
         """Establish connection to persistent ChromaDB collection."""
         client = chromadb.PersistentClient(path=str(CHROMA_PERSIST_DIR))
@@ -67,10 +72,12 @@ class DenseRetriever:
     def from_ingestor(cls, ingestor: Any) -> "DenseRetriever":
         """Factory method to instantiate directly from an ingestor instance."""
         collection = getattr(ingestor, "collection", None)
+        model_name = getattr(ingestor, "model_name", DEFAULT_EMBEDDING_MODEL)
         return cls(
             collection=collection,
             parent_store=getattr(ingestor, "parent_store", None),
             child_chunks=getattr(ingestor, "child_chunks", None),
+            embedding_model_name=model_name,
         )
 
     def retrieve(

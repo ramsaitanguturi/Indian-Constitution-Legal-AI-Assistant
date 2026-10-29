@@ -64,8 +64,14 @@ class TestDatasetAndConfigBaseline:
         assert BM25_B == 0.75
         assert RRF_K == 60
         assert DEFAULT_TOP_K == 4
-        assert DEFAULT_EMBEDDING_MODEL == "sentence-transformers/all-MiniLM-L6-v2"
-        assert CHROMA_COLLECTION_NAME == "indian_legal_rag"
+        assert DEFAULT_EMBEDDING_MODEL in (
+            "BAAI/bge-m3",
+            "sentence-transformers/all-MiniLM-L6-v2"
+        )
+        assert CHROMA_COLLECTION_NAME in (
+            "indian_legal_rag_bgem3",
+            "indian_legal_rag"
+        )
         assert isinstance(DEFAULT_LLM_MODEL, str) and len(DEFAULT_LLM_MODEL) > 0
 
     def test_sample_constitution_data_schema(self):

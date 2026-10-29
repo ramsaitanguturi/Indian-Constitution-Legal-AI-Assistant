@@ -17,10 +17,18 @@ except ImportError:
     pass
 
 import json
+import chromadb
 import streamlit as st
 import pandas as pd
 
-from config import DEFAULT_TOP_K, GEMINI_API_KEY, DEFAULT_LLM_MODEL
+from config import (
+    DEFAULT_TOP_K,
+    GEMINI_API_KEY,
+    DEFAULT_LLM_MODEL,
+    DEFAULT_EMBEDDING_MODEL,
+    CHROMA_PERSIST_DIR,
+    get_chroma_collection_name,
+)
 from ingestion import ParentChildIngestor
 from retriever import HybridRRFRetriever, LegalNERExtractor
 from agents import MultiAgentRouter
@@ -194,9 +202,29 @@ st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
 # Initialize Core RAG Components with Caching
 @st.cache_resource(show_spinner="[SYSTEM] Initializing Parent-Child RAG Engine & Embedding Models...")
 def load_rag_pipeline():
-    ingestor = ParentChildIngestor()
-    ingestor.run_pipeline()
-    retriever = HybridRRFRetriever(ingestor)
+    client = chromadb.PersistentClient(path=str(CHROMA_PERSIST_DIR))
+    col_name = get_chroma_collection_name(DEFAULT_EMBEDDING_MODEL)
+
+    is_populated = False
+    try:
+        col = client.get_collection(col_name)
+        if col.count() > 0:
+            is_populated = True
+    except Exception:
+        col = None
+        is_populated = False
+
+    ingestor = ParentChildIngestor(model_name=DEFAULT_EMBEDDING_MODEL)
+    if is_populated:
+        # Prevent Streamlit startup from unnecessarily rebuilding or re-ingesting an already populated collection
+        ingestor.load_parent_store()
+        ingestor.process_parent_child_chunks()
+        ingestor.build_bm25_index()
+        ingestor.collection = col
+    else:
+        ingestor.run_pipeline()
+
+    retriever = HybridRRFRetriever(ingestor, embedding_model_name=DEFAULT_EMBEDDING_MODEL)
     router = MultiAgentRouter()
     stage4_pipeline = get_legal_rag_pipeline()
     return ingestor, retriever, router, stage4_pipeline

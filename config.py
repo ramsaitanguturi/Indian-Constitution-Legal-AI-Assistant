@@ -5,6 +5,7 @@ Centralizes paths, embedding models, vector store settings, BM25 parameters, and
 
 import os
 from pathlib import Path
+from typing import Optional, Any
 
 # Base Paths
 BASE_DIR = Path(__file__).resolve().parent
@@ -63,19 +64,80 @@ for _dir in [CONSTITUTION_DIR, JUDGMENTS_DIR, BENCHMARK_DIR, ANNOTATIONS_DIR]:
 # Vector DB & Embeddings
 BGE_M3_MODEL_NAME = "BAAI/bge-m3"
 MINILM_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
-DEFAULT_EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", MINILM_MODEL_NAME)
+DEFAULT_EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", BGE_M3_MODEL_NAME)
 
 BGE_M3_EMBEDDING_DIM = 1024
 MINILM_EMBEDDING_DIM = 384
 EMBEDDING_BATCH_SIZE = int(os.getenv("EMBEDDING_BATCH_SIZE", "32"))
 
+
 # Determine collection name based on embedding model dimension
-def get_chroma_collection_name(model_name: str = DEFAULT_EMBEDDING_MODEL) -> str:
+def get_chroma_collection_name(model_name: Optional[str] = None) -> str:
+    """Return the ChromaDB collection name corresponding to the given embedding model."""
+    if model_name is None:
+        model_name = DEFAULT_EMBEDDING_MODEL
     if "bge-m3" in model_name.lower():
         return "indian_legal_rag_bgem3"
     return "indian_legal_rag"
 
-CHROMA_COLLECTION_NAME = os.getenv("CHROMA_COLLECTION_NAME", "indian_legal_rag")
+
+def get_embedding_dimension(model_name: Optional[str] = None) -> int:
+    """Return the expected embedding dimension for a given model name."""
+    if model_name is None:
+        model_name = DEFAULT_EMBEDDING_MODEL
+    if "bge-m3" in model_name.lower():
+        return BGE_M3_EMBEDDING_DIM
+    return MINILM_EMBEDDING_DIM
+
+
+def validate_collection_dimension(
+    collection: Any,
+    expected_dim: int,
+    model_name: str = "",
+) -> None:
+    """
+    Validate that the collection's embedding dimension matches the expected dimension.
+    Raises ValueError with a clear explanation if there is a mismatch.
+    """
+    if collection is None:
+        return
+
+    # Check actual embeddings in collection if available
+    try:
+        if hasattr(collection, "get") and hasattr(collection, "count"):
+            if collection.count() > 0:
+                sample = collection.get(limit=1, include=["embeddings"])
+                embeddings = sample.get("embeddings") if sample else None
+                if embeddings is not None and len(embeddings) > 0 and embeddings[0] is not None:
+                    actual_dim = len(embeddings[0])
+                    if actual_dim != expected_dim:
+                        col_name = getattr(collection, "name", "unknown")
+                        raise ValueError(
+                            f"Collection embedding dimension mismatch: collection '{col_name}' "
+                            f"expects dimension {actual_dim}, but embedding model '{model_name}' "
+                            f"produces dimension {expected_dim}. Aborting operation to prevent data corruption."
+                        )
+    except Exception as e:
+        if isinstance(e, ValueError):
+            raise
+        pass
+
+    # Check collection name convention if name is present
+    col_name = getattr(collection, "name", None)
+    if col_name and isinstance(col_name, str):
+        if "bgem3" in col_name.lower() and expected_dim != 1024:
+            raise ValueError(
+                f"Collection '{col_name}' expects 1024-dimension BGE-M3 embeddings, "
+                f"but embedding model '{model_name}' produces dimension {expected_dim}."
+            )
+        elif col_name == "indian_legal_rag" and expected_dim != 384:
+            raise ValueError(
+                f"Collection '{col_name}' expects 384-dimension MiniLM embeddings, "
+                f"but embedding model '{model_name}' produces dimension {expected_dim}."
+            )
+
+
+CHROMA_COLLECTION_NAME = os.getenv("CHROMA_COLLECTION_NAME", get_chroma_collection_name(DEFAULT_EMBEDDING_MODEL))
 
 # Chunking Hyperparameters
 PARENT_CHUNK_SIZE = 1200  # characters (~200 words)
