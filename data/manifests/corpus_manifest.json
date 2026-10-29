@@ -1,25 +1,25 @@
 {
   "manifest_version": "2.1.0-production",
-  "generated_at": "2026-10-29T10:18:11.502770+00:00",
+  "generated_at": "2026-10-29T12:47:59.211648+00:00",
   "is_smoke_test": false,
   "counts_by_document_type": {
     "constitution_article": 477,
     "constitution_amendment": 106,
-    "judgment": 208,
-    "statute": 12
+    "judgment": 286,
+    "statute": 17
   },
   "judgment_granularity": {
-    "official_full_text": 13,
-    "structured_summary_briefs": 104,
-    "registry_metadata_only": 91
+    "official_full_text": 79,
+    "structured_summary_briefs": 99,
+    "registry_metadata_only": 108
   },
   "statute_granularity": {
-    "total_acts": 12,
-    "total_sections_parsed": 1947
+    "total_acts": 17,
+    "total_sections_parsed": 1975
   },
-  "total_documents": 803,
-  "total_character_count": 2431669,
-  "estimated_total_tokens": 607917,
+  "total_documents": 886,
+  "total_character_count": 5748444,
+  "estimated_total_tokens": 1437111,
   "source_provenance_summary": {
     "constitution": {
       "source": "Legislative Department, Ministry of Law and Justice, Government of India",
@@ -34,11 +34,11 @@
     },
     "judgments": {
       "source": "Supreme Court of India / Open Data AWS Registry",
-      "coverage": "13 full-text SCR PDF decisions (1950–1952), 104 landmark case briefs (1950–2024), 91 registry records"
+      "coverage": "79 full-text SCR PDF decisions (1950–1952), 99 landmark case briefs (1950–2024), 108 registry records"
     },
     "legislation": {
       "source": "India Code, Ministry of Law and Justice, Government of India",
-      "coverage": "12 Central Acts (1947 sections) including IPC 1860, CrPC 1973, IEA 1872, CPC 1908, Citizenship Act, RPA, PHRA, RTI, AFSPA"
+      "coverage": "17 Central Acts (1975 sections) including IPC 1860, CrPC 1973, IEA 1872, CPC 1908, Citizenship Act, RPA, PHRA, RTI, AFSPA, OLA, Delimitation Act, CAG Act"
     }
   }
 }

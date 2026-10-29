@@ -49,8 +49,8 @@ This document records the official provenance, retrieval methodology, licenses, 
   * Registry of Open Data on AWS — Indian Supreme Court Judgments (1950–present): [https://registry.opendata.aws/indian-supreme-court-judgments/](https://registry.opendata.aws/indian-supreme-court-judgments/)
 * **License:** Public Domain / Open Data under Indian Public Records principles; non-copyrightable judicial determinations (Copyright Act, 1957 § 52(1)(q)(iv)).
 * **Scope Ingested:**
-  * 211 total Supreme Court judgment records, explicitly categorized by content granularity:
-    * **13 Official Full-Text Judgments (`content_type: "full_text"`):** Extracted page-by-page from official Supreme Court of India PDF documents using `pypdf` (>1.2M characters total). Key full-text decisions include:
+  * **286 total Supreme Court judgment records**, explicitly categorized by content granularity:
+    * **79 Official Full-Text Judgments (`content_type: "full_text"`):** Extracted page-by-page from official Supreme Court of India SCR PDF documents (88 PDFs on disk, 67.1 MB total; with duplicate legacy naming variants consolidated). Text extraction is accelerated via persistent SHA-256 caching in `data/raw/judgments/.extracted_cache/`. Key full-text decisions include:
       * *A.K. Gopalan v. State of Madras* (1950 INSC 13, 247-page landmark constitutional bench decision on preventive detention and Article 21)
       * *Romesh Thappar v. State of Madras* (1950 INSC 16, freedom of speech and public order)
       * *Brij Bhushan v. State of Delhi* (1950 INSC 17, pre-censorship of the press)
@@ -64,8 +64,11 @@ This document records the official provenance, retrieval methodology, licenses, 
       * *Shankari Prasad Singh Deo v. Union of India* (1951 INSC 45, First Constitutional Amendment challenge)
       * *State of Bombay v. Atma Ram Sridhar Vaidya* (1951 INSC 4, preventive detention grounds under Article 22)
       * *Shamdasani v. Central Bank of India* (1951 INSC 66, fundamental rights enforceable only against State, not private individuals)
-    * **104 Landmark Precedent Briefs (`content_type: "summary_only"`):** Digest-level legal briefs preserving case title, neutral citation (`YYYY INSC XXX`), SCR citation, coram/bench strength, procedural history, issues, ratio decidendi, and constitutional holdings (e.g. *Kesavananda Bharati*, *Maneka Gandhi*, *Minerva Mills*, *Indra Sawhney*, *S.R. Bommai*, *Puttaswamy*, *Navtej Johar*, *Sabarimala*, *Electoral Bonds*). Explicitly labeled to prevent presenting digests as official judgment text.
-    * **94 Open Data Registry Records (`content_type: "metadata_only"`):** Discovered and ingested from official AWS Open Data Registry Parquet tables (`s3://indian-supreme-court-judgments/`) for 1950 and 1951. Preserves case metadata, neutral citations, and judges.
+      * *In Re The Delhi Laws Act, 1912* (1951 INSC 36, 378-page seminal ruling on delegated legislation)
+      * *State of West Bengal v. Anwar Ali Sarkar* (1952 INSC 1, Article 14 classification test)
+      * Plus 64 additional full-text official SCR judgments from 1950, 1951, and 1952.
+    * **99 Landmark Precedent Briefs (`content_type: "summary_only"`):** Digest-level legal briefs preserving case title, neutral citation (`YYYY INSC XXX`), SCR citation, coram/bench strength, procedural history, issues, ratio decidendi, and constitutional holdings (e.g. *Kesavananda Bharati*, *Maneka Gandhi*, *Minerva Mills*, *Indra Sawhney*, *S.R. Bommai*, *Puttaswamy*, *Navtej Johar*, *Sabarimala*, *Electoral Bonds*). Explicitly labeled to prevent presenting digests as official judgment text.
+    * **108 Open Data Registry Records (`content_type: "metadata_only"`):** Discovered and ingested from official AWS Open Data Registry Parquet tables (`s3://indian-supreme-court-judgments/`) across 1950, 1951, and 1952 partitions. Preserves case metadata, neutral citations, and judges.
   * **Structured Fields:**
     * Case Title, Official Neutral Citation (`YYYY INSC XXX`), SCR Citation, Date of Judgment.
     * Bench Strength and Coram / Judges.
@@ -85,7 +88,7 @@ This document records the official provenance, retrieval methodology, licenses, 
 * **Official Portal:** [https://www.indiacode.nic.in/](https://www.indiacode.nic.in/)
 * **License:** Government Open Data License - India (GODL) / Public Domain.
 * **Scope Ingested:**
-  12 Central Acts with complete section-level structure (1,947 sections total) directly implementing or interacting with constitutional guarantees:
+  **17 Central Acts** with complete section-level structure (**1,975 sections total**) directly implementing or interacting with constitutional guarantees:
   1. **Indian Penal Code, 1860** (Act No. 45 of 1860) — 511 sections; substantive criminal law, sedition (§ 124A), defamation (§ 499), offences against state and public tranquility.
   2. **Code of Criminal Procedure, 1973** (Act No. 2 of 1974) — 484 sections; procedural safeguards, arrest (§ 41), preventive detention (§ 151), search and seizure, bail.
   3. **Indian Evidence Act, 1872** (Act No. 1 of 1872) — 167 sections; admissibility, burden of proof, confessions, statutory presumptions.
@@ -98,6 +101,11 @@ This document records the official provenance, retrieval methodology, licenses, 
   10. **Protection of Human Rights Act, 1993** (Act No. 10 of 1994) — 43 sections; establishment of NHRC, SHRCs, and Human Rights Courts.
   11. **Right to Information Act, 2005** (Act No. 22 of 2005) — 31 sections; operationalizes freedom of expression and citizen oversight under Article 19(1)(a).
   12. **Armed Forces (Special Powers) Act, 1958** (Act No. 28 of 1958) — 6 sections; special powers in disturbed areas, interacting with Articles 21, 33, and 34.
+  13. **Official Languages Act, 1963** (Act No. 19 of 1963) — 9 sections; operationalizes language of the Union and Supreme Court pursuant to Articles 343–348.
+  14. **Delimitation Act, 2002** (Act No. 33 of 2002) — 11 sections; governs readjustment of seats and territorial constituencies under Articles 82 & 170.
+  15. **Comptroller and Auditor-General's (Duties, Powers and Conditions of Service) Act, 1971** (Act No. 56 of 1971) — 26 sections; operationalizes functions of CAG under Articles 148–151.
+  16. **Supreme Court (Number of Judges) Act, 1956** (Act No. 55 of 1956) — 3 sections; establishes maximum strength of Supreme Court under Article 124(1).
+  17. **National Commission for Minorities Act, 1992** (Act No. 19 of 1992) — 19 sections; statutory protection of religious and linguistic minorities under Articles 29 & 30.
 * **Local Storage:**
   * Raw: `data/raw/legislation/`
   * Processed: `data/processed/legislation/central_acts.json`
@@ -106,7 +114,8 @@ This document records the official provenance, retrieval methodology, licenses, 
 
 ## 5. Corpus Extensibility & Ingestion Integrity
 
-* **Total Processed Documents:** 806 parent documents (477 constitutional articles/schedules, 106 amendments, 211 judgments [13 full-text, 104 briefs, 94 metadata], 12 statutory central acts).
+* **Total Processed Documents:** 886 parent documents (477 constitutional articles/schedules, 106 amendments, 286 judgments [79 full-text, 99 briefs, 108 metadata], 17 statutory central acts).
+* **Total Child Chunks:** 7,152 indexed child passages in ChromaDB and BM25 sparse index.
 * **Deterministic Content Hash:** Every record carries an invariant SHA-256 hash computed over its canonical normalized text and metadata.
 * **Extensibility:** The ingestion scripts (`scripts/ingest_*.py`, `scripts/build_corpus.py`) accept dynamic parameters, support arbitrary counts, and stream large collections without in-memory limits.
 

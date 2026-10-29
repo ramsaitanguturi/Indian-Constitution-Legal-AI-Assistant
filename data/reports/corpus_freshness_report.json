@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-29T08:50:47.589324+00:00",
+  "timestamp": "2026-10-29T12:56:52.156237+00:00",
   "has_changes": false,
   "sources": [
     {
@@ -11,18 +11,58 @@
       "needs_update": false
     },
     {
-      "source_id": "sc_judgments_sample_1950_1951",
-      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/data/tar/year=1950/english/english.index.json",
+      "source_id": "statute_ipc_1860",
+      "url": "https://raw.githubusercontent.com/civictech-India/Indian-Law-Penal-Code-Json/main/ipc.json",
       "local_exists": true,
-      "local_sha256": "2671f38fdee99cc913d1f965edbe67057dd20a5c7c681e12d28b5016dd5d89ab",
+      "local_sha256": "3940646ce396cf5313d5449523847671415be04934e295fdf9889bbe81b41988",
       "remote_status": "HTTP 200",
       "needs_update": false
     },
     {
-      "source_id": "sc_judgments_gopalan_metadata",
-      "url": "https://indian-supreme-court-judgments.s3.amazonaws.com/metadata/json/year=1950/1950_1_88_334.json",
+      "source_id": "statute_crpc_1973",
+      "url": "https://raw.githubusercontent.com/civictech-India/Indian-Law-Penal-Code-Json/main/crpc.json",
       "local_exists": true,
-      "local_sha256": "bccb97441316d603756b94cb977563612776ca21b02adec0d2e74d33304d8e7a",
+      "local_sha256": "e51cb0feaaa97958212a9d59b84af0dd2125f3cdb003216ca508ce85905f42df",
+      "remote_status": "HTTP 200",
+      "needs_update": false
+    },
+    {
+      "source_id": "statute_iea_1872",
+      "url": "https://raw.githubusercontent.com/civictech-India/Indian-Law-Penal-Code-Json/main/iea.json",
+      "local_exists": true,
+      "local_sha256": "cc799202bea82658ff55e83bb6c6622e7047e4068e20314213944a1bc2f481ee",
+      "remote_status": "HTTP 200",
+      "needs_update": false
+    },
+    {
+      "source_id": "statute_cpc_1908",
+      "url": "https://raw.githubusercontent.com/civictech-India/Indian-Law-Penal-Code-Json/main/cpc.json",
+      "local_exists": true,
+      "local_sha256": "c40e709803c0ed7401c6866e83f6640127ec94f1004672bb4528c11134776ebe",
+      "remote_status": "HTTP 200",
+      "needs_update": false
+    },
+    {
+      "source_id": "statute_ida_1947",
+      "url": "https://raw.githubusercontent.com/civictech-India/Indian-Law-Penal-Code-Json/main/ida.json",
+      "local_exists": true,
+      "local_sha256": "00a47a60e441c54befebc6292b8bdbff2eb996df9d61871212821204f24bba0a",
+      "remote_status": "HTTP 200",
+      "needs_update": false
+    },
+    {
+      "source_id": "statute_nia_1881",
+      "url": "https://raw.githubusercontent.com/civictech-India/Indian-Law-Penal-Code-Json/main/nia.json",
+      "local_exists": true,
+      "local_sha256": "4f536f52e755dcd9bcdd69558da202d94e96256bb6e93832c12d7f5f9f6c0ba9",
+      "remote_status": "HTTP 200",
+      "needs_update": false
+    },
+    {
+      "source_id": "statute_mva_1988",
+      "url": "https://raw.githubusercontent.com/civictech-India/Indian-Law-Penal-Code-Json/main/MVA.json",
+      "local_exists": true,
+      "local_sha256": "9bf2e737f87800b10effcf67600ef8283967faa403f761270f7918e4737a8287",
       "remote_status": "HTTP 200",
       "needs_update": false
     }

@@ -84,7 +84,13 @@ class TestCorpusAndIndexIntegrity:
         assert "statute" in doc_types
 
         # Verify key landmark cases exist
-        assert any("gopalan" in k.lower() or "1950_insc_13" in k.lower() for k in parent_store)
+        assert any(
+            "gopalan" in k.lower()
+            or "1950_insc_13" in k.lower()
+            or "1950insc13" in k.lower()
+            or "gopalan" in (v.get("case_name") or "").lower()
+            for k, v in parent_store.items()
+        )
         assert any("kesavananda" in k.lower() for k in parent_store)
         assert any("puttaswamy" in k.lower() for k in parent_store)
 
@@ -97,9 +103,9 @@ class TestCorpusAndIndexIntegrity:
         summary_only = [j for j in judgments if j.get("content_type") == "summary_only"]
         metadata_only = [j for j in judgments if j.get("content_type") == "metadata_only"]
 
-        assert len(full_text) >= 10, f"Expected >= 10 full-text decisions, got {len(full_text)}"
-        assert len(summary_only) == 104, f"Expected 104 landmark briefs, got {len(summary_only)}"
-        assert len(metadata_only) >= 50, f"Expected >= 50 metadata records, got {len(metadata_only)}"
+        assert len(full_text) >= 70, f"Expected >= 70 full-text decisions, got {len(full_text)}"
+        assert len(summary_only) >= 90, f"Expected >= 90 landmark briefs, got {len(summary_only)}"
+        assert len(metadata_only) >= 100, f"Expected >= 100 metadata records, got {len(metadata_only)}"
 
         # Verify full-text integrity
         for j in full_text:

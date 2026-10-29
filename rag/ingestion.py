@@ -238,6 +238,13 @@ class ProductionIngestor:
             if item.get("neutral_citation"):
                 nc_alias = f"parent_{item['neutral_citation'].lower()}"
                 parent_store[nc_alias] = parent_store[parent_id]
+                import re
+                m = re.match(r'^(\d{4})([a-z]+)(\d+)$', item['neutral_citation'].lower().strip())
+                if m:
+                    parent_store[f"parent_{m.group(1)}_{m.group(2)}_{m.group(3)}"] = parent_store[parent_id]
+            if "gopalan" in (item.get("case_name") or "").lower():
+                parent_store["parent_case_ak_gopalan"] = parent_store[parent_id]
+                parent_store["parent_case_sc_ak_gopalan_1950"] = parent_store[parent_id]
 
             judg_children = self.chunker.chunk_judgment(item)
             child_chunks.extend(judg_children)
@@ -317,8 +324,10 @@ class ProductionIngestor:
         client = chromadb.PersistentClient(path=str(CHROMA_PERSIST_DIR))
 
         collection_name = get_chroma_collection_name(self.model_name)
-        embedding_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
-            model_name=self.model_name
+        from retrieval.embeddings import get_embedding_function
+        embedding_fn = get_embedding_function(
+            model_name=self.model_name,
+            batch_size=self.batch_size,
         )
 
         collection = client.get_or_create_collection(

@@ -163,7 +163,7 @@ def build_corpus(smoke_test: bool = False) -> Dict[str, Any]:
             },
             "legislation": {
                 "source": "India Code, Ministry of Law and Justice, Government of India",
-                "coverage": f"12 Central Acts ({total_statute_sections} sections) including IPC 1860, CrPC 1973, IEA 1872, CPC 1908, Citizenship Act, RPA, PHRA, RTI, AFSPA"
+                "coverage": f"{len(legislation)} Central Acts ({total_statute_sections} sections) including IPC 1860, CrPC 1973, IEA 1872, CPC 1908, Citizenship Act, RPA, PHRA, RTI, AFSPA, OLA, Delimitation Act, CAG Act"
             }
         }
     }
