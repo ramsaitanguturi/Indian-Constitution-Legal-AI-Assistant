@@ -1,11 +1,6 @@
 """
 Streamlit Web Application for the Indian Constitution Legal AI Assistant.
-Features:
-- Conversational QA with Multi-Agent Routing (Article, Case-Law, Explanation Agents)
-- Parent-Child RAG Source Attribution tabs (Child passages + Full Parent context)
-- Side-by-side Landmark Case Comparator
-- Constitutional Articles & SC Judgments Explorer
-- Rich UI with dark theme, glassmorphism badges, and custom CSS
+A minimal, clean, professional legal research assistant interface.
 """
 
 # Linux / Streamlit Cloud SQLite3 compatibility patch for ChromaDB
@@ -16,10 +11,9 @@ try:
 except ImportError:
     pass
 
-import json
-import chromadb
 import streamlit as st
 import pandas as pd
+import chromadb
 
 from config import (
     DEFAULT_TOP_K,
@@ -30,178 +24,326 @@ from config import (
     get_chroma_collection_name,
 )
 from ingestion import ParentChildIngestor
-from retriever import HybridRRFRetriever, LegalNERExtractor
+from retriever import HybridRRFRetriever
 from agents import MultiAgentRouter
 from rag.pipeline import get_legal_rag_pipeline, LegalRAGPipeline, PipelineResult
+from rag.ui_formatter import format_legal_pipeline_result, FormattedLegalAnswer
 from rag.pipeline_inspector import render_pipeline_inspector
-from evaluation.dashboard_view import render_research_dashboard
 
-# Configure Streamlit Page
+# -----------------------------------------------------------------------------
+# Streamlit Page Configuration
+# -----------------------------------------------------------------------------
 st.set_page_config(
     page_title="Indian Constitution Legal AI Assistant",
     page_icon="⚖️",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="collapsed"
 )
 
-# Custom CSS for Premium Legal Theme Aesthetics
-CUSTOM_CSS = """
+# -----------------------------------------------------------------------------
+# Minimal, Professional Legal-Tech Styling (Dark Theme Compatible)
+# -----------------------------------------------------------------------------
+MINIMAL_CSS = """
 <style>
-    /* Dark Deep Navy Theme Styling */
+    /* Dark Theme Base */
     .stApp {
         background-color: #0d1117;
         color: #e6edf3;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
-    /* Main Header Styling */
-    .main-header {
-        background: linear-gradient(135deg, #161b22 0%, #1f2937 50%, #0d1117 100%);
-        padding: 1.8rem 2rem;
-        border-radius: 12px;
-        border: 1fr solid #30363d;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-        margin-bottom: 2rem;
-        text-align: center;
+    /* Minimal Compact Header */
+    .app-header {
+        padding: 0.8rem 0 1.2rem 0;
+        border-bottom: 1px solid #21262d;
+        margin-bottom: 1.5rem;
     }
-    .main-title {
-        font-size: 2.3rem;
-        font-weight: 800;
-        background: linear-gradient(90deg, #d4af37 0%, #f3e5ab 50%, #e6ca65 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin: 0;
-        letter-spacing: 0.5px;
-    }
-    .main-subtitle {
-        color: #8b949e;
-        font-size: 1.05rem;
-        margin-top: 0.4rem;
-    }
-
-    /* Glassmorphic Metric Cards */
-    .metric-card {
-        background: rgba(22, 27, 34, 0.75);
-        border: 1px solid #30363d;
-        border-radius: 10px;
-        padding: 1rem;
-        text-align: center;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-    .metric-value {
-        font-size: 1.6rem;
+    .app-title {
+        font-size: 1.85rem;
         font-weight: 700;
-        color: #d4af37;
+        color: #f0f6fc;
+        letter-spacing: -0.02em;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
-    .metric-label {
-        font-size: 0.85rem;
+    .app-subtitle {
         color: #8b949e;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+        font-size: 0.95rem;
+        margin: 0.35rem 0 0 0;
+        font-weight: 400;
     }
 
-    /* Agent Badge Styling */
-    .agent-badge {
-        display: inline-block;
-        padding: 0.35rem 0.85rem;
-        border-radius: 20px;
-        font-size: 0.85rem;
+    /* Section Headings */
+    .legal-section-header {
+        font-size: 1.15rem;
         font-weight: 600;
-        margin-bottom: 1rem;
-    }
-    .badge-article {
-        background-color: rgba(56, 139, 253, 0.15);
-        color: #58a6ff;
-        border: 1px solid #1f6feb;
-    }
-    .badge-case {
-        background-color: rgba(212, 175, 55, 0.15);
-        color: #d4af37;
-        border: 1px solid #b89628;
-    }
-    .badge-explain {
-        background-color: rgba(46, 160, 67, 0.15);
-        color: #3fb950;
-        border: 1px solid #238636;
-    }
-    .badge-stage4-strategy {
-        background-color: rgba(163, 113, 247, 0.15);
-        color: #d2a8ff;
-        border: 1px solid #8957e5;
-    }
-    .badge-conf-high {
-        background-color: rgba(46, 160, 67, 0.15);
-        color: #3fb950;
-        border: 1px solid #238636;
-    }
-    .badge-conf-med {
-        background-color: rgba(210, 153, 34, 0.15);
-        color: #e3b341;
-        border: 1px solid #9e6a03;
-    }
-    .badge-conf-low {
-        background-color: rgba(248, 81, 73, 0.15);
-        color: #f85149;
-        border: 1px solid #da3633;
-    }
-    .badge-cit-valid {
-        background-color: rgba(46, 160, 67, 0.15);
-        color: #3fb950;
-        border: 1px solid #238636;
-    }
-    .badge-cit-flagged {
-        background-color: rgba(210, 153, 34, 0.15);
-        color: #e3b341;
-        border: 1px solid #9e6a03;
+        color: #f0f6fc;
+        border-bottom: 1px solid #30363d;
+        padding-bottom: 0.4rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.8rem;
+        letter-spacing: -0.01em;
     }
 
-    /* Entity Pills */
-    .entity-pill {
-        display: inline-block;
-        background-color: #21262d;
+    /* Direct Answer Box */
+    .direct-answer-card {
+        background-color: #161b22;
         border: 1px solid #30363d;
-        color: #c9d1d9;
-        padding: 0.2rem 0.6rem;
+        border-left: 3px solid #d4af37;
         border-radius: 6px;
-        font-size: 0.8rem;
-        margin-right: 0.4rem;
+        padding: 1.1rem 1.3rem;
+        margin-bottom: 1.2rem;
+        line-height: 1.6;
+        font-size: 1.02rem;
+        color: #e6edf3;
+    }
+
+    /* Source & Citation Cards */
+    .source-card {
+        background-color: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 6px;
+        padding: 0.9rem 1.1rem;
+        margin-bottom: 0.6rem;
+    }
+    .source-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-bottom: 0.5rem;
+    }
+    .source-title {
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: #f0f6fc;
+    }
+    .source-id-tag {
+        font-family: monospace;
+        font-size: 0.78rem;
+        background-color: #21262d;
+        color: #8b949e;
+        padding: 0.15rem 0.45rem;
+        border-radius: 4px;
+        border: 1px solid #30363d;
+    }
+    .source-excerpt {
+        font-size: 0.88rem;
+        color: #c9d1d9;
+        line-height: 1.5;
+        border-left: 2px solid #58a6ff;
+        padding-left: 0.75rem;
+        margin: 0.4rem 0;
+        font-style: italic;
+    }
+
+    /* Subtle Metadata Badges */
+    .badge-verified {
+        display: inline-block;
+        font-size: 0.75rem;
+        padding: 0.15rem 0.5rem;
+        border-radius: 12px;
+        background-color: rgba(46, 160, 67, 0.15);
+        color: #3fb950;
+        border: 1px solid rgba(46, 160, 67, 0.4);
+        font-weight: 500;
+    }
+    .badge-warning {
+        display: inline-block;
+        font-size: 0.75rem;
+        padding: 0.15rem 0.5rem;
+        border-radius: 12px;
+        background-color: rgba(210, 153, 34, 0.15);
+        color: #e3b341;
+        border: 1px solid rgba(210, 153, 34, 0.4);
+        font-weight: 500;
+    }
+
+    /* Structured Provision / Judgment Blocks */
+    .provision-block, .judgment-block {
+        background-color: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 6px;
+        padding: 0.85rem 1.1rem;
+        margin-bottom: 0.75rem;
+        font-size: 0.92rem;
+        line-height: 1.55;
+    }
+    .provision-title, .judgment-title {
+        font-weight: 600;
+        color: #d4af37;
+        margin-bottom: 0.4rem;
+        font-size: 0.98rem;
+    }
+    .provision-meta, .judgment-meta {
+        color: #8b949e;
+        font-size: 0.82rem;
         margin-bottom: 0.4rem;
     }
 
-    /* Source Attribution Expanders */
-    .source-card {
-        background-color: #161b22;
-        border-left: 4px solid #d4af37;
-        padding: 1rem;
+    /* Exceptions Block */
+    .exception-item {
+        background-color: rgba(22, 27, 34, 0.6);
+        border-left: 3px solid #e3b341;
         border-radius: 4px;
-        margin-bottom: 0.8rem;
+        padding: 0.7rem 1rem;
+        margin-bottom: 0.6rem;
+        font-size: 0.92rem;
+        line-height: 1.5;
     }
 
-    /* Comparison Table Styling */
-    .comp-box {
+    /* Text Area Styling */
+    .stTextArea textarea {
+        background-color: #161b22 !important;
+        border: 1px solid #30363d !important;
+        border-radius: 6px !important;
+        color: #e6edf3 !important;
+        font-size: 0.98rem !important;
+    }
+    .stTextArea textarea:focus {
+        border-color: #58a6ff !important;
+        box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.2) !important;
+    }
+
+    /* Button Styling */
+    .stButton button[kind="primary"] {
+        background-color: #238636 !important;
+        border: 1px solid rgba(240, 246, 252, 0.1) !important;
+        color: #ffffff !important;
+        font-weight: 600 !important;
+        border-radius: 6px !important;
+        padding: 0.55rem 1.2rem !important;
+        font-size: 0.95rem !important;
+    }
+    .stButton button[kind="primary"]:hover {
+        background-color: #2ea043 !important;
+    }
+
+    /* Remove unnecessary top space */
+    .block-container {
+        padding-top: 1.5rem !important;
+        padding-bottom: 3rem !important;
+        max-width: 1080px !important;
+    }
+
+    /* -------------------------------------------------------------
+       Compact Technical Metrics Dashboard
+       ------------------------------------------------------------- */
+    div[data-testid="stMetric"] {
         background-color: #161b22;
         border: 1px solid #30363d;
-        border-radius: 8px;
-        padding: 1.2rem;
-        height: 100%;
+        border-radius: 6px;
+        padding: 0.6rem 0.8rem !important;
+        margin-bottom: 0.35rem !important;
+        min-height: 72px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
-    .comp-title {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: #d4af37;
-        border-bottom: 1px solid #30363d;
-        padding-bottom: 0.5rem;
-        margin-bottom: 1rem;
+
+    label[data-testid="stMetricLabel"],
+    div[data-testid="stMetricLabel"],
+    div[data-testid="stMetricLabel"] p,
+    div[data-testid="stMetricLabel"] span,
+    div[data-testid="stMetricLabel"] div {
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        color: #8b949e !important;
+        line-height: 1.25 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        letter-spacing: 0.01em;
+    }
+
+    div[data-testid="stMetricValue"],
+    div[data-testid="stMetricValue"] > div,
+    div[data-testid="stMetricValue"] p,
+    div[data-testid="stMetricValue"] span {
+        font-size: 19px !important;
+        font-weight: 600 !important;
+        color: #f0f6fc !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        text-overflow: unset !important;
+        overflow: visible !important;
+        line-height: 1.3 !important;
+        margin: 0.15rem 0 0 0 !important;
+        padding: 0 !important;
+    }
+
+    div[data-testid="stMetricDelta"],
+    div[data-testid="stMetricDelta"] p,
+    div[data-testid="stMetricDelta"] span,
+    div[data-testid="stMetricDelta"] div {
+        font-size: 12px !important;
+        font-weight: 500 !important;
+        margin-top: 0.15rem !important;
+        line-height: 1.2 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+    }
+
+    div[data-testid="stMetricDelta"] svg {
+        width: 12px !important;
+        height: 12px !important;
+        margin-right: 2px !important;
+    }
+
+    /* Supporting Metadata Captions (12-13px) */
+    .stCaption,
+    div[data-testid="stCaptionContainer"] p,
+    div[data-testid="stCaptionContainer"] span {
+        font-size: 12.5px !important;
+        color: #8b949e !important;
+        line-height: 1.4 !important;
+    }
+
+    /* Technical Details Expander & Container */
+    div[data-testid="stExpander"] {
+        border: 1px solid #30363d !important;
+        border-radius: 6px !important;
+        background-color: #0d1117 !important;
+        margin-top: 0.8rem !important;
+    }
+    div[data-testid="stExpander"] details {
+        border-radius: 6px !important;
+        background-color: transparent !important;
+    }
+    div[data-testid="stExpander"] summary {
+        background-color: #161b22 !important;
+        color: #c9d1d9 !important;
+        font-size: 0.92rem !important;
+        font-weight: 600 !important;
+        padding: 0.6rem 0.8rem !important;
+        border-radius: 6px !important;
+    }
+    div[data-testid="stExpander"] summary:hover,
+    div[data-testid="stExpander"] summary:focus,
+    div[data-testid="stExpander"] summary:active {
+        background-color: #21262d !important;
+        color: #f0f6fc !important;
+    }
+    div[data-testid="stExpander"] [data-testid="stExpanderDetails"] {
+        padding: 0.75rem 0.9rem !important;
     }
 </style>
 """
 
-st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
+st.markdown(MINIMAL_CSS, unsafe_allow_html=True)
 
-
-# Initialize Core RAG Components with Caching
-@st.cache_resource(show_spinner="[SYSTEM] Initializing Parent-Child RAG Engine & Embedding Models...")
+# -----------------------------------------------------------------------------
+# Initialize RAG Pipeline (Cached)
+# -----------------------------------------------------------------------------
+@st.cache_resource(show_spinner=False)
 def load_rag_pipeline():
+    """
+    Initializes and caches the Legal RAG Pipeline, Ingestor, Retriever, and Router.
+    Ensures that vector store and embeddings are loaded only once.
+    """
     client = chromadb.PersistentClient(path=str(CHROMA_PERSIST_DIR))
     col_name = get_chroma_collection_name(DEFAULT_EMBEDDING_MODEL)
 
@@ -216,7 +358,6 @@ def load_rag_pipeline():
 
     ingestor = ParentChildIngestor(model_name=DEFAULT_EMBEDDING_MODEL)
     if is_populated:
-        # Prevent Streamlit startup from unnecessarily rebuilding or re-ingesting an already populated collection
         ingestor.load_parent_store()
         ingestor.process_parent_child_chunks()
         ingestor.build_bm25_index()
@@ -230,601 +371,302 @@ def load_rag_pipeline():
     return ingestor, retriever, router, stage4_pipeline
 
 
-ingestor, retriever, router, stage4_pipeline = load_rag_pipeline()
+with st.spinner("Initializing legal knowledge base and retrieval engine..."):
+    ingestor, retriever, router, stage4_pipeline = load_rag_pipeline()
 
+# -----------------------------------------------------------------------------
+# Session State Management
+# -----------------------------------------------------------------------------
+if "current_result" not in st.session_state:
+    st.session_state.current_result = None
+if "current_formatted" not in st.session_state:
+    st.session_state.current_formatted = None
+if "current_query" not in st.session_state:
+    st.session_state.current_query = ""
 
-# HEADER SECTION
+# -----------------------------------------------------------------------------
+# Compact Header
+# -----------------------------------------------------------------------------
 st.markdown(
     """
-    <div class="main-header">
-        <h1 class="main-title">⚖️ Indian Constitution Legal AI Assistant</h1>
-        <div class="main-subtitle">
-            Advanced Hierarchical Parent-Child RAG | Hybrid BM25 + Dense Vector Search (RRF) | Legal Multi-Agent Router
-        </div>
+    <div class="app-header">
+        <h1 class="app-title">⚖️ Indian Constitution Legal AI Assistant</h1>
+        <p class="app-subtitle">
+            AI-powered legal research grounded in the Indian Constitution and Supreme Court judgments.
+        </p>
     </div>
     """,
     unsafe_allow_html=True
 )
 
-# SIDEBAR CONFIGURATION
+# -----------------------------------------------------------------------------
+# Compact Sidebar Controls
+# -----------------------------------------------------------------------------
 with st.sidebar:
-    st.image("https://img.icons8.com/color/96/scales.png", width=64)
-    st.title("⚙️ Control Panel")
-    
-    st.markdown("---")
-    st.subheader("🛡️ Architecture Engine")
-    rag_mode = st.radio(
-        "Pipeline Mode",
-        options=["Stage 4 Reliability Pipeline", "Legacy Multi-Agent Mode"],
-        index=0,
-        help="Stage 4 incorporates deterministic NLP query routing, parent-child context recovery, grounded generation, structural citation validation, explainable confidence estimation, and automated abstention."
+    st.subheader("⚙️ Research Settings")
+    top_k = st.slider(
+        "Retrieval Sources (Top-K)",
+        min_value=2,
+        max_value=6,
+        value=DEFAULT_TOP_K,
+        help="Number of retrieved constitutional and judicial sources to consider."
     )
 
-    if rag_mode == "Legacy Multi-Agent Mode":
-        st.subheader("🤖 Legacy Agent Configuration")
-        agent_override = st.selectbox(
-            "Agent Selection Mode",
-            options=["Auto-route", "Article Agent", "Case-Law Agent", "Explanation Agent"],
-            help="Auto-route classifies queries automatically using Legal NER & keywords, or manually override to a specific specialized agent."
-        )
-    else:
-        agent_override = "Auto-route"
-
-    st.markdown("---")
-    st.subheader("🔍 Retrieval Hyper-Parameters")
-    top_k = st.slider("Top-K Retrieved Contexts", min_value=2, max_value=8, value=DEFAULT_TOP_K)
-
-    st.markdown("---")
-    st.subheader("🔬 Diagnostic Controls")
-    show_inspector = st.checkbox(
-        "Enable Pipeline Inspector",
-        value=True,
-        help="Shows the 10-stage NLP Query Understanding & Retrieval Diagnostic Inspector panel below query results."
-    )
-
-    st.markdown("---")
-    st.subheader("📊 System Metrics")
-    m1, m2 = st.columns(2)
-    with m1:
-        st.markdown(
-            f"""
-            <div class="metric-card">
-                <div class="metric-value">{len(ingestor.parent_store)}</div>
-                <div class="metric-label">Parent Contexts</div>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-    with m2:
-        st.markdown(
-            f"""
-            <div class="metric-card">
-                <div class="metric-value">{len(ingestor.child_chunks)}</div>
-                <div class="metric-label">Child Chunks</div>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
-    st.markdown("---")
-    st.subheader("🔑 Google Gemini API")
     user_api_key = st.text_input(
-        "Gemini API Key (Optional)",
+        "Google Gemini API Key (Optional)",
         type="password",
         value=GEMINI_API_KEY or "",
-        help="Enter your Google AI Studio API Key. If left blank, the app uses the offline zero-cost Legal Synthesis Engine."
+        help="Optional API Key for generative LLM expansion. Leave blank to use the offline deterministic Grounded Legal Engine."
     )
     if user_api_key and len(user_api_key.strip()) > 5:
-        st.success(f"🟢 Gemini Active (`{DEFAULT_LLM_MODEL}`)")
+        st.caption(f"🟢 Gemini Active (`{DEFAULT_LLM_MODEL}`)")
     else:
-        st.info("ℹ️ Offline Synthesis Mode (Free / Zero-cost)")
+        st.caption("🔒 Offline Grounded Synthesis Engine (Zero-Cost / Deterministic)")
 
     st.markdown("---")
-    st.caption("🔒 **Security & Grounding**: Strict context enforcement (Zero Hallucination mode enabled).")
-
-
-# MAIN NAVIGATION TABS
-tab1, tab2, tab3, tab4, tab5 = st.tabs([
-    "💬 Ask Assistant & RAG Query",
-    "⚖️ Case Comparator",
-    "📜 Constitution & Cases Database",
-    "🏗️ RAG Architecture & Methodology",
-    "📊 Empirical Research Dashboard"
-])
-
-
-# ---------------------------------------------------------
-# TAB 1: ASK ASSISTANT & RAG QUERY
-# ---------------------------------------------------------
-with tab1:
-    st.subheader("🔍 Ask a Legal Question or Search Articles / Cases")
-    
-    # Preset Query Gallery
-    st.markdown("**Sample Benchmark Queries:**")
-    col1, col2, col3 = st.columns(3)
-    preset_q = ""
-    with col1:
-        if st.button("📌 Privacy under Art. 21 (Puttaswamy)", use_container_width=True):
-            preset_q = "What did the Supreme Court rule regarding the Right to Privacy under Article 21 in the Puttaswamy judgment?"
-        if st.button("📌 Basic Structure (Kesavananda)", use_container_width=True):
-            preset_q = "Explain the Basic Structure Doctrine established in Kesavananda Bharati v. State of Kerala."
-    with col2:
-        if st.button("📌 Due Process (Maneka Gandhi)", use_container_width=True):
-            preset_q = "How did Maneka Gandhi v. Union of India expand Article 21 and create the Golden Triangle?"
-        if st.button("📌 Remedies under Article 32", use_container_width=True):
-            preset_q = "What constitutional writs are guaranteed under Article 32 and why did Dr. Ambedkar call it the heart and soul?"
-    with col3:
-        if st.button("📌 Compare Kesavananda vs Minerva Mills", use_container_width=True):
-            preset_q = "Compare Kesavananda Bharati and Minerva Mills regarding Parliament's power to amend the Constitution."
-        if st.button("📌 Status of Article 370", use_container_width=True):
-            preset_q = "What are the provisions and historical context of Article 370?"
-
-    # Search Bar Input
-    user_query = st.text_input(
-        "Enter your legal prompt or constitutional question:",
-        value=preset_q if preset_q else "",
-        placeholder="e.g. Can Parliament amend Fundamental Rights under Article 368?",
-        key="user_search_input"
+    st.caption(
+        f"**Corpus Status**: {len(ingestor.parent_store)} verified parent documents, "
+        f"{len(ingestor.child_chunks)} indexed passages.\n\n"
+        f"**Embeddings**: `BGE-M3` (Dense) + BM25Okapi (Sparse RRF)."
     )
 
-    if st.button("🚀 Submit Query to RAG Pipeline", type="primary", use_container_width=True) or user_query:
-        if user_query.strip():
-            if rag_mode == "Stage 4 Reliability Pipeline":
-                with st.spinner("⚡ Executing 16-Stage Reliable Legal RAG Pipeline (Router, Retrieval, Context Recovery, Grounding, Validation)..."):
-                    res = stage4_pipeline.run(
-                        user_query,
-                        dynamic_api_key=user_api_key,
-                        override_top_k=top_k,
-                    )
+# -----------------------------------------------------------------------------
+# Main Question Input
+# -----------------------------------------------------------------------------
+user_input = st.text_area(
+    "Legal Question",
+    placeholder="Ask a question about the Indian Constitution, fundamental rights, or landmark judgments...",
+    height=100,
+    label_visibility="collapsed",
+    key="legal_query_input"
+)
 
-                # DISPLAY STAGE 4 RESULTS
-                st.markdown("---")
+col_btn, _ = st.columns([1, 4])
+with col_btn:
+    ask_clicked = st.button("Ask Assistant", type="primary", use_container_width=True)
 
-                # Strategy, Language, Confidence & Citation Badges
-                strat = res.routing_decision.get("strategy", "HYBRID_SEARCH")
-                lang = res.language.get("language", "en").upper()
-                conf_score = res.confidence.get("confidence_score", 0.0)
-                conf_lvl = res.confidence.get("confidence_level", "MEDIUM")
-                val_ok = res.citation_validation.get("valid", False)
+# -----------------------------------------------------------------------------
+# Query Execution Workflow
+# -----------------------------------------------------------------------------
+if ask_clicked:
+    query_str = user_input.strip()
+    if query_str:
+        with st.spinner("Analyzing constitutional provisions and case precedents..."):
+            pipeline_result = stage4_pipeline.run(
+                query_str,
+                dynamic_api_key=user_api_key,
+                override_top_k=top_k,
+            )
+            formatted_answer = format_legal_pipeline_result(pipeline_result)
 
-                conf_badge_class = (
-                    "badge-conf-high" if conf_lvl == "HIGH"
-                    else ("badge-conf-med" if conf_lvl == "MEDIUM" else "badge-conf-low")
-                )
-                cit_badge_class = "badge-cit-valid" if val_ok else "badge-cit-flagged"
-                cit_badge_text = f"✅ Citations Validated ({res.citation_validation.get('citations_checked', 0)} checked)" if val_ok else f"⚠️ Citation Warning ({len(res.citation_validation.get('invalid_citations', []))} invalid)"
+            st.session_state.current_result = pipeline_result
+            st.session_state.current_formatted = formatted_answer
+            st.session_state.current_query = query_str
+    else:
+        st.warning("Please enter a legal question or constitutional query.")
+
+# -----------------------------------------------------------------------------
+# Render Results (Direct Answer, Provisions, Judgments, Exceptions, Sources)
+# -----------------------------------------------------------------------------
+if st.session_state.current_formatted:
+    ans: FormattedLegalAnswer = st.session_state.current_formatted
+    raw_res: PipelineResult = st.session_state.current_result
+
+    # 1. Abstention / Notice State
+    if ans.is_abstained:
+        st.warning(
+            f"**Notice of Abstention**: {ans.abstention_reason or 'Unable to verify legal grounds'}\n\n"
+            f"{ans.direct_answer}"
+        )
+    else:
+        # 2. Section C: Answer Section
+        st.markdown('<div class="legal-section-header">Direct Answer</div>', unsafe_allow_html=True)
+        st.markdown(
+            f'<div class="direct-answer-card">{ans.direct_answer}</div>',
+            unsafe_allow_html=True
+        )
+
+        # Relevant Legal Provisions (when available)
+        if ans.provisions:
+            st.markdown('<div class="legal-section-header">Relevant Legal Provisions</div>', unsafe_allow_html=True)
+            for prov in ans.provisions:
+                meta_parts = []
+                if prov.part:
+                    meta_parts.append(prov.part)
+                if prov.category:
+                    meta_parts.append(prov.category)
+                if prov.document_id:
+                    meta_parts.append(f"Doc ID: `{prov.document_id}`")
+                meta_str = " • ".join(meta_parts)
 
                 st.markdown(
                     f"""
-                    <span class="agent-badge badge-stage4-strategy">
-                        🎯 Strategy: {strat}
-                    </span>
-                    <span class="agent-badge" style="background-color: rgba(56, 139, 253, 0.15); color: #58a6ff; border: 1px solid #1f6feb;">
-                        🏷️ Intent: {res.intent.get('intent', 'N/A')}
-                    </span>
-                    <span class="agent-badge" style="background-color: rgba(139, 148, 158, 0.15); color: #c9d1d9; border: 1px solid #30363d;">
-                        🌐 Lang: {lang}
-                    </span>
-                    <span class="agent-badge {conf_badge_class}">
-                        🛡️ Confidence: {conf_lvl} (Score: {conf_score:.2f})
-                    </span>
-                    <span class="agent-badge {cit_badge_class}">
-                        {cit_badge_text}
-                    </span>
+                    <div class="provision-block">
+                        <div class="provision-title">📜 {prov.title}</div>
+                        <div class="provision-meta">{meta_str}</div>
+                        <div>{prov.scope_and_guarantee}</div>
+                    </div>
                     """,
                     unsafe_allow_html=True
                 )
 
-                # Extracted Legal Entities
-                st.markdown("**Extracted Legal Entities (NER & Linked):**")
-                ent_str = ""
-                for art in res.entities.get("ARTICLE", []):
-                    ent_str += f'<span class="entity-pill">📜 {art}</span>'
-                for c_name in res.entities.get("CASE", []):
-                    ent_str += f'<span class="entity-pill">⚖️ {c_name}</span>'
-                for amd in res.entities.get("AMENDMENT", []):
-                    ent_str += f'<span class="entity-pill">📝 {amd}</span>'
-                for concept in res.entities.get("LEGAL_CONCEPT", []):
-                    ent_str += f'<span class="entity-pill">💡 {concept.title()}</span>'
-                for linked in res.linked_entities:
-                    s_txt = linked.get("surface_form") or linked.get("surface_text") or "Entity"
-                    c_id = linked.get("canonical_id") or linked.get("entity_id") or "N/A"
-                    ent_str += f'<span class="entity-pill" style="border-color: #8957e5;">🔗 {s_txt} &rarr; {c_id}</span>'
+        # Relevant Judgments (when available)
+        if ans.judgments:
+            st.markdown('<div class="legal-section-header">Relevant Judgments</div>', unsafe_allow_html=True)
+            for j in ans.judgments:
+                meta_parts = []
+                if j.citation:
+                    meta_parts.append(f"Citation: `{j.citation}`")
+                if j.bench:
+                    meta_parts.append(f"Bench: {j.bench}")
+                if j.document_id:
+                    meta_parts.append(f"Doc ID: `{j.document_id}`")
+                meta_str = " • ".join(meta_parts)
 
-                if ent_str:
-                    st.markdown(ent_str, unsafe_allow_html=True)
+                ratio_html = f"<div style='margin-top: 0.4rem;'><strong>Ratio Decidendi:</strong> {j.ratio_decidendi}</div>" if j.ratio_decidendi else ""
+                verdict_html = f"<div style='margin-top: 0.3rem;'><strong>Verdict:</strong> {j.verdict}</div>" if j.verdict else ""
+
+                st.markdown(
+                    f"""
+                    <div class="judgment-block">
+                        <div class="judgment-title">⚖️ {j.case_name} ({j.year})</div>
+                        <div class="judgment-meta">{meta_str}</div>
+                        {verdict_html}
+                        {ratio_html}
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
+
+        # Important Exceptions or Limitations (when available)
+        if ans.exceptions:
+            st.markdown('<div class="legal-section-header">Important Exceptions & Limitations</div>', unsafe_allow_html=True)
+            for exc in ans.exceptions:
+                st.markdown(
+                    f'<div class="exception-item">{exc}</div>',
+                    unsafe_allow_html=True
+                )
+
+        # 3. Section D: Legal Sources & Citations
+        st.markdown('<div class="legal-section-header">Legal Sources & Citations</div>', unsafe_allow_html=True)
+        
+        parents_recovered = raw_res.parent_context.get("parents", [])
+        if parents_recovered:
+            for idx, p in enumerate(parents_recovered, start=1):
+                doc_type = p.get("doc_type", "constitution")
+                doc_id = p.get("document_id") or p.get("parent_id", f"source_{idx}")
+                
+                # Title and metadata formatting
+                if doc_type == "constitution":
+                    art_num = p.get("article_number", "Article")
+                    title = p.get("title", "")
+                    card_title = f"📜 {art_num} — {title}"
+                    meta_desc = f"{p.get('part', '')} • {p.get('category', '')}"
+                elif doc_type == "judgment":
+                    c_name = p.get("case_name", "Judgment")
+                    yr = p.get("year", "")
+                    cit = p.get("citation", "")
+                    card_title = f"⚖️ {c_name} ({yr})"
+                    meta_desc = f"Citation: {cit} • Bench: {p.get('bench', '')}"
+                else:
+                    card_title = f"📑 {p.get('title', doc_id)}"
+                    meta_desc = "Statute / Code"
+
+                # Compact default excerpt
+                children = p.get("supporting_children", [])
+                if children and children[0].get("text"):
+                    excerpt = children[0]["text"].strip()
+                elif p.get("raw_text"):
+                    excerpt = p.get("raw_text").strip()
+                elif p.get("ratio_decidendi"):
+                    excerpt = p.get("ratio_decidendi").strip()
+                else:
+                    excerpt = p.get("explanation", "")
+
+                if len(excerpt) > 260:
+                    excerpt = excerpt[:257] + "..."
+
+                # Render compact source card
+                st.markdown(
+                    f"""
+                    <div class="source-card">
+                        <div class="source-card-header">
+                            <div>
+                                <span class="source-title">{card_title}</span>
+                                <span class="source-id-tag">{doc_id}</span>
+                            </div>
+                            <span class="badge-verified">✓ Verified Citation</span>
+                        </div>
+                        <div style="font-size: 0.8rem; color: #8b949e; margin-bottom: 0.3rem;">{meta_desc}</div>
+                        <div class="source-excerpt">"{excerpt}"</div>
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
+
+                # Independent Streamlit expander for full retrieved legal text
+                with st.expander(f"View full legal source: {card_title}", expanded=False):
+                    if doc_type == "constitution":
+                        st.markdown(f"**Article**: {p.get('article_number')} | **Part**: {p.get('part')}")
+                        st.markdown(f"**Full Constitutional Text**:\n\n> {p.get('raw_text') or p.get('full_text')}")
+                        if p.get("explanation"):
+                            st.markdown(f"**Constitutional Explanation**: {p.get('explanation')}")
+                        if p.get("historical_context"):
+                            st.markdown(f"**Historical Context & Amendments**: {p.get('historical_context')}")
+                    elif doc_type == "judgment":
+                        st.markdown(f"**Formal Citation**: `{p.get('citation')}` | **Bench**: {p.get('bench')}")
+                        if p.get("verdict"):
+                            st.markdown(f"**Verdict**: {p.get('verdict')}")
+                        if p.get("ratio_decidendi"):
+                            st.markdown(f"**Ratio Decidendi**:\n\n> {p.get('ratio_decidendi')}")
+                        if p.get("facts"):
+                            st.markdown(f"**Facts of the Case**: {p.get('facts')}")
+                    else:
+                        st.markdown(f"**Statutory Title**: {p.get('title')}")
+                        st.markdown(f"**Full Text**:\n\n> {p.get('raw_text') or p.get('full_text')}")
+
+                    if children:
+                        st.markdown("**Retrieved Supporting Passages**:")
+                        for ch in children:
+                            st.caption(f"• `{ch.get('chunk_id')}` (Rerank score: `{ch.get('score', 0):.4f}`): {ch.get('text', '')[:200]}...")
+
+        # 4. Section E: Technical Details Expander
+        with st.expander("Technical Details & Verification Audit", expanded=False):
+            col_t1, col_t2, col_t3, col_t4 = st.columns(4)
+            with col_t1:
+                st.metric("Strategy", ans.strategy)
+            with col_t2:
+                st.metric("Query Intent", ans.intent)
+            with col_t3:
+                st.metric("Confidence", f"{ans.confidence_score:.2f}", ans.confidence_level)
+            with col_t4:
+                st.metric("Citations Checked", f"{ans.citations_checked_count} Validated")
+
+            st.caption(
+                f"**Language**: `{ans.language}` | "
+                f"**Parent Contexts Hydrated**: `{raw_res.parent_context.get('parent_count', 0)}` | "
+                f"**Child Chunks Retrieved**: `{len(raw_res.retrieved_chunks)}`"
+            )
+
+            # Extracted Legal Entities
+            if ans.extracted_entities:
+                st.markdown("**Extracted Named Legal Entities:**")
+                ent_items = []
+                for k, vals in ans.extracted_entities.items():
+                    if vals:
+                        ent_items.append(f"**{k}**: {', '.join(vals)}")
+                if ent_items:
+                    st.markdown("\n".join(f"- {item}" for item in ent_items))
                 else:
                     st.caption("No specific named legal entities detected in query.")
 
-                st.markdown("<br>", unsafe_allow_html=True)
+            # Citation validation findings
+            if ans.invalid_citations:
+                st.markdown("**Citation Warnings:**")
+                for inv in ans.invalid_citations:
+                    st.error(f"- `{inv.get('reason')}`: {inv.get('details')}")
 
-                # Grounded Response / Abstention Notice
-                if res.abstained:
-                    st.warning(
-                        f"🛡️ **System Refusal / Abstention Notice**\n\n"
-                        f"**Reason**: `{res.abstention_reason}`\n\n"
-                        f"{res.generated_answer}"
-                    )
-                else:
-                    st.markdown(res.generated_answer)
-
-                # Reliability, Confidence & Citation Validation Audit Deep-Dive
-                st.markdown("---")
-                with st.expander("📊 Reliability, Grounding & Citation Validation Audit", expanded=False):
-                    m_c1, m_c2, m_c3, m_c4 = st.columns(4)
-                    with m_c1:
-                        st.metric("Confidence Score", f"{conf_score:.2f}", conf_lvl)
-                    with m_c2:
-                        st.metric("Citations Checked", res.citation_validation.get("citations_checked", 0))
-                    with m_c3:
-                        st.metric("Valid Citations", len(res.citation_validation.get("valid_citations", [])))
-                    with m_c4:
-                        st.metric("Unsupported Claims", len(res.citation_validation.get("unsupported_claims", [])))
-
-                    st.markdown("##### 🔬 Confidence Signal Breakdown")
-                    st.caption("*Note: Confidence estimation is an explainable weighted heuristic, not a mathematically calibrated probability.*")
-                    breakdown = res.confidence.get("signal_breakdown", {})
-                    weights = res.confidence.get("signal_weights", {})
-                    if breakdown:
-                        sig_records = []
-                        for k, v in breakdown.items():
-                            sig_label = k.replace("_", " ").title()
-                            if isinstance(v, dict):
-                                sig_records.append({
-                                    "Signal": sig_label,
-                                    "Weight": v.get("weight", "N/A"),
-                                    "Score": v.get("score", "N/A"),
-                                    "Weighted": v.get("weighted_value", "N/A"),
-                                    "Details": v.get("details", ""),
-                                })
-                            else:
-                                w_val = weights.get(k, 0.0) if isinstance(weights, dict) else 0.0
-                                sig_records.append({
-                                    "Signal": sig_label,
-                                    "Weight": f"{w_val:.2f}" if isinstance(w_val, (int, float)) else str(w_val),
-                                    "Score": f"{v:.4f}" if isinstance(v, (int, float)) else str(v),
-                                    "Weighted": f"{v * w_val:.4f}" if isinstance(v, (int, float)) and isinstance(w_val, (int, float)) else "N/A",
-                                    "Details": "Calculated heuristic signal",
-                                })
-                        df_signals = pd.DataFrame(sig_records)
-                        st.dataframe(df_signals, use_container_width=True)
-
-                    if res.citation_validation.get("invalid_citations"):
-                        st.markdown("##### ⚠️ Invalid Citations Detected:")
-                        for inv in res.citation_validation["invalid_citations"]:
-                            st.error(f"- **Reason**: `{inv.get('reason')}` — {inv.get('details')}")
-
-                    if res.citation_validation.get("unsupported_claims"):
-                        st.markdown("##### ⚠️ Potential Ungrounded Claims Detected:")
-                        for uns in res.citation_validation["unsupported_claims"]:
-                            st.warning(f"- {uns}")
-
-                # EXPANDABLE SOURCE ATTRIBUTION TABS (Parent-Child RAG)
-                st.markdown("---")
-                st.subheader("📚 Source Attribution & RAG Provenance")
-                st.caption(f"Parent-Child Context Recovery: {res.parent_context.get('parent_count', 0)} deduplicated parents hydrated from {len(res.retrieved_chunks)} child passages.")
-
-                parents_recovered = res.parent_context.get("parents", [])
-                for r_idx, p in enumerate(parents_recovered, start=1):
-                    doc_type = p.get("doc_type", "constitution")
-                    if doc_type == "constitution":
-                        title_label = f"Document #{r_idx} | 📜 {p.get('article_number', 'Article')} — {p.get('title', '')} ({p.get('part', '')})"
-                    else:
-                        title_label = f"Document #{r_idx} | ⚖️ {p.get('case_name', 'Judgment')} ({p.get('year', '')}) | `{p.get('citation', '')}`"
-
-                    with st.expander(title_label):
-                        col_c, col_p = st.columns([1, 1])
-                        with col_c:
-                            st.markdown("##### 🔍 Supporting Child Evidence Passages")
-                            children = p.get("supporting_children", [])
-                            if children:
-                                for ch in children:
-                                    st.info(f"**Chunk ID**: `{ch.get('chunk_id')}` | **Rerank/RRF Score**: `{ch.get('score', 0):.4f}`\n\n\"{ch.get('text', '')}\"")
-                            else:
-                                st.caption("No individual child chunks mapped.")
-
-                        with col_p:
-                            st.markdown("##### 📖 Hydrated Parent Document (Full Context)")
-                            if doc_type == "constitution":
-                                st.markdown(f"**Article Number**: {p.get('article_number')}")
-                                st.markdown(f"**Part**: {p.get('part')}")
-                                st.markdown(f"**Category**: {p.get('category')}")
-                                st.markdown(f"**Full Text**:\n> *{p.get('raw_text')}*")
-                                if p.get("explanation"):
-                                    st.markdown(f"**Explanation**: {p.get('explanation')}")
-                                if p.get("historical_context"):
-                                    st.markdown(f"**Historical Context**: {p.get('historical_context')}")
-                            else:
-                                st.markdown(f"**Case Name**: {p.get('case_name')}")
-                                st.markdown(f"**Citation**: `{p.get('citation')}`")
-                                st.markdown(f"**Bench**: {p.get('bench')}")
-                                if p.get("facts"):
-                                    st.markdown(f"**Facts**: {p.get('facts')}")
-                                if p.get("ratio_decidendi"):
-                                    st.markdown(f"**Ratio Decidendi**: {p.get('ratio_decidendi')}")
-                                if p.get("verdict"):
-                                    st.markdown(f"**Verdict**: {p.get('verdict')}")
-
-                # NLP Pipeline Diagnostic Inspector
-                if show_inspector:
-                    st.markdown("---")
-                    render_pipeline_inspector(res, expanded=False)
-
-            else:
-                # LEGACY MULTI-AGENT EXECUTION PATH
-                with st.spinner("⚡ Executing Legal NER, Hybrid RRF Retrieval, & Multi-Agent Routing..."):
-                    # Step 1: Legal NER & Hybrid Retrieval
-                    retrieval_output = retriever.retrieve(user_query, top_k=top_k)
-                    entities = retrieval_output["entities"]
-                    context_docs = retrieval_output["results"]
-
-                    # Step 2: Route & Classify Query
-                    classified_agent = router.classify_query(user_query, entities, override_mode=agent_override)
-
-                    # Step 3: Execute Agent Generation
-                    agent_result = router.execute_agent(
-                        classified_agent,
-                        user_query,
-                        context_docs,
-                        entities,
-                        dynamic_api_key=user_api_key
-                    )
-
-                # DISPLAY RESULTS
-                st.markdown("---")
-
-                # Agent Badge & Extracted Entities
-                b_class = "badge-article" if classified_agent == "article_agent" else ("badge-case" if classified_agent == "case_law_agent" else "badge-explain")
-                model_info = f"🧠 {agent_result.get('model_name', 'AI Engine')}"
-                st.markdown(
-                    f"""
-                    <span class="agent-badge {b_class}">
-                        🤖 Active Agent: {agent_result['agent_name']}
-                    </span>
-                    <span class="agent-badge" style="background-color: rgba(139, 148, 158, 0.15); color: #c9d1d9; border: 1px solid #30363d;">
-                        {model_info}
-                    </span>
-                    """,
-                    unsafe_allow_html=True
-                )
-
-                # Extracted Legal Entities
-                st.markdown("**Extracted Legal Entities (NER):**")
-                ent_str = ""
-                for art in entities.get("articles", []):
-                    ent_str += f'<span class="entity-pill">📜 {art}</span>'
-                for c_name in entities.get("cases", []):
-                    ent_str += f'<span class="entity-pill">⚖️ {c_name}</span>'
-                for concept in entities.get("concepts", []):
-                    ent_str += f'<span class="entity-pill">💡 {concept.title()}</span>'
-                
-                if ent_str:
-                    st.markdown(ent_str, unsafe_allow_html=True)
-                else:
-                    st.caption("No specific named articles or cases detected in query.")
-
-                st.markdown("<br>", unsafe_allow_html=True)
-
-                # Agent Answer Response
-                st.markdown(agent_result["response"])
-
-                # EXPANDABLE SOURCE ATTRIBUTION TABS (Parent-Child RAG)
-                st.markdown("---")
-                st.subheader("📚 Source Attribution & RAG Provenance")
-                st.caption("Parent-Child RAG: Precision Child passages were matched via Hybrid RRF Search and expanded into full Parent contexts below.")
-
-                for r_idx, doc in enumerate(context_docs, start=1):
-                    pdata = doc.get("parent_data", {})
-                    title_label = f"Result #{r_idx} | RRF Score: {doc['rrf_score']} | "
-                    if doc["doc_type"] == "constitution":
-                        title_label += f"📜 {pdata.get('article_number')} - {pdata.get('title')}"
-                    else:
-                        title_label += f"⚖️ {pdata.get('case_name')} ({pdata.get('year')})"
-
-                    with st.expander(title_label):
-                        col_c, col_p = st.columns([1, 1])
-                        with col_c:
-                            st.markdown("##### 🔍 Retrieved Child Chunk (Vector + BM25 Match)")
-                            st.info(f"\"{doc['child_text']}\"")
-                            st.markdown(f"**RRF Fusion Score**: `{doc['rrf_score']}`")
-                            st.markdown(f"**BM25 Rank**: `{doc['bm25_rank']}` | **Vector Rank**: `{doc['vector_rank']}`")
-
-                        with col_p:
-                            st.markdown("##### 📖 Hydrated Parent Document (Full Context)")
-                            if doc["doc_type"] == "constitution":
-                                st.markdown(f"**Article Number**: {pdata.get('article_number')}")
-                                st.markdown(f"**Part**: {pdata.get('part')}")
-                                st.markdown(f"**Category**: {pdata.get('category')}")
-                                st.markdown(f"**Full Text**:\n> *{pdata.get('raw_text')}*")
-                                if pdata.get("explanation"):
-                                    st.markdown(f"**Explanation**: {pdata.get('explanation')}")
-                            else:
-                                st.markdown(f"**Case Name**: {pdata.get('case_name')}")
-                                st.markdown(f"**Citation**: `{pdata.get('citation')}`")
-                                st.markdown(f"**Bench**: {pdata.get('bench')}")
-                                st.markdown(f"**Ratio Decidendi**: {pdata.get('ratio_decidendi')}")
-                                st.markdown(f"**Verdict**: {pdata.get('verdict')}")
-
-                # NLP Pipeline Diagnostic Inspector (Legacy Adaptation)
-                if show_inspector:
-                    st.markdown("---")
-                    legacy_diag = {
-                        "original_query": user_query,
-                        "normalized_query": user_query,
-                        "language": {"language": "en", "is_english": True, "confidence": 1.0},
-                        "intent": {"intent": classified_agent, "confidence": 0.8, "routing_mode": "legacy_keyword_router"},
-                        "entities": entities,
-                        "linked_entities": [],
-                        "routing_decision": {
-                            "strategy": classified_agent,
-                            "use_bm25": True,
-                            "use_dense": True,
-                            "use_rrf": True,
-                            "use_entity_boost": True,
-                            "use_reranker": False,
-                            "final_top_k": top_k
-                        },
-                        "retrieved_chunks": context_docs,
-                        "reranked_chunks": context_docs,
-                        "parent_context": {
-                            "parents": [
-                                {
-                                    "parent_id": d.get("parent_id", f"parent_{idx}"),
-                                    "doc_type": d.get("doc_type", "constitution"),
-                                    "title": d.get("parent_data", {}).get("title", d.get("parent_data", {}).get("case_name", "")),
-                                    "article_number": d.get("parent_data", {}).get("article_number", ""),
-                                    "citation": d.get("parent_data", {}).get("citation", ""),
-                                    "supporting_children": [d]
-                                }
-                                for idx, d in enumerate(context_docs, 1)
-                            ],
-                            "parent_count": len(context_docs)
-                        },
-                        "citations": [],
-                        "generated_answer": agent_result["response"],
-                        "citation_validation": {
-                            "valid": True,
-                            "citations_checked": 0,
-                            "valid_citations": [],
-                            "invalid_citations": [],
-                            "unsupported_claims": [],
-                            "summary": "Legacy mode does not execute structural citation validation."
-                        },
-                        "confidence": {
-                            "confidence_score": 0.70,
-                            "confidence_level": "MEDIUM",
-                            "is_calibrated": False,
-                            "explanation": "Heuristic estimate in legacy multi-agent mode.",
-                            "signal_breakdown": {}
-                        },
-                        "abstained": False,
-                    }
-                    render_pipeline_inspector(legacy_diag, expanded=False)
-
-
-# ---------------------------------------------------------
-# TAB 2: CASE COMPARATOR
-# ---------------------------------------------------------
-with tab2:
-    st.subheader("⚖️ Landmark Supreme Court Case Comparator")
-    st.caption("Select two landmark Supreme Court judgments for side-by-side comparative analysis.")
-
-    judg_data = [p for p in ingestor.parent_store.values() if p.get("doc_type") == "judgment"]
-    case_names = [j["case_name"] for j in judg_data]
-
-    if len(case_names) >= 2:
-        c1, c2 = st.columns(2)
-        with c1:
-            case_a_name = st.selectbox("Select Primary Case (Case A):", options=case_names, index=0)
-        with c2:
-            case_b_name = st.selectbox("Select Comparison Case (Case B):", options=case_names, index=1 if len(case_names) > 1 else 0)
-
-        case_a = next((j for j in judg_data if j["case_name"] == case_a_name), None)
-        case_b = next((j for j in judg_data if j["case_name"] == case_b_name), None)
-
-        if case_a and case_b:
-            st.markdown("<br>", unsafe_allow_html=True)
-            col_left, col_right = st.columns(2)
-
-            with col_left:
-                st.markdown(
-                    f"""
-                    <div class="comp-box">
-                        <div class="comp-title">🏛️ {case_a['case_name']}</div>
-                        <p><strong>Year:</strong> {case_a['year']} | <strong>Bench:</strong> {case_a['bench']}</p>
-                        <p><strong>Citation:</strong> <code>{case_a['citation']}</code></p>
-                        <p><strong>Articles Referred:</strong> {', '.join(case_a.get('articles_referred', []))}</p>
-                        <hr style="border-color: #30363d;">
-                        <p><strong>Facts:</strong><br>{case_a['facts']}</p>
-                        <hr style="border-color: #30363d;">
-                        <p><strong>Ratio Decidendi:</strong><br>{case_a['ratio_decidendi']}</p>
-                        <hr style="border-color: #30363d;">
-                        <p><strong>Verdict:</strong><br>{case_a['verdict']}</p>
-                    </div>
-                    """,
-                    unsafe_allow_html=True
-                )
-
-            with col_right:
-                st.markdown(
-                    f"""
-                    <div class="comp-box">
-                        <div class="comp-title">🏛️ {case_b['case_name']}</div>
-                        <p><strong>Year:</strong> {case_b['year']} | <strong>Bench:</strong> {case_b['bench']}</p>
-                        <p><strong>Citation:</strong> <code>{case_b['citation']}</code></p>
-                        <p><strong>Articles Referred:</strong> {', '.join(case_b.get('articles_referred', []))}</p>
-                        <hr style="border-color: #30363d;">
-                        <p><strong>Facts:</strong><br>{case_b['facts']}</p>
-                        <hr style="border-color: #30363d;">
-                        <p><strong>Ratio Decidendi:</strong><br>{case_b['ratio_decidendi']}</p>
-                        <hr style="border-color: #30363d;">
-                        <p><strong>Verdict:</strong><br>{case_b['verdict']}</p>
-                    </div>
-                    """,
-                    unsafe_allow_html=True
-                )
-
-
-# ---------------------------------------------------------
-# TAB 3: CONSTITUTION & CASES DATABASE
-# ---------------------------------------------------------
-with tab3:
-    st.subheader("📜 Constitutional Articles & Judgments Database Explorer")
-    
-    sub_tab1, sub_tab2 = st.tabs(["Constitutional Articles", "Landmark Supreme Court Judgments"])
-
-    with sub_tab1:
-        const_records = [p for p in ingestor.parent_store.values() if p.get("doc_type") == "constitution"]
-        df_const = pd.DataFrame(const_records)[["article_number", "title", "part", "category", "raw_text", "explanation"]]
-        df_const.columns = ["Article Number", "Title", "Part", "Category", "Text", "Explanation"]
-        st.dataframe(df_const, use_container_width=True, height=450)
-
-    with sub_tab2:
-        judg_records = [p for p in ingestor.parent_store.values() if p.get("doc_type") == "judgment"]
-        df_judg = pd.DataFrame(judg_records)[["case_name", "citation", "year", "bench", "ratio_decidendi", "verdict"]]
-        df_judg.columns = ["Case Name", "Citation", "Year", "Bench", "Ratio Decidendi", "Verdict"]
-        st.dataframe(df_judg, use_container_width=True, height=450)
-
-
-# ---------------------------------------------------------
-# TAB 4: RAG ARCHITECTURE & METHODOLOGY
-# ---------------------------------------------------------
-with tab4:
-    st.subheader("🏗️ System Architecture & Advanced RAG Technical Specs")
-    
-    st.markdown("""
-    ### 1. Data Layer & Hierarchical Parent-Child RAG
-    - **Parent Store**: Stores full Constitutional Articles (Parts, Text, Explanations, Historical Context) and complete Supreme Court Judgment ratios and facts.
-    - **Child Chunks**: Passages (~300 characters) are generated from parent texts with chunk overlaps. Child chunks store references to their parent `parent_id`.
-    - **Embeddings**: Local `sentence-transformers/all-MiniLM-L6-v2` dense vector representations stored in **ChromaDB**.
-
-    ### 2. Hybrid Retrieval Engine & Reciprocal Rank Fusion (RRF)
-    - **Sparse Search**: **BM25Okapi** keyword scoring with legal text tokenization ($k_1=1.5, b=0.75$).
-    - **Dense Search**: Cosine similarity embedding search via **ChromaDB**.
-    - **Reciprocal Rank Fusion (RRF)**:
-      Combines sparse and dense ranks according to:
-      $$RRF\\_Score(d) = \\sum_{m \\in M} \\frac{1}{k + r_m(d)}$$
-      where $k = 60$.
-    - **Legal Named Entity Recognition (NER)**: Identifies Article numbers (e.g. *Article 21*), landmark case names (e.g. *Puttaswamy*), and legal concepts, applying rank boosting for exact metadata matches.
-
-    ### 3. Multi-Agent Router (Legacy Mode)
-    - **Article Agent**: Provides detailed constitutional provisions, clauses, and amendments.
-    - **Case-Law Agent**: Summarizes judgments, facts, ratios decidendi, and precedent comparisons.
-    - **Explanation Agent**: Simplifies complex legal legalese into accessible plain English/Hindi for citizens and students.
-
-    ### 4. Stage 4: RAG Reliability, Grounding & Safety Engine (Primary Mode)
-    - **Specialized NLP Query Router**: Deterministically maps Stage 2 NLP signals (intent, language, entities, linked entities) into specialized retrieval strategies (`ARTICLE_SEARCH`, `CASE_SEARCH`, `COMPARISON_SEARCH`, `RIGHTS_SEARCH`, `PROCEDURE_SEARCH`, `HYBRID_SEARCH`, `OUT_OF_SCOPE`) without autonomous agent overhead.
-    - **Parent-Child Context Recovery**: Aggregates winning child passages into deduplicated canonical parent records, preserving audit provenance and providing full parent scope to the generator.
-    - **Strictly Grounded Generation**: Synthesizes answers strictly from retrieved evidence, clearly separating **📜 Direct Legal Evidence** from **⚖️ Grounded Legal Analysis** and **📚 Verified Citations**.
-    - **Structural Citation Validator**: Validates that all declared citations exist in the verified legal database, were part of the retrieved evidence, and detects ungrounded mentions of articles or precedents.
-    - **Explainable Confidence Estimator**: Transparent weighted composite over 6 verifiable signals (retrieval strength, evidence volume, entity alignment, retrieval agreement, citation validity, query coverage) with explicit uncalibrated disclosure.
-    - **Multi-Stage Automated Abstention**: Safely refuses out-of-scope queries, zero-result retrievals, sub-threshold evidence, and citation validation failures to eliminate hallucinations.
-    """)
-
-
-# ---------------------------------------------------------
-# TAB 5: EMPIRICAL RESEARCH DASHBOARD
-# ---------------------------------------------------------
-with tab5:
-    render_research_dashboard()
-
+            if ans.unsupported_claims:
+                st.markdown("**Potential Ungrounded Claims:**")
+                for uns in ans.unsupported_claims:
+                    st.warning(f"- {uns}")
