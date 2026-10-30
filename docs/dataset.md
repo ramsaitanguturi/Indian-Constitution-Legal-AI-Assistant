@@ -10,15 +10,20 @@ To maintain academic and research integrity, all counts, filepaths, and schemas 
 
 ## 2. Corpus Provenance & Legal Authority Sources
 
+The repository operates on a two-tier corpus architecture:
+1. **Full Production Legal Corpus** (886 total documents, 7,470 child passages, ~6.44M characters): Verified in `data/manifests/corpus_manifest.json` and compiled via `scripts/build_corpus.py`.
+2. **Curated Research Benchmark Partition** (270 parent documents, 1,001 child passages in `parent_store.json`): Preserved for reproducing the 200-query empirical benchmark suite.
+
 | Corpus Asset | Relative Path | Official Legal Provenance | Description / Coverage |
 |---|---|---|---|
-| **Constitutional Articles** | `data/constitution/articles.json` | Legislative Department, Ministry of Law and Justice, Government of India | 137 curated constitutional provisions covering the Preamble, Fundamental Rights (Part III), Directive Principles (Part IV), Fundamental Duties (Part IVA), Union Judiciary (Part V), High Courts (Part VI), Legislative Relations (Part XI), Emergency Provisions (Part XVIII), and Constitutional Amendments (Part XX). |
-| **Constitutional Amendments** | `data/constitution/amendments.json` | Gazette of India / Legislative Department, Ministry of Law and Justice | 18 landmark constitutional amendments (1st, 7th, 24th, 25th, 42nd, 44th, 52nd, 61st, 73rd, 74th, 77th, 81st, 85th, 86th, 91st, 99th, 101st, 103rd Amendments). |
-| **Landmark Judgments** | `data/judgments/supreme_court_landmarks.json` | Supreme Court Reports (SCR) & Indian Kanoon public legal archives | 104 curated Supreme Court constitutional decisions spanning 1950 to 2023 across 7 major constitutional doctrines. |
+| **Constitutional Articles (Production)** | `data/processed/constitution/articles_consolidated.json` & `data/constitution/articles.json` | Legislative Department, Ministry of Law and Justice, Government of India | **477 provisions**: Official consolidated Constitution of India covering the Preamble, Articles 1 to 395+ (including 21A, 31A–C, 39A, 43A–B, 51A, 243A–ZG, 300A, 371A–J), and Schedules 1–12. |
+| **Constitutional Amendments (Production)** | `data/processed/amendments/amendments_1_to_106.json` & `data/constitution/amendments.json` | Gazette of India / Legislative Department, Ministry of Law and Justice | **106 Amendment Acts**: Complete 1st through 106th Constitutional Amendment Acts with verified enactment dates, assent dates, affected articles, and Statement of Objects and Reasons. |
+| **Supreme Court Decisions (Production)** | `data/processed/judgments/supreme_court_landmarks.json` & `data/judgments/supreme_court_landmarks.json` | Supreme Court of India Digital SCR & AWS Open Data Registry | **286 decisions**: 92 official full-text decisions extracted from official Supreme Court of India SCR PDFs (103 PDFs on disk), 97 landmark precedent briefs (1950–2024), and 97 AWS open data registry records. |
+| **Central Statutory Acts (Production)** | `data/processed/legislation/central_acts.json` | India Code, Ministry of Law and Justice, GoI | **17 Central Acts (1,975 sections)**: IPC 1860, CrPC 1973, IEA 1872, CPC 1908, IDA 1947, NIA 1881, MVA 1988, Citizenship Act, RPA, PHRA, RTI, AFSPA, Official Languages Act, Delimitation Act, CAG Act. |
+| **Curated Benchmark Subset** | `parent_store.json` | Consolidated Evaluation Pipeline | 270 hydrated parent records (137 articles, 18 amendments, 104 judgments) used for evaluating the 200-query benchmark. |
 | **Legacy Sample Constitution** | `data/sample_constitution.json` | Legislative Department, GoI | 9 foundational provisions used for baseline backwards-compatibility testing. |
 | **Legacy Sample Judgments** | `data/sample_judgments.json` | Supreme Court of India public records | 5 landmark judgments used for baseline regression tests. |
-| **Parent Document Store** | `parent_store.json` | Consolidated Ingestion Pipeline | 270 hydrated parent records (143 constitutional articles/provisions, 109 judgments, 18 amendments). |
-| **ChromaDB Vector Store** | `chroma_db/` | SentenceTransformers MiniLM-L6-v2 Embeddings | 1,001 child chunk vectors in the `indian_legal_rag` collection. |
+| **ChromaDB Vector Store** | `chroma_db/` | SentenceTransformers MiniLM-L6-v2 & BGE-M3 Embeddings | Persistent collections: `indian_legal_rag` (384-d, 1,001 to 7,470 chunks) and `indian_legal_rag_bgem3` (1024-d). |
 
 ---
 
@@ -26,6 +31,18 @@ To maintain academic and research integrity, all counts, filepaths, and schemas 
 
 ### 3.1 Numerical Corpus Inventory
 
+**Production Corpus Manifest (`data/manifests/corpus_manifest.json`):**
+```text
+Official Constitution Articles : 477 provisions (Preamble, Arts 1–395+, Schedules 1–12)
+Constitution Amendment Acts   : 106 Amendment Acts (1st to 106th CAA)
+Supreme Court Judgments       : 286 decisions (92 full-text, 97 briefs, 97 registry)
+Central Statutory Acts        : 17 Central Acts (1,975 structured sections)
+--------------------------------------------------------------------------------------
+Total Production Documents    : 886 documents (6,440,416 characters, ~1.61M tokens)
+Total Child Chunk Passages    : 7,470 passages in ChromaDB
+```
+
+**Curated Research Benchmark Partition (`parent_store.json`):**
 ```text
 Constitutional Articles : 137 documents (210.8 KB)
 Constitutional Amendments: 18 documents (20.1 KB)

@@ -198,7 +198,7 @@ Indian Constitution Legal AI Assistant/
 │   ├── ingest_data.py                  # CLI runner for parent storage & vector indexing
 │   ├── run_all_evaluations.py          # Master runner for complete evaluation suite
 │   └── capture_screenshots.py          # Automated Playwright UI screenshot capturer
-├── tests/                              # Automated Pytest Suite (254 Passing Tests)
+├── tests/                              # Automated Pytest Suite (319 Passing Tests)
 └── docs/                               # Academic Documentation Suite
 ```
 
@@ -524,8 +524,8 @@ pip install -r requirements.txt
 # Launch Streamlit Application
 streamlit run app.py
 
-# Run complete automated test suite (254 tests)
-.\venv\Scripts\pytest -q
+# Run complete automated test suite (319 tests)
+pytest -v
 
 # Rebuild full corpus index from scratch (137 articles, 18 amendments, 104 judgments)
 python scripts/ingest_data.py --corpus full --batch-size 64

@@ -14,11 +14,11 @@ A second, adversarial audit was conducted to challenge the earlier claim that th
 
 | Dimension | Adversarial Status | Justification |
 |---|:---:|---|
-| **1. Software Test Readiness** | **PASS** | **254 of 254 automated tests pass cleanly** in pytest with 0 errors and 0 skipped tests. Component interfaces are modular and robust. |
+| **1. Software Test Readiness** | **PASS** | **319 of 319 automated tests pass cleanly** in pytest with 0 errors and 0 skipped tests. Component interfaces are modular and robust. |
 | **2. Research Reproducibility** | **PASS** | All 8 individual experiment scripts and master evaluation runners execute cleanly (exit code 0). Metrics reproduce across deterministic random seeds (`EVAL_RANDOM_SEED = 42`). |
-| **3. Benchmark Independence & Quality** | **PARTIAL** | Zero exact duplicate strings exist; however, **53% of retrieval queries follow rigid synthetic prefixes** (*"Explain the"*, *"What does"*), and **20 queries target constitutional articles that were never ingested into the database**. |
-| **4. Semantic Grounding & Citation Integrity** | **NOT VERIFIED** | The system verifies structural existence and retrieval set inclusion (`CitationValidator`), but **does not implement atomic claim-level Natural Language Inference (NLI)**. Semantic entailment is therefore **NOT VERIFIED**. |
-| **5. Production Readiness for Real Legal Counsel** | **FAIL** | The system is **NOT production ready** for real-world legal counsel. The corpus is missing 258 constitutional articles and 87 amendments; CPU reranking latency has a median of ~892 ms; and absence of claim entailment poses legal liability risks. |
+| **3. Benchmark Independence & Quality** | **PARTIAL** | Zero exact duplicate strings exist; however, **53% of retrieval queries follow rigid synthetic prefixes** (*"Explain the"*, *"What does"*), and **20 queries target constitutional articles that were outside the baseline 137-article subset**. |
+| **4. Semantic Grounding & Citation Integrity** | **PARTIAL** | The system verifies structural existence (`CitationValidator`) and implements proposition-level polarity / modal conflict checking (`NLIVerifier` in `rag/nli_verifier.py`). Deep neural cross-encoder NLI remains a GPU research extension. |
+| **5. Production Readiness for Real Legal Counsel** | **FAIL** | The system is **NOT production ready** for real-world legal counsel. While the expanded corpus indexes 886 documents, CPU reranking latency has a median of ~892 ms, and statutory consultation requires licensed legal counsel. |
 
 ### Final Capstone Verdict:
 > **HIGH-QUALITY B.TECH NLP CAPSTONE PROTOTYPE (SUITABLE FOR ACADEMIC EVALUATION & VIVA DEFENSE; NOT SUITABLE FOR COMMERCIAL PRODUCTION).**

@@ -47,8 +47,10 @@ flowchart TD
         REC["12. Parent Context Recovery<br><i>rag/parent_child.py</i>"]
         GEN["13. Grounded Generator / Fallback<br><i>rag/generator.py</i>"]
         VAL["14. Structural Citation Validator<br><i>rag/citation_validator.py</i>"]
-        CONF["15. 6-Signal Confidence Estimator<br><i>rag/confidence.py</i>"]
-        ABST["16. Multi-Stage Abstention Gate<br><i>rag/abstention.py</i>"]
+        NLI["15. Claim-Level NLI Verifier<br><i>rag/nli_verifier.py</i>"]
+        CONF["16. 6-Signal Confidence Estimator<br><i>rag/confidence.py</i>"]
+        ABST["17. Multi-Stage Abstention Gate<br><i>rag/abstention.py</i>"]
+        FMT["18. Structured UI Formatter<br><i>rag/ui_formatter.py</i>"]
     end
 
     UQ --> LD
@@ -69,10 +71,11 @@ flowchart TD
 
     REC -->|Hydrated Parent Docs| GEN
     GEN --> VAL
-    VAL --> CONF
+    VAL --> NLI
+    NLI --> CONF
     CONF --> ABST
-    ABST -->|Pass| UI_DISP
-    ABST -->|Refusal| UI_DISP
+    ABST -->|Pass / Abstained Result| FMT
+    FMT --> UI_DISP
     UI_DISP --> INSP
 ```
 

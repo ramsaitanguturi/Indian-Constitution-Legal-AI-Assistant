@@ -50,7 +50,7 @@ This document records the official provenance, retrieval methodology, licenses, 
 * **License:** Public Domain / Open Data under Indian Public Records principles; non-copyrightable judicial determinations (Copyright Act, 1957 § 52(1)(q)(iv)).
 * **Scope Ingested:**
   * **286 total Supreme Court judgment records**, explicitly categorized by content granularity:
-    * **79 Official Full-Text Judgments (`content_type: "full_text"`):** Extracted page-by-page from official Supreme Court of India SCR PDF documents (88 PDFs on disk, 67.1 MB total; with duplicate legacy naming variants consolidated). Text extraction is accelerated via persistent SHA-256 caching in `data/raw/judgments/.extracted_cache/`. Key full-text decisions include:
+    * **92 Official Full-Text Judgments (`content_type: "full_text"`):** Extracted page-by-page from official Supreme Court of India SCR PDF documents (103 PDFs on disk, 79.4 MB total; with duplicate legacy naming variants consolidated). Text extraction is accelerated via persistent SHA-256 caching in `data/raw/judgments/.extracted_cache/`. Key full-text decisions include:
       * *A.K. Gopalan v. State of Madras* (1950 INSC 13, 247-page landmark constitutional bench decision on preventive detention and Article 21)
       * *Romesh Thappar v. State of Madras* (1950 INSC 16, freedom of speech and public order)
       * *Brij Bhushan v. State of Delhi* (1950 INSC 17, pre-censorship of the press)

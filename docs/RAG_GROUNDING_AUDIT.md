@@ -19,7 +19,7 @@ The answer is an unequivocal **NO**. The codebase must be audited across five di
 | **1. Citation Format & Structural Validity** | Are citations formatted correctly (e.g. `[Doc: <id>]`) with non-empty metadata? | Regex parsing in `CitationValidator` | **PASS** |
 | **2. Corpus Existence** | Do cited IDs exist in `parent_store.json`? | Parent document hash lookup | **PASS** |
 | **3. Retrieval Provenance** | Were cited documents present in the top-k retrieved evidence for *this specific query*? | Set intersection with candidate pool | **PASS** |
-| **4. Factual Claim-Level Semantic Entailment** | Does every atomic assertion in the answer logically follow from the cited passage? | Natural Language Inference (NLI) Cross-Encoder | **NOT VERIFIED** (Not Implemented) |
+| **4. Factual Claim-Level Semantic Entailment** | Does every atomic assertion in the answer logically follow from the cited passage? | Proposition decomposition & modal polarity analysis (`rag/nli_verifier.py`) | **PARTIAL** (Deterministic Heuristic NLI Active; Neural Cross-Encoder NLI Planned) |
 | **5. Out-of-Scope Automated Abstention** | Does the system refuse to answer non-constitutional, criminal, or out-of-scope legal queries? | Multi-signal confidence threshold ($C < 0.40$) | **PASS** |
 
 ---

@@ -9,24 +9,27 @@
 
 ## 1. Corpus Scope & Coverage Boundaries
 
-The active knowledge base of this assistant contains:
-- **137 Constitutional Articles** (focusing on the Preamble, Part III Fundamental Rights, Part IV Directive Principles, Part IVA Duties, Part V Supreme Court provisions, and Part XX Amendments).
-- **18 Constitutional Amendments** (Landmark amendments from 1st to 103rd).
-- **104 Landmark Supreme Court Judgments** (1950 to 2023 across 7 primary constitutional doctrines).
+The system operates across two documented corpus tiers:
+1. **Full Production Corpus (`data/manifests/corpus_manifest.json`)**: Contains **886 verified documents** yielding **7,470 passages** in ChromaDB:
+   - **477 Constitutional Provisions**: Complete official text covering Preamble, Articles 1–395+, and Schedules 1–12.
+   - **106 Constitutional Amendments**: Complete 1st through 106th Amendment Acts.
+   - **286 Supreme Court Decisions**: 92 official full-text decisions, 97 landmark briefs, 97 AWS registry records.
+   - **17 Central Statutory Acts (1,975 sections)**: IPC, CrPC, IEA, CPC, IDA, NIA, MVA, Citizenship Act, RPA, PHRA, RTI, AFSPA, Official Languages Act, Delimitation Act, CAG Act.
+2. **Curated Research Evaluation Baseline (`parent_store.json`)**: Contains **270 parent documents** (137 articles, 18 amendments, 104 judgments) yielding **1,001 child passages**.
 
-### Identified Boundary:
-The original Constitution of India contains 395 articles (expanded to 448+ across 25 Parts). Provisions outside the active 137-article subset (such as Article 243 on Panchayats, Article 280 on the Finance Commission, Article 311 on Civil Servants, and Article 356 on President's Rule) are **uncataloged** in `parent_store.json`.
-- **System Behavior**: The pipeline safely abstains (`abstained=True`) with a clear notice of insufficient evidence rather than hallucinating text.
-- **Benchmark Accounting**: In `retrieval_queries.json`, 20 out of 200 queries target these uncataloged provisions and are explicitly partitioned as `uncataloged_out_of_corpus`.
+### Identified Boundary in Benchmark Evaluation:
+In the historical 200-query benchmark (`data/benchmark/retrieval_queries.json`) evaluated against the 270-parent baseline, 20 queries target constitutional provisions (e.g. Article 280, Article 311, Article 343) that lay outside the 137-article baseline subset.
+- **System Behavior**: The pipeline safely abstains (`abstained=True`) with an explicit notice of insufficient evidence rather than hallucinating text.
+- **Benchmark Accounting**: In `retrieval_queries.json`, these 20 queries are explicitly partitioned as `uncataloged_out_of_corpus` to preserve evaluation integrity.
 
 ---
 
 ## 2. Natural Language Inference (NLI) & Claim Grounding Scope
 
-### 2.1 Heuristic vs Neural Verification
-1. **Proposition Decomposition**: The system decomposes generated answers into atomic sentences, removing formatting and citation keys.
-2. **Polarity Analysis**: Proposition-level polarity checks detect overt statutory inversions (e.g., claiming a prohibited practice is permitted). Generic legal words (`shall`, `article`, `right`) are excluded from topic matching to avoid false positives.
-3. **Unresolved Boundary**: Subtle semantic nuances, conditional exceptions (e.g., "except during emergency"), or multi-hop logical deductions cannot be fully verified without large-scale neural NLI models (`nli-deberta-v3-large`), which are too heavy for low-latency local CPU inference.
+### 2.1 Heuristic Rule-Based vs Neural Verification
+1. **Proposition Decomposition**: `rag/nli_verifier.py` decomposes generated answers into atomic sentences, removing formatting and citation tags.
+2. **Polarity & Modal Conflict Analysis**: Proposition-level polarity checks evaluate modal conflicts (`shall`, `must`, `permitted` vs. `prohibits`, `unconstitutional`, `void`), contradiction pairs, and term-level alignment against retrieved parent evidence.
+3. **Unresolved Boundary**: Subtle semantic nuances, multi-hop conditional deductions, or complex temporal shifts cannot be fully proven without heavy neural NLI models (`nli-deberta-v3-large`), which are too computationally intensive for low-latency CPU environments. Deep neural NLI remains an ongoing research frontier.
 
 ### 2.2 Citation Attribution vs Truth Proof
 The system verifies:

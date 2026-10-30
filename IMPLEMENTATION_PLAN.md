@@ -24,7 +24,7 @@ The upgrade followed an **incremental, preservation-first approach**:
 2. **Shift academic contribution from GenAI/Multi-Agent to NLP & Information Retrieval**: Transition away from speculative "autonomous agents" toward a **Specialized NLP Query Router**, **Structure-Aware Legal Chunking**, **Hybrid Legal Named Entity Recognition (NER)**, **Canonical Entity Linking**, **ML-based Intent Classification**, **Controlled Query Expansion**, and **Cross-Encoder Reranking**.
 3. **Establish Rigorous Empirical Evaluation as a First-Class Component**: Curated Indian Constitutional benchmark suite (200 retrieval queries, 220 intent queries, 105 NER annotations, 100 RAG questions) and executed multi-method IR evaluations (BM25 vs. Dense vs. Hybrid vs. RRF vs. Entity Boost vs. Reranker) and systematic ablation studies across standard metrics (Recall@K, MRR, NDCG@K, Precision, Recall, Macro-F1).
 
-All code changes have been implemented, executed, and verified with 254 passing tests in pytest.
+All code changes have been implemented, executed, and verified with 319 passing tests in pytest across 28 test modules.
 
 ---
 

@@ -146,7 +146,7 @@ Prior to starting implementation, a comprehensive audit was executed:
 | ChromaDB & BM25 Consistency | Index chunk counts agree with processed manifest | Required | **COMPLETED (2,664 chunks indexed)** |
 | Citation Resolution | 100% of generated citations resolve to corpus documents | Required | **COMPLETED (Strict validation gate)** |
 | Abstention Behavior | 100% rejection on ungrounded / out-of-corpus queries | Required | **COMPLETED (Multi-Stage Abstention)** |
-| Test Suite Regression | All existing 273 tests + new tests pass cleanly | Required | **COMPLETED (289/289 tests passing)** |
+| Test Suite Regression | All existing tests + new upgrades pass cleanly | Required | **COMPLETED (319/319 tests passing in ~213s)** |
 
 ---
 
@@ -159,4 +159,4 @@ Prior to starting implementation, a comprehensive audit was executed:
 - [x] **Phase 5: Grounded Answer Synthesis & Multi-Stage Abstention** (`rag/citation_validator.py`, `rag/abstention.py`)
 - [x] **Phase 6: Incremental Updates CLI & Maintenance** (`scripts/update_corpus.py` with backup, check, rollback)
 - [x] **Phase 7: Evaluation Suite & Benchmark Expansion** (`scripts/evaluate_retrieval.py` computing Hit@K, MRR, NDCG@K, Latency)
-- [x] **Phase 8: Comprehensive Testing & Verification** (`tests/test_master_pipeline.py` covering all 16 core requirements, 289/289 tests passed)
+- [x] **Phase 8: Comprehensive Testing & Verification** (`tests/test_master_pipeline.py` covering all 16 core requirements, 319/319 tests passed)

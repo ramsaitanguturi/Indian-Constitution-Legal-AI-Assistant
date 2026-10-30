@@ -23,14 +23,17 @@ python scripts/validate_benchmark.py --strict
 
 ### 1.2 Run Full Automated Test Suite
 ```powershell
-# Run all 265 unit, integration, and regression tests
-python -m pytest tests/ -v
+# Run all 319 unit, integration, and regression tests (verified 319 passed in ~213s)
+pytest -v
 ```
 
 ### 1.3 Launch Web Application
 ```powershell
 streamlit run app.py
 ```
+
+### 1.4 Live Demonstration Guide
+For comprehensive step-by-step viva defense walkthroughs and evaluation scripts, see [**`DEMONSTRATION_GUIDE.md`**](../DEMONSTRATION_GUIDE.md).
 
 ---
 

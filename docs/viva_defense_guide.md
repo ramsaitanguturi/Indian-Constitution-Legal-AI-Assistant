@@ -10,7 +10,7 @@
 
 ## 1. 60-Second Elevator Pitch
 
-> *"General-purpose chatbots hallucinate legal statutes, while traditional keyword search fails to understand conversational citizen queries. In this project, we designed and empirically evaluated an Entity-Aware Hybrid Retrieval and Reranking Framework specifically tailored to Indian Constitutional Law. We combine sparse BM25 lexical search with dense vector embeddings using Reciprocal Rank Fusion, inject an additive rank boost for recognized legal entities, and rerank candidates using a neural Cross-Encoder. To guarantee evidentiary reliability, our system features hierarchical parent-child context recovery, structural citation validation, explainable confidence estimation, and automated abstention for out-of-scope inquiries. On a 200-query constitutional benchmark, our full reranked pipeline achieves an MRR of 0.8583 and an NDCG@10 of 0.7787, with 254 passing automated tests and a live Streamlit diagnostic dashboard."*
+> *"General-purpose chatbots hallucinate legal statutes, while traditional keyword search fails to understand conversational citizen queries. In this project, we designed and empirically evaluated an Entity-Aware Hybrid Retrieval and Reranking Framework specifically tailored to Indian Constitutional Law. We combine sparse BM25 lexical search with dense vector embeddings using Reciprocal Rank Fusion, inject an additive rank boost for recognized legal entities, and rerank candidates using a neural Cross-Encoder. To guarantee evidentiary reliability, our system features hierarchical parent-child context recovery, structural citation validation, claim-level Natural Language Inference (NLI) polarity verification, explainable confidence estimation, and automated abstention for out-of-scope inquiries. On a 200-query constitutional benchmark, our full reranked pipeline achieves an MRR of 0.8583 and an NDCG@10 of 0.7787, with 319 passing automated tests and a live Streamlit legal research interface backed by an authoritative 886-document corpus."*
 
 ---
 
@@ -22,10 +22,10 @@
 >
 > *To solve these issues, we developed an end-to-end 16-stage pipeline:
 > 1. In NLP Query Understanding, we perform legal text normalization, extract entities across 10 categories using hybrid regex and corpus gazetteers (Macro-F1 0.8496), link surface mentions to canonical IDs, classify intent across 11 classes using TF-IDF and Logistic Regression (84.85% accuracy), and expand queries using a controlled legal synonym graph.
-> 2. In Information Retrieval, we implement a multi-stage funnel: BM25Okapi and ChromaDB dense embeddings retrieve candidates independently, merged via Reciprocal Rank Fusion with $k=60$. Detected legal entities receive an additive $+0.15$ boost. A Cross-Encoder (`ms-marco-MiniLM-L-6-v2`) reranks the top 30 candidates to top 5, lifting NDCG@10 to 0.7787.
-> 3. In Generation and Reliability, fine-grained child chunks are hydrated back to full parent Articles and Judgments. The grounded generator synthesizes answers bounded strictly by evidence. A structural citation validator confirms that all citations exist in the verified database and retrieved context, while a 6-signal confidence estimator triggers automated abstention on out-of-scope or unevidenced inputs.
+> 2. In Information Retrieval, we implement a multi-stage funnel: BM25Okapi and ChromaDB dense embeddings (`BAAI/bge-m3` 1024-d / `all-MiniLM-L6-v2` 384-d) retrieve candidates independently, merged via Reciprocal Rank Fusion with $k=60$. Detected legal entities receive an additive $+0.15$ boost. A Cross-Encoder (`ms-marco-MiniLM-L-6-v2`) reranks the top 30 candidates to top 5, lifting NDCG@10 to 0.7787.
+> 3. In Generation and Reliability, fine-grained child chunks are hydrated back to full parent Articles and Judgments (`parent_store.json`). The grounded generator synthesizes answers bounded strictly by evidence. A structural citation validator confirms that all citations exist in the verified database and retrieved context, while a claim-level NLI verifier checks for polarity inversions and a 6-signal confidence estimator triggers automated abstention on out-of-scope or unevidenced inputs.
 >
-> *All components are covered by 254 passing automated tests, zero mock data, and an interactive Streamlit UI featuring a live 10-Stage Pipeline Inspector and Empirical Evaluation Dashboard. Thank you, and I look forward to your questions."*
+> *All components are covered by 319 passing automated tests, an authoritative corpus of 886 verified legal documents (477 constitutional articles, 106 amendments, 286 Supreme Court judgments, 17 Central Acts), zero mock data, and an interactive Streamlit UI featuring structured legal presentation and diagnostic inspection. Thank you, and I look forward to your questions."*
 
 ---
 
@@ -42,32 +42,36 @@
 | **7** | Information Retrieval & RRF | Mathematical formulas for BM25, Cosine Sim, RRF ($k=60$), Entity Boost ($+0.15$) | Explain why rank fusion avoids brittle score calibration across disparate metrics (1:30) |
 | **8** | Neural Reranking & Latency | Bi-Encoder vs. Cross-Encoder diagram; CPU latency profile bar chart | Explain cross-attention accuracy gains (+5.9% NDCG@10) vs. ~892 ms latency trade-off (1:00) |
 | **9** | Empirical Results & Ablation | Retrieval results comparison table (Exp 1 to Exp 6) with canonical labels | Show progressive lifts: BM25 (0.7197) $\to$ RRF (0.7262) $\to$ Full (0.7787) NDCG@10 (1:00) |
-| **10** | Conclusion, Limitations & Viva | Summary table, 254 pytest pass, known limitations (10% uncataloged targets, CPU bound) | Conclude honestly on academic contributions and invite viva questions (0:30) |
+| **10** | Conclusion, Limitations & Viva | Summary table, 319 pytest pass, known limitations (10% uncataloged targets in baseline, CPU bound) | Conclude honestly on academic contributions and invite viva questions (0:30) |
 
 ---
 
 ## 4. Live Demonstration Script
 
-1. **Step 1 — Main UI Overview**: Open `http://localhost:8501`. Point out the header, dark legal theme, sidebar system metrics (**270 Parent Contexts**, **1,001 Child Chunks**), and Architecture Engine selection.
-2. **Step 2 — Landmark Case Query**: Click preset button *"Privacy under Art. 21 (Puttaswamy)"*. Click Submit.
-   - Show Strategy badge (`CASE_SEARCH`), Intent badge (`CASE_LAW_QUERY`), Confidence badge (`HIGH (85%)`), and Citation badge (`✅ Citations Validated`).
-   - Show entity pills: `📜 Article 21`, `⚖️ Puttaswamy`, `💡 Privacy`.
-   - Show grounded legal synthesis and verified citation tags.
-3. **Step 3 — 10-Stage Pipeline Diagnostic Inspector**: Expand *"🔬 NLP Pipeline Diagnostic Inspector"*.
-   - Tab 1: Show original query, normalized tokens, and detected language.
-   - Tab 2: Show top retrieved candidates, BM25 ranks, vector ranks, RRF scores, entity boost flags, and Cross-Encoder rerank scores.
-   - Tab 4: Show verified citations matched against `parent_store.json`.
-   - Tab 5: Show the 6-signal confidence breakdown table.
-4. **Step 4 — Landmark Case Comparator**: Click Tab 2 (*"⚖️ Case Comparator"*).
-   - Select *Kesavananda Bharati* (Case A) and *Minerva Mills* (Case B).
-   - Demonstrate the side-by-side comparative analysis of facts, ratios, and amending limits.
-5. **Step 5 — Constitution & Cases Database Explorer**: Click Tab 3 (*"📜 Constitution & Cases Database"*).
-   - Display the searchable pandas dataframe of all 137 articles and 104 judgments.
-6. **Step 6 — Empirical Research Dashboard**: Click Tab 5 (*"📊 Empirical Research Dashboard"*).
-   - Show the interactive retrieval comparison chart (Exp 1 to Exp 6), NDCG@10 vs. Latency curve, intent classification matrix, and benchmark integrity status.
-7. **Step 7 — Automated Abstention**: Return to Tab 1. Type an out-of-scope question: *"What is the penalty for dishonour of cheques under Section 138 of Negotiable Instruments Act?"*. Click Submit.
-   - Show the yellow warning banner: **`🛡️ System Refusal / Abstention Notice`**.
-   - Explain why the system safely abstained to eliminate commercial law hallucinations.
+1. **Step 1 — Main UI Overview**: Open `http://localhost:8501`. Point out the minimalist dark legal theme, sidebar system controls (Top-K slider, Gemini API key toggle, corpus status display, and BGE-M3 / MiniLM embedding engine details).
+2. **Step 2 — Landmark Case Query**: Type or paste: *"What did the Supreme Court rule regarding the Right to Privacy under Article 21 in the Puttaswamy judgment?"*. Click **Ask Assistant**.
+   - Show the **Direct Answer** card synthesizing the 9-judge bench holding.
+   - Show the **Relevant Legal Provisions** section highlighting Article 21 with Part III, Fundamental Rights, and Doc ID.
+   - Show the **Relevant Judgments** section displaying *Justice K.S. Puttaswamy (Retd.) v. Union of India (2017)* with neutral citation `2017 INSC 609`, 9-judge bench, verdict, and ratio decidendi.
+   - Show the **Important Exceptions & Limitations** block articulating the 3-fold proportionality test (Legitimate Aim, Suitability, Proportionality).
+3. **Step 3 — Legal Sources & Citations**:
+   - Inspect the **Legal Sources & Citations** cards displaying `✓ Verified Citation` badges, Doc IDs, and exact text excerpts.
+   - Expand *"View full legal source: 📜 Article 21"* to inspect the complete constitutional text and historical explanation.
+   - Expand *"View full legal source: ⚖️ Justice K.S. Puttaswamy (Retd.) v. Union of India (2017)"* to review the authoritative ratio decidendi and retrieved supporting child passages with their neural rerank scores.
+4. **Step 4 — Technical Details & Verification Audit**:
+   - Expand *"Technical Details & Verification Audit"*.
+   - Point out the 4 key metrics: **Strategy** (`CASE_SEARCH`), **Query Intent** (`CASE_LAW_QUERY`), **Confidence** (`HIGH (0.85)`), and **Citations Checked** (`Validated`).
+   - Point out extracted named legal entities (`ARTICLE: Article 21`, `CASE: Puttaswamy`, `CONCEPT: privacy`), language (`EN`), parents hydrated count, child chunks retrieved count, and confirmation of 0 citation warnings.
+5. **Step 5 — Automated Abstention Demo**:
+   - In the question box, enter an out-of-scope non-constitutional question: *"What is the penalty and procedure for dishonour of cheques under Section 138 of Negotiable Instruments Act?"*. Click **Ask Assistant**.
+   - Show the prominent warning banner: **Notice of Abstention** with reason `Out of Scope / Low Relevance`.
+   - Explain how the multi-signal confidence threshold ($C < 0.30$) and intent routing prevent hallucinations on uncataloged commercial statutes.
+6. **Step 6 — Test Suite & Benchmark Verification**:
+   - In the terminal, show the 100% passing test suite:
+     ```powershell
+     pytest -v
+     ```
+     Highlight the **319 passed tests** executing across unit, integration, regression, and smoke test suites.
 
 ---
 

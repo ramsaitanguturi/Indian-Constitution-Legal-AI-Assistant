@@ -16,7 +16,7 @@ A comprehensive, end-to-end audit was conducted on the entire codebase, evaluati
 3. Propositional semantic grounding and Natural Language Inference (NLI) verification.
 4. Test suite coverage and baseline reproducibility without fabricated metrics.
 
-All identified critical and high-severity defects have been repaired and verified through automated test suites and live experiment runs. The test suite now passes with **265 / 265 passed tests (100% pass rate)**.
+All identified critical and high-severity defects have been repaired and verified through automated test suites and live experiment runs. The test suite now passes with **319 / 319 passed tests (100% pass rate in ~213s)**, incorporating embedding dimension mismatch validation (`test_embedding_dimensions.py`), search warrant QA regression tests (`test_search_warrant_qa_regression.py`), and presentation-layer verification (`test_ui_formatter.py`).
 
 ---
 
