@@ -42,27 +42,27 @@ An empirical, locally runnable Indian Constitutional Law and Legal Research Assi
 
 ## 📸 Application Screenshots
 
-Genuine interface screenshots captured from the running application:
+Genuine interface screenshots freshly captured from the live running application:
 
-| Main Application & RAG Query | Evidence-Grounded Legal Synthesis |
+| Main Application & Control Sidebar | Evidence-Grounded Legal Synthesis |
 |---|---|
 | ![Main App](docs/assets/screenshots/01_home.png) | ![Answer & Citations](docs/assets/screenshots/03_answer_and_citations.png) |
-| *Figure 1: Main interface with research settings sidebar, dark legal theme, and question input.* | *Figure 2: Grounded response with Direct Answer, provisions, ratio decidendi, and citations.* |
+| *Figure 1: Main interface with system configuration sidebar, corpus statistics (886 docs, 7,470 chunks), and query input area.* | *Figure 2: Grounded response with Direct Answer card, constitutional provisions, Puttaswamy ratio, and confidence metric.* |
 
-| 10-Stage NLP Pipeline Inspector | Empirical Research Dashboard |
+| 10-Stage NLP Pipeline Inspector | Legal Sources & Provenance Badges |
 |---|---|
-| ![NLP Inspector](docs/assets/screenshots/04_nlp_inspector.png) | ![Dashboard](docs/assets/screenshots/05_evaluation_dashboard.png) |
-| *Figure 3: Deep diagnostic trace across all internal stages (NER, linking, RRF, reranker).* | *Figure 4: Empirical IR charts, latency curves, and intent confusion matrices.* |
+| ![NLP Inspector](docs/assets/screenshots/04_nlp_inspector.png) | ![Sources View](docs/assets/screenshots/05_evaluation_dashboard.png) |
+| *Figure 3: Technical Details & Verification Audit expander showing retrieval strategy, chunk counts, and grounding trace.* | *Figure 4: Legal Sources & Citations view displaying retrieved source documents with verified provenance records.* |
 
-| Landmark Case Comparator | Automated Safe Abstention |
+| Expanded Legal Source & Cross-Encoder Scores | Automated Safe Abstention Guardrail |
 |---|---|
-| ![Case Comparator](docs/assets/screenshots/06_case_comparator.png) | ![Abstention](docs/assets/screenshots/08_abstention_example.png) |
-| *Figure 5: Side-by-side comparative analysis of landmark Supreme Court rulings.* | *Figure 6: Automated refusal on out-of-scope non-constitutional / commercial queries.* |
+| ![Source & Scores](docs/assets/screenshots/06_case_comparator.png) | ![Abstention](docs/assets/screenshots/08_abstention_example.png) |
+| *Figure 5: Full legal source text, 9-judge bench composition, child passages, and neural cross-encoder re-ranking scores.* | *Figure 6: Automated refusal banner on out-of-scope non-legal queries ("How to bake a chocolate cake with cherries?").* |
 
-| Question Input & Autocomplete | Constitution & Cases Database Explorer |
+| Question Input Interaction | Procedural & Statutory Synthesis |
 |---|---|
-| ![Question Input](docs/assets/screenshots/02_question_input.png) | ![Database Explorer](docs/assets/screenshots/07_database_explorer.png) |
-| *Figure 7: Example constitutional question input.* | *Figure 8: Filterable statutory provision and judicial case database explorer.* |
+| ![Question Input](docs/assets/screenshots/02_question_input.png) | ![Procedural Synthesis](docs/assets/screenshots/07_database_explorer.png) |
+| *Figure 7: Example constitutional question input on Right to Privacy under Article 21.* | *Figure 8: Harmonized procedural statutory synthesis (CrPC 165 search powers cross-referenced with Article 20(3)).* |
 
 ---
 

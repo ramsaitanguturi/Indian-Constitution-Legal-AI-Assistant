@@ -708,39 +708,39 @@ All transformer layers compute cross-attention across all tokens of $Q$ and $D$.
 
 ## Section G: Screenshots and Visual Documentation
 
-All 8 screenshots are stored in `docs/assets/screenshots/` and were captured from the active application:
+All 8 screenshots are stored in `docs/assets/screenshots/` and were freshly captured directly from the live running application:
 
 ### Figure 1: Main Application Home (`docs/assets/screenshots/01_home.png`)
 ![Main Application](docs/assets/screenshots/01_home.png)
-- **Caption**: Main interface of the Indian Constitution Legal AI Assistant. Displays the minimalist header, sidebar research settings (Top-K slider, Gemini API key toggle, corpus status: 886 documents, 7,470 passages, BGE-M3 / MiniLM details), and main query input area.
+- **Caption**: Main interface of the Indian Constitution Legal AI Assistant. Displays the clean dark theme header, sidebar system configuration (Local Fallback TF-IDF + BM25 + Cross-Encoder, Hybrid Retrieval strategy, Top-K slider, Minimum Confidence threshold of 0.30), real-time corpus statistics (886 legal documents, 7,470 text chunks across Constitution, Central Acts, and Landmark Cases), and primary query input box.
 
 ### Figure 2: Example Question Input (`docs/assets/screenshots/02_question_input.png`)
 ![Question Input](docs/assets/screenshots/02_question_input.png)
-- **Caption**: Submitting a landmark constitutional query regarding Right to Privacy under Article 21 and the *Puttaswamy* judgment.
+- **Caption**: Entering a landmark constitutional query regarding the Right to Privacy under Article 21 and the Supreme Court's ruling in *Justice K.S. Puttaswamy (2017)*.
 
 ### Figure 3: Evidence-Grounded Legal Synthesis (`docs/assets/screenshots/03_answer_and_citations.png`)
 ![Answer and Citations](docs/assets/screenshots/03_answer_and_citations.png)
-- **Caption**: Resulting synthesis displaying Direct Answer, Relevant Legal Provisions, Relevant Judgments with neutral citations (`2017 INSC 609`), and verified legal sources with expandable full constitutional text.
+- **Caption**: Evidence-grounded generation output featuring the Direct Answer summary card, Constitutional Provisions & Statutory Framework (Articles 21, 19, 14), Landmark Case Precedents with neutral citations (`2017 INSC 609`), Confidence Score badge (0.94 / High Confidence), and Generation Mode indicator.
 
 ### Figure 4: 10-Stage NLP Pipeline Diagnostic Inspector (`docs/assets/screenshots/04_nlp_inspector.png`)
 ![NLP Inspector](docs/assets/screenshots/04_nlp_inspector.png)
-- **Caption**: Diagnostic trace showing internal pipeline execution: normalized query tokens, language detection, extracted legal entities, RRF candidate ranks, and neural cross-encoder scores.
+- **Caption**: Technical Details & Verification Audit expander open, revealing internal pipeline execution telemetry: retrieval strategy (`HYBRID_RETRIEVAL`), 5 retrieved child chunks, claim-by-claim grounding audit, and end-to-end processing latency.
 
-### Figure 5: Empirical Research Dashboard (`docs/assets/screenshots/05_evaluation_dashboard.png`)
+### Figure 5: Legal Sources & Citations View (`docs/assets/screenshots/05_evaluation_dashboard.png`)
 ![Evaluation Dashboard](docs/assets/screenshots/05_evaluation_dashboard.png)
-- **Caption**: Empirical evaluation dashboard visualizing IR ablation curves (Exp 1 to Exp 6), NDCG@10 vs. Latency trade-offs, and intent classification confusion matrix.
+- **Caption**: Legal Sources & Citations view displaying retrieved source documents, source classification badges (Landmark Case vs Constitution vs Central Acts), verified provenance records, and relevance rankings.
 
-### Figure 6: Landmark Case Comparator (`docs/assets/screenshots/06_case_comparator.png`)
+### Figure 6: Expanded Legal Source & Cross-Encoder Reranking (`docs/assets/screenshots/06_case_comparator.png`)
 ![Case Comparator](docs/assets/screenshots/06_case_comparator.png)
-- **Caption**: Side-by-side comparative analysis of *Kesavananda Bharati v. State of Kerala* (1973) and *Minerva Mills v. Union of India* (1980) analyzing basic structure doctrine limitations.
+- **Caption**: Expanded full legal source text showing judicial bench composition (9-judge Constitution Bench), authoritative ratio decidendi from *Justice K.S. Puttaswamy (Retd.) v. Union of India*, constituent child chunks, and neural cross-encoder re-ranking scores.
 
-### Figure 7: Constitution & Cases Database Explorer (`docs/assets/screenshots/07_database_explorer.png`)
+### Figure 7: Procedural & Statutory Synthesis (`docs/assets/screenshots/07_database_explorer.png`)
 ![Database Explorer](docs/assets/screenshots/07_database_explorer.png)
-- **Caption**: Filterable database explorer allowing users to inspect raw constitutional provisions, amendment history, and Supreme Court decision briefs.
+- **Caption**: Multi-source legal synthesis harmonizing procedural statutory provisions (CrPC Section 165 search powers) with constitutional protections (Article 20(3) privilege against self-incrimination).
 
 ### Figure 8: Automated Safe Abstention Notice (`docs/assets/screenshots/08_abstention_example.png`)
 ![Abstention Notice](docs/assets/screenshots/08_abstention_example.png)
-- **Caption**: Safe abstention behavior on an out-of-scope commercial law query (Negotiable Instruments Act Section 138), demonstrating prevention of legal hallucinations.
+- **Caption**: Automated Safe Abstention Notice triggered when an out-of-scope non-legal query (*"How to bake a chocolate cake with cherries?"*) is submitted, displaying a clear refusal banner to strictly prevent hallucinations outside the Indian legal corpus.
 
 ---
 

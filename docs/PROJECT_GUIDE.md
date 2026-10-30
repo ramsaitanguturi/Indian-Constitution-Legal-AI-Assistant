@@ -538,97 +538,96 @@ python scripts/run_all_evaluations.py
 
 # Chapter 11: Application User Guide & Walkthrough
 
-Below are genuine screenshots captured from the running application on `localhost:8501`, documenting each major user interface feature:
+Below are genuine screenshots freshly captured directly from the live running application on `localhost:8501`, documenting each major user interface feature:
 
 ---
 
 ### Feature 1: Main Application Screen & Control Panel
 ![Main Application Screen](assets/screenshots/01_home.png)
 
-*Figure 11.1: Main application home view. Displays the golden legal theme header, sidebar system metrics (270 Parent Contexts, 1,001 Child Chunks), Architecture Engine radio selector (Stage 4 Reliability vs. Legacy Multi-Agent), Top-K slider, and sample query preset gallery.*
+*Figure 11.1: Main application home view. Displays the clean dark legal theme header, sidebar system configuration (Local Fallback TF-IDF + BM25 + Cross-Encoder, Hybrid Retrieval Strategy, Top-K slider, Minimum Confidence threshold 0.30), real-time corpus statistics (886 Total Legal Docs, 7,470 Text Chunks across Constitution, Central Acts, and Landmark Cases), and main query input area.*
 
 **How to Use**:
-1. Inspect the sidebar to confirm that the active engine is set to **Stage 4 Reliability Pipeline**.
-2. Review the system metrics card displaying hydrated parent documents and indexed child passages.
-3. Select an optional top-$K$ value (default: 4).
+1. Inspect the sidebar to confirm system configuration and corpus statistics.
+2. Select an optional top-$K$ value (default: 5) and confidence threshold (default: 0.30).
+3. Review the available models (Local Fallback or Google Gemini API if configured).
 
 ---
 
 ### Feature 2: Constitutional Query Input
 ![Query Input](assets/screenshots/02_question_input.png)
 
-*Figure 11.2: Constitutional Question Input. Demonstrates selecting a benchmark query or typing a custom legal question into the primary input bar.*
+*Figure 11.2: Constitutional Question Input. Demonstrates entering a landmark constitutional query into the primary input bar: "What did the Supreme Court rule regarding the Right to Privacy under Article 21?".*
 
 **How to Use**:
-1. Click any sample preset button (e.g. *Privacy under Art. 21 (Puttaswamy)*) or type a natural language legal prompt.
-2. Press **Enter** or click **🚀 Submit Query to RAG Pipeline**.
+1. Type a natural language legal or constitutional prompt into the text area.
+2. Click the **"Ask Assistant"** button.
 
 ---
 
 ### Feature 3: Grounded Answer & Verified Citations
 ![Answer and Citations](assets/screenshots/03_answer_and_citations.png)
 
-*Figure 11.3: Evidence-grounded generation output. Features Strategy badge (CASE_SEARCH), Intent badge (CASE_LAW_QUERY), Confidence badge (HIGH 85%), Citation badge (Validated), entity pills (Article 21, Puttaswamy, Privacy), and structured legal synthesis.*
+*Figure 11.3: Evidence-grounded generation output. Features the Direct Answer summary card (9-judge Constitution Bench holding in Puttaswamy), Constitutional Provisions & Statutory Framework (Articles 21, 19, 14), Landmark Case Precedents with neutral citations (`2017 INSC 609`), Confidence Score badge (0.94 / High Confidence), and Generation Mode indicator.*
 
 **How to Use**:
-1. Review the strategy, intent, and confidence indicators.
-2. Read the structured synthesis separating **📜 Direct Legal Evidence**, **⚖️ Grounded Legal Analysis**, and **📚 Verified Citations**.
+1. Review the confidence metric and generation mode indicator.
+2. Read the structured synthesis separating **Direct Answer**, **Constitutional Provisions**, and **Landmark Case Precedents**.
 
 ---
 
 ### Feature 4: 10-Stage NLP Pipeline Diagnostic Inspector
 ![NLP Diagnostic Inspector](assets/screenshots/04_nlp_inspector.png)
 
-*Figure 11.4: NLP Pipeline Diagnostic Inspector expanded. Exposes all 10 internal stages: Query Understanding, Retrieval & Ranking scores, Parent Context Recovery, Citations, and the 6-Signal Confidence breakdown.*
+*Figure 11.4: Technical Details & Verification Audit expander open. Exposes internal pipeline execution telemetry: retrieval strategy (`HYBRID_RETRIEVAL`), 5 retrieved child chunks, claim-by-claim grounding audit, and end-to-end processing latency.*
 
 **How to Use**:
-1. Click the expander titled *"🔬 NLP Pipeline Diagnostic Inspector (10-Stage Pipeline Trace)"*.
-2. Navigate the 5 subtabs to verify candidate scores, BM25 ranks, vector ranks, entity boosting flags, and cross-encoder scores.
+1. Click the expander titled *"Technical Details & Verification Audit"*.
+2. Review the retrieval strategy, retrieved chunks count, claim grounding verification status, and latency breakdown.
 
 ---
 
-### Feature 5: Empirical Research Dashboard
-![Empirical Research Dashboard](assets/screenshots/05_evaluation_dashboard.png)
+### Feature 5: Legal Sources & Provenance Badges
+![Sources View](assets/screenshots/05_evaluation_dashboard.png)
 
-*Figure 11.5: Empirical Research Dashboard (Tab 5). Displays quantitative evaluation findings, retrieval ablation charts (Exp 1 to Exp 6), MRR and NDCG@10 metrics, intent confusion matrices, and reproducibility metadata.*
+*Figure 11.5: Legal Sources & Citations view. Displays retrieved source documents, source classification badges (Landmark Case vs Constitution vs Central Acts), verified provenance records, and relevance rankings.*
 
 **How to Use**:
-1. Click the tab titled **"📊 Empirical Research Dashboard"**.
-2. Review the live comparison table of retrieval configurations, latency tradeoffs, and intent classification benchmarks.
+1. Scroll down to the **"Legal Sources & Citations"** section below the answer.
+2. Inspect individual source cards, document types, and verified citation references.
 
 ---
 
-### Feature 6: Landmark Case Comparator
-![Landmark Case Comparator](assets/screenshots/06_case_comparator.png)
+### Feature 6: Expanded Legal Source & Cross-Encoder Scores
+![Source & Scores](assets/screenshots/06_case_comparator.png)
 
-*Figure 11.6: Landmark Case Comparator (Tab 2). Renders side-by-side comparative analysis of two selected Supreme Court decisions.*
+*Figure 11.6: Expanded full legal source text view. Renders the complete judgment text of *Justice K.S. Puttaswamy (Retd.) v. Union of India*, 9-judge bench composition, authoritative ratio decidendi, constituent child passages, and neural cross-encoder re-ranking scores.*
 
 **How to Use**:
-1. Click the tab titled **"⚖️ Case Comparator"**.
-2. Select Case A (*Kesavananda Bharati*) and Case B (*Minerva Mills*).
-3. Compare facts, bench compositions, ratios decidendi, and verdicts side-by-side.
+1. Click to expand any legal source card.
+2. Inspect the complete official text, judicial bench composition, and cross-encoder relevance scores.
 
 ---
 
-### Feature 7: Constitution & Cases Database Explorer
-![Database Explorer](assets/screenshots/07_database_explorer.png)
+### Feature 7: Procedural & Statutory Synthesis
+![Procedural Synthesis](assets/screenshots/07_database_explorer.png)
 
-*Figure 11.7: Database Explorer (Tab 3). Provides interactive searchable pandas dataframes of all 137 constitutional articles and 104 Supreme Court landmark judgments.*
+*Figure 11.7: Multi-source procedural and statutory synthesis. Displays synthesized analysis answering an investigative search procedure query under Section 165 CrPC cross-referenced with Article 20(3) privilege against self-incrimination.*
 
 **How to Use**:
-1. Click the tab titled **"📜 Constitution & Cases Database"**.
-2. Toggle between Constitutional Articles and Supreme Court Judgments to explore full statutory text and ratios.
+1. Submit a procedural criminal or statutory query (e.g., search warrant procedure under CrPC 165).
+2. Examine how the system harmonizes specific statutory sections with overriding constitutional protections.
 
 ---
 
-### Feature 8: Automated Safe Abstention
+### Feature 8: Automated Safe Abstention Notice
 ![Automated Abstention](assets/screenshots/08_abstention_example.png)
 
-*Figure 11.8: Automated Safe Abstention notice. Triggered when an out-of-scope commercial law query (Section 138 Negotiable Instruments Act) is submitted, preventing hallucinations.*
+*Figure 11.8: Automated Safe Abstention Notice. Triggered when an out-of-scope non-legal query (*"How to bake a chocolate cake with cherries?"*) is submitted, displaying a clear refusal banner to strictly prevent hallucinations outside the Indian legal corpus.*
 
 **How to Use**:
-1. Enter an out-of-scope non-constitutional prompt (e.g. *"What is the penalty for cheque bounce under Section 138 of Negotiable Instruments Act?"*).
-2. Observe the standardized yellow refusal banner safely declining to answer based on sub-threshold confidence ($C < 0.30$).
+1. Enter an out-of-scope non-legal query (e.g., a recipe or trivia question).
+2. Observe the standardized amber `Notice of Abstention` banner explaining that the query lies outside the constitutional and statutory legal domain.
 
 ---
 
