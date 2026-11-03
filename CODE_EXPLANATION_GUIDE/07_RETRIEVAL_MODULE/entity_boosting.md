@@ -50,7 +50,7 @@ from config import ENTITY_BOOST_WEIGHT
 | `config.ENTITY_BOOST_WEIGHT` | Imported from `config.py` (line 74), defaults to `0.15`. Controls the magnitude of the score boost. |
 
 ### Downstream Dependencies (Who calls this file?)
-- **`retrieval/hybrid_retrieval.py`** (`HybridRetriever.retrieve()` calls `apply_entity_boost` when `enable_entity_boost=True`).
+- **`retrieval/hybrid_retriever.py`** (`HybridRetriever.retrieve()` calls `apply_entity_boost` when `enable_entity_boost=True`).
 - **`retriever.py`** (`HybridRRFRetriever.retrieve_with_boost()` calls `apply_entity_boost`).
 - **`rag/pipeline.py`** (`LegalRAGPipeline.run()` calls `apply_entity_boost` during pipeline Stage 7).
 

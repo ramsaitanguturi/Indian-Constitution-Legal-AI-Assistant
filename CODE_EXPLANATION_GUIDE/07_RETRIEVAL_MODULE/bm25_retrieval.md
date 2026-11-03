@@ -1,6 +1,6 @@
 # Code Explanation: `retrieval/bm25_retriever.py` 📖
 
-> **Source File**: [`retrieval/bm25_retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/bm25_retriever.py)  
+> **Source File**: [`retrieval/bm25_retriever.py`](../../retrieval/bm25_retriever.py)  
 > **Lines of Code**: 198 lines  
 > **Primary Responsibility**: Sparse lexical keyword retrieval using BM25Okapi, statutory compound tokenization, score normalization to $[0, 1]$, and standardized candidate formatting.
 
@@ -9,12 +9,12 @@
 ## 1. Basic Introduction
 
 ### What is this file?
-[`retrieval/bm25_retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/bm25_retriever.py) defines the sparse lexical search engine. It indexes the text of all 7,470 child passages using the industry-standard **BM25Okapi** algorithm ($k_1=1.5, b=0.75$).
+[`retrieval/bm25_retriever.py`](../../retrieval/bm25_retriever.py) defines the sparse lexical search engine. It indexes the text of all 7,470 child passages using the industry-standard **BM25Okapi** algorithm ($k_1=1.5, b=0.75$).
 
 ### Why does this file exist?
 While dense vector embeddings capture high-level concepts, they struggle with exact statutory numbers (*"Article 21"* vs *"Article 21A"* or *"Section 165"* vs *"Section 166"*). Furthermore, Indian judgments carry neutral legal citations such as `1973 INSC 258` that embedding bi-encoders do not encode well.
 
-[`retrieval/bm25_retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/bm25_retriever.py) introduces a **custom legal compound tokenizer** that explicitly preserves statutory compound tokens so that exact statutory references receive massive term frequency relevance scores.
+[`retrieval/bm25_retriever.py`](../../retrieval/bm25_retriever.py) introduces a **custom legal compound tokenizer** that explicitly preserves statutory compound tokens so that exact statutory references receive massive term frequency relevance scores.
 
 ---
 
@@ -22,7 +22,7 @@ While dense vector embeddings capture high-level concepts, they struggle with ex
 
 Standard English tokenizers split `Article 21` into `["article", "21"]`. Because `"article"` appears thousands of times across the Constitution, its inverse document frequency (IDF) drops near zero.
 
-[`simple_tokenize`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/bm25_retriever.py#L21-L40) solves this by appending synthetic compound tokens:
+[`simple_tokenize`](../../retrieval/bm25_retriever.py#L21-L40) solves this by appending synthetic compound tokens:
 ```python
 # Lines 21-40 in retrieval/bm25_retriever.py
 def simple_tokenize(text: str) -> List[str]:
@@ -66,7 +66,7 @@ def simple_tokenize(text: str) -> List[str]:
 
 ## 4. Key Method: `retrieve(query, top_k=20, filter_doc_type=None)`
 
-- **Lines in Source**: [Lines 91–198](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/bm25_retriever.py#L91-L198)
+- **Lines in Source**: [Lines 91–198](../../retrieval/bm25_retriever.py#L91-L198)
 - **Input Parameters**:
   - `query` (str): Search string.
   - `top_k` (int): Number of candidates (default 20).
@@ -141,7 +141,7 @@ for rank, idx in enumerate(ranked_indices, start=1):
 
 ## 7. Connection to Other Files
 
-- **Called by**: [`retrieval/hybrid_retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/hybrid_retriever.py) (retrieves top 30 sparse candidates).
-- **Benchmarked in**: [`experiments/experiment_01_bm25.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/experiments/experiment_01_bm25.py).
+- **Called by**: [`retrieval/hybrid_retriever.py`](../../retrieval/hybrid_retriever.py) (retrieves top 30 sparse candidates).
+- **Benchmarked in**: [`experiments/experiment_01_bm25.py`](../../experiments/experiment_01_bm25.py).
 - **Proceed to**: [**`hybrid_retrieval.md`**](hybrid_retrieval.md) to inspect how BM25 and Dense search are fused and reranked.
 

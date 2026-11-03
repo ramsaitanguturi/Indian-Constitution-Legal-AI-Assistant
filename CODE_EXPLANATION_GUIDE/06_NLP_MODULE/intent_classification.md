@@ -1,6 +1,6 @@
 # Code Explanation: `nlp/intent_classifier.py` 🎯
 
-> **Source File**: [`nlp/intent_classifier.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/intent_classifier.py)  
+> **Source File**: [`nlp/intent_classifier.py`](../../nlp/intent_classifier.py)  
 > **Lines of Code**: 441 lines  
 > **Primary Responsibility**: Dual-tier intent classification combining deterministic domain rules with a supervised Scikit-learn Machine Learning pipeline (TF-IDF + Logistic Regression).
 
@@ -9,7 +9,7 @@
 ## 1. Basic Introduction
 
 ### What is this file?
-[`nlp/intent_classifier.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/intent_classifier.py) identifies the legal purpose and research goal behind a user's query. It categorizes incoming questions into one of **10 constitutional intent classes** or detects that the question is **`OUT_OF_SCOPE`**.
+[`nlp/intent_classifier.py`](../../nlp/intent_classifier.py) identifies the legal purpose and research goal behind a user's query. It categorizes incoming questions into one of **10 constitutional intent classes** or detects that the question is **`OUT_OF_SCOPE`**.
 
 ### Why does this file exist?
 Different legal questions demand fundamentally different retrieval strategies:
@@ -17,7 +17,7 @@ Different legal questions demand fundamentally different retrieval strategies:
 - If a user asks *"Compare A.K. Gopalan with Maneka Gandhi"*, the system must retrieve both judgments and structure a side-by-side comparative analysis.
 - If a user asks *"What is the recipe for a chocolate cake?"*, the system must immediately identify the query as `OUT_OF_SCOPE` to trigger automated safe abstention.
 
-[`nlp/intent_classifier.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/intent_classifier.py) implements a **hybrid consensus architecture**: a deterministic rule baseline and a trained machine learning classifier cross-verify each other.
+[`nlp/intent_classifier.py`](../../nlp/intent_classifier.py) implements a **hybrid consensus architecture**: a deterministic rule baseline and a trained machine learning classifier cross-verify each other.
 
 ---
 
@@ -42,7 +42,7 @@ Different legal questions demand fundamentally different retrieval strategies:
 ## 3. Classes in `nlp/intent_classifier.py`
 
 ### Class 1: `RuleBasedIntentClassifier`
-- **Lines in Source**: [Lines 44–177](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/intent_classifier.py#L44-L177)
+- **Lines in Source**: [Lines 44–177](../../nlp/intent_classifier.py#L44-L177)
 - **Purpose**: A deterministic regex and keyword rule engine. Serves as a transparent baseline and instant filter for obvious patterns.
 - **Rule Pattern Lists**:
   - `COMPARISON_MARKERS`: `compare`, `versus`, `difference between`, `shift from`, `gopalan vs`.
@@ -58,7 +58,7 @@ Different legal questions demand fundamentally different retrieval strategies:
 ---
 
 ### Class 2: `MLIntentClassifier`
-- **Lines in Source**: [Lines 179–292](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/intent_classifier.py#L179-L292)
+- **Lines in Source**: [Lines 179–292](../../nlp/intent_classifier.py#L179-L292)
 - **Purpose**: A statistical Machine Learning text classification pipeline built with Scikit-learn.
 - **Pipeline Architecture (`build_pipeline`)**:
   ```python
@@ -86,7 +86,7 @@ Different legal questions demand fundamentally different retrieval strategies:
 ---
 
 ### Class 3: `HybridIntentClassifier`
-- **Lines in Source**: [Lines 294–430](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/intent_classifier.py#L294-L430)
+- **Lines in Source**: [Lines 294–430](../../nlp/intent_classifier.py#L294-L430)
 - **Purpose**: The master orchestrator combining the Rule baseline and the ML classifier with an intelligent arbitration strategy and a **Spurious Out-of-Scope Guard**.
 
 #### Arbitration Logic (`classify` method):
@@ -155,8 +155,8 @@ if top_ml_label == "OUT_OF_SCOPE" and (has_legal_entities or (rule_label != "OUT
 
 ## 6. Connection to Other Files
 
-- **Called by**: [`rag/pipeline.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/pipeline.py) (Stage 5 intent classification).
-- **Feeds into**: [`routing/query_router.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/routing/query_router.py) to decide the retrieval strategy.
-- **Evaluated by**: [`evaluation/intent_eval.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/evaluation/intent_eval.py) across 5-fold Stratified Cross-Validation (Macro-F1 0.8485).
+- **Called by**: [`rag/pipeline.py`](../../rag/pipeline.py) (Stage 5 intent classification).
+- **Feeds into**: [`routing/query_router.py`](../../routing/query_router.py) to decide the retrieval strategy.
+- **Evaluated by**: [`evaluation/intent_eval.py`](../../evaluation/intent_eval.py) across 5-fold Stratified Cross-Validation (Macro-F1 0.8485).
 - **Proceed to**: [**`entity_recognition.md`**](entity_recognition.md) to inspect the 10-class Legal Named Entity Recognition engine.
 

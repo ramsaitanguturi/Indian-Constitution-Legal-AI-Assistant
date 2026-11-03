@@ -60,7 +60,7 @@ This project uses an intentionally curated, modern, production-grade Python stac
 
 ## 3. Dependencies File: `requirements.txt`
 
-The actual [`requirements.txt`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/requirements.txt) in the repository root contains:
+The actual [`requirements.txt`](../requirements.txt) in the repository root contains:
 
 ```text
 streamlit>=1.30.0
@@ -82,7 +82,7 @@ pytest>=8.0.0
 ```
 
 > [!NOTE]
-> The line `pysqlite3-binary; sys_platform == 'linux'` is a specialized patch for Linux servers and Streamlit Cloud. Standard Linux distributions often ship with an older SQLite version ($< 3.35.0$) that ChromaDB rejects. This package safely patches Python's standard `sqlite3` module at runtime (see [`app.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/app.py#L6-L12)). On Windows, standard Python already ships with a modern SQLite engine, so this dependency is safely skipped.
+> The line `pysqlite3-binary; sys_platform == 'linux'` is a specialized patch for Linux servers and Streamlit Cloud. Standard Linux distributions often ship with an older SQLite version ($< 3.35.0$) that ChromaDB rejects. This package safely patches Python's standard `sqlite3` module at runtime (see [`app.py`](../app.py#L6-L12)). On Windows, standard Python already ships with a modern SQLite engine, so this dependency is safely skipped.
 
 ---
 

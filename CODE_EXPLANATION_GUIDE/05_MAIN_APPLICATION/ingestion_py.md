@@ -1,6 +1,6 @@
 # Code Explanation: `ingestion.py` 📥
 
-> **Source File**: [`ingestion.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/ingestion.py)  
+> **Source File**: [`ingestion.py`](../../ingestion.py)  
 > **Lines of Code**: 285 lines  
 > **Primary Responsibility**: Document ingestion facade, parent document parsing, child passage generation, ChromaDB vector indexing, and BM25 index creation.
 
@@ -9,14 +9,14 @@
 ## 1. Basic Introduction
 
 ### What is this file?
-[`ingestion.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/ingestion.py) defines the **Hierarchical Parent-Child Ingestion Engine** for the legal assistant. It is a backward-compatible facade that coordinates document parsing, structure-aware chunking, vector database population, and sparse BM25 indexing.
+[`ingestion.py`](../../ingestion.py) defines the **Hierarchical Parent-Child Ingestion Engine** for the legal assistant. It is a backward-compatible facade that coordinates document parsing, structure-aware chunking, vector database population, and sparse BM25 indexing.
 
 ### Why does this file exist?
 To achieve high retrieval performance without losing legal context, the assistant separates **indexing units** from **generation units**:
 - **Parent documents** retain the entire, unbroken text of Constitutional Articles and Supreme Court decisions (~1,200 characters).
 - **Child passages** are small, dense text snippets (~300 characters / structure-aware clauses) that are indexed in ChromaDB and BM25 for laser-accurate retrieval.
 
-[`ingestion.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/ingestion.py) bridges the legacy baseline pipeline with the production 886-document expanded corpus in [`rag/ingestion.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/ingestion.py), ensuring that existing unit tests and new production workflows run seamlessly.
+[`ingestion.py`](../../ingestion.py) bridges the legacy baseline pipeline with the production 886-document expanded corpus in [`rag/ingestion.py`](../../rag/ingestion.py), ensuring that existing unit tests and new production workflows run seamlessly.
 
 ---
 
@@ -55,7 +55,7 @@ from rag.ingestion import ProductionIngestor, simple_tokenize   # Modular produc
 ## 3. Classes in `ingestion.py`
 
 ### `ParentChildIngestor`
-- **Lines in Source**: [Lines 35–281](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/ingestion.py#L35-L281)
+- **Lines in Source**: [Lines 35–281](../../ingestion.py#L35-L281)
 - **Purpose**: Oversees the parsing of legal JSON files, builds `parent_store`, derives `child_chunks`, and populates ChromaDB and the BM25 index.
 
 #### Attributes:
@@ -195,7 +195,7 @@ for item in const_data:
 
 ## 7. Connection to Other Files
 
-- **Called by**: [`app.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/app.py) (`load_rag_pipeline()`) and [`retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retriever.py).
-- **Delegates to**: [`rag/ingestion.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/ingestion.py) (`ProductionIngestor`) for the full 886-document production corpus.
+- **Called by**: [`app.py`](../../app.py) (`load_rag_pipeline()`) and [`retriever.py`](../../retriever.py).
+- **Delegates to**: [`rag/ingestion.py`](../../rag/ingestion.py) (`ProductionIngestor`) for the full 886-document production corpus.
 - **Proceed to**: [**`retriever_py.md`**](retriever_py.md) to inspect how BM25 and vector search are combined via Reciprocal Rank Fusion.
 

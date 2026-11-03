@@ -83,27 +83,28 @@ This document is the **Comprehensive Master Reference Directory** of all primary
 ## 5. Retrieval & Reranker Subsystem (Stage 3)
 
 ### `HybridRetriever`
-- **File**: [`retrieval/hybrid_retrieval.py`](../../retrieval/hybrid_retrieval.py#L32-L368)
+- **File**: [`retrieval/hybrid_retriever.py`](../../retrieval/hybrid_retriever.py#L26-L367)
 - **Role**: Coordinates BM25, Dense search, RRF fusion, Entity Boost, and Cross-Encoder reranking.
 - **Key Methods**:
   - `retrieve(query, entities, top_k, filter_doc_type) -> List[Dict[str, Any]]`: Returns ranked top-$K$ child passages.
 
 ### `BM25Retriever`
-- **File**: [`retrieval/bm25_retriever.py`](../../retrieval/bm25_retriever.py#L18-L156)
+- **File**: [`retrieval/bm25_retriever.py`](../../retrieval/bm25_retriever.py#L17-L198)
 - **Role**: Sparse lexical search with compound legal identifier preservation.
 - **Key Methods**:
   - `retrieve(query: str, top_k: int = 30) -> List[Dict[str, Any]]`: Scores passages using Rank-BM25 with min-max normalization.
 
 ### `DenseRetriever`
-- **File**: [`retrieval/dense_retrieval.py`](../../retrieval/dense_retrieval.py#L17-L140)
+- **File**: [`retrieval/dense_retriever.py`](../../retrieval/dense_retriever.py#L25-L191)
 - **Role**: Dense semantic vector search over ChromaDB collections.
 - **Key Methods**:
   - `retrieve(query: str, top_k: int = 30) -> List[Dict[str, Any]]`: Queries HNSW index and converts cosine distance to similarity ($s = 1.0 - d$).
 
-### `reciprocal_rank_fusion`
-- **File**: [`retrieval/rrf.py`](../../retrieval/rrf.py#L15-L82)
+### `fuse` (Reciprocal Rank Fusion)
+- **File**: [`retrieval/rrf.py`](../../retrieval/rrf.py#L21-L113)
 - **Role**: Combines sparse and dense candidate lists using Cormack's RRF formula ($k=60$).
-- **Signature**: `reciprocal_rank_fusion(ranked_lists: List[List[Dict]], k: int = 60) -> List[Dict]`
+- **Signature**: `fuse(rank_lists: List[List[Dict[str, Any]]], k: int = 60) -> List[Dict[str, Any]]`
+- **Note**: `retriever.py` wraps this via `HybridRetriever.reciprocal_rank_fusion()`.
 
 ### `apply_entity_boost`
 - **File**: [`retrieval/entity_boost.py`](../../retrieval/entity_boost.py#L104-L261)
@@ -117,7 +118,7 @@ This document is the **Comprehensive Master Reference Directory** of all primary
   - `rerank(query: str, candidates: List[Dict], top_k: int = 5) -> List[Dict[str, Any]]`
 
 ### `BGEM3EmbeddingFunction`
-- **File**: [`retrieval/embeddings.py`](../../retrieval/embeddings.py#L22-L138)
+- **File**: [`retrieval/embeddings.py`](../../retrieval/embeddings.py#L53-L213)
 - **Role**: Generates 1024-d dense embeddings with local SQLite disk caching.
 
 ---
@@ -157,7 +158,7 @@ This document is the **Comprehensive Master Reference Directory** of all primary
 ## 7. Data Ingestion & Evaluation
 
 ### `ProductionIngestor`
-- **File**: [`rag/ingestion.py`](../../rag/ingestion.py#L30-L240)
+- **File**: [`rag/ingestion.py`](../../rag/ingestion.py#L62-L417)
 - **Role**: Builds the 7,470 child passages, saves `parent_store.json`, and upserts vectors to ChromaDB.
 
 ### `BenchmarkRunner`

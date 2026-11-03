@@ -1,6 +1,6 @@
 # Code Explanation: `retrieval/hybrid_retriever.py` 🔀
 
-> **Source File**: [`retrieval/hybrid_retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/hybrid_retriever.py)  
+> **Source File**: [`retrieval/hybrid_retriever.py`](../../retrieval/hybrid_retriever.py)  
 > **Lines of Code**: 367 lines  
 > **Primary Responsibility**: Master multi-stage hybrid search orchestrator with complete ablation switches, Reciprocal Rank Fusion, Legal Entity Boosting, Cross-Encoder Reranking, and Cross-Corpus Diversity Filtering.
 
@@ -9,7 +9,7 @@
 ## 1. Basic Introduction
 
 ### What is this file?
-[`retrieval/hybrid_retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/hybrid_retriever.py) is the central orchestrator for all Information Retrieval. It coordinates the candidate generation from BM25 and ChromaDB, manages rank fusion, applies domain entity boosts, invokes the neural cross-encoder reranker, and enforces diversity constraints across legal corpora.
+[`retrieval/hybrid_retriever.py`](../../retrieval/hybrid_retriever.py) is the central orchestrator for all Information Retrieval. It coordinates the candidate generation from BM25 and ChromaDB, manages rank fusion, applies domain entity boosts, invokes the neural cross-encoder reranker, and enforces diversity constraints across legal corpora.
 
 ### Why does this file exist?
 In academic research and capstone defenses, professors often ask:
@@ -17,7 +17,7 @@ In academic research and capstone defenses, professors often ask:
 - *"What is the exact impact of RRF vs. Linear score weighting?"*
 - *"What does the cross-encoder reranker add over pure embeddings?"*
 
-To answer these questions empirically, [`retrieval/hybrid_retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/hybrid_retriever.py) was built with **component ablation toggles**: every single stage (BM25, Dense, RRF, Entity Boost, Reranker) can be independently enabled or disabled at runtime.
+To answer these questions empirically, [`retrieval/hybrid_retriever.py`](../../retrieval/hybrid_retriever.py) was built with **component ablation toggles**: every single stage (BM25, Dense, RRF, Entity Boost, Reranker) can be independently enabled or disabled at runtime.
 
 ---
 
@@ -126,12 +126,12 @@ for c in ranked_candidates:
 
 ## 6. Connection to Other Files
 
-- **Called by**: [`rag/pipeline.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/pipeline.py) (Lines 215–220).
+- **Called by**: [`rag/pipeline.py`](../../rag/pipeline.py) (Lines 215–220).
 - **Sub-components used**:
-  - [`retrieval/bm25_retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/bm25_retriever.py)
-  - [`retrieval/dense_retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/dense_retriever.py)
-  - [`retrieval/rrf.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/rrf.py)
-  - [`retrieval/entity_boost.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/entity_boost.py)
-  - [`retrieval/reranker.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/reranker.py)
+  - [`retrieval/bm25_retriever.py`](../../retrieval/bm25_retriever.py)
+  - [`retrieval/dense_retriever.py`](../../retrieval/dense_retriever.py)
+  - [`retrieval/rrf.py`](../../retrieval/rrf.py)
+  - [`retrieval/entity_boost.py`](../../retrieval/entity_boost.py)
+  - [`retrieval/reranker.py`](../../retrieval/reranker.py)
 - **Proceed to**: [**`reciprocal_rank_fusion.md`**](reciprocal_rank_fusion.md) to inspect the mathematics of Reciprocal Rank Fusion.
 

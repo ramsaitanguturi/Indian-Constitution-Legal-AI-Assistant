@@ -133,7 +133,7 @@ def calculate_ner_metrics(
 | **MRR** | $0.0 - 1.0$ | How quickly does an attorney see the first relevant statute? (Target $\ge 0.70$). |
 | **NDCG@10** | $0.0 - 1.0$ | Are primary constitutional authorities placed above tangential precedents? |
 | **NER Macro-F1** | $0.0 - 1.0$ | Can the system extract all 10 entity categories without bias toward frequent classes? |
-| **Intent Macro-F1**| $0.0 - 1.0$ | Does the router classify user goals accurately across all 8 intent types? |
+| **Intent Macro-F1**| $0.0 - 1.0$ | Does the router classify user goals accurately across all 11 intent types? |
 | **Citation Precision**| $1.00$ | What percentage of generated citations actually exist in the database and evidence pool? |
 
 ---

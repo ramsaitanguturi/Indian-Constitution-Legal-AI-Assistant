@@ -1,6 +1,6 @@
 # Code Explanation: `retrieval/embeddings.py` 🧠
 
-> **Source File**: [`retrieval/embeddings.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/embeddings.py)  
+> **Source File**: [`retrieval/embeddings.py`](../../retrieval/embeddings.py)  
 > **Lines of Code**: 228 lines  
 > **Primary Responsibility**: Pretrained dense vector embeddings (`BAAI/bge-m3` 1024-d / MiniLM 384-d), L2 vector normalization, automatic CUDA/CPU detection, and persistent SQLite disk caching.
 
@@ -9,14 +9,14 @@
 ## 1. Basic Introduction
 
 ### What is this file?
-[`retrieval/embeddings.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/embeddings.py) defines the dense vector embedding engine for the assistant. It wraps Hugging Face's `sentence-transformers` library into a ChromaDB-compatible `EmbeddingFunction`.
+[`retrieval/embeddings.py`](../../retrieval/embeddings.py) defines the dense vector embedding engine for the assistant. It wraps Hugging Face's `sentence-transformers` library into a ChromaDB-compatible `EmbeddingFunction`.
 
 ### Why does this file exist?
 Computing 1024-dimensional embeddings using a transformer model (`BAAI/bge-m3`) is computationally expensive:
 - Running a forward pass over thousands of legal passages on a CPU takes significant time.
 - If the system re-encoded every passage every time the server rebooted, startup would take 15–20 minutes.
 
-[`retrieval/embeddings.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/embeddings.py) implements a **Persistent SQLite Embedding Disk Cache**:
+[`retrieval/embeddings.py`](../../retrieval/embeddings.py) implements a **Persistent SQLite Embedding Disk Cache**:
 1. It hashes each text using SHA-256: `hash = sha256(text)`.
 2. Before invoking the neural model, it queries `embeddings_cache.sqlite`.
 3. If the vector exists, it reads the binary blob directly in microseconds.
@@ -153,7 +153,7 @@ return results
 
 ## 7. Connection to Other Files
 
-- **Supplied to**: ChromaDB collections created in [`retrieval/dense_retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/dense_retriever.py) and [`rag/ingestion.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/ingestion.py).
-- **Settings from**: [`config.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/config.py) (`BGE_M3_MODEL_NAME`, `BGE_M3_EMBEDDING_DIM`).
+- **Supplied to**: ChromaDB collections created in [`retrieval/dense_retriever.py`](../../retrieval/dense_retriever.py) and [`rag/ingestion.py`](../../rag/ingestion.py).
+- **Settings from**: [`config.py`](../../config.py) (`BGE_M3_MODEL_NAME`, `BGE_M3_EMBEDDING_DIM`).
 - **Proceed to**: [**`dense_retrieval.md`**](dense_retrieval.md) to inspect how ChromaDB executes vector search.
 

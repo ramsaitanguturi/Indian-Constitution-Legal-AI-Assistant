@@ -1,6 +1,6 @@
 # Code Explanation: `retriever.py` 🔍
 
-> **Source File**: [`retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retriever.py)  
+> **Source File**: [`retriever.py`](../../retriever.py)  
 > **Lines of Code**: 376 lines  
 > **Primary Responsibility**: Backward-compatible facade for hybrid search, Reciprocal Rank Fusion (RRF), regex-based legal entity extraction, and parent context rehydration.
 
@@ -9,10 +9,10 @@
 ## 1. Basic Introduction
 
 ### What is this file?
-[`retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retriever.py) is the legacy hybrid retrieval facade. It combines sparse lexical search (BM25Okapi) and dense semantic search (ChromaDB vectors) using **Reciprocal Rank Fusion (RRF)**, enhanced with legal entity context boosting.
+[`retriever.py`](../../retriever.py) is the legacy hybrid retrieval facade. It combines sparse lexical search (BM25Okapi) and dense semantic search (ChromaDB vectors) using **Reciprocal Rank Fusion (RRF)**, enhanced with legal entity context boosting.
 
 ### Why does this file exist?
-As the codebase was upgraded to the enterprise 16-stage pipeline, retrieval logic was modularized into the [`retrieval/`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/) package (`BM25Retriever`, `DenseRetriever`, `fuse`, `apply_entity_boost`, `CrossEncoderReranker`). [`retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retriever.py) preserves exact class names (`HybridRRFRetriever`, `LegalNERExtractor`) and method signatures so existing unit tests and legacy scripts run without breaking.
+As the codebase was upgraded to the enterprise 16-stage pipeline, retrieval logic was modularized into the [`retrieval/`](../../retrieval) package (`BM25Retriever`, `DenseRetriever`, `fuse`, `apply_entity_boost`, `CrossEncoderReranker`). [`retriever.py`](../../retriever.py) preserves exact class names (`HybridRRFRetriever`, `LegalNERExtractor`) and method signatures so existing unit tests and legacy scripts run without breaking.
 
 ---
 
@@ -54,7 +54,7 @@ from retrieval.hybrid_retriever import HybridRetriever
 ## 3. Classes in `retriever.py`
 
 ### Class 1: `LegalNERExtractor`
-- **Lines in Source**: [Lines 38–96](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retriever.py#L38-L96)
+- **Lines in Source**: [Lines 38–96](../../retriever.py#L38-L96)
 - **Purpose**: A regex-driven Named Entity Recognition engine tailored for Indian Constitutional Law. Extracts Article numbers, landmark case names, and core legal concepts.
 - **Key Attributes**:
   - `ARTICLE_PATTERN`: Regex `\b(?:Article|Art\.?|Art)\s*(\d+[A-Z]?|Preamble)\b`.
@@ -67,7 +67,7 @@ from retrieval.hybrid_retriever import HybridRetriever
 ---
 
 ### Class 2: `HybridRRFRetriever`
-- **Lines in Source**: [Lines 99–353](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retriever.py#L99-L353)
+- **Lines in Source**: [Lines 99–353](../../retriever.py#L99-L353)
 - **Purpose**: Orchestrates BM25 search, ChromaDB vector search, Reciprocal Rank Fusion, and parent document rehydration.
 
 #### Constructor: `__init__(ingestor=None, embedding_model_name=None)` (Lines 106–174)
@@ -166,11 +166,11 @@ for child_id in rrf_scores:
 
 ## 6. Connection to Other Files
 
-- **Imported by**: [`app.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/app.py) in `load_rag_pipeline()` and baseline regression tests.
+- **Imported by**: [`app.py`](../../app.py) in `load_rag_pipeline()` and baseline regression tests.
 - **Delegates to**:
-  - [`retrieval/bm25_retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/bm25_retriever.py)
-  - [`retrieval/dense_retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/dense_retriever.py)
-  - [`retrieval/rrf.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/rrf.py)
-  - [`retrieval/entity_boost.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/entity_boost.py)
+  - [`retrieval/bm25_retriever.py`](../../retrieval/bm25_retriever.py)
+  - [`retrieval/dense_retriever.py`](../../retrieval/dense_retriever.py)
+  - [`retrieval/rrf.py`](../../retrieval/rrf.py)
+  - [`retrieval/entity_boost.py`](../../retrieval/entity_boost.py)
 - **Proceed to**: [**`06_NLP_MODULE/README.md`**](../06_NLP_MODULE/README.md) to explore the Natural Language Processing subsystem.
 

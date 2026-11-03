@@ -1,6 +1,6 @@
 # Code Explanation: `nlp/language_detection.py` 🌐
 
-> **Source File**: [`nlp/language_detection.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/language_detection.py)  
+> **Source File**: [`nlp/language_detection.py`](../../nlp/language_detection.py)  
 > **Lines of Code**: 144 lines  
 > **Primary Responsibility**: Script identification, Unicode character block analysis, English grammatical pattern matching, and transliterated Hinglish detection.
 
@@ -9,7 +9,7 @@
 ## 1. Basic Introduction
 
 ### What is this file?
-[`nlp/language_detection.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/language_detection.py) is the entry-gate linguistic classifier for the assistant. It analyzes incoming queries to determine whether they are written in:
+[`nlp/language_detection.py`](../../nlp/language_detection.py) is the entry-gate linguistic classifier for the assistant. It analyzes incoming queries to determine whether they are written in:
 1. **English** (`en`)
 2. **Hindi / Devanagari** (`hi`)
 3. **Transliterated Hinglish** (`hinglish`)
@@ -19,7 +19,7 @@
 ### Why does this file exist?
 In India, legal queries are frequently typed in Romanized Hindi (*"kya police bina warrant ke ghar search kar sakti hai?"*) or Devanagari Hindi (*"क्या पुलिस बिना वारंट के घर की तलाशी ले सकती है?"*). If an unsupported language (or random non-alphabetic gibberish) is fed to the embedding models, it leads to low-relevance results.
 
-[`nlp/language_detection.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/language_detection.py) provides deterministic language identification without requiring heavy, slow third-party dependencies (like `langdetect` or `fasttext`).
+[`nlp/language_detection.py`](../../nlp/language_detection.py) provides deterministic language identification without requiring heavy, slow third-party dependencies (like `langdetect` or `fasttext`).
 
 ---
 
@@ -51,7 +51,7 @@ A set of 18 common Romanized Hindi functional words:
 ## 3. Functions in `nlp/language_detection.py`
 
 ### 1. `detect_script(text: str) -> str`
-- **Lines in Source**: [Lines 28–57](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/language_detection.py#L28-L57)
+- **Lines in Source**: [Lines 28–57](../../nlp/language_detection.py#L28-L57)
 - **What it does**: Inspects Unicode ranges of characters in the string:
   - Devanagari: `\u0900` to `\u097F`
   - Bengali: `\u0980` to `\u09FF`
@@ -67,7 +67,7 @@ A set of 18 common Romanized Hindi functional words:
 ---
 
 ### 2. `detect_language(text: str) -> Dict[str, Any]`
-- **Lines in Source**: [Lines 59–144](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/language_detection.py#L59-L144)
+- **Lines in Source**: [Lines 59–144](../../nlp/language_detection.py#L59-L144)
 - **What it does**:
   1. Calls `detect_script()`.
   2. If script is `devanagari`, returns `language="hi"`, `is_english=False`, `confidence=0.95`.
@@ -146,7 +146,7 @@ if latin_chars / total_letters >= 0.7:
 
 ## 6. Connection to Other Files
 
-- **Called by**: [`rag/pipeline.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/pipeline.py) as Stage 1 before preprocessing.
-- **Feeds into**: [`routing/query_router.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/routing/query_router.py) to confirm supported language.
+- **Called by**: [`rag/pipeline.py`](../../rag/pipeline.py) as Stage 1 before preprocessing.
+- **Feeds into**: [`routing/query_router.py`](../../routing/query_router.py) to confirm supported language.
 - **Proceed to**: [**`07_RETRIEVAL_MODULE/README.md`**](../07_RETRIEVAL_MODULE/README.md) to explore the Information Retrieval subsystem.
 

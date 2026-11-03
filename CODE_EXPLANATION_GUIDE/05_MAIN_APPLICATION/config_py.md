@@ -1,6 +1,6 @@
 # Code Explanation: `config.py` ⚙️
 
-> **Source File**: [`config.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/config.py)  
+> **Source File**: [`config.py`](../../config.py)  
 > **Lines of Code**: 246 lines  
 > **Primary Responsibility**: Centralized configuration management, filesystem path resolution, hyperparameters, model definitions, API key resolution, and collection dimension protection.
 
@@ -9,7 +9,7 @@
 ## 1. Basic Introduction
 
 ### What is this file?
-[`config.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/config.py) is the single source of truth for the entire **Indian Constitution Legal AI Assistant** repository. It contains all directory paths, model identifiers, embedding dimensions, chunking parameters, ranking weights, evaluation settings, and API key lookups.
+[`config.py`](../../config.py) is the single source of truth for the entire **Indian Constitution Legal AI Assistant** repository. It contains all directory paths, model identifiers, embedding dimensions, chunking parameters, ranking weights, evaluation settings, and API key lookups.
 
 ### Why does this file exist?
 In complex machine learning and IR applications, hardcoding file paths, model dimensions, or hyperparameters inside individual code files causes severe issues:
@@ -17,7 +17,7 @@ In complex machine learning and IR applications, hardcoding file paths, model di
 - If you switch from MiniLM (384-d) to BGE-M3 (1024-d), a dimension mismatch can silently corrupt your vector database.
 - If an API key is hardcoded, it risks accidental exposure in version control.
 
-[`config.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/config.py) eliminates these issues by centralizing all settings in one location and enforcing automated directory creation and dimension safety checks.
+[`config.py`](../../config.py) eliminates these issues by centralizing all settings in one location and enforcing automated directory creation and dimension safety checks.
 
 ---
 
@@ -126,28 +126,28 @@ except ImportError:
 ## 4. Functions in `config.py`
 
 ### `get_chroma_collection_name(model_name: Optional[str] = None) -> str`
-- **Lines in Source**: [Lines 75–82](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/config.py#L75-L82)
+- **Lines in Source**: [Lines 75–82](../../config.py#L75-L82)
 - **What it does**: Returns `"indian_legal_rag_bgem3"` if `bge-m3` is in the model name; otherwise returns `"indian_legal_rag"` (for MiniLM).
 - **Why it is needed**: ChromaDB collections are bound to a specific vector dimension. Storing 1024-d vectors and 384-d vectors in the same collection causes database corruption. This function ensures each model maps to its dedicated collection.
 
 ---
 
 ### `get_embedding_dimension(model_name: Optional[str] = None) -> int`
-- **Lines in Source**: [Lines 84–90](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/config.py#L84-L90)
+- **Lines in Source**: [Lines 84–90](../../config.py#L84-L90)
 - **What it does**: Returns `1024` for BGE-M3 and `384` for MiniLM.
 - **Why it is needed**: Used by dimension safety checks before inserting vectors into ChromaDB.
 
 ---
 
 ### `validate_collection_dimension(collection: Any, expected_dim: int, model_name: str = "") -> None`
-- **Lines in Source**: [Lines 93–138](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/config.py#L93-L138)
+- **Lines in Source**: [Lines 93–138](../../config.py#L93-L138)
 - **What it does**: Samples an existing embedding from the ChromaDB collection and checks if its length matches `expected_dim`.
 - **Why it is needed**: If a developer accidentally points the 1024-d BGE-M3 model at a collection created with the 384-d MiniLM model, ChromaDB will throw low-level C++ HNSW errors. This function catches the mismatch upfront and raises a clear `ValueError`.
 
 ---
 
 ### `get_gemini_api_key() -> str`
-- **Lines in Source**: [Lines 177–187](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/config.py#L177-L187)
+- **Lines in Source**: [Lines 177–187](../../config.py#L177-L187)
 - **What it does**: Searches for the Google Gemini API key across multiple locations in order of priority:
   1. `os.getenv("GEMINI_API_KEY")`
   2. `os.getenv("GOOGLE_API_KEY")`

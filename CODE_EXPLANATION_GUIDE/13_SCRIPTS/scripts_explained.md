@@ -83,7 +83,7 @@ INTENT DATASET ZERO-LEAKAGE INTEGRITY AUDIT
 [*] Test queries count:       30
 [+] Train ∩ Test Overlap:     0 (PERFECT ZERO LEAKAGE)
 [+] Train ∩ Val Overlap:      0 (PERFECT ZERO LEAKAGE)
-[+] All 8 intent classes represented proportionally.
+[+] All 11 intent classes represented proportionally.
 [+] Audit Status: PASSED (100% Contamination Free)
 =================================================================
 ```

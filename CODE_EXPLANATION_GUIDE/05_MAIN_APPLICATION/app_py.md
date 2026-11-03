@@ -1,6 +1,6 @@
 # Code Explanation: `app.py` 🖥️
 
-> **Source File**: [`app.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/app.py)  
+> **Source File**: [`app.py`](../../app.py)  
 > **Lines of Code**: 672 lines  
 > **Primary Responsibility**: Web application user interface, session state management, user input handling, and presentation of grounded legal responses.
 
@@ -9,10 +9,10 @@
 ## 1. Basic Introduction
 
 ### What is this file?
-[`app.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/app.py) is the primary user-facing entry point for the **Indian Constitution Legal AI Assistant**. It is an interactive, browser-based single-page application built using the Streamlit web framework.
+[`app.py`](../../app.py) is the primary user-facing entry point for the **Indian Constitution Legal AI Assistant**. It is an interactive, browser-based single-page application built using the Streamlit web framework.
 
 ### Why does this file exist?
-Without an accessible graphical interface, users, legal researchers, and examination committee members would have to run complex Python terminal commands or inspect raw JSON files. [`app.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/app.py) wraps the complex 16-stage NLP and retrieval pipeline into a professional, dark-themed legal research portal where anyone can ask a question in natural language and receive an authoritative, structured, and citation-verified legal answer.
+Without an accessible graphical interface, users, legal researchers, and examination committee members would have to run complex Python terminal commands or inspect raw JSON files. [`app.py`](../../app.py) wraps the complex 16-stage NLP and retrieval pipeline into a professional, dark-themed legal research portal where anyone can ask a question in natural language and receive an authoritative, structured, and citation-verified legal answer.
 
 ### What responsibility does it have?
 1. **Linux / Cloud Compatibility**: Patches older SQLite versions at runtime so ChromaDB does not crash on Linux or Streamlit Cloud.
@@ -68,7 +68,7 @@ from rag.pipeline_inspector import render_pipeline_inspector   # Diagnostic insp
 
 ### `load_rag_pipeline()`
 - **Signature**: `@st.cache_resource(show_spinner=False) def load_rag_pipeline()`
-- **Lines in Source**: [Lines 341–372](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/app.py#L341-L372)
+- **Lines in Source**: [Lines 341–372](../../app.py#L341-L372)
 - **What it does**: Initializes the vector database connection, checks whether ChromaDB is already populated, loads the parent store, builds the BM25 index, and initializes the `LegalRAGPipeline`.
 - **Why it is needed**: Embedding models and vector stores take several seconds to load into memory. Using Streamlit's `@st.cache_resource` decorator guarantees that this initialization runs **only once** when the server starts, not every time a user types a character.
 - **Return Value**: Tuple containing `(ingestor, retriever, router, stage4_pipeline)`.
@@ -213,9 +213,9 @@ flowchart TD
 ```
 
 - **Imports from**:
-  - [`config.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/config.py): Hyperparameters and collection paths.
-  - [`rag/pipeline.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/pipeline.py): `get_legal_rag_pipeline()` singleton.
-  - [`rag/ui_formatter.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/ui_formatter.py): `format_legal_pipeline_result()`.
+  - [`config.py`](../../config.py): Hyperparameters and collection paths.
+  - [`rag/pipeline.py`](../../rag/pipeline.py): `get_legal_rag_pipeline()` singleton.
+  - [`rag/ui_formatter.py`](../../rag/ui_formatter.py): `format_legal_pipeline_result()`.
 - **Invoked by**: The user running `streamlit run app.py` from PowerShell or terminal.
 - **Proceed to**: [**`agents_py.md`**](agents_py.md) to learn how specialized LLM agents and heuristic prompt templates work.
 

@@ -60,7 +60,7 @@ Below is the comprehensive catalog of all 28 test files in `tests/`, detailing t
 
 ### 13. `test_intent.py` (12 Tests)
 - **Classes**: `TestRuleBasedClassifier`, `TestMLClassifier`, `TestHybridClassifier`.
-- **Coverage**: Tests intent classification across all 8 classes; verifies spurious out-of-scope guard for queries containing legal entities.
+- **Coverage**: Tests intent classification across all 11 classes; verifies spurious out-of-scope guard for queries containing legal entities.
 
 ### 14. `test_master_pipeline.py` (12 Tests)
 - **Class**: `TestMasterPipeline`.

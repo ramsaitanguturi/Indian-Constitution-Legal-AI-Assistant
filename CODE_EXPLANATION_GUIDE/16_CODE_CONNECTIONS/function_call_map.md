@@ -16,7 +16,7 @@ sequenceDiagram
     participant Pipe as rag/pipeline.py
     participant NLP as nlp/*
     participant Router as routing/query_router.py
-    participant Ret as retrieval/hybrid_retrieval.py
+    participant Ret as retrieval/hybrid_retriever.py
     participant Rerank as retrieval/reranker.py
     participant Recovery as rag/parent_child.py
     participant Gen as rag/generator.py
@@ -52,7 +52,7 @@ sequenceDiagram
         Pipe->>Ret: HybridRetriever.retrieve(...)
         Ret->>Ret: BM25Retriever.retrieve(query)
         Ret->>Ret: DenseRetriever.retrieve(query) [ChromaDB HNSW]
-        Ret->>Ret: reciprocal_rank_fusion(bm25_hits, dense_hits)
+        Ret->>Ret: fuse([bm25_hits, dense_hits], k=60)
         Ret->>Ret: apply_entity_boost(candidates, entities)
         Ret->>Rerank: CrossEncoderReranker.rerank(query, top_30, top_k=5)
         Rerank-->>Ret: Top 5 Neural Ranked Chunks
@@ -125,16 +125,17 @@ sequenceDiagram
 ---
 
 ### Phase 4: Retrieval & Reranker Sub-tree:
-1. `retrieval.hybrid_retrieval:HybridRetriever.retrieve(...)`
+1. `retrieval.hybrid_retriever:HybridRetriever.retrieve(...)`
    - `retrieval.bm25_retriever:BM25Retriever.retrieve(query, top_k=30)`:
      - `simple_tokenize(query)`: Compound phrase handling.
      - `BM25Okapi.get_scores()`: Rank-BM25 scoring.
-   - `retrieval.dense_retrieval:DenseRetriever.retrieve(query, top_k=30)`:
+   - `retrieval.dense_retriever:DenseRetriever.retrieve(query, top_k=30)`:
      - `retrieval.embeddings:BGEM3EmbeddingFunction.__call__(query)`: Checks SQLite cache $\to$ runs Transformer encoder.
      - `chromadb.Collection.query()`: HNSW approximate nearest neighbor search.
      - Inverts distance to similarity: $s = 1.0 - d$.
-   - `retrieval.rrf:reciprocal_rank_fusion(bm25_hits, dense_hits, k=60)`:
+   - `retrieval.rrf:fuse(rank_lists=[bm25_hits, dense_hits], k=60)`:
      - Combines ranks via Cormack SIGIR formula.
+     - Note: `retriever.py` wraps this via `HybridRetriever.reciprocal_rank_fusion()`.
    - `retrieval.entity_boost:apply_entity_boost(candidates, entities)`:
      - Awards $+0.150$ for Article/Case match; $+0.075$ for concept match.
    - `retrieval.reranker:CrossEncoderReranker.rerank(query, candidates, top_k=5)`:

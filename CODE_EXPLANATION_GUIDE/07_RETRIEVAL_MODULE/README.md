@@ -1,7 +1,7 @@
 # 07: Retrieval & Ranking Module Overview 🔎
 
 > **Subsystem**: Stage 3 Information Retrieval & Neural Reranking  
-> **Source Directory**: [`retrieval/`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/)  
+> **Source Directory**: [`retrieval/`](../../retrieval)  
 > **Primary Responsibility**: Multi-stage candidate retrieval, Reciprocal Rank Fusion, Legal Entity Rank Boosting, and Cross-Encoder Neural Reranking.
 
 ---
@@ -30,13 +30,13 @@ flowchart TD
 
 | Documentation File | Source Python File | Core Purpose & Capabilities |
 |---|---|---|
-| [**`embeddings.md`**](embeddings.md) | [`retrieval/embeddings.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/embeddings.py) | `BAAI/bge-m3` (1024-d) & MiniLM (384-d) wrapper with L2 normalization, CPU/CUDA fallback, and SQLite disk caching. |
-| [**`dense_retrieval.md`**](dense_retrieval.md) | [`retrieval/dense_retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/dense_retriever.py) | ChromaDB vector search, cosine distance to similarity conversion ($1.0 - \text{dist}$), metadata filtering. |
-| [**`bm25_retrieval.md`**](bm25_retrieval.md) | [`retrieval/bm25_retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/bm25_retriever.py) | BM25Okapi scoring with compound statutory tokenization (`article_21`, `section_165`, `1973insc258`). |
-| [**`hybrid_retrieval.md`**](hybrid_retrieval.md) | [`retrieval/hybrid_retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/hybrid_retriever.py) | Master multi-stage hybrid search orchestrator with complete ablation toggles and corpus diversity filtering. |
-| [**`reciprocal_rank_fusion.md`**](reciprocal_rank_fusion.md) | [`retrieval/rrf.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/rrf.py) | Merges disparate score distributions strictly by rank reciprocity ($k=60$). |
-| [**`entity_boosting.md`**](entity_boosting.md) | [`retrieval/entity_boost.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/entity_boost.py) | Additive $+0.15$ ranking boost for candidate passages matching recognized legal entities. |
-| [**`reranking.md`**](reranking.md) | [`retrieval/reranker.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/reranker.py) | Joint-attention cross-encoder reranker (`ms-marco-MiniLM-L-6-v2`) scoring query-passage pairs directly. |
+| [**`embeddings.md`**](embeddings.md) | [`retrieval/embeddings.py`](../../retrieval/embeddings.py) | `BAAI/bge-m3` (1024-d) & MiniLM (384-d) wrapper with L2 normalization, CPU/CUDA fallback, and SQLite disk caching. |
+| [**`dense_retrieval.md`**](dense_retrieval.md) | [`retrieval/dense_retriever.py`](../../retrieval/dense_retriever.py) | ChromaDB vector search, cosine distance to similarity conversion ($1.0 - \text{dist}$), metadata filtering. |
+| [**`bm25_retrieval.md`**](bm25_retrieval.md) | [`retrieval/bm25_retriever.py`](../../retrieval/bm25_retriever.py) | BM25Okapi scoring with compound statutory tokenization (`article_21`, `section_165`, `1973insc258`). |
+| [**`hybrid_retrieval.md`**](hybrid_retrieval.md) | [`retrieval/hybrid_retriever.py`](../../retrieval/hybrid_retriever.py) | Master multi-stage hybrid search orchestrator with complete ablation toggles and corpus diversity filtering. |
+| [**`reciprocal_rank_fusion.md`**](reciprocal_rank_fusion.md) | [`retrieval/rrf.py`](../../retrieval/rrf.py) | Merges disparate score distributions strictly by rank reciprocity ($k=60$). |
+| [**`entity_boosting.md`**](entity_boosting.md) | [`retrieval/entity_boost.py`](../../retrieval/entity_boost.py) | Additive $+0.15$ ranking boost for candidate passages matching recognized legal entities. |
+| [**`reranking.md`**](reranking.md) | [`retrieval/reranker.py`](../../retrieval/reranker.py) | Joint-attention cross-encoder reranker (`ms-marco-MiniLM-L-6-v2`) scoring query-passage pairs directly. |
 
 ---
 

@@ -1,6 +1,6 @@
 # Code Explanation: `nlp/query_expansion.py` 📈
 
-> **Source File**: [`nlp/query_expansion.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/query_expansion.py)  
+> **Source File**: [`nlp/query_expansion.py`](../../nlp/query_expansion.py)  
 > **Lines of Code**: 130 lines  
 > **Primary Responsibility**: Controlled legal query expansion mapping conversational citizen phrasing to formal constitutional terms using a verified synonym graph.
 
@@ -9,12 +9,12 @@
 ## 1. Basic Introduction
 
 ### What is this file?
-[`nlp/query_expansion.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/query_expansion.py) bridges the colloquial language of non-lawyers with the formal statutory phrasing of the Indian Constitution and Central Acts.
+[`nlp/query_expansion.py`](../../nlp/query_expansion.py) bridges the colloquial language of non-lawyers with the formal statutory phrasing of the Indian Constitution and Central Acts.
 
 ### Why does this file exist?
 Unconstrained query expansion (such as generating 10 synonyms using an unconstrained LLM or WordNet) frequently causes **Query Drift**. For example, expanding *"arrest"* to *"detention"*, *"custody"*, *"hostage"*, *"imprisonment"*, *"jail"* introduces irrelevant terms that pull the search engine toward unrelated statutes.
 
-[`nlp/query_expansion.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/query_expansion.py) implements **controlled, deterministic query expansion**:
+[`nlp/query_expansion.py`](../../nlp/query_expansion.py) implements **controlled, deterministic query expansion**:
 - Uses an authoritative, domain-curated legal synonym graph (`nlp/legal_synonyms.json`).
 - Enforces a strict ceiling of **`max_terms = 3`**.
 - Matches whole-word boundaries only.
@@ -158,7 +158,7 @@ for trigger in sorted_triggers:
 
 ## 6. Connection to Other Files
 
-- **Called by**: [`rag/pipeline.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/pipeline.py) (Stage 6 query expansion).
-- **Feeds into**: [`routing/query_router.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/routing/query_router.py) and [`retrieval/hybrid_retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/hybrid_retriever.py) as the primary search query.
+- **Called by**: [`rag/pipeline.py`](../../rag/pipeline.py) (Stage 6 query expansion).
+- **Feeds into**: [`routing/query_router.py`](../../routing/query_router.py) and [`retrieval/hybrid_retriever.py`](../../retrieval/hybrid_retriever.py) as the primary search query.
 - **Proceed to**: [**`language_detection.md`**](language_detection.md) to inspect how incoming language scripts and Hinglish tokens are identified.
 

@@ -1,6 +1,6 @@
 # Code Explanation: `retrieval/rrf.py` ⚖️
 
-> **Source File**: [`retrieval/rrf.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/rrf.py)  
+> **Source File**: [`retrieval/rrf.py`](../../retrieval/rrf.py)  
 > **Lines of Code**: 113 lines  
 > **Primary Responsibility**: Mathematical rank reciprocity fusion combining disparate scoring distributions (BM25 vs. Dense vectors) into a unified, scale-invariant ranking.
 
@@ -9,7 +9,7 @@
 ## 1. Basic Introduction
 
 ### What is this file?
-[`retrieval/rrf.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/rrf.py) implements **Reciprocal Rank Fusion (RRF)**, a mathematical rank aggregation algorithm developed by Cormack, Clarke, and Buettcher (SIGIR 2009).
+[`retrieval/rrf.py`](../../retrieval/rrf.py) implements **Reciprocal Rank Fusion (RRF)**, a mathematical rank aggregation algorithm developed by Cormack, Clarke, and Buettcher (SIGIR 2009).
 
 ### Why does this file exist?
 When combining BM25 keyword search with dense vector search, you encounter the **Score Calibration Problem**:
@@ -115,7 +115,7 @@ source_ranks[cand_key][f"list_{list_idx}"] = item_rank
 
 ## 6. Connection to Other Files
 
-- **Called by**: [`retrieval/hybrid_retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/hybrid_retriever.py) (Step 3 candidate merging).
-- **Benchmarked in**: [`experiments/experiment_04_rrf.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/experiments/experiment_04_rrf.py) (shows NDCG@10 jumping from 0.5739 to **0.6558**).
+- **Called by**: [`retrieval/hybrid_retriever.py`](../../retrieval/hybrid_retriever.py) (Step 3 candidate merging).
+- **Benchmarked in**: [`experiments/experiment_04_rrf.py`](../../experiments/experiment_04_rrf.py) (shows NDCG@10 jumping from 0.5739 to **0.6558**).
 - **Proceed to**: [**`entity_boosting.md`**](entity_boosting.md) to inspect how legal entities receive additive ranking boosts.
 

@@ -89,7 +89,7 @@ $$d(\vec{q}, \vec{p}) = 1 - \frac{\vec{q} \cdot \vec{p}}{\|\vec{q}\|_2 \|\vec{p}
 - Orthogonal vectors $\to d = 1.0$.
 - Diametrically opposite vectors $\to d = 2.0$.
 
-### Similarity Inversion in `DenseRetriever` (`retrieval/dense_retrieval.py`):
+### Similarity Inversion in `DenseRetriever` (`retrieval/dense_retriever.py`):
 Information retrieval rankings require scores where **higher is better**. `DenseRetriever` converts distance into similarity:
 $$s = 1.0 - d = \frac{\vec{q} \cdot \vec{p}}{\|\vec{q}\|_2 \|\vec{p}\|_2}$$
 Candidates are sorted descending by $s$.

@@ -106,7 +106,7 @@ Let us examine each stage in detail, highlighting the exact Python function call
 ---
 
 ### Stage 1: Input Ingestion & Page Setup
-- **File**: [`app.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/app.py) (Lines 436–465)
+- **File**: [`app.py`](../app.py) (Lines 436–465)
 - **What Happens**:
   - The user enters `"Can police search my house without a warrant under Article 21 and CrPC?"` in the Streamlit `st.text_area`.
   - The user clicks `"Ask Assistant"`.
@@ -123,7 +123,7 @@ Let us examine each stage in detail, highlighting the exact Python function call
 ---
 
 ### Stage 2: Language Detection
-- **File**: [`nlp/language_detection.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/language_detection.py) (Function: `detect_language`)
+- **File**: [`nlp/language_detection.py`](../nlp/language_detection.py) (Function: `detect_language`)
 - **Input**: `"Can police search my house without a warrant under Article 21 and CrPC?"`
 - **Processing**:
   - Counts script blocks using regex: Devanagari characters vs. Latin characters.
@@ -143,7 +143,7 @@ Let us examine each stage in detail, highlighting the exact Python function call
 ---
 
 ### Stage 3: Text Normalization & Abbreviation Expansion
-- **File**: [`nlp/preprocessing.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/preprocessing.py) (Function: `normalize_legal_text`)
+- **File**: [`nlp/preprocessing.py`](../nlp/preprocessing.py) (Function: `normalize_legal_text`)
 - **Input**: Raw query string.
 - **Processing**:
   - Calls `clean_unicode_and_quotes` (normalizes NFKC, converts curved quotes to standard ASCII).
@@ -159,7 +159,7 @@ Let us examine each stage in detail, highlighting the exact Python function call
 ---
 
 ### Stage 4: Legal Named Entity Recognition (NER)
-- **File**: [`nlp/legal_ner.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/legal_ner.py) (Class: `LegalNER`, Method: `extract_entities`)
+- **File**: [`nlp/legal_ner.py`](../nlp/legal_ner.py) (Class: `LegalNER`, Method: `extract_entities`)
 - **Processing**:
   - Evaluates regex patterns for statutory citations: matches `Article 21` $\to$ category `ARTICLE`.
   - Searches gazetteer for Central Acts: matches `Code of Criminal Procedure` $\to$ category `ACT`.
@@ -178,7 +178,7 @@ Let us examine each stage in detail, highlighting the exact Python function call
 ---
 
 ### Stage 5: Canonical Entity Linking
-- **File**: [`nlp/entity_linking.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/entity_linking.py) (Class: `EntityLinker`, Method: `link_all`)
+- **File**: [`nlp/entity_linking.py`](../nlp/entity_linking.py) (Class: `EntityLinker`, Method: `link_all`)
 - **Processing**:
   - Takes extracted entities and normalizes keys against the pre-indexed alias registry.
   - Resolves `Article 21` to canonical database ID `ARTICLE_21`.
@@ -200,7 +200,7 @@ Let us examine each stage in detail, highlighting the exact Python function call
 ---
 
 ### Stage 6: Intent Classification
-- **File**: [`nlp/intent_classifier.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/intent_classifier.py) (Class: `HybridIntentClassifier`, Method: `classify`)
+- **File**: [`nlp/intent_classifier.py`](../nlp/intent_classifier.py) (Class: `HybridIntentClassifier`, Method: `classify`)
 - **Processing**:
   - The query contains words: `"search house"`, `"without warrant"`, `"Article 21"`.
   - Rule classifier matches the personal liberty/search pattern $\to$ predicts `RIGHTS_QUERY` ($0.86$ confidence).
@@ -220,7 +220,7 @@ Let us examine each stage in detail, highlighting the exact Python function call
 ---
 
 ### Stage 7: Controlled Query Expansion
-- **File**: [`nlp/query_expansion.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/query_expansion.py) (Class: `QueryExpander`, Method: `expand`)
+- **File**: [`nlp/query_expansion.py`](../nlp/query_expansion.py) (Class: `QueryExpander`, Method: `expand`)
 - **Processing**:
   - Matches the trigger concept `"search without warrant"` in `legal_synonyms.json`.
   - Retrieves domain synonyms: `Section 165 CrPC`, `procedure established by law`, `inviolability of home`.
@@ -233,7 +233,7 @@ Let us examine each stage in detail, highlighting the exact Python function call
 ---
 
 ### Stage 8: Specialized Query Routing & Strategy Selection
-- **File**: [`routing/query_router.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/routing/query_router.py) (Class: `QueryRouter`, Method: `route`)
+- **File**: [`routing/query_router.py`](../routing/query_router.py) (Class: `QueryRouter`, Method: `route`)
 - **Processing**:
   - Analyzes intent (`RIGHTS_QUERY`), language (`en`), and entities (`Article 21`, `CrPC`).
   - Chooses strategy `RIGHTS_SEARCH`.
@@ -259,7 +259,7 @@ Let us examine each stage in detail, highlighting the exact Python function call
 ---
 
 ### Stage 9: Early Abstention Check (Router Level)
-- **File**: [`rag/abstention.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/abstention.py) (Class: `AbstentionManager`, Method: `evaluate`)
+- **File**: [`rag/abstention.py`](../rag/abstention.py) (Class: `AbstentionManager`, Method: `evaluate`)
 - **Processing**:
   - Evaluates `is_out_of_scope` flag and query emptiness.
   - Query is valid legal text; `should_abstain = False`. Pipeline proceeds to retrieval.
@@ -267,11 +267,11 @@ Let us examine each stage in detail, highlighting the exact Python function call
 ---
 
 ### Stage 10: Candidate Retrieval (BM25 + Dense BGE-M3)
-- **File**: [`retrieval/hybrid_retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/hybrid_retriever.py) (Method: `retrieve`)
-- **Sparse BM25 Search** ([`retrieval/bm25_retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/bm25_retriever.py)):
+- **File**: [`retrieval/hybrid_retriever.py`](../retrieval/hybrid_retriever.py) (Method: `retrieve`)
+- **Sparse BM25 Search** ([`retrieval/bm25_retriever.py`](../retrieval/bm25_retriever.py)):
   - Tokenizes query preserving compound statutory markers: `['police', 'search', 'house', 'warrant', 'article_21', 'section_165']`.
   - Returns top 30 passages ranked by BM25Okapi scores.
-- **Dense Vector Search** ([`retrieval/dense_retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/dense_retriever.py)):
+- **Dense Vector Search** ([`retrieval/dense_retriever.py`](../retrieval/dense_retriever.py)):
   - Generates 1024-dimensional embedding using `BAAI/bge-m3` (with SQLite cache lookup).
   - Queries ChromaDB collection `indian_legal_rag_bgem3` using cosine distance.
   - Inverts distance to similarity ($1.0 - \text{distance}$) and returns top 30 passages.
@@ -279,7 +279,7 @@ Let us examine each stage in detail, highlighting the exact Python function call
 ---
 
 ### Stage 11: Reciprocal Rank Fusion (RRF)
-- **File**: [`retrieval/rrf.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/rrf.py) (Function: `fuse`)
+- **File**: [`retrieval/rrf.py`](../retrieval/rrf.py) (Function: `fuse`)
 - **Processing**:
   - Blends the two 30-item candidate lists using formula:
     $$\text{Score}(d) = \frac{1}{60 + \text{rank}_{\text{BM25}}(d)} + \frac{1}{60 + \text{rank}_{\text{Dense}}(d)}$$
@@ -288,7 +288,7 @@ Let us examine each stage in detail, highlighting the exact Python function call
 ---
 
 ### Stage 12: Legal Entity-Aware Ranking Boost
-- **File**: [`retrieval/entity_boost.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/entity_boost.py) (Function: `apply_entity_boost`)
+- **File**: [`retrieval/entity_boost.py`](../retrieval/entity_boost.py) (Function: `apply_entity_boost`)
 - **Processing**:
   - Inspects each candidate's metadata for matches with `Article 21` or `Code of Criminal Procedure`.
   - Candidate chunk `child_const_art_021_cl_0` matches `Article 21` $\to$ receives $+0.15$ additive boost.
@@ -298,17 +298,17 @@ Let us examine each stage in detail, highlighting the exact Python function call
 ---
 
 ### Stage 13: Neural Cross-Encoder Reranking & Diversity
-- **File**: [`retrieval/reranker.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/reranker.py) (Class: `CrossEncoderReranker`, Method: `rerank`)
+- **File**: [`retrieval/reranker.py`](../retrieval/reranker.py) (Class: `CrossEncoderReranker`, Method: `rerank`)
 - **Processing**:
   - Feeds 30 pairs of `(query, passage_text)` into `cross-encoder/ms-marco-MiniLM-L-6-v2`.
   - Cross-attention evaluates token-to-token interactions directly, outputting neural logit scores.
-  - [`_apply_corpus_diversity`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/hybrid_retriever.py#L281-L332): Ensures that CrPC sections do not take all 5 slots; guarantees that Article 21, CrPC Section 165, and the landmark *Kharak Singh* judgment (inviolability of dwelling) all make the top 5!
+  - [`_apply_corpus_diversity`](../retrieval/hybrid_retriever.py#L281-L332): Ensures that CrPC sections do not take all 5 slots; guarantees that Article 21, CrPC Section 165, and the landmark *Kharak Singh* judgment (inviolability of dwelling) all make the top 5!
 - **Output**: 5 highest-ranked child passages with calibrated rerank scores.
 
 ---
 
 ### Stage 14: Parent Context Recovery
-- **File**: [`rag/parent_child.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/parent_child.py) (Class: `ParentChildRecovery`, Method: `recover`)
+- **File**: [`rag/parent_child.py`](../rag/parent_child.py) (Class: `ParentChildRecovery`, Method: `recover`)
 - **Processing**:
   - Takes the 5 winning child chunks.
   - Looks up their parent IDs (`parent_const_art_021`, `parent_act_crpc_1973`, `parent_case_sc_kharak_singh_1963`) in `parent_store.json`.
@@ -318,7 +318,7 @@ Let us examine each stage in detail, highlighting the exact Python function call
 ---
 
 ### Stage 15: Grounded Legal Answer Generation
-- **File**: [`rag/generator.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/generator.py) (Class: `GroundedGenerator`, Method: `generate`)
+- **File**: [`rag/generator.py`](../rag/generator.py) (Class: `GroundedGenerator`, Method: `generate`)
 - **Processing**:
   - Formulates answer strictly bounded by the recovered parent texts.
   - If a Gemini API key is active, executes Google Gemini with zero temperature (`temperature=0.0`).
@@ -332,7 +332,7 @@ Let us examine each stage in detail, highlighting the exact Python function call
 ---
 
 ### Stage 16: Citation Validation & NLI Contradiction Checking
-- **Files**: [`rag/citation_validator.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/citation_validator.py) & [`rag/nli_verifier.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/nli_verifier.py)
+- **Files**: [`rag/citation_validator.py`](../rag/citation_validator.py) & [`rag/nli_verifier.py`](../rag/nli_verifier.py)
 - **Structural Citation Validation**:
   - Scans answer for `[Doc: ...]` tags.
   - Verifies that `parent_const_art_021` and `parent_act_crpc_1973` actually exist in the database and were part of the retrieved evidence pile.
@@ -344,7 +344,7 @@ Let us examine each stage in detail, highlighting the exact Python function call
 ---
 
 ### Stage 17: Confidence Scoring & Final Abstention Gate
-- **Files**: [`rag/confidence.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/confidence.py) & [`rag/abstention.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/abstention.py)
+- **Files**: [`rag/confidence.py`](../rag/confidence.py) & [`rag/abstention.py`](../rag/abstention.py)
 - **Confidence Estimation**:
   - Evaluates 6 signals: retrieval score ($0.82$), evidence count ($1.0$), entity alignment ($1.0$), method agreement ($0.75$), citation validity ($1.0$), query coverage ($0.85$).
   - Weighted composite confidence score = **0.84** (`HIGH`).
@@ -355,7 +355,7 @@ Let us examine each stage in detail, highlighting the exact Python function call
 ---
 
 ### Stage 18: UI Formatting & Display
-- **Files**: [`rag/ui_formatter.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/ui_formatter.py) & [`app.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/app.py)
+- **Files**: [`rag/ui_formatter.py`](../rag/ui_formatter.py) & [`app.py`](../app.py)
 - **Formatting**:
   - Converts `PipelineResult` into `FormattedLegalAnswer`.
   - Extracts the Direct Answer card.

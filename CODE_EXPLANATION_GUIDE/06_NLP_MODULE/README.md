@@ -1,7 +1,7 @@
 # 06: Natural Language Processing (NLP) Module Overview 🧠
 
 > **Subsystem**: Stage 2 NLP Query Understanding  
-> **Source Directory**: [`nlp/`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/)  
+> **Source Directory**: [`nlp/`](../../nlp)  
 > **Primary Responsibility**: Linguistic preprocessing, 10-class Legal Named Entity Recognition, Canonical Entity Linking, Dual-Tier Intent Classification, Controlled Synonym Expansion, and Language Identification.
 
 ---
@@ -31,12 +31,12 @@ flowchart LR
 
 | Documentation File | Source Python File | Core Purpose & Capabilities |
 |---|---|---|
-| [**`preprocessing.md`**](preprocessing.md) | [`nlp/preprocessing.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/preprocessing.py) | Unicode NFKC normalization, typographic quote cleaning, legal abbreviation expansion (`Art.` $\to$ `Article`, `u/s` $\to$ `under Section`), and compound tokenization. |
-| [**`intent_classification.md`**](intent_classification.md) | [`nlp/intent_classifier.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/intent_classifier.py) | Dual-tier intent classifier: rule baseline + Scikit-learn TF-IDF + Logistic Regression across 10 constitutional intent classes + `OUT_OF_SCOPE`. |
-| [**`entity_recognition.md`**](entity_recognition.md) | [`nlp/legal_ner.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/legal_ner.py) | 10-class legal named entity extractor combining regex rules and dynamically loaded gazetteers from the corpus. |
-| [**`entity_linking.md`**](entity_linking.md) | [`nlp/entity_linking.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/entity_linking.py) | Maps surface mentions, abbreviations, and informal aliases to canonical statutory document IDs (`parent_const_art_021`). |
-| [**`query_expansion.md`**](query_expansion.md) | [`nlp/query_expansion.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/query_expansion.py) | Deterministically enriches colloquial queries with statutory legal terminology from `legal_synonyms.json` (max 3 terms). |
-| [**`language_detection.md`**](language_detection.md) | [`nlp/language_detection.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/language_detection.py) | Detects whether the query is English, Devanagari Hindi, or transliterated Hinglish using Unicode block metrics and indicator keywords. |
+| [**`preprocessing.md`**](preprocessing.md) | [`nlp/preprocessing.py`](../../nlp/preprocessing.py) | Unicode NFKC normalization, typographic quote cleaning, legal abbreviation expansion (`Art.` $\to$ `Article`, `u/s` $\to$ `under Section`), and compound tokenization. |
+| [**`intent_classification.md`**](intent_classification.md) | [`nlp/intent_classifier.py`](../../nlp/intent_classifier.py) | Dual-tier intent classifier: rule baseline + Scikit-learn TF-IDF + Logistic Regression across 10 constitutional intent classes + `OUT_OF_SCOPE`. |
+| [**`entity_recognition.md`**](entity_recognition.md) | [`nlp/legal_ner.py`](../../nlp/legal_ner.py) | 10-class legal named entity extractor combining regex rules and dynamically loaded gazetteers from the corpus. |
+| [**`entity_linking.md`**](entity_linking.md) | [`nlp/entity_linking.py`](../../nlp/entity_linking.py) | Maps surface mentions, abbreviations, and informal aliases to canonical statutory document IDs (`parent_const_art_021`). |
+| [**`query_expansion.md`**](query_expansion.md) | [`nlp/query_expansion.py`](../../nlp/query_expansion.py) | Deterministically enriches colloquial queries with statutory legal terminology from `legal_synonyms.json` (max 3 terms). |
+| [**`language_detection.md`**](language_detection.md) | [`nlp/language_detection.py`](../../nlp/language_detection.py) | Detects whether the query is English, Devanagari Hindi, or transliterated Hinglish using Unicode block metrics and indicator keywords. |
 
 ---
 

@@ -12,8 +12,8 @@
    ```
 2. **Open VS Code with Ready Tabs**:
    - Tab 1: `rag/pipeline.py` (Line 109: `run`)
-   - Tab 2: `retrieval/hybrid_retrieval.py` (Line 115: `retrieve`)
-   - Tab 3: `retrieval/rrf.py` (Line 15: `reciprocal_rank_fusion`)
+   - Tab 2: `retrieval/hybrid_retriever.py` (Line 116: `retrieve`)
+   - Tab 3: `retrieval/rrf.py` (Line 21: `fuse`)
    - Tab 4: `retrieval/entity_boost.py` (Line 104: `apply_entity_boost`)
    - Tab 5: `rag/citation_validator.py` (Line 82: `validate`)
 3. **Open a Split Terminal** for CLI commands.
@@ -115,8 +115,9 @@
 
 Open your terminal and run:
 ```bash
-python -m scripts.diagnose_query "Can police arrest without warrant under Article 21 and CrPC?"
+python scripts/diagnose_query.py
 ```
+*(Runs the canonical cross-corpus search query: `"can police search house without warrant?"`)*
 
 #### What to Point Out in the Terminal Output:
 1. **Step 1 & 2**: Language detected (`en`), text normalized.

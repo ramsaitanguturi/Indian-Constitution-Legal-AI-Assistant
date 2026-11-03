@@ -128,7 +128,7 @@ def run(
 2. **Text Preprocessing (Line 132)**: Normalizes quotes, expands abbreviations (`"Art."` $\to$ `"Article"`), and lowercases tokens.
 3. **Legal NER (Line 135)**: Extracts 10 entity categories (`ARTICLE`, `CASE`, `AMENDMENT`, etc.).
 4. **Entity Linking (Line 138)**: Maps surface mentions to canonical knowledge base IDs (`"art_21"`, `"case_puttaswamy_2017"`).
-5. **Intent Classification (Line 141)**: Classifies user intent into one of 8 classes (`ARTICLE_EXPLANATION`, `CASE_LAW_SEARCH`, `DOCTRINAL_QUERY`, etc.).
+5. **Intent Classification (Line 141)**: Classifies user intent into one of 11 classes (`ARTICLE_LOOKUP`, `CASE_LAW_QUERY`, `CONSTITUTIONAL_PROCEDURE`, `OUT_OF_SCOPE`, etc.).
 6. **Query Expansion (Lines 144-145)**: Enriches statutory synonyms with maximum 3 term additions.
 7. **Query Routing (Lines 148-156)**: Maps query attributes to an optimal retrieval strategy (`CONSTITUTIONAL_FOCUSED`, `CASE_LAW_FOCUSED`, etc.).
 8. **Early Router Abstention Check (Lines 159-194)**: If query is `OUT_OF_SCOPE` or empty, immediately halts and returns a safe refusal notice without calling expensive retrieval or LLM endpoints.

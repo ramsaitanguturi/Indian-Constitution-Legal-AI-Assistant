@@ -1,6 +1,6 @@
 # Code Explanation: `nlp/entity_linking.py` 🔗
 
-> **Source File**: [`nlp/entity_linking.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/entity_linking.py)  
+> **Source File**: [`nlp/entity_linking.py`](../../nlp/entity_linking.py)  
 > **Lines of Code**: 450 lines  
 > **Primary Responsibility**: Canonical entity resolution mapping informal aliases, colloquial nicknames, and statutory abbreviations to unique database entity IDs with structured legal metadata.
 
@@ -9,7 +9,7 @@
 ## 1. Basic Introduction
 
 ### What is this file?
-[`nlp/entity_linking.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/entity_linking.py) is the **Canonical Entity Linking Engine** for the legal assistant. While Named Entity Recognition (NER) detects that a word is an entity, Entity Linking answers the question: **Which exact statutory document in our database does this refer to?**
+[`nlp/entity_linking.py`](../../nlp/entity_linking.py) is the **Canonical Entity Linking Engine** for the legal assistant. While Named Entity Recognition (NER) detects that a word is an entity, Entity Linking answers the question: **Which exact statutory document in our database does this refer to?**
 
 ### Why does this file exist?
 Legal users and citizens refer to landmark cases and provisions using dozens of different surface aliases:
@@ -21,7 +21,7 @@ Legal users and citizens refer to landmark cases and provisions using dozens of 
 
 All 5 of these phrases refer to the exact same landmark decision: `CASE_PUTTASWAMY_2017` (`(2017) 10 SCC 1`). Without entity linking, a search for *"Aadhaar Judgment"* might completely miss documents tagged with *"Justice K.S. Puttaswamy"*.
 
-[`nlp/entity_linking.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/entity_linking.py) links surface mentions to canonical entity IDs with **86.67% linking accuracy**, retrieving document IDs, citations, judicial benches, and core legal principles.
+[`nlp/entity_linking.py`](../../nlp/entity_linking.py) links surface mentions to canonical entity IDs with **86.67% linking accuracy**, retrieving document IDs, citations, judicial benches, and core legal principles.
 
 ---
 
@@ -137,10 +137,10 @@ elif "maneka gandhi" in lower_name:
 
 ## 6. Connection to Other Files
 
-- **Input from**: [`nlp/legal_ner.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/legal_ner.py) (receives extracted surface mentions).
+- **Input from**: [`nlp/legal_ner.py`](../../nlp/legal_ner.py) (receives extracted surface mentions).
 - **Feeds into**:
-  - [`routing/query_router.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/routing/query_router.py) (uses linked IDs for strategy selection)
-  - [`retrieval/entity_boost.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/entity_boost.py) (uses linked IDs for $+0.15$ score boosting)
-  - [`rag/confidence.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/confidence.py) (validates entity alignment)
+  - [`routing/query_router.py`](../../routing/query_router.py) (uses linked IDs for strategy selection)
+  - [`retrieval/entity_boost.py`](../../retrieval/entity_boost.py) (uses linked IDs for $+0.15$ score boosting)
+  - [`rag/confidence.py`](../../rag/confidence.py) (validates entity alignment)
 - **Proceed to**: [**`query_expansion.md`**](query_expansion.md) to inspect how informal inquiries are enriched with formal statutory synonyms.
 

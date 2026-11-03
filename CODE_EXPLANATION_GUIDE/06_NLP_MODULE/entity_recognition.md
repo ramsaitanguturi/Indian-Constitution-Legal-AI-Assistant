@@ -1,6 +1,6 @@
 # Code Explanation: `nlp/legal_ner.py` 🏷️
 
-> **Source File**: [`nlp/legal_ner.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/legal_ner.py)  
+> **Source File**: [`nlp/legal_ner.py`](../../nlp/legal_ner.py)  
 > **Lines of Code**: 446 lines  
 > **Primary Responsibility**: Domain-specific Legal Named Entity Recognition (NER) extracting 10 entity categories using high-precision regex patterns, dynamic corpus gazetteers, and span collision resolution.
 
@@ -9,12 +9,12 @@
 ## 1. Basic Introduction
 
 ### What is this file?
-[`nlp/legal_ner.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/legal_ner.py) is the domain-specific information extraction engine for the assistant. Standard off-the-shelf NER libraries (like spaCy's `en_core_web_sm`) are trained on generic news corpora and fail catastrophically on Indian legal texts:
+[`nlp/legal_ner.py`](../../nlp/legal_ner.py) is the domain-specific information extraction engine for the assistant. Standard off-the-shelf NER libraries (like spaCy's `en_core_web_sm`) are trained on generic news corpora and fail catastrophically on Indian legal texts:
 - Generic models label `"Article 21"` as a `PRODUCT` or `LAW`.
 - Generic models label `"Kesavananda Bharati"` as a generic `PERSON` rather than a landmark `CASE`.
 - Generic models completely ignore Indian statutory structures like clauses, amendments, and legal concepts.
 
-[`nlp/legal_ner.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/legal_ner.py) extracts **10 specialized legal entity classes** with exact character offsets (`start`, `end`) and normalized values, achieving a **Macro-F1 of 0.8496**.
+[`nlp/legal_ner.py`](../../nlp/legal_ner.py) extracts **10 specialized legal entity classes** with exact character offsets (`start`, `end`) and normalized values, achieving a **Macro-F1 of 0.8496**.
 
 ---
 
@@ -135,8 +135,8 @@ for cand in raw_candidates:
 ## 7. Connection to Other Files
 
 - **Called by**:
-  - [`rag/pipeline.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/pipeline.py) (Stage 3 NER extraction)
-  - [`nlp/entity_linking.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/entity_linking.py) (feeds extracted entities to linker)
-  - [`retrieval/entity_boost.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/entity_boost.py) (applies $+0.15$ ranking boost)
+  - [`rag/pipeline.py`](../../rag/pipeline.py) (Stage 3 NER extraction)
+  - [`nlp/entity_linking.py`](../../nlp/entity_linking.py) (feeds extracted entities to linker)
+  - [`retrieval/entity_boost.py`](../../retrieval/entity_boost.py) (applies $+0.15$ ranking boost)
 - **Proceed to**: [**`entity_linking.md`**](entity_linking.md) to inspect how surface entity mentions are linked to canonical statutory document IDs.
 

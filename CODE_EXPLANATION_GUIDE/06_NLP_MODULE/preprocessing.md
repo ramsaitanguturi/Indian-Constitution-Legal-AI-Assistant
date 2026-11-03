@@ -1,6 +1,6 @@
 # Code Explanation: `nlp/preprocessing.py` 🧹
 
-> **Source File**: [`nlp/preprocessing.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/preprocessing.py)  
+> **Source File**: [`nlp/preprocessing.py`](../../nlp/preprocessing.py)  
 > **Lines of Code**: 183 lines  
 > **Primary Responsibility**: Unicode normalization, typographic quote standardization, statutory abbreviation expansion, structure-preserving query tokenization, and legal stopword filtering.
 
@@ -9,7 +9,7 @@
 ## 1. Basic Introduction
 
 ### What is this file?
-[`nlp/preprocessing.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/preprocessing.py) provides the foundational text cleaning and tokenization utilities for the entire legal assistant. It prepares both incoming user queries and statutory legal corpus passages before they are passed to Named Entity Recognition, Intent Classification, or Information Retrieval.
+[`nlp/preprocessing.py`](../../nlp/preprocessing.py) provides the foundational text cleaning and tokenization utilities for the entire legal assistant. It prepares both incoming user queries and statutory legal corpus passages before they are passed to Named Entity Recognition, Intent Classification, or Information Retrieval.
 
 ### Why does this file exist?
 Legal text downloaded from government repositories (such as the Supreme Court of India SCR PDFs or India Code) is filled with formatting inconsistencies:
@@ -17,7 +17,7 @@ Legal text downloaded from government repositories (such as the Supreme Court of
 2. **Dense Legal Acronyms**: Law reports and legal practitioners frequently use abbreviations: `Art. 21`, `Sec. 124A`, `u/a 21`, `r/w`, `CJI`, `SC`, `UOI`. A dense vector model or BM25 index might miss the connection between `Art.` and `Article`.
 3. **Compound Legal Identifiers**: Standard English tokenizers split `Article 19(1)(a)` into separate tokens `['Article', '19', '1', 'a']`, destroying the compound statutory citation.
 
-[`nlp/preprocessing.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/preprocessing.py) solves all these issues cleanly and deterministically.
+[`nlp/preprocessing.py`](../../nlp/preprocessing.py) solves all these issues cleanly and deterministically.
 
 ---
 
@@ -60,7 +60,7 @@ A curated dictionary mapping common Indian legal abbreviations to their full can
 ## 4. Functions in `nlp/preprocessing.py`
 
 ### 1. `clean_unicode_and_quotes(text: str) -> str`
-- **Lines in Source**: [Lines 58–88](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/preprocessing.py#L58-L88)
+- **Lines in Source**: [Lines 58–88](../../nlp/preprocessing.py#L58-L88)
 - **What it does**:
   1. Runs `unicodedata.normalize("NFKC", text)`.
   2. Iterates through a character map replacing curved single/double quotes (`\u2018`, `\u2019`, `\u201c`, `\u201d`), en-dashes (`\u2013`), em-dashes (`\u2014`), horizontal ellipses (`\u2026`), non-breaking spaces (`\u00a0`), zero-width spaces (`\u200b`), and Byte Order Marks (`\ufeff`) with standard ASCII equivalents.
@@ -69,14 +69,14 @@ A curated dictionary mapping common Indian legal abbreviations to their full can
 ---
 
 ### 2. `expand_legal_abbreviations(text: str) -> str`
-- **Lines in Source**: [Lines 90–103](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/preprocessing.py#L90-L103)
+- **Lines in Source**: [Lines 90–103](../../nlp/preprocessing.py#L90-L103)
 - **What it does**: Iterates through `_COMPILED_ABBREVIATIONS` and replaces acronyms with their expanded forms. For example: `"Art. 21 u/a COI"` becomes `"Article 21 under Article Constitution of India"`.
 - **Return**: String with standard statutory terms.
 
 ---
 
 ### 3. `normalize_legal_text(text: str, expand_abbreviations: bool = True, lowercase: bool = False) -> str`
-- **Lines in Source**: [Lines 105–141](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/preprocessing.py#L105-L141)
+- **Lines in Source**: [Lines 105–141](../../nlp/preprocessing.py#L105-L141)
 - **What it does**: The master normalization pipeline:
   1. Calls `clean_unicode_and_quotes()`.
   2. Calls `expand_legal_abbreviations()` if `expand_abbreviations=True`.
@@ -88,14 +88,14 @@ A curated dictionary mapping common Indian legal abbreviations to their full can
 ---
 
 ### 4. `tokenize_query(text: str) -> List[str]`
-- **Lines in Source**: [Lines 143–157](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/preprocessing.py#L143-L157)
+- **Lines in Source**: [Lines 143–157](../../nlp/preprocessing.py#L143-L157)
 - **What it does**: Uses regex `r"\b\w+(?:\([^)]+\))+|\b\w+\b|[^\w\s]"` to split text while keeping compound statutory clause citations intact (e.g. `Article 19(1)(a)` remains a single unit `19(1)(a)` rather than splitting into 4 pieces).
 - **Return**: List of token strings.
 
 ---
 
 ### 5. `extract_keywords(text: str, stop_words: Optional[set] = None) -> List[str]`
-- **Lines in Source**: [Lines 159–183](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/preprocessing.py#L159-L183)
+- **Lines in Source**: [Lines 159–183](../../nlp/preprocessing.py#L159-L183)
 - **What it does**: Filters out common English grammatical stopwords (`the`, `is`, `which`, `above`) while explicitly retaining substantive legal terms (`privacy`, `bail`, `warrant`, `equality`).
 - **Return**: List of lowercase alphanumeric keywords of length $> 1$.
 
@@ -161,9 +161,9 @@ for orig, repl in charmap.items():
 ## 7. Connection to Other Files
 
 - **Called by**:
-  - [`rag/pipeline.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/pipeline.py) (Stage 2 preprocessing)
-  - [`nlp/intent_classifier.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/intent_classifier.py)
-  - [`nlp/query_expansion.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/query_expansion.py)
-  - [`routing/query_router.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/routing/query_router.py)
+  - [`rag/pipeline.py`](../../rag/pipeline.py) (Stage 2 preprocessing)
+  - [`nlp/intent_classifier.py`](../../nlp/intent_classifier.py)
+  - [`nlp/query_expansion.py`](../../nlp/query_expansion.py)
+  - [`routing/query_router.py`](../../routing/query_router.py)
 - **Proceed to**: [**`intent_classification.md`**](intent_classification.md) to inspect how intent classification is handled.
 

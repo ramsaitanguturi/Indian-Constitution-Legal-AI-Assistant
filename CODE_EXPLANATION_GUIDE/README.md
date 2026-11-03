@@ -40,7 +40,7 @@ Click any link below to jump directly into that module's dedicated textbook guid
 #### 07. Retrieval & Ranking Module (`retrieval/`)
 - [**`07_RETRIEVAL_MODULE/README.md`**](07_RETRIEVAL_MODULE/README.md): Architecture of Stage 3 Hybrid Information Retrieval.
 - [**`07_RETRIEVAL_MODULE/embeddings.md`**](07_RETRIEVAL_MODULE/embeddings.md): `BAAI/bge-m3` (1024-d) and MiniLM (384-d) dense embeddings with SQLite disk caching (`retrieval/embeddings.py`).
-- [**`07_RETRIEVAL_MODULE/dense_retrieval.md`**](07_RETRIEVAL_MODULE/dense_retrieval.md): ChromaDB persistent vector search, cosine distance inversion (`retrieval/dense_retrieval.py`).
+- [**`07_RETRIEVAL_MODULE/dense_retrieval.md`**](07_RETRIEVAL_MODULE/dense_retrieval.md): ChromaDB persistent vector search, cosine distance inversion (`retrieval/dense_retriever.py`).
 - [**`07_RETRIEVAL_MODULE/bm25_retrieval.md`**](07_RETRIEVAL_MODULE/bm25_retrieval.md): BM25Okapi sparse retrieval with compound statutory tokenization (`retrieval/bm25_retriever.py`).
 - [**`07_RETRIEVAL_MODULE/hybrid_retrieval.md`**](07_RETRIEVAL_MODULE/hybrid_retrieval.md): Master hybrid search orchestrator with full ablation switches (`retrieval/hybrid_retriever.py`).
 - [**`07_RETRIEVAL_MODULE/reciprocal_rank_fusion.md`**](07_RETRIEVAL_MODULE/reciprocal_rank_fusion.md): Mathematical rank reciprocity fusion ($k=60$) combining disparate score distributions (`retrieval/rrf.py`).

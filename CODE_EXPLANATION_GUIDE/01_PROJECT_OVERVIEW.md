@@ -119,16 +119,16 @@ flowchart LR
 
 | Feature | Description | Implementation File |
 |---|---|---|
-| **Interactive Web Interface** | Professional, high-density dark-themed UI built with Streamlit. | [`app.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/app.py) |
-| **Direct Answer Card** | Clear, objective executive summary answering the question directly. | [`rag/ui_formatter.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/ui_formatter.py) |
-| **Relevant Legal Provisions** | Clean cards displaying the exact Article or Section title, part, and guarantee. | [`rag/ui_formatter.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/ui_formatter.py) |
-| **Relevant Judgments** | Displays case name, formal citation, bench composition, verdict, and ratio decidendi. | [`rag/ui_formatter.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/ui_formatter.py) |
-| **Important Exceptions** | Outlines statutory limits (e.g. emergency search powers under Section 165 CrPC). | [`rag/generator.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/generator.py) |
-| **Verified Citation Badges** | Every source card carries a green `✓ Verified Citation` tag with exact doc IDs. | [`app.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/app.py) |
-| **Expandable Full Texts** | Accordion views allowing users to inspect the full original legal text from official gazettes. | [`app.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/app.py) |
-| **Technical Verification Audit** | Real-time diagnostic expander showing routing strategy, confidence metrics, and NLI trace. | [`app.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/app.py) |
-| **Safe Automated Abstention** | Refuses to speculate on out-of-scope non-legal queries or missing evidence. | [`rag/abstention.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/abstention.py) |
-| **100% Offline Capability** | Complete offline deterministic legal synthesizer requiring zero API keys. | [`rag/generator.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/generator.py) |
+| **Interactive Web Interface** | Professional, high-density dark-themed UI built with Streamlit. | [`app.py`](../app.py) |
+| **Direct Answer Card** | Clear, objective executive summary answering the question directly. | [`rag/ui_formatter.py`](../rag/ui_formatter.py) |
+| **Relevant Legal Provisions** | Clean cards displaying the exact Article or Section title, part, and guarantee. | [`rag/ui_formatter.py`](../rag/ui_formatter.py) |
+| **Relevant Judgments** | Displays case name, formal citation, bench composition, verdict, and ratio decidendi. | [`rag/ui_formatter.py`](../rag/ui_formatter.py) |
+| **Important Exceptions** | Outlines statutory limits (e.g. emergency search powers under Section 165 CrPC). | [`rag/generator.py`](../rag/generator.py) |
+| **Verified Citation Badges** | Every source card carries a green `✓ Verified Citation` tag with exact doc IDs. | [`app.py`](../app.py) |
+| **Expandable Full Texts** | Accordion views allowing users to inspect the full original legal text from official gazettes. | [`app.py`](../app.py) |
+| **Technical Verification Audit** | Real-time diagnostic expander showing routing strategy, confidence metrics, and NLI trace. | [`app.py`](../app.py) |
+| **Safe Automated Abstention** | Refuses to speculate on out-of-scope non-legal queries or missing evidence. | [`rag/abstention.py`](../rag/abstention.py) |
+| **100% Offline Capability** | Complete offline deterministic legal synthesizer requiring zero API keys. | [`rag/generator.py`](../rag/generator.py) |
 
 ---
 

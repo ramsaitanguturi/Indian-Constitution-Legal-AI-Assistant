@@ -1,6 +1,6 @@
 # Code Explanation: `agents.py` 🤖
 
-> **Source File**: [`agents.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/agents.py)  
+> **Source File**: [`agents.py`](../../agents.py)  
 > **Lines of Code**: 331 lines  
 > **Primary Responsibility**: Multi-agent prompt engineering, specialized legal personas (Article Agent, Case-Law Agent, Explanation Agent), and heuristic offline synthesis.
 
@@ -9,7 +9,7 @@
 ## 1. Basic Introduction
 
 ### What is this file?
-[`agents.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/agents.py) defines the **Multi-Agent Router and LLM Engine** for the legal assistant. It equips the system with specialized prompt templates tailored for distinct legal research tasks and integrates with Google Gemini (`ChatGoogleGenerativeAI`).
+[`agents.py`](../../agents.py) defines the **Multi-Agent Router and LLM Engine** for the legal assistant. It equips the system with specialized prompt templates tailored for distinct legal research tasks and integrates with Google Gemini (`ChatGoogleGenerativeAI`).
 
 ### Why does this file exist?
 Legal inquiries have distinct requirements depending on their nature:
@@ -17,10 +17,10 @@ Legal inquiries have distinct requirements depending on their nature:
 2. A question about a judgment requires bench compositions, case facts, the Ratio Decidendi (principle of law), and final verdicts.
 3. A question from an ordinary citizen requires simplifying dense legal jargon into plain language with everyday examples (and brief Hindi translations).
 
-Rather than using one generic, one-size-fits-all prompt, [`agents.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/agents.py) defines three specialized personas and provides an **offline heuristic legal synthesizer** that generates structured answers even when no internet or API keys are present.
+Rather than using one generic, one-size-fits-all prompt, [`agents.py`](../../agents.py) defines three specialized personas and provides an **offline heuristic legal synthesizer** that generates structured answers even when no internet or API keys are present.
 
 ### Where does it fit in the project?
-It serves as the LLM orchestration layer for legacy callers and provides specialized persona prompts. In the modern 16-stage pipeline, its concepts are bridged with [`rag/generator.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/generator.py) to guarantee zero hallucination.
+It serves as the LLM orchestration layer for legacy callers and provides specialized persona prompts. In the modern 16-stage pipeline, its concepts are bridged with [`rag/generator.py`](../../rag/generator.py) to guarantee zero hallucination.
 
 ---
 
@@ -50,7 +50,7 @@ from config import GEMINI_API_KEY, DEFAULT_LLM_MODEL        # API keys and model
 
 ## 3. Specialized Prompt Templates
 
-[`agents.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/agents.py) defines three distinct system prompt templates (Lines 25–76):
+[`agents.py`](../../agents.py) defines three distinct system prompt templates (Lines 25–76):
 
 ### 1. `ARTICLE_AGENT_PROMPT` (Lines 25–40)
 - **Role**: Expert Constitutional Law Specialist.
@@ -79,7 +79,7 @@ from config import GEMINI_API_KEY, DEFAULT_LLM_MODEL        # API keys and model
 ## 4. Classes in `agents.py`
 
 ### Class 1: `HeuristicLegalSynthesizer`
-- **Lines in Source**: [Lines 79–182](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/agents.py#L79-L182)
+- **Lines in Source**: [Lines 79–182](../../agents.py#L79-L182)
 - **Purpose**: A deterministic fallback legal synthesis engine. When the Google Gemini API key is missing or offline, this class formats a complete, structured legal answer directly from the retrieved parent/child context without invoking any neural network.
 - **Real-World Analogy**: Think of it as an emergency rulebook. If the expert professor is unavailable, you read the official statute book directly and compile the answer following a rigid template.
 
@@ -95,7 +95,7 @@ from config import GEMINI_API_KEY, DEFAULT_LLM_MODEL        # API keys and model
 ---
 
 ### Class 2: `MultiAgentRouter`
-- **Lines in Source**: [Lines 185–307](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/agents.py#L185-L307)
+- **Lines in Source**: [Lines 185–307](../../agents.py#L185-L307)
 - **Purpose**: Classifies queries into the appropriate agent persona and executes either the LangChain Gemini chain or the `HeuristicLegalSynthesizer` fallback.
 
 #### Constructor: `__init__(api_key=None, model=None)` (Lines 195–203)
@@ -216,8 +216,8 @@ Unanimously affirmed privacy as a fundamental constitutional right.
 
 ## 7. Connection to Other Files
 
-- **Imported by**: [`app.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/app.py) (instantiated in `load_rag_pipeline()`).
-- **Imports from**: [`config.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/config.py) for `GEMINI_API_KEY` and `DEFAULT_LLM_MODEL`.
-- **Related to**: [`rag/generator.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/generator.py), which implements modern 16-stage grounded generation.
+- **Imported by**: [`app.py`](../../app.py) (instantiated in `load_rag_pipeline()`).
+- **Imports from**: [`config.py`](../../config.py) for `GEMINI_API_KEY` and `DEFAULT_LLM_MODEL`.
+- **Related to**: [`rag/generator.py`](../../rag/generator.py), which implements modern 16-stage grounded generation.
 - **Proceed to**: [**`config_py.md`**](config_py.md) to inspect the project's centralized paths, constants, and dimension validation.
 
