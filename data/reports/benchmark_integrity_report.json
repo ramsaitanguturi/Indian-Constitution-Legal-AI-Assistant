@@ -2,7 +2,7 @@
   "overall_verdict": "PASS",
   "critical_violations": [],
   "retrieval": {
-    "benchmark_file": "C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\data\\benchmark\\retrieval_queries.json",
+    "benchmark_file": "data/benchmark/retrieval_queries.json",
     "total_queries": 200,
     "valid_in_corpus_queries": 180,
     "uncataloged_corpus_queries": 20,
@@ -260,7 +260,7 @@
     ]
   },
   "intent": {
-    "benchmark_file": "C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\data\\benchmark\\classification_queries.json",
+    "benchmark_file": "data/benchmark/classification_queries.json",
     "total_queries": 220,
     "classes_found": {
       "ARTICLE_LOOKUP": 20,
@@ -281,7 +281,7 @@
     "is_balanced": true
   },
   "ner": {
-    "benchmark_file": "C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\data\\benchmark\\ner_annotations.json",
+    "benchmark_file": "data/benchmark/ner_annotations.json",
     "total_queries": 105,
     "total_spans": 211,
     "spans_per_label": {
@@ -301,7 +301,7 @@
     "overlapping_spans": []
   },
   "rag": {
-    "benchmark_file": "C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\data\\benchmark\\rag_questions.json",
+    "benchmark_file": "data/benchmark/rag_questions.json",
     "total_questions": 100,
     "answer_actions": 82,
     "abstain_actions": 18,

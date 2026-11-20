@@ -63,6 +63,14 @@ UNCATALOGED_QUERY_IDS = {
 }
 
 
+def _rel_path(p: Path) -> str:
+    """Format path relative to project root for portable reporting."""
+    try:
+        return str(p.relative_to(BASE_DIR)).replace("\\", "/")
+    except (ValueError, Exception):
+        return str(p).replace("\\", "/")
+
+
 def load_parent_store() -> Dict[str, Dict[str, Any]]:
     """Loads parent_store.json containing all indexed parent documents."""
     if not PARENT_STORE_PATH.exists():
@@ -74,7 +82,7 @@ def load_parent_store() -> Dict[str, Dict[str, Any]]:
 def validate_retrieval_benchmark(parent_store: Dict[str, Any]) -> Dict[str, Any]:
     """Validates 200 retrieval queries and relevance labels against parent store."""
     results = {
-        "benchmark_file": str(RETRIEVAL_BENCHMARK_PATH),
+        "benchmark_file": _rel_path(RETRIEVAL_BENCHMARK_PATH),
         "total_queries": 0,
         "valid_in_corpus_queries": 0,
         "uncataloged_corpus_queries": 0,
@@ -163,7 +171,7 @@ def validate_retrieval_benchmark(parent_store: Dict[str, Any]) -> Dict[str, Any]
 def validate_intent_benchmark() -> Dict[str, Any]:
     """Validates classification_queries.json for class balance, format, and duplicates."""
     results = {
-        "benchmark_file": str(CLASSIFICATION_BENCHMARK_PATH),
+        "benchmark_file": _rel_path(CLASSIFICATION_BENCHMARK_PATH),
         "total_queries": 0,
         "classes_found": {},
         "expected_classes": len(INTENT_CLASSES),
@@ -222,7 +230,7 @@ def validate_intent_benchmark() -> Dict[str, Any]:
 def validate_ner_benchmark() -> Dict[str, Any]:
     """Validates character span alignment and entity labels for NER benchmark."""
     results = {
-        "benchmark_file": str(NER_BENCHMARK_PATH),
+        "benchmark_file": _rel_path(NER_BENCHMARK_PATH),
         "total_queries": 0,
         "total_spans": 0,
         "spans_per_label": {},
@@ -300,7 +308,7 @@ def validate_ner_benchmark() -> Dict[str, Any]:
 def validate_rag_benchmark(parent_store: Dict[str, Any]) -> Dict[str, Any]:
     """Validates RAG benchmark questions and expected citations."""
     results = {
-        "benchmark_file": str(RAG_BENCHMARK_PATH),
+        "benchmark_file": _rel_path(RAG_BENCHMARK_PATH),
         "total_questions": 0,
         "answer_actions": 0,
         "abstain_actions": 0,

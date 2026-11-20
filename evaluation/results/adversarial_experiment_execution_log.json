@@ -15,7 +15,7 @@
       "  NDCG@5      : 0.6166",
       "  NDCG@10     : 0.6157",
       "=================================================================",
-      "[SAVED] Results saved to C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\experiments\\results\\experiment_01_bm25.json"
+      "[SAVED] Results saved to experiments\\results\\experiment_01_bm25.json"
     ],
     "stderr": ""
   },
@@ -35,7 +35,7 @@
       "  NDCG@5      : 0.6413",
       "  NDCG@10     : 0.6429",
       "=================================================================",
-      "[SAVED] Results saved to C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\experiments\\results\\experiment_02_dense.json"
+      "[SAVED] Results saved to experiments\\results\\experiment_02_dense.json"
     ],
     "stderr": "Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n\nLoading weights:   0%|          | 0/103 [00:00<?, ?it/s]\nLoading weights: 100%|##########| 103/103 [00:00<00:00, 1694.80it/s]"
   },
@@ -55,7 +55,7 @@
       "  NDCG@5      : 0.6297",
       "  NDCG@10     : 0.6298",
       "=================================================================",
-      "[SAVED] Results saved to C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\experiments\\results\\experiment_03_hybrid.json"
+      "[SAVED] Results saved to experiments\\results\\experiment_03_hybrid.json"
     ],
     "stderr": "Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n\nLoading weights:   0%|          | 0/103 [00:00<?, ?it/s]\nLoading weights: 100%|##########| 103/103 [00:00<00:00, 2455.75it/s]"
   },
@@ -75,7 +75,7 @@
       "  NDCG@5      : 0.6261",
       "  NDCG@10     : 0.6244",
       "=================================================================",
-      "[SAVED] Results saved to C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\experiments\\results\\experiment_04_rrf.json"
+      "[SAVED] Results saved to experiments\\results\\experiment_04_rrf.json"
     ],
     "stderr": "Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n\nLoading weights:   0%|          | 0/103 [00:00<?, ?it/s]\nLoading weights: 100%|##########| 103/103 [00:00<00:00, 3360.53it/s]"
   },
@@ -95,7 +95,7 @@
       "  NDCG@5      : 0.6504",
       "  NDCG@10     : 0.6482",
       "=================================================================",
-      "[SAVED] Results saved to C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\experiments\\results\\experiment_05_entity_boost.json"
+      "[SAVED] Results saved to experiments\\results\\experiment_05_entity_boost.json"
     ],
     "stderr": "Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n\nLoading weights:   0%|          | 0/103 [00:00<?, ?it/s]\nLoading weights: 100%|##########| 103/103 [00:00<00:00, 2422.43it/s]"
   },
@@ -115,7 +115,7 @@
       "  NDCG@5      : 0.6752",
       "  NDCG@10     : 0.6730",
       "=================================================================",
-      "[SAVED] Results saved to C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\experiments\\results\\experiment_06_reranker.json"
+      "[SAVED] Results saved to experiments\\results\\experiment_06_reranker.json"
     ],
     "stderr": "Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n\nLoading weights:   0%|          | 0/103 [00:00<?, ?it/s]\nLoading weights: 100%|##########| 103/103 [00:00<00:00, 3780.77it/s]\n\nLoading weights:   0%|          | "
   },
@@ -135,7 +135,7 @@
       "  RIGHT             : P=0.8333 | R=0.5556 | F1=0.6667 (support=9)",
       "  SECTION           : P=1.0000 | R=1.0000 | F1=1.0000 (support=11)",
       "=================================================================",
-      "[SAVED] Results saved to C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\experiments\\results\\experiment_07_ner.json"
+      "[SAVED] Results saved to experiments\\results\\experiment_07_ner.json"
     ],
     "stderr": ""
   },
@@ -155,7 +155,7 @@
       "  tfidf_logistic_regression: Accuracy = 0.8485 | Macro-F1 = 0.8331",
       "  hybrid_classifier        : Accuracy = 0.6970 | Macro-F1 = 0.6301",
       "=================================================================",
-      "[SAVED] Results saved to C:\\Users\\ramsa\\Desktop\\Indian Constitution Legal AI Assistant\\experiments\\results\\experiment_08_intent.json"
+      "[SAVED] Results saved to experiments\\results\\experiment_08_intent.json"
     ],
     "stderr": ""
   }
