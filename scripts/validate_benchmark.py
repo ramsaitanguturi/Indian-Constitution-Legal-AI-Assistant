@@ -437,8 +437,8 @@ def main():
     import argparse
     parser = argparse.ArgumentParser(description="Validate Indian Constitution Legal AI Assistant Benchmarks")
     parser.add_argument("--strict", action="store_true", help="Fail if any uncataloged or missing targets remain")
-    parser.add_argument("--output-json", default="docs/BENCHMARK_INTEGRITY_REPORT.json", help="Path to output JSON report")
-    parser.add_argument("--output-md", default="docs/BENCHMARK_INTEGRITY_REPORT.md", help="Path to output MD report")
+    parser.add_argument("--output-json", default="data/reports/benchmark_integrity_report.json", help="Path to output JSON report")
+    parser.add_argument("--output-md", default=None, help="Optional path to output MD report")
     args = parser.parse_args()
 
     print("=" * 70)
@@ -488,18 +488,18 @@ def main():
     }
 
     out_json = BASE_DIR / args.output_json
-    out_md = BASE_DIR / args.output_md
-
     out_json.parent.mkdir(parents=True, exist_ok=True)
-    out_md.parent.mkdir(parents=True, exist_ok=True)
 
     with open(out_json, "w", encoding="utf-8") as f:
         json.dump(full_report, f, indent=2)
 
-    generate_markdown_report(full_report, out_md)
-
     print(f"\n[+] Validation JSON report saved to: {out_json}")
-    print(f"[+] Validation Markdown report saved to: {out_md}")
+
+    if args.output_md:
+        out_md = BASE_DIR / args.output_md
+        out_md.parent.mkdir(parents=True, exist_ok=True)
+        generate_markdown_report(full_report, out_md)
+        print(f"[+] Validation Markdown report saved to: {out_md}")
     print(f"\n[RESULT] Retrieval: {retrieval_res['valid_in_corpus_queries']}/200 in-corpus verified, {retrieval_res['uncataloged_corpus_queries']} uncataloged")
     print(f"[RESULT] Intent: {intent_res['total_queries']} samples, 11 classes, Balanced: {intent_res['is_balanced']}")
     print(f"[RESULT] NER: {ner_res['total_spans']} spans, Alignment Errors: {len(ner_res['span_alignment_errors'])}")

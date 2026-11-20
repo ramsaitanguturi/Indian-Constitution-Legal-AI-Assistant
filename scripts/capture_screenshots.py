@@ -7,7 +7,7 @@ import time
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
-OUTPUT_DIR = Path("docs/assets/screenshots")
+OUTPUT_DIR = Path("assets/screenshots")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 APP_URL = "http://localhost:8501"
