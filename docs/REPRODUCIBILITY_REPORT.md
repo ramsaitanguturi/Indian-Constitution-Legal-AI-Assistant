@@ -57,7 +57,7 @@ Evaluated across all 200 retrieval queries in `data/benchmark/retrieval_queries.
 
 ## 4. Sequential Execution Record of All 8 Experiments
 
-Every individual experiment script in `experiments/` was executed sequentially from the virtual environment. Artifact log saved to [`evaluation/results/adversarial_experiment_execution_log.json`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/evaluation/results/adversarial_experiment_execution_log.json):
+Every individual experiment script in `experiments/` was executed sequentially from the virtual environment. Artifact log saved to [`evaluation/results/adversarial_experiment_execution_log.json`](../evaluation/results/adversarial_experiment_execution_log.json):
 
 | Script | Command | Exit Code | Duration | Output Artifact Path |
 |---|---|:---:|:---:|---|

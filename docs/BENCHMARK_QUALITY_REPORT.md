@@ -93,7 +93,7 @@ Because these 20 queries have $0$ retrievable targets in the corpus, their evalu
 ## 5. Versioned Relevance Label Canonicalization & Empirical Verification
 
 To resolve the 171 unpadded/shorthand alias references (`parent_const_art_14` alongside `parent_const_art_014`) without overwriting the original annotations, an auditable, versioned canonicalization was created:
-- **Canonical Label Artifact**: [`data/annotations/relevance_labels_v2_canonicalized.json`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/data/annotations/relevance_labels_v2_canonicalized.json)
+- **Canonical Label Artifact**: [`data/annotations/relevance_labels_v2_canonicalized.json`](../data/annotations/relevance_labels_v2_canonicalized.json)
 - **Normalization Principle**: 1-to-1 mapping of unpadded article IDs (`parent_const_art_X` $\to$ `parent_const_art_00X`) and case aliases (`parent_case_adm` $\to$ `parent_case_sc_adm_jabalpur_1976`) to the single canonical parent ID.
 
 ### 5.1 Empirical Metric Comparison Across All 6 Configurations (All 200 Queries)

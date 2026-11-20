@@ -33,7 +33,7 @@ streamlit run app.py
 ```
 
 ### 1.4 Live Demonstration Guide
-For comprehensive step-by-step viva defense walkthroughs and evaluation scripts, see [**`DEMONSTRATION_GUIDE.md`**](../DEMONSTRATION_GUIDE.md).
+For comprehensive step-by-step viva defense walkthroughs and evaluation scripts, see [**`DEMONSTRATION_GUIDE.md`**](DEMONSTRATION_GUIDE.md).
 
 ---
 

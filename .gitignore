@@ -20,6 +20,7 @@ share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+.pytest_cache/
 
 # Virtual Environments
 venv/
@@ -35,9 +36,18 @@ venv.bak/
 .env.*.local
 .streamlit/secrets.toml
 
-# Local Vector Database & Persistent Cache
+# Local Vector Database & Persistent Caches
 chroma_db/
 .chroma/
+.cache/
+data/.cache/
+*.sqlite
+*.sqlite3
+
+# Historical Backups and Redundant Snapshots
+backups/*
+!backups/.gitkeep
+parent_store_backup*.json
 
 # IDE & OS Files
 .vscode/
@@ -47,10 +57,11 @@ chroma_db/
 .DS_Store
 Thumbs.db
 
-# HuggingFace & Torch cache
-.cache/
+# Logs & Temporary Files
+*.log
+scratch/
 
-# LaTeX temporary compilation files (excluding publication PDFs and sources)
+# LaTeX temporary compilation files
 *.aux
 *.bbl
 *.blg

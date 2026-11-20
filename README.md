@@ -17,12 +17,12 @@ An empirical, locally runnable Indian Constitutional Law and Legal Research Assi
 
 ---
 
-## 🎯 Demonstration & Evaluation Guide
+## 🎯 Demonstration & Viva Defense Guide
 
 > [!IMPORTANT]
 > For faculty review committees, examiners, and project evaluators: A dedicated, beginner-friendly live demonstration walkthrough, viva defense preparation guide, and code explanation is provided in:
 >
-> 📖 [**`DEMONSTRATION_GUIDE.md`**](DEMONSTRATION_GUIDE.md)
+> 📖 [**`docs/DEMONSTRATION_GUIDE.md`**](docs/DEMONSTRATION_GUIDE.md)
 
 ---
 
@@ -34,9 +34,15 @@ An empirical, locally runnable Indian Constitutional Law and Legal Research Assi
 - ⚙️ [**Ingestion & Update Guide (`docs/INGESTION_GUIDE.md`)**](docs/INGESTION_GUIDE.md): End-to-end execution of `download_sources.py`, `build_corpus.py`, and `build_index.py`.
 - 🔍 [**Retrieval & Grounding Pipeline (`docs/RETRIEVAL_PIPELINE.md`)**](docs/RETRIEVAL_PIPELINE.md): BM25 compound tokenization, BGE-M3 L2 normalization, RRF, and neural cross-encoders.
 - 📊 [**Evaluation Benchmark (`docs/evaluation.md`)**](docs/evaluation.md): 14-category legal question benchmark evaluating Hit@K, MRR, NDCG@K, citation validity, and latency.
+- 🔬 [**Reproducibility Guide (`docs/REPRODUCIBILITY.md`)**](docs/REPRODUCIBILITY.md): Exact step-by-step instructions for reproducing all 8 experiments and benchmark runs.
+- ⚠️ [**Limitations & Scope Disclosures (`docs/LIMITATIONS.md`)**](docs/LIMITATIONS.md): Transparent technical disclosures, hardware demands, and domain boundaries.
 - 🛠️ [**Troubleshooting & Operations (`docs/TROUBLESHOOTING.md`)**](docs/TROUBLESHOOTING.md): CPU execution, ChromaDB lock resolution, air-gapped offline modes, and safe backups.
-- 📋 [**Implementation Plan & Status (`docs/IMPLEMENTATION_PLAN.md`)**](docs/IMPLEMENTATION_PLAN.md): Completed phase-by-phase roadmap and specification verification.
+- 📋 [**Implementation Plan & Status (`docs/IMPLEMENTATION_PLAN.md`)**](docs/IMPLEMENTATION_PLAN.md): Completed phase-by-phase engineering upgrade specification and verification.
+- 🗺️ [**Master Upgrade Roadmap (`docs/UPGRADE_ROADMAP.md`)**](docs/UPGRADE_ROADMAP.md): High-level architectural roadmap and milestone audit.
 - 🎓 [**Viva Defense Guide (`docs/viva_defense_guide.md`)**](docs/viva_defense_guide.md): 60-second elevator pitch, slide outline, examiner Q&A, and live demo script.
+- 🎯 [**Live Demonstration Guide (`docs/DEMONSTRATION_GUIDE.md`)**](docs/DEMONSTRATION_GUIDE.md): Guided examiner walkthrough, sample queries, expected outputs, and troubleshooting.
+- 📑 [**Code Explanation Guide (`docs/CODE_EXPLANATION_GUIDE/`)**](docs/CODE_EXPLANATION_GUIDE/): 73 comprehensive markdown walkthroughs explaining every script, class, and algorithm.
+- ✅ [**Submission Checklist (`docs/SUBMISSION_CHECKLIST.md`)**](docs/SUBMISSION_CHECKLIST.md): Rigorous academic submission verification criteria and audit status.
 
 ---
 
@@ -104,8 +110,9 @@ Constitutional question answering in India presents three major NLP challenges:
 - **Dense Embedding Models**: `BAAI/bge-m3` (1024-d) & `sentence-transformers/all-MiniLM-L6-v2` (384-d)
 - **Neural Reranker**: `cross-encoder/ms-marco-MiniLM-L-6-v2`
 - **Machine Learning**: `scikit-learn` ($\ge 1.4.0$) for TF-IDF vectorization and Logistic Regression intent classification
-- **Data Engineering**: Pandas ($\ge 2.0.0$), NumPy ($\ge 1.24.0$), Pydantic ($\ge 2.0.0$)
+- **Data Engineering**: Pandas ($\ge 2.0.0$), NumPy ($\ge 1.24.0$), Pydantic ($\ge 2.0.0$), PyPDF ($\ge 3.17.0$)
 - **Generative AI & LLM**: Google Gemini API (`gemini-3.8-flash` via `google-generativeai` & `langchain-google-genai`) with offline deterministic fallback
+- **Visualization**: Plotly ($\ge 5.18.0$) for empirical evaluation metrics & latency trade-off visualizers
 - **Testing & Verification**: Pytest ($\ge 8.0.0$)
 
 ---
@@ -170,8 +177,7 @@ Indian Constitution Legal AI Assistant/
 ├── agents.py                        # Multi-agent router & heuristic synthesizer facade
 ├── parent_store.json                # Hydrated parent document store
 ├── requirements.txt                 # Pinned dependencies
-├── README.md                        # Primary project documentation
-├── DEMONSTRATION_GUIDE.md           # Step-by-step viva & live demonstration guide
+├── README.md                        # Primary project documentation (ONLY root Markdown file)
 ├── data/
 │   ├── constitution/                # Canonical articles and amendments
 │   ├── judgments/                   # Supreme Court landmark decisions
@@ -181,7 +187,7 @@ Indian Constitution Legal AI Assistant/
 │   ├── reports/                     # Validation reports
 │   ├── raw/                         # Raw downloads (PDFs, JSONs, Parquet)
 │   └── processed/                   # Consolidated and normalized JSON files
-├── docs/                            # Deep-dive architecture and audit documentation
+├── docs/                            # Deep-dive architecture, guides and defense documentation
 │   ├── assets/screenshots/          # Genuine application interface screenshots
 │   ├── architecture.md              # System architecture specification
 │   ├── CORPUS_SOURCES.md            # Official source provenance and URLs
@@ -192,7 +198,13 @@ Indian Constitution Legal AI Assistant/
 │   ├── experiments.md               # Full empirical experiments log (Exp 1 to Exp 8)
 │   ├── LIMITATIONS.md               # Honest limitations and boundaries
 │   ├── TROUBLESHOOTING.md           # Operational troubleshooting guide
-│   └── viva_defense_guide.md        # Comprehensive viva defense questions & answers
+│   ├── REPRODUCIBILITY.md           # Local reproduction guide and environment setup
+│   ├── SUBMISSION_CHECKLIST.md      # Final university submission compliance checklist
+│   ├── viva_defense_guide.md        # Comprehensive viva defense questions & answers
+│   ├── DEMONSTRATION_GUIDE.md       # Live demo script, examiner walkthrough & test questions
+│   ├── IMPLEMENTATION_PLAN.md       # Detailed engineering upgrade implementation plan
+│   ├── UPGRADE_ROADMAP.md           # Master architectural roadmap and baseline audit
+│   └── CODE_EXPLANATION_GUIDE/      # 73 module-by-module line explanations
 ├── evaluation/                      # Stage 5 evaluation framework
 │   ├── benchmark_runner.py          # Master evaluation runner
 │   ├── metrics.py                   # IR metrics: Hit@K, Recall@K, MRR, NDCG@K
@@ -312,9 +324,9 @@ Open `http://localhost:8501` in your browser.
 
 ### 7.4 Run Automated Test Suite
 ```powershell
-pytest -v
+python -m pytest -v
 ```
-**Verified Outcome: 319 passed, 0 failed in ~213s.**
+**Verified Outcome: 319 passed, 0 failed in ~249s.**
 
 ### 7.5 Run Benchmark Integrity Validation
 ```powershell
@@ -333,20 +345,26 @@ python scripts/evaluate_retrieval.py
 
 ---
 
-## 8. Known Limitations & Research Disclosures
+## 8. Limitations & Future Improvements
 
+### 8.1 Known Technical Limitations
 1. **Corpus Coverage**: The database indexes the entire official Constitution of India (all 477 articles and Schedules 1–12), all 106 Constitutional Amendments, 286 Supreme Court decisions (92 official full-text decisions, 97 landmark briefs, 97 AWS open data registry metadata records), and 17 Central Acts (1,975 sections). Out of 800+ total Acts in the official India Code repository, coverage is concentrated on foundational constitutional, criminal, procedural, and civil rights statutes.
 2. **Benchmark Scope**: Evaluated across 200 verified legal queries spanning 14 legal query categories, achieving 0.8400 to 1.0000 Hit@1 and MRR across retrieval and reranking configurations.
 3. **Historical Legislation**: The Indian Penal Code 1860, Code of Criminal Procedure 1973, and Indian Evidence Act 1872 were superseded on July 1, 2024 by the Bharatiya Nyaya Sanhita, Bharatiya Nagarik Suraksha Sanhita, and Bharatiya Sakshya Adhiniyam, respectively. The system explicitly flags these provisions with `is_historical=True` and documents judicial stay/unconstitutionality status (e.g. IPC Section 124A held in abeyance via *S.G. Vombatkere*).
-4. **Hardware Acceleration**: Offline CPU execution takes ~100–130 minutes for full BGE-M3 (560M parameter) indexing across 7,470 passages; MiniLM (384-d) and BM25 run sub-second locally.
-5. **Propositional NLI Grounding**: The citation validator checks structural document presence, retrieval provenance, and proposition-level polarity contradiction analysis (`rag/nli_verifier.py`). Complex multi-hop conditional deductions are subject to ongoing neural NLI research.
-6. **Academic Standing**: This software is an academic B.Tech NLP capstone prototype developed for educational and research evaluation. It does not constitute formal legal counsel.
+4. **Hardware Acceleration & CPU Execution**: Offline CPU execution takes ~100–130 minutes for full BGE-M3 (560M parameter) indexing across 7,470 passages; MiniLM (384-d) and BM25 run sub-second locally. For local demonstration on modest laptops, MiniLM collection `indian_legal_rag` provides instant sub-second retrieval.
+5. **Propositional NLI Grounding**: The citation validator checks structural document presence, retrieval provenance, and proposition-level polarity contradiction analysis (`rag/nli_verifier.py`). Complex multi-hop conditional deductions remain an area of ongoing legal NLP research.
+
+### 8.2 Planned Future Improvements
+- **Domain-Adapted Cross-Encoder Fine-Tuning**: Fine-tune cross-encoder rerankers directly on Indian Supreme Court legal judgment pairs and statute-query relevance pairs.
+- **Multilingual Legal Generation (IndicBART / Llama-3-Indic)**: Extend grounded answer synthesis from English to native Hindi and regional Indian languages using specialized Indic LLMs.
+- **Temporal Statutory Knowledge Graph**: Construct a temporal graph tracking amendment lineages, judicial stays, and statutory repeal trees over time.
+- **Full India Code Scalability**: Scale the distributed vector index to ingest and index all 800+ Central Acts and state statutory amendments.
 
 ---
 
-## 9. Project Defense & Citation
+## 9. Academic Viva & Citation
 
-For complete viva defense preparation, refer to [`DEMONSTRATION_GUIDE.md`](DEMONSTRATION_GUIDE.md), [`docs/viva_defense_guide.md`](docs/viva_defense_guide.md), and [`docs/PROJECT_GUIDE.md`](docs/PROJECT_GUIDE.md).
+For complete viva defense preparation, refer to [`docs/DEMONSTRATION_GUIDE.md`](docs/DEMONSTRATION_GUIDE.md), [`docs/viva_defense_guide.md`](docs/viva_defense_guide.md), and [`docs/PROJECT_GUIDE.md`](docs/PROJECT_GUIDE.md).
 
 ```bibtex
 @misc{indian_constitution_legal_ai_2026,
@@ -356,3 +374,19 @@ For complete viva defense preparation, refer to [`DEMONSTRATION_GUIDE.md`](DEMON
   howpublished={B.Tech Capstone Project, Department of Computer Science \& Engineering}
 }
 ```
+
+---
+
+## 10. License, Attribution & Legal Disclaimer
+
+### 10.1 License & Source Attribution
+- **Codebase License**: MIT License — open for academic research and educational evaluation.
+- **Constitutional & Statutory Data**: Sourced from the Legislative Department, Ministry of Law and Justice, Government of India (licensed under Government Open Data License - India (GODL)).
+- **Supreme Court Judgment Data**: Sourced from official Supreme Court of India SCR records and the AWS Open Data Registry for Supreme Court Decisions (ODbL / Public Legal Records).
+
+### 10.2 Mandatory Legal Research Disclaimer
+> [!CAUTION]
+> **LEGAL RESEARCH AID ONLY — NOT LEGAL ADVICE**:
+> This software is an academic research prototype developed as an NLP capstone project for computer science and legal informatics research. It is provided strictly for educational and informational evaluation. 
+> 
+> The synthesized answers, citations, and summaries generated by this system do **NOT** constitute formal legal advice, legal counsel, or an authoritative interpretation of statutory or constitutional law. Neither the author nor any affiliated institution assumes liability for actions taken based on this software. For formal legal matters, users must consult official government gazettes, authoritative court registries, and certified legal practitioners.

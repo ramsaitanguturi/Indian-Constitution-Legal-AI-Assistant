@@ -53,7 +53,7 @@ Fortunately, the repository's secondary defense—the multi-signal **Confidence 
 
 ## 3. Empirical Grounding & Abstention Audit Matrix
 
-Evaluated across a documented sample of 6 adversarial test cases (stored in [`evaluation/results/rag_grounding_adversarial_audit.json`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/evaluation/results/rag_grounding_adversarial_audit.json)):
+Evaluated across a documented sample of 6 adversarial test cases (stored in [`evaluation/results/rag_grounding_adversarial_audit.json`](../evaluation/results/rag_grounding_adversarial_audit.json)):
 
 | Case ID | Category | Query Text | Retrieved Evidence | Structural Score | Abstained? | Correct Behavior? |
 |:---:|:---:|---|---|:---:|:---:|:---:|

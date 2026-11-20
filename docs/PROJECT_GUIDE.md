@@ -208,23 +208,23 @@ Indian Constitution Legal AI Assistant/
 
 | Module File | Inputs | Outputs | Primary Classes / Functions | Called By | What Breaks If Removed |
 |---|---|---|---|---|---|
-| [`app.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/app.py) | User web clicks, text input, parameters | Streamlit interactive UI | `load_rag_pipeline()`, main render blocks | End-user / Browser | Web interface disappears; system becomes CLI-only. |
-| [`config.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/config.py) | Environment variables, `.env` file | Centralized constants, paths, models | Paths (`DATA_DIR`, `CHROMA_PERSIST_DIR`), Hyperparameters (`BM25_K1`, `RRF_K`, `FINAL_TOP_K`) | All modules | Entire repository fails with missing configuration imports. |
-| [`nlp/preprocessing.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/preprocessing.py) | Raw user string | Normalized clean string | `normalize_legal_text()`, `clean_whitespace()` | `rag/pipeline.py`, `nlp/legal_ner.py` | Statutory abbreviations (`Art. 21`) fail regex extraction. |
-| [`nlp/legal_ner.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/legal_ner.py) | Normalized text | Entity dictionary (10 classes) | `LegalNER`, `get_legal_ner()`, `extract_entities()` | `rag/pipeline.py`, `retrieval/entity_boost.py` | Entity boosting and metadata routing fail completely. |
-| [`nlp/entity_linking.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/entity_linking.py) | Entity dict | List of canonical link dicts | `CanonicalEntityLinker`, `link_all()` | `rag/pipeline.py` | Surface variants (`Puttaswamy case`) cannot map to corpus records. |
-| [`nlp/intent_classifier.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/nlp/intent_classifier.py) | Normalized text | Predicted intent & confidence | `IntentClassifier`, `predict()` | `rag/pipeline.py`, `routing/query_router.py` | Query router defaults to generic fallback on every query. |
-| [`routing/query_router.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/routing/query_router.py) | Intent, entities, query | `RoutingDecision` dataclass | `NLPQueryRouter`, `route()` | `rag/pipeline.py` | System loses strategy customization (e.g. `CASE_SEARCH`). |
-| [`retrieval/bm25_retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/bm25_retriever.py) | Query string, top-$K$ | Ranked passage dictionaries | `BM25Retriever`, `retrieve()` | `retrieval/hybrid_retriever.py` | Lexical search fails; queries with exact section numbers fail. |
-| [`retrieval/dense_retriever.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/dense_retriever.py) | Query string, top-$K$ | Ranked passage dictionaries | `DenseRetriever`, `retrieve()` | `retrieval/hybrid_retriever.py` | Semantic vector search fails; colloquial citizen queries fail. |
-| [`retrieval/rrf.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/rrf.py) | Multiple candidate lists | Merged RRF candidate list | `fuse()`, `reciprocal_rank_fusion()` | `retrieval/hybrid_retriever.py` | System cannot combine BM25 and Dense search outputs safely. |
-| [`retrieval/entity_boost.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/entity_boost.py) | Candidates, linked entities | Boosted candidate list | `apply_entity_boost()` | `retrieval/hybrid_retriever.py` | Statutory matches lose rank priority over generic semantic passages. |
-| [`retrieval/reranker.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/retrieval/reranker.py) | Query, top-30 candidates | Top-5 reranked candidates | `CrossEncoderReranker`, `rerank()` | `retrieval/hybrid_retriever.py` | Fine-grained cross-attention reordering is lost (NDCG@10 drops 5.9%). |
-| [`rag/parent_child.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/parent_child.py) | Top-5 child passages | Hydrated parent records | `ParentChildRecovery`, `recover_context()` | `rag/pipeline.py` | Generator receives truncated 300-char fragments without clauses. |
-| [`rag/generator.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/generator.py) | Query, parent context | Markdown response string | `GroundedGenerator`, `HeuristicLegalSynthesizer` | `rag/pipeline.py` | System cannot produce human-readable answers. |
-| [`rag/citation_validator.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/citation_validator.py) | Answer string, context | Citation validation dict | `CitationValidator`, `validate_citations()` | `rag/pipeline.py` | Hallucinated or out-of-context citations go undetected. |
-| [`rag/confidence.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/confidence.py) | Retrieval, citation signals | Confidence score & level | `ConfidenceEstimator`, `estimate()` | `rag/pipeline.py` | System cannot detect low-evidence queries. |
-| [`rag/abstention.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/rag/abstention.py) | Confidence, router decisions | Boolean abstention flag & refusal | `AbstentionManager`, `evaluate_abstention()` | `rag/pipeline.py` | System hallucinates answers to out-of-scope commercial law queries. |
+| [`app.py`](../app.py) | User web clicks, text input, parameters | Streamlit interactive UI | `load_rag_pipeline()`, main render blocks | End-user / Browser | Web interface disappears; system becomes CLI-only. |
+| [`config.py`](../config.py) | Environment variables, `.env` file | Centralized constants, paths, models | Paths (`DATA_DIR`, `CHROMA_PERSIST_DIR`), Hyperparameters (`BM25_K1`, `RRF_K`, `FINAL_TOP_K`) | All modules | Entire repository fails with missing configuration imports. |
+| [`nlp/preprocessing.py`](../nlp/preprocessing.py) | Raw user string | Normalized clean string | `normalize_legal_text()`, `clean_whitespace()` | `rag/pipeline.py`, `nlp/legal_ner.py` | Statutory abbreviations (`Art. 21`) fail regex extraction. |
+| [`nlp/legal_ner.py`](../nlp/legal_ner.py) | Normalized text | Entity dictionary (10 classes) | `LegalNER`, `get_legal_ner()`, `extract_entities()` | `rag/pipeline.py`, `retrieval/entity_boost.py` | Entity boosting and metadata routing fail completely. |
+| [`nlp/entity_linking.py`](../nlp/entity_linking.py) | Entity dict | List of canonical link dicts | `CanonicalEntityLinker`, `link_all()` | `rag/pipeline.py` | Surface variants (`Puttaswamy case`) cannot map to corpus records. |
+| [`nlp/intent_classifier.py`](../nlp/intent_classifier.py) | Normalized text | Predicted intent & confidence | `IntentClassifier`, `predict()` | `rag/pipeline.py`, `routing/query_router.py` | Query router defaults to generic fallback on every query. |
+| [`routing/query_router.py`](../routing/query_router.py) | Intent, entities, query | `RoutingDecision` dataclass | `NLPQueryRouter`, `route()` | `rag/pipeline.py` | System loses strategy customization (e.g. `CASE_SEARCH`). |
+| [`retrieval/bm25_retriever.py`](../retrieval/bm25_retriever.py) | Query string, top-$K$ | Ranked passage dictionaries | `BM25Retriever`, `retrieve()` | `retrieval/hybrid_retriever.py` | Lexical search fails; queries with exact section numbers fail. |
+| [`retrieval/dense_retriever.py`](../retrieval/dense_retriever.py) | Query string, top-$K$ | Ranked passage dictionaries | `DenseRetriever`, `retrieve()` | `retrieval/hybrid_retriever.py` | Semantic vector search fails; colloquial citizen queries fail. |
+| [`retrieval/rrf.py`](../retrieval/rrf.py) | Multiple candidate lists | Merged RRF candidate list | `fuse()`, `reciprocal_rank_fusion()` | `retrieval/hybrid_retriever.py` | System cannot combine BM25 and Dense search outputs safely. |
+| [`retrieval/entity_boost.py`](../retrieval/entity_boost.py) | Candidates, linked entities | Boosted candidate list | `apply_entity_boost()` | `retrieval/hybrid_retriever.py` | Statutory matches lose rank priority over generic semantic passages. |
+| [`retrieval/reranker.py`](../retrieval/reranker.py) | Query, top-30 candidates | Top-5 reranked candidates | `CrossEncoderReranker`, `rerank()` | `retrieval/hybrid_retriever.py` | Fine-grained cross-attention reordering is lost (NDCG@10 drops 5.9%). |
+| [`rag/parent_child.py`](../rag/parent_child.py) | Top-5 child passages | Hydrated parent records | `ParentChildRecovery`, `recover_context()` | `rag/pipeline.py` | Generator receives truncated 300-char fragments without clauses. |
+| [`rag/generator.py`](../rag/generator.py) | Query, parent context | Markdown response string | `GroundedGenerator`, `HeuristicLegalSynthesizer` | `rag/pipeline.py` | System cannot produce human-readable answers. |
+| [`rag/citation_validator.py`](../rag/citation_validator.py) | Answer string, context | Citation validation dict | `CitationValidator`, `validate_citations()` | `rag/pipeline.py` | Hallucinated or out-of-context citations go undetected. |
+| [`rag/confidence.py`](../rag/confidence.py) | Retrieval, citation signals | Confidence score & level | `ConfidenceEstimator`, `estimate()` | `rag/pipeline.py` | System cannot detect low-evidence queries. |
+| [`rag/abstention.py`](../rag/abstention.py) | Confidence, router decisions | Boolean abstention flag & refusal | `AbstentionManager`, `evaluate_abstention()` | `rag/pipeline.py` | System hallucinates answers to out-of-scope commercial law queries. |
 
 ---
 
@@ -636,7 +636,7 @@ Below are genuine screenshots freshly captured directly from the live running ap
 ### 12.1 Streamlit Community Cloud Compatibility
 When deploying to Streamlit Community Cloud (Debian Linux), standard system SQLite is version 3.31, which causes ChromaDB to crash (`Chroma requires sqlite3 >= 3.35.0`).
 
-We solve this using a dynamic runtime patch at lines 11–17 of [`app.py`](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/app.py#L11-L17):
+We solve this using a dynamic runtime patch at lines 11–17 of [`app.py`](../app.py#L11-L17):
 ```python
 try:
   import sys
@@ -690,7 +690,7 @@ To uphold scientific honesty during academic defense, the following known limita
 
 For the complete 40-question defense guide with short spoken answers, deeper technical proofs, and anticipated examiner follow-up questions, refer to the dedicated guide:
 
-👉 [**Complete Viva Defense & Examination Guide (`docs/viva_defense_guide.md`)**](file:///c:/Users/ramsa/Desktop/Indian%20Constitution%20Legal%20AI%20Assistant/docs/viva_defense_guide.md)
+👉 [**Complete Viva Defense & Examination Guide (`docs/viva_defense_guide.md`)**](viva_defense_guide.md)
 
 ### Top 5 Viva Defense Questions Summary:
 1. **Why BM25 and Dense Search together?** BM25 matches exact statutory anchors (Article 21 vs 21A); Dense captures conceptual citizen paraphrasing (phone tapping $\to$ privacy).
